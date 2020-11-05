@@ -31,6 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb46a106-1270-4fd0-a42e-8d11022d3d4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.idea/codeStyles/Project.xml" afterDir="false" />
@@ -259,6 +261,14 @@
       <workItem from="1604519306849" duration="9039000" />
       <workItem from="1604606352870" duration="1892000" />
     </task>
+    <task id="LOCAL-00001" summary="[#mt-2]">
+      <created>1604611588213</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604611588214</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +285,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[#mt-2]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[#mt-2]" />
   </component>
   <component name="WindowStateProjectService">
     <state x="260" y="-895" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604607965770">
@@ -317,10 +331,17 @@
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1659" height="259" key="GridCell.Tab.1.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221953" />
+    <state x="445" y="-849" key="Vcs.Push.Dialog.v2" timestamp="1604611592809">
+      <screen x="-116" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="445" y="-849" key="Vcs.Push.Dialog.v2/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604611592809" />
     <state x="538" y="259" width="604" height="490" key="find.popup" timestamp="1604566808108">
       <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="538" y="259" width="604" height="490" key="find.popup/0.23.1680.962@0.23.1680.962" timestamp="1604566808108" />
+    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup" timestamp="1604521187462">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
     <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup" timestamp="1604611991515">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
