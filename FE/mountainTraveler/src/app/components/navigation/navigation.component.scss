@@ -1,1 +1,11 @@
+.navigation__tabs {
+  &__button {
+    --color-focused: var(--ion-color-success);
+    --color-selected: var(--ion-color-success);
+  }
+}
 
+.navigation__tabs__bar {
+  --border: none;
+  box-shadow: -15px 10px 20px 0 var(--ion-color-medium-tint);
+}

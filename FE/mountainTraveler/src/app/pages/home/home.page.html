@@ -1,17 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [headerTitle]="routeSegments.home"></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home Sweet Home mt-3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
 
   <app-explore-container name="dummy home"></app-explore-container>
 </ion-content>

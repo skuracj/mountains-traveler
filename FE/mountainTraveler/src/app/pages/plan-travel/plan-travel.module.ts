@@ -7,6 +7,7 @@ import { PlanTravelPage } from './plan-travel.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
 
 import { PlanTravelPageRoutingModule } from './plan-travel-routing.module';
+import {HeaderComponentModule} from "../../components/header/header.module";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { PlanTravelPageRoutingModule } from './plan-travel-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    PlanTravelPageRoutingModule
+    PlanTravelPageRoutingModule,
+    HeaderComponentModule
   ],
   declarations: [PlanTravelPage]
 })

@@ -27,11 +27,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    redirectTo: '/' + RouteSegments.home,
-    pathMatch: 'full'
-  }
+
 ];
 
 @NgModule({

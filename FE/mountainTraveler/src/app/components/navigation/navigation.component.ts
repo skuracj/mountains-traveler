@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouteSegments} from "../../common/constants/RouteSegments.enum";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tabs',
@@ -9,6 +10,8 @@ import {RouteSegments} from "../../common/constants/RouteSegments.enum";
 export class Navigation {
   public routeSegments =  RouteSegments;
 
-  constructor() {}
+  constructor(public router: Router) {
+    console.log(this.router.url)
+  }
 
 }
