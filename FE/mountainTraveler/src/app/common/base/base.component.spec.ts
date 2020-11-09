@@ -4,8 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { BaseComponent } from './base.component';
 
 describe('BaseComponent', () => {
-  let component: BaseComponent;
-  let fixture: ComponentFixture<BaseComponent>;
+  let sut: BaseComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -13,12 +12,10 @@ describe('BaseComponent', () => {
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BaseComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    sut = new BaseComponent();
   }));
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(sut).toBeTruthy();
   });
 });

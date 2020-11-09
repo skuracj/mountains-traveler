@@ -19,11 +19,10 @@ const routes: Routes = [
       {
         path: RouteSegments.profile,
         loadChildren: () => import('../../pages/profile/profile.module').then(m => m.ProfilePageModule)
-      },
-      {
+      },{
         path: '',
-        redirectTo: '/' + RouteSegments.home,
-        pathMatch: 'full'
+        redirectTo: `/${RouteSegments.app}/${RouteSegments.home}`
+
       }
     ]
   },

@@ -1,0 +1,11 @@
+<ion-content fullscreen="true" class="initial-screen__content">
+    <ion-header class="ion-text-center initial-screen__content__header">
+        <ion-icon name="image"  color="success" class="initial-screen__content__icon"></ion-icon>
+        <ion-text color="success" class="initial-screen__content__h2"><h2>mountainTraveler</h2></ion-text>
+    </ion-header>
+    <section class="initial-screen__content__section ">
+        <ion-button expand="block" color="success" [routerLink]="'/' + routeSegments.onboarding"> Tell me more</ion-button>
+        <ion-text color="light"><p class=" ion-text-center">Do You have account ? <a [href]='routeSegments.authentication'>Log in</a></p>
+        </ion-text>
+    </section>
+</ion-content>

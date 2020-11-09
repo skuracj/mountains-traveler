@@ -1,0 +1,29 @@
+ion-slides {
+  height: 100%;
+
+}
+
+.swiper-slide {
+  display: block;
+}
+
+.onboarding {
+  ion-text {
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  }
+  &__slides {
+    background: url('../../../assets/mountain.jpg') no-repeat center center/cover fixed;
+    --bullet-background: var(--ion-color-light);
+    --bullet-background-active: var(--ion-color-light);
+  }
+
+  &__ion-slide-item {
+    position: absolute;
+    top: 30%;
+    h2 {
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+

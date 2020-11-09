@@ -1,0 +1,30 @@
+<ion-content fullscreen="true" class="ion-no-padding" scroll-y="false">
+    <ion-slides pager="true" [options]="slideOpts" class="onboarding__slides">
+
+        <ion-slide>
+            <div class="onboarding__ion-slide-item">
+                <ion-text color="light">
+                    <h2>Welcome</h2>
+                    <p>The <b>mountainTravel app</b> is a platform to planner, record and share Your journeys.</p>
+                </ion-text>
+            </div>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="onboarding__ion-slide-item">
+                <ion-text color="light">
+                    <h2>How it works?</h2>
+                    <ul class="ion-text-left">
+                        <li><p>Sign up with Your email or sign in with Google / Facebook</p></li>
+                        <li><p>Choose Your area</p></li>
+                        <li><p>Start planing and sharing trips</p></li>
+                    </ul>
+                </ion-text>
+                <ion-button fill="success" class="ion-margin-top"
+                            (click)="this.navController.navigateRoot('/' + routeSegments.authentication)">Continue
+                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
