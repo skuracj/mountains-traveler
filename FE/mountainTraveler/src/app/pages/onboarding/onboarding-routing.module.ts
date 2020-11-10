@@ -7,10 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: OnboardingPage
-  },
-  {
-    path: 'onboarding-slide-item',
-    loadChildren: () => import('./onboarding-slide-item/onboarding-slide-item.module').then( m => m.OnboardingSlideItemPageModule)
   }
 ];
 

@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../../explore-container/explore
 
 import {HomePageRoutingModule} from './home-routing.module';
 import {HeaderComponentModule} from "../../components/header/header.module";
+import {AuthenticationPageModule} from "../authentication/authentication.module";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {HeaderComponentModule} from "../../components/header/header.module";
         FormsModule,
         ExploreContainerComponentModule,
         HomePageRoutingModule,
-        HeaderComponentModule
+        HeaderComponentModule,
+        AuthenticationPageModule
     ],
   declarations: [HomePage]
 })

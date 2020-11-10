@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { OnboardingPageRoutingModule } from './onboarding-routing.module';
 
 import { OnboardingPage } from './onboarding.page';
+import {AuthenticationPageModule} from "../authentication/authentication.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    OnboardingPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        OnboardingPageRoutingModule,
+        AuthenticationPageModule
+    ],
   declarations: [OnboardingPage]
 })
 export class OnboardingPageModule {}

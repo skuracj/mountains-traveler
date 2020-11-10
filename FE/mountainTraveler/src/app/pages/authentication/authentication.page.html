@@ -1,18 +1,13 @@
-<ion-header>
-  <ion-toolbar class="ion-no-padding authentication__toolbar">
-    <img src="../../../assets/soldier.jpeg">
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-segment [value]="selectedAuthenticationAction" mode="md" color="success"  (ionChange)="onSegmentClicked($event)" >
-    <ion-segment-button [value]="authenticationActions.signIn" [id]="authenticationActions.signIn">
-      <ion-label>SIGN IN</ion-label>
-    </ion-segment-button>
-    <ion-segment-button [value]="authenticationActions.signUp" [id]="authenticationActions.signUp">
-      <ion-label>SIGN UP</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-
+<ion-content fullscreen="true" class="authentication__content">
+    <amplify-authenticator usernameAlias="email">
+        <amplify-sign-up
+                slot="sign-up"
+                usernameAlias="email"
+                [formFields]="signUpFormFields"></amplify-sign-up>
+        <amplify-sign-in
+                slot="sign-in"
+                usernameAlias="email"
+                [formFields]="signInFormFields"></amplify-sign-in>
+    </amplify-authenticator>
+    <app-navigation-button (click)="this.navController.navigateRoot('/app/home')"></app-navigation-button>
 </ion-content>

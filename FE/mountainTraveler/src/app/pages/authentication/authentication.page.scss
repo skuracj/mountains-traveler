@@ -2,4 +2,8 @@
   &__toolbar {
     padding-top: 0;
   }
+
+  &__content {
+    --background: var(--mt-background-url);
+  }
 }

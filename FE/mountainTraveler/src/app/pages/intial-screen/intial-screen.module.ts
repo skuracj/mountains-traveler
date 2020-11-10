@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { IntialScreenPageRoutingModule } from './intial-screen-routing.module';
 
 import { IntialScreenPage } from './intial-screen.page';
+import {AuthenticationPageModule} from "../authentication/authentication.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    IntialScreenPageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        IntialScreenPageRoutingModule,
+        AuthenticationPageModule
+    ],
   declarations: [IntialScreenPage]
 })
 export class IntialScreenPageModule {}

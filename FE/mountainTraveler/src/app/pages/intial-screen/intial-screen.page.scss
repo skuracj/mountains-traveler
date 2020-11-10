@@ -1,6 +1,6 @@
 .initial-screen {
   &__content {
-    --background: url('../../../assets/mountain.jpg') no-repeat center center/cover fixed;
+    --background: var(--mt-background-url);
 
     &__icon {
       font-size: 4rem;

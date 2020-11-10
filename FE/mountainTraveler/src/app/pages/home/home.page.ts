@@ -1,5 +1,6 @@
-import {Component, Injector} from '@angular/core';
+import {Component} from '@angular/core';
 import {BaseComponent} from "../../common/base/base.component";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-homepage',
@@ -8,7 +9,7 @@ import {BaseComponent} from "../../common/base/base.component";
 })
 export class HomePage extends BaseComponent{
 
-  constructor() {
+  constructor(public navController: NavController) {
     super()
   }
 

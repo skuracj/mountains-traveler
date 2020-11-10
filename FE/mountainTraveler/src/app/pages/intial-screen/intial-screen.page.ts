@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {BaseComponent} from "../../common/base/base.component";
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-intial-screen',
@@ -8,5 +9,5 @@ import {BaseComponent} from "../../common/base/base.component";
 })
 export class IntialScreenPage extends BaseComponent{
 
-  constructor() {super() }
+  constructor(public navController: NavController) {super() }
 }

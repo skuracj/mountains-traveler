@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AuthenticationPageRoutingModule } from './authentication-routing.module';
 
 import { AuthenticationPage } from './authentication.page';
+import {AmplifyUIAngularModule} from "@aws-amplify/ui-angular";
+import {NavigationButtonComponent} from "../../components/navigation-button/navigation-button.component";
 
 
 @NgModule({
@@ -14,8 +16,12 @@ import { AuthenticationPage } from './authentication.page';
         CommonModule,
         FormsModule,
         IonicModule,
-        AuthenticationPageRoutingModule
+        AuthenticationPageRoutingModule,
+        AmplifyUIAngularModule,
     ],
-  declarations: [AuthenticationPage]
+    exports: [
+        NavigationButtonComponent
+    ],
+    declarations: [AuthenticationPage, NavigationButtonComponent]
 })
 export class AuthenticationPageModule {}
