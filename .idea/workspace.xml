@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -32,166 +35,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cb46a106-1270-4fd0-a42e-8d11022d3d4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/capacitor.build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/assets/capacitor.config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/java/io/ionic/starter/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-land-hdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-land-mdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-land-xhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-land-xxhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-land-xxxhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-port-hdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-port-mdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-port-xhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-port-xxhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-port-xxxhdpi/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/drawable/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/xml/config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/main/res/xml/file_paths.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/capacitor.settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/android/variables.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/capacitor.config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/e2e/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ionic.config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-20x20@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-29x29@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@2x-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-40x40@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-60x60@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-60x60@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-76x76@1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-76x76@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-83.5x83.5@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/Splash.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Assets.xcassets/Splash.imageset/splash-2732x2732.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Base.lproj/Main.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/capacitor.config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/App/config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/ios/App/Podfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/explore-container/explore-container.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/explore-container/explore-container.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/explore-container/explore-container.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/explore-container/explore-container.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/explore-container/explore-container.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1.page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1.page.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab1/tab1.page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2.page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2.page.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab2/tab2.page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3.page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3.page.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tab3/tab3.page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs.page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs.page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs.page.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/tabs/tabs.page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/assets/icon/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/assets/shapes.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/global.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/theme/variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/zone-flags.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/tslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mountains-traveler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mountains-traveler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,10 +58,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.karma.karma_node_package_dir" value="/usr/local/lib/node_modules/@angular/cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FE/mountainTraveler/src/assets" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/FE/mountainTraveler/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FE/mountainTraveler/src/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages" />
+    </key>
   </component>
   <component name="RunManager" selected="Karma.karma.conf.js">
     <configuration name="Tab1Page" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
@@ -260,6 +116,8 @@
       <workItem from="1604502612687" duration="886000" />
       <workItem from="1604519306849" duration="9039000" />
       <workItem from="1604606352870" duration="1892000" />
+      <workItem from="1605033280344" duration="5958000" />
+      <workItem from="1605125482615" duration="1302000" />
     </task>
     <task id="LOCAL-00001" summary="[#mt-2]">
       <created>1604611588213</created>
@@ -299,53 +157,65 @@
       <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="574" y="313" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.962@0.23.1680.962" timestamp="1604435224696" />
-    <state width="1659" height="259" key="GridCell.Tab.0.bottom" timestamp="1604608221952">
+    <state x="366" y="-775" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605037698977">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.0.bottom/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221952" />
-    <state width="1659" height="259" key="GridCell.Tab.0.center" timestamp="1604608221951">
+    <state x="366" y="-775" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605037698977" />
+    <state width="1468" height="290" key="GridCell.Tab.0.bottom" timestamp="1605126300487">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.0.center/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221951" />
-    <state width="1659" height="259" key="GridCell.Tab.0.left" timestamp="1604608221951">
+    <state width="1468" height="290" key="GridCell.Tab.0.bottom/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300487" />
+    <state width="1468" height="290" key="GridCell.Tab.0.center" timestamp="1605126300486">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.0.left/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221951" />
-    <state width="1659" height="259" key="GridCell.Tab.0.right" timestamp="1604608221952">
+    <state width="1468" height="290" key="GridCell.Tab.0.center/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300486" />
+    <state width="1468" height="290" key="GridCell.Tab.0.left" timestamp="1605126300485">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.0.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221952" />
-    <state width="1659" height="259" key="GridCell.Tab.1.bottom" timestamp="1604608221953">
+    <state width="1468" height="290" key="GridCell.Tab.0.left/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300485" />
+    <state width="1468" height="290" key="GridCell.Tab.0.right" timestamp="1605126300486">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.1.bottom/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221953" />
-    <state width="1659" height="259" key="GridCell.Tab.1.center" timestamp="1604608221953">
+    <state width="1468" height="290" key="GridCell.Tab.0.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300486" />
+    <state width="1468" height="290" key="GridCell.Tab.1.bottom" timestamp="1605040110853">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.1.center/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221953" />
-    <state width="1659" height="259" key="GridCell.Tab.1.left" timestamp="1604608221952">
+    <state width="1468" height="290" key="GridCell.Tab.1.bottom/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605040110853" />
+    <state width="1468" height="290" key="GridCell.Tab.1.center" timestamp="1605040110851">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.1.left/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221952" />
-    <state width="1659" height="259" key="GridCell.Tab.1.right" timestamp="1604608221953">
+    <state width="1468" height="290" key="GridCell.Tab.1.center/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605040110851" />
+    <state width="1468" height="290" key="GridCell.Tab.1.left" timestamp="1605040110851">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1659" height="259" key="GridCell.Tab.1.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604608221953" />
+    <state width="1468" height="290" key="GridCell.Tab.1.left/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605040110851" />
+    <state width="1468" height="290" key="GridCell.Tab.1.right" timestamp="1605040110852">
+      <screen x="-116" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1468" height="290" key="GridCell.Tab.1.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605040110852" />
+    <state x="560" y="231" key="RollbackChangesDialog" timestamp="1604950687147">
+      <screen x="0" y="23" width="1680" height="962" />
+    </state>
+    <state x="560" y="231" key="RollbackChangesDialog/0.23.1680.962@0.23.1680.962" timestamp="1604950687147" />
     <state x="445" y="-849" key="Vcs.Push.Dialog.v2" timestamp="1604611592809">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
     <state x="445" y="-849" key="Vcs.Push.Dialog.v2/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604611592809" />
-    <state x="538" y="259" width="604" height="490" key="find.popup" timestamp="1604566808108">
+    <state x="515" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604861246766">
       <screen x="0" y="23" width="1680" height="962" />
     </state>
-    <state x="538" y="259" width="604" height="490" key="find.popup/0.23.1680.962@0.23.1680.962" timestamp="1604566808108" />
-    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup" timestamp="1604521187462">
-      <screen x="0" y="23" width="1680" height="962" />
-    </state>
-    <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup" timestamp="1604611991515">
+    <state x="515" y="125" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1680.962@0.23.1680.962" timestamp="1604861246766" />
+    <state x="499" y="-797" width="816" height="539" key="find.popup" timestamp="1605039103538">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
-    <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1604611991515" />
-    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup/0.23.1680.962@0.23.1680.962" timestamp="1604521187462" />
+    <state x="499" y="-797" width="816" height="539" key="find.popup/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605039103538" />
+    <state x="538" y="258" width="714" height="535" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604952587294" />
+    <state x="538" y="259" width="604" height="490" key="find.popup/0.23.1680.962@0.23.1680.962" timestamp="1604952146762" />
+    <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup" timestamp="1605039129780">
+      <screen x="-116" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605039129780" />
+    <state x="505" y="230" width="670" height="738" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604952583354" />
+    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup/0.23.1680.962@0.23.1680.962" timestamp="1604952218047" />
   </component>
 </project>

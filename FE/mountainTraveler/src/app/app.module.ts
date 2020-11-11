@@ -10,6 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import Amplify from 'aws-amplify';
+import {IonicStorageModule} from "@ionic/storage";
 
 
 /* TODO Configure Amplify resources */
@@ -75,7 +76,12 @@ Amplify.configure({
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        IonicStorageModule.forRoot(),
+        AppRoutingModule
+    ],
     providers: [
         StatusBar,
         SplashScreen,
