@@ -34,12 +34,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb46a106-1270-4fd0-a42e-8d11022d3d4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/common/models/day-weather.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/profile/profile.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/components/weather-widget/weather-widget.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/mountainTraveler/src/app/pages/home/home.page.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +119,9 @@
       <workItem from="1604519306849" duration="9039000" />
       <workItem from="1604606352870" duration="1892000" />
       <workItem from="1605033280344" duration="5958000" />
-      <workItem from="1605125482615" duration="1302000" />
+      <workItem from="1605125482615" duration="1763000" />
+      <workItem from="1605213776046" duration="1304000" />
+      <workItem from="1605297339785" duration="8968000" />
     </task>
     <task id="LOCAL-00001" summary="[#mt-2]">
       <created>1604611588213</created>
@@ -161,22 +165,26 @@
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
     <state x="366" y="-775" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605037698977" />
-    <state width="1468" height="290" key="GridCell.Tab.0.bottom" timestamp="1605126300487">
-      <screen x="-116" y="-1057" width="1920" height="1057" />
+    <state width="1468" height="290" key="GridCell.Tab.0.bottom" timestamp="1605171365785">
+      <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state width="1468" height="290" key="GridCell.Tab.0.bottom/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300487" />
-    <state width="1468" height="290" key="GridCell.Tab.0.center" timestamp="1605126300486">
-      <screen x="-116" y="-1057" width="1920" height="1057" />
+    <state width="1468" height="290" key="GridCell.Tab.0.bottom/0.23.1680.962@0.23.1680.962" timestamp="1605171365784" />
+    <state width="1468" height="290" key="GridCell.Tab.0.center" timestamp="1605171365781">
+      <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state width="1468" height="290" key="GridCell.Tab.0.center/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300486" />
-    <state width="1468" height="290" key="GridCell.Tab.0.left" timestamp="1605126300485">
-      <screen x="-116" y="-1057" width="1920" height="1057" />
+    <state width="1468" height="290" key="GridCell.Tab.0.center/0.23.1680.962@0.23.1680.962" timestamp="1605171365781" />
+    <state width="1468" height="290" key="GridCell.Tab.0.left" timestamp="1605171365780">
+      <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state width="1468" height="290" key="GridCell.Tab.0.left/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300485" />
-    <state width="1468" height="290" key="GridCell.Tab.0.right" timestamp="1605126300486">
-      <screen x="-116" y="-1057" width="1920" height="1057" />
+    <state width="1468" height="290" key="GridCell.Tab.0.left/0.23.1680.962@0.23.1680.962" timestamp="1605171365779" />
+    <state width="1468" height="290" key="GridCell.Tab.0.right" timestamp="1605171365781">
+      <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state width="1468" height="290" key="GridCell.Tab.0.right/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605126300486" />
+    <state width="1468" height="290" key="GridCell.Tab.0.right/0.23.1680.962@0.23.1680.962" timestamp="1605171365781" />
     <state width="1468" height="290" key="GridCell.Tab.1.bottom" timestamp="1605040110853">
       <screen x="-116" y="-1057" width="1920" height="1057" />
     </state>
@@ -211,11 +219,11 @@
     <state x="499" y="-797" width="816" height="539" key="find.popup/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605039103538" />
     <state x="538" y="258" width="714" height="535" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604952587294" />
     <state x="538" y="259" width="604" height="490" key="find.popup/0.23.1680.962@0.23.1680.962" timestamp="1604952146762" />
-    <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup" timestamp="1605039129780">
-      <screen x="-116" y="-1057" width="1920" height="1057" />
+    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup" timestamp="1605367796096">
+      <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="461" y="-825" width="766" height="743" key="search.everywhere.popup/-116.-1057.1920.1057/0.23.1680.962@-116.-1057.1920.1057" timestamp="1605039129780" />
     <state x="505" y="230" width="670" height="738" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604952583354" />
-    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup/0.23.1680.962@0.23.1680.962" timestamp="1604952218047" />
+    <state x="505" y="234" width="670" height="676" key="search.everywhere.popup/0.23.1680.962@0.23.1680.962" timestamp="1605367796096" />
   </component>
 </project>

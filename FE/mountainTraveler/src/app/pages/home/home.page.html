@@ -1,7 +1,9 @@
-<app-header [headerTitle]="routeSegments.home"></app-header>
+<app-header [headerTitle]="this.region"></app-header>
 <ion-content [fullscreen]="true">
     <app-weather-widget></app-weather-widget>
     <app-navigation-button
             (click)="this.navController.navigateRoot(routeSegments.initialScreen)"></app-navigation-button>
 
+<app-navigation-button (click)="this.navController.navigateRoot(routeSegments.initialScreen)"></app-navigation-button>
+  <app-explore-container name="dummy home"></app-explore-container>
 </ion-content>
