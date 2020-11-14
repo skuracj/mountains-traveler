@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from "@ionic/storage";
+import {HttpClientModule} from "@angular/common/http";
 
 
 /* TODO Configure Amplify resources */

@@ -1,0 +1,5 @@
+<ion-list class="weather-widget__list">
+    <div *ngFor="let day of fiveDaysWeather;index as i;" class="weather-widget__item">
+        <p class="weather-widget__label" [class.item-active]="i == 0">{{day.date}}</p>
+    </div>
+</ion-list>

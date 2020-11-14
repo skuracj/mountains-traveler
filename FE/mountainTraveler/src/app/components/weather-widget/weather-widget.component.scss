@@ -1,0 +1,19 @@
+.weather-widget {
+  &__list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__item {
+    width: 20%;
+  }
+  &__label {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+  }
+}
+
+.item-active {
+  background-color: var(--ion-color-success);
+}

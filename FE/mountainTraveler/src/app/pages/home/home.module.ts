@@ -8,6 +8,8 @@ import { ExploreContainerComponentModule } from '../../explore-container/explore
 import {HomePageRoutingModule} from './home-routing.module';
 import {HeaderComponentModule} from "../../components/header/header.module";
 import {AuthenticationPageModule} from "../authentication/authentication.module";
+import {WeatherWidgetComponent} from "../../components/weather-widget/weather-widget.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
@@ -17,8 +19,9 @@ import {AuthenticationPageModule} from "../authentication/authentication.module"
         ExploreContainerComponentModule,
         HomePageRoutingModule,
         HeaderComponentModule,
-        AuthenticationPageModule
+        AuthenticationPageModule,
+        HttpClientModule
     ],
-  declarations: [HomePage]
+    declarations: [HomePage, WeatherWidgetComponent]
 })
 export class HomePageModule {}
