@@ -3,8 +3,8 @@
          [class.item-active]="i === 0">
         <p class="weather-widget__item__date ion-no-margin">{{i == 0 ? 'Today' : day.date}}</p>
         <ion-img src="assets/weather-icons/{{day.icon}}.svg" class="weather-widget__item__img"></ion-img>
-        <p class="ion-no-margin">{{day.temp.min| number:'1.0-0'}} / {{ day.temp.max | number:'1.0-0'}}&deg;C</p>
-        <p>{{day.rain}} mm</p>
+        <p class="ion-no-margin"><ion-icon name="thermometer-outline"></ion-icon> {{day.temp.min| number:'1.0-0'}} / {{ day.temp.max | number:'1.0-0'}}&deg;C</p>
+        <p><ion-icon name="rainy-outline"></ion-icon>   {{day.rain}} mm</p>
     </div>
 </ion-list>
 

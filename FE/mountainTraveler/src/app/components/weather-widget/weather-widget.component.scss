@@ -6,17 +6,14 @@
     font-size: 12px;
     font-weight: 500;
   }
+
   &__item {
     width: 20%;
     border-radius: 0 0 5px;
+
     &__img {
       height: 48px;
     }
-  }
-  &__label {
-    padding: 0;
-    margin: 0;
-    height: 100px;
   }
 }
 
