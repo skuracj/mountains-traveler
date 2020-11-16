@@ -3,7 +3,10 @@ export enum RouteSegments {
     app = 'app',
     home = 'home',
     planTravel = 'plan-travel',
-    profile = 'profile',
+    people = 'people',
     initialScreen = 'initialScreen',
-    authentication = 'authentication'
+    authentication = 'authentication',
+    me = 'me',
+    friends = 'friends',
+    others = 'others'
 }

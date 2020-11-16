@@ -17,8 +17,8 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/plan-travel/plan-travel.module').then(m => m.PlanTravelPageModule)
       },
       {
-        path: RouteSegments.profile,
-        loadChildren: () => import('../../pages/profile/profile.module').then(m => m.ProfilePageModule)
+        path: RouteSegments.people,
+        loadChildren: () => import('../../pages/people/people.module').then(m => m.PeoplePageModule)
       },{
         path: '',
         redirectTo: `/${RouteSegments.app}/${RouteSegments.home}`

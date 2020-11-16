@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProfilePage } from './profile.page';
+import { PeoplePage } from './people.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
 
-import { ProfilePageRoutingModule } from './profile-routing.module'
+import { PeoplePageRoutingModule } from './people-routing.module'
 import {HeaderComponentModule} from "../../components/header/header.module";
 
 @NgModule({
@@ -15,10 +15,10 @@ import {HeaderComponentModule} from "../../components/header/header.module";
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: ProfilePage }]),
-    ProfilePageRoutingModule,
+    RouterModule.forChild([{ path: '', component: PeoplePage }]),
+    PeoplePageRoutingModule,
     HeaderComponentModule
   ],
-  declarations: [ProfilePage]
+  declarations: [PeoplePage]
 })
-export class ProfilePageModule {}
+export class PeoplePageModule {}

@@ -1,51 +1,49 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {map, tap} from "rxjs/operators";
+import {map, take, tap} from "rxjs/operators";
 import {DayWeather} from "../../common/models/day-weather";
+import {ExternalUrls} from "../../common/constants/ExternalUrls.enum";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-weather-widget',
     templateUrl: './weather-widget.component.html',
     styleUrls: ['./weather-widget.component.scss'],
 })
-export class WeatherWidgetComponent implements OnInit {
+export class WeatherWidgetComponent implements OnChanges {
+    @Input() region;
+
     fiveDaysWeather: DayWeather[] = [];
+    isWeatherDataLoaded = false;
 
     constructor(private httpClient: HttpClient) {
     }
 
-    ngOnInit() {
+    ngOnChanges(changes:SimpleChanges) {
+        if(changes.region.previousValue !== changes.region.currentValue) {
+            this.getWeatherForFiveDays();
+        }
+    }
+
+    getWeatherForFiveDays() {
         const headers = {
-            "x-rapidapi-key": "492f94eddfmsh6955462488b3de2p184695jsn958a672c4d5f",
-            "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+            "x-rapidapi-key": environment.xRapidapiKey,
+            "x-rapidapi-host": ExternalUrls.xRapidapiHost
         };
         const params = {
-            "q": "warsaw,Poland",
+            "q": `${this.region},Poland`,
             "cnt": "5",
             "units": "metric",
-            "lang": "pl"
         };
 
-        // this.httpClient.get('https://community-open-weather-map.p.rapidapi.com/forecast/daily', {
-        //     headers,
-        //     params
-        // }).pipe(tap(weather => {
-        //     weather['list'].forEach(day => {
-        //         this.fiveDaysWeather.push({
-        //             date: new Date(day['dt'] * 1000).getDay(),
-        //             temp: day['temp'],
-        //             rain: day['rain'],
-        //             sunrise: day['sunrise'],
-        //             sunset: day['sunset']
-        //         });
-        //     });
-        // })).subscribe();
-        this.httpClient.get('https://community-open-weather-map.p.rapidapi.com/forecast/daily', {
+        this.httpClient.get(`${ExternalUrls.openWeatherApi}/forecast/daily`, {
             headers,
             params
         }).pipe(
+            take(1),
             map(weather => weather['list']),
             tap(days => {
+                this.fiveDaysWeather = [];
                 days.map(day => {
                     console.log(day);
                     this.fiveDaysWeather.push({
@@ -53,14 +51,14 @@ export class WeatherWidgetComponent implements OnInit {
                         temp: day['temp'],
                         rain: day['rain'] ? day['rain'] : 0,
                         icon: day['weather'][0]['icon']
-                    })
-
-
-                })
-
+                    });
+                });
             }),
-            tap( _ => console.log(this.fiveDaysWeather))
+            tap(
+                _ => {
+                    console.log(this.fiveDaysWeather);
+                    this.isWeatherDataLoaded = true;
+            })
         ).subscribe();
     }
-
 }

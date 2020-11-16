@@ -3,6 +3,7 @@ import {BaseComponent} from "../../common/base/base.component";
 import {NavController} from "@ionic/angular";
 import {Storage} from "@ionic/storage";
 
+
 @Component({
     selector: 'app-homepage',
     templateUrl: 'home.page.html',
@@ -14,10 +15,10 @@ export class HomePage extends BaseComponent {
     constructor(public navController: NavController,
                 private storage: Storage) {
         super()
-
     }
 
     async ionViewWillEnter() {
+        await this.storage.set('region', 'zakopane');
         this.region = await this.storage.get('region');
     }
 }
