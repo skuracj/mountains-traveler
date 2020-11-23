@@ -10,6 +10,7 @@ import {HeaderComponentModule} from "../../components/header/header.module";
 import {AuthenticationPageModule} from "../authentication/authentication.module";
 import {WeatherWidgetComponent} from "../../components/weather-widget/weather-widget.component";
 import {HttpClientModule} from "@angular/common/http";
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
         AuthenticationPageModule,
         HttpClientModule
     ],
-    declarations: [HomePage, WeatherWidgetComponent]
+    declarations: [HomePage, WeatherWidgetComponent],
+    providers: [InAppBrowser]
 })
 export class HomePageModule {}

@@ -1,3 +1,51 @@
 .toolbar-background {
   border: none !important;
 }
+
+.home {
+  &__content {
+    //--background: var(--ion-color-light-shade);
+  }
+  &__location {
+    --background: rgba(255,255,255, 0.7);
+    --border-radius: 30px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    &-select-label {
+      color: grey;
+      font-size: 12px ;
+    }
+  }
+
+  &__top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    box-shadow: -15px 0px 20px 0 var(--ion-color-medium-shade);
+  }
+}
+
+.top-nav {
+  &__button {
+    width: 25%;
+    border-left: 1px solid lightgray;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    color: var(--ion-color-success);
+
+    &-label {
+      color: black;
+      margin: 8px;
+    }
+
+    &-icon {
+      margin: 8px;
+      font-size: 24px;
+    }
+  }
+}

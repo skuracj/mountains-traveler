@@ -1,7 +1,9 @@
 import {Component} from '@angular/core';
-import {BaseComponent} from "../../common/base/base.component";
-import {NavController} from "@ionic/angular";
-import {Storage} from "@ionic/storage";
+import {BaseComponent} from '../../common/base/base.component';
+import {NavController, Platform} from '@ionic/angular';
+import {Storage} from '@ionic/storage';
+import {UserLocation} from '../../common/models/user-location';
+import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 
 @Component({
@@ -10,15 +12,31 @@ import {Storage} from "@ionic/storage";
     styleUrls: ['home.page.scss']
 })
 export class HomePage extends BaseComponent {
-    region: string;
+    city;
 
     constructor(public navController: NavController,
-                private storage: Storage) {
-        super()
+                private storage: Storage,
+                private platform: Platform,
+                private iab: InAppBrowser) {
+        super();
     }
 
     async ionViewWillEnter() {
-        await this.storage.set('region', 'zakopane');
-        this.region = await this.storage.get('region');
+        this.city = await this.storage.get('city') ? await this.storage.get('city') : 'Zakopane';
+
+    }
+
+    async onSelectChanged(event) {
+        const selection = event.detail.value;
+        this.city = selection;
+
+        await this.storage.set('city', selection);
+    }
+
+    async navigateToExternalUrl() {
+        await this.platform.ready();
+        const browser = this.iab.create('https://ionicframework.com/' ,'_blank');
+        // browser.show();
+
     }
 }

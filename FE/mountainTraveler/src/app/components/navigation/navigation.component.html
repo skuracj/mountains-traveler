@@ -1,4 +1,4 @@
-<ion-tabs class="navigation__tabs">
+  <ion-tabs class="navigation__tabs">
 
   <ion-tab-bar slot="bottom" class="navigation__tabs__bar">
     <ion-tab-button [tab]="routeSegments.home" class="navigation__tabs__button">
@@ -8,7 +8,7 @@
     </ion-tab-button>
 
     <ion-tab-button [tab]="routeSegments.planTravel" class="navigation__tabs__button">
-      <ion-icon [name]="this.router.url === '/' + routeSegments.planTravel ? 'walk' : 'walk-outline'"></ion-icon>
+      <ion-icon [name]="this.router.url === '/' + routeSegments.planTravel ? 'map' : 'map-outline'"></ion-icon>
       <ion-label>Plan travel</ion-label>
     </ion-tab-button>
 

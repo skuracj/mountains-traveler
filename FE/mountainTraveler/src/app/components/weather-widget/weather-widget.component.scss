@@ -1,15 +1,15 @@
 .weather-widget {
   &__list {
     display: flex;
-    width: 100%;
+    overflow-x: scroll;
     justify-content: space-between;
+    background-color: transparent;
     font-size: 12px;
     font-weight: 500;
   }
 
   &__item {
-    width: 20%;
-    border-radius: 0 0 5px;
+    min-width: 80px;
 
     &__img {
       height: 48px;
@@ -18,5 +18,7 @@
 }
 
 .item-active {
-  background-color: var(--ion-color-success);
+  margin: 5px;
+  border-radius: 10px;
+  background-image: linear-gradient(white, var(--ion-color-success), white);
 }
