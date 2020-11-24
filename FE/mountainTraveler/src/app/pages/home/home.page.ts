@@ -4,6 +4,7 @@ import {NavController, Platform} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {UserLocation} from '../../common/models/user-location';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
+import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 
 
 @Component({
@@ -12,7 +13,8 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
     styleUrls: ['home.page.scss']
 })
 export class HomePage extends BaseComponent {
-    city;
+    public city: string;
+    public externalUrls = ExternalUrls;
 
     constructor(public navController: NavController,
                 private storage: Storage,
@@ -33,10 +35,10 @@ export class HomePage extends BaseComponent {
         await this.storage.set('city', selection);
     }
 
-    async navigateToExternalUrl() {
+    async navigateToExternalUrl(url: string) {
         await this.platform.ready();
-        const browser = this.iab.create('https://ionicframework.com/' ,'_blank');
-        // browser.show();
+        const browser = this.iab.create(url ,'_blank', 'location=off,hideurlbar=yes');
+
 
     }
 }

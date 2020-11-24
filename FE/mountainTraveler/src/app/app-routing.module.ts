@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/authentication/authentication.module').then( m => m.AuthenticationPageModule)
   },
   {
+    path: RouteSegments.community,
+    loadChildren: () => import('./pages/community/community.module').then( m => m.CommunityPageModule)
+  },
+  {
     path: '',
     redirectTo: '/' + RouteSegments.initialScreen,
     pathMatch: 'full'

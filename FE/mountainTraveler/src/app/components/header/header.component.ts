@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {RouteSegments} from '../../common/constants/RouteSegments.enum';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() headerTitle;
+  @Input() headerTitle: string;
+  @Input() defaultHref?: string = RouteSegments.app;
 
   constructor() { }
 

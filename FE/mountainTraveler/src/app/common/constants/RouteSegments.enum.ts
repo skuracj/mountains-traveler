@@ -8,5 +8,6 @@ export enum RouteSegments {
     authentication = 'authentication',
     me = 'me',
     friends = 'friends',
-    others = 'others'
+    others = 'others',
+    community = 'community'
 }
