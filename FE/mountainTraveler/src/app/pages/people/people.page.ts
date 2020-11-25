@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BaseComponent} from "../../common/base/base.component";
 import { Storage } from '@ionic/storage';
 import {Router} from "@angular/router";
-import {NavController} from "@ionic/angular";
+import {ModalController, NavController} from '@ionic/angular';
 
 
 
@@ -27,4 +27,6 @@ export class PeoplePage extends BaseComponent implements OnInit {
   onSegmentClicked(event: CustomEvent) {
     console.log(event.detail.value);
   }
+
+
 }

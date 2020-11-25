@@ -1,0 +1,11 @@
+.settings-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+  font-color: black;
+
+  &__icon {
+    text-shadow: 2px 2px 5px #000;
+  }
+}

@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
-import {NavController, Platform} from '@ionic/angular';
+import {ModalController, NavController, Platform} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
 import {UserLocation} from '../../common/models/user-location';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
+import {SettingsModalComponent} from '../../components/settings-modal/settings-modal.component';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class HomePage extends BaseComponent {
     async navigateToExternalUrl(url: string) {
         await this.platform.ready();
         const browser = this.iab.create(url ,'_blank', 'location=off,hideurlbar=yes');
-
-
     }
+
+
 }
