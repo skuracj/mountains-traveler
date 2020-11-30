@@ -5,17 +5,21 @@
 .home {
 
   &__content {
+    --background: var(--mt-background-url);
+
     //--background: var(--ion-color-light-shade);
   }
   &__location {
     --background: rgba(255,255,255, 0.7);
     --border-radius: 30px;
-    position: absolute;
+    //position: relative;
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 20px;
     &-select-label {
-      color: grey;
+      margin: 0 auto;
+      //color: grey;
       font-size: 12px ;
     }
   }
@@ -23,17 +27,23 @@
   &__top-nav {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid lightgray;
-    background-color: white;
-    box-shadow: -15px 0px 20px 0 var(--ion-color-medium-shade);
+    justify-content: space-evenly;
+    //border-radius: 10px;
+    //border-bottom: 1px solid lightgray;
+    //background-color: white;
+    //margin: 10px;
+    //box-shadow: -15px 0px 20px 0 var(--ion-color-medium-shade);
   }
 }
 
 .top-nav {
   &__button {
-    width: 25%;
-    border-left: 1px solid lightgray;
+    background-color: rgba(255,255,255, 0.8);
+    width: 150px;
+    height: 150px;
+    margin: 10px;
     display: flex;
+    border-radius: 10px;
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
@@ -46,7 +56,7 @@
 
     &-icon {
       margin: 8px;
-      font-size: 24px;
+      font-size: 48px;
     }
   }
 }
