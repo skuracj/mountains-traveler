@@ -6,21 +6,19 @@
 
   &__content {
     --background: var(--mt-background-url);
-
-    //--background: var(--ion-color-light-shade);
   }
+
   &__location {
-    --background: rgba(255,255,255, 0.7);
+    --background: rgba(255, 255, 255, 0.7);
     --border-radius: 30px;
-    //position: relative;
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 20px;
+
     &-select-label {
       margin: 0 auto;
-      //color: grey;
-      font-size: 12px ;
+      font-size: 12px;
     }
   }
 
@@ -28,19 +26,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    //border-radius: 10px;
-    //border-bottom: 1px solid lightgray;
-    //background-color: white;
-    //margin: 10px;
-    //box-shadow: -15px 0px 20px 0 var(--ion-color-medium-shade);
+    position: absolute;
+    bottom: 10%;
   }
 }
 
 .top-nav {
   &__button {
-    background-color: rgba(255,255,255, 0.8);
-    width: 150px;
-    height: 150px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 120px;
+    height: 120px;
     margin: 10px;
     display: flex;
     border-radius: 10px;

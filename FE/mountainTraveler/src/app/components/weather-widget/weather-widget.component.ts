@@ -29,7 +29,6 @@ export class WeatherWidgetComponent implements OnChanges {
 
         if (changes.city.previousValue !== changes.city.currentValue) {
 
-            console.log(changes.city.previousValue, changes.city.currentValue)
             this.getWeatherForFiveDays();
         }
     }

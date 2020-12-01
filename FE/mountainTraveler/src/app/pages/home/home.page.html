@@ -1,7 +1,4 @@
-
 <ion-content [fullscreen]="true" class="home__content" id="home">
-<!--    <ion-img src="/assets/soldier.jpeg"></ion-img>-->
-
 
     <ion-item class="home__location">
         <ion-select
@@ -18,7 +15,6 @@
     </ion-item>
 
 
-
     <section class="ion-padding-top">
         <app-weather-widget
                 [city]="this.city">
@@ -28,8 +24,7 @@
     <div class="home__top-nav">
         <button
                 class="top-nav__button"
-                (click)="navigateToExternalUrl(externalUrls.bookingHotels)"
-        >
+                (click)="navigateToExternalUrl(externalUrls.bookingHotels)">
             <ion-icon name="bed-outline" class="top-nav__button-icon"></ion-icon>
             <ion-label class="top-nav__button-label">Hotel</ion-label>
         </button>

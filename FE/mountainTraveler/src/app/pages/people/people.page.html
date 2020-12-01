@@ -1,14 +1,37 @@
 <app-header [headerTitle]="routeSegments.people"></app-header>
 <ion-content [fullscreen]="false">
-    <ion-segment value="me"  (ionChange)="onSegmentClicked($event)">
-        <ion-segment-button value="me">
-            <ion-label>Me</ion-label>
+    <ion-segment [(ngModel)]="section"  (ionChange)="onSegmentClicked($event)">
+        <ion-segment-button *ngFor="let section of sections | keyvalue: originalOrder" value="{{section.value}}">
+            <ion-label>{{section.value | titlecase}}</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="friends">
-            <ion-label>Friends</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="others">
-            <ion-label>Others</ion-label>
-        </ion-segment-button>
+<!--        <ion-segment-button value="me">-->
+<!--            <ion-label>Me</ion-label>-->
+<!--        </ion-segment-button>-->
+<!--        <ion-segment-button value="friends">-->
+<!--            <ion-label>Friends</ion-label>-->
+<!--        </ion-segment-button>-->
+<!--        <ion-segment-button value="others">-->
+<!--            <ion-label>Others</ion-label>-->
+<!--        </ion-segment-button>-->
     </ion-segment>
+
+    <div [ngSwitch]="this.section">
+        <ion-list *ngSwitchCase="sections.me">
+            <ion-item>
+                me
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="sections.friends">
+            <ion-item>
+                friends
+            </ion-item>
+        </ion-list>
+
+        <ion-list  *ngSwitchCase="sections.others">
+            <ion-item>
+                others
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>

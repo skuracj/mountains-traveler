@@ -2,13 +2,14 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule} from '@ionic/angular';
 
 import {WeatherWidgetComponent} from './weather-widget.component';
-import {HttpClient} from "@angular/common/http";
-import {of} from "rxjs";
-import {SimpleChange} from "@angular/core";
-import {ExternalUrls} from "../../common/constants/ExternalUrls.enum";
-import {environment} from "../../../environments/environment";
-import {weatherApiResponseMock} from "../../common/testing/mocks/weather-api-response.mock";
-import {By} from "@angular/platform-browser";
+import {HttpClient} from '@angular/common/http';
+import {of} from 'rxjs';
+import {SimpleChange} from '@angular/core';
+import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
+import {environment} from '../../../environments/environment';
+import {weatherApiResponseMock} from '../../common/testing/mocks/weather-api-response.mock';
+import {By} from '@angular/platform-browser';
+import {cityAndCountries} from '../../common/constants/CityAndCountries.enum';
 
 describe('WeatherWidgetComponent', () => {
     let component: WeatherWidgetComponent;
@@ -38,62 +39,64 @@ describe('WeatherWidgetComponent', () => {
     });
 
     it('Should call getWeatherForFiveDays when "region" input value changed', () => {
-        component.region = 'Zurich';
+        component.city = 'Zurich';
         spyOn(component, 'getWeatherForFiveDays');
 
         component.ngOnChanges({
-            region: new SimpleChange(null, component.region, true)
+            city: new SimpleChange(null, component.city, true)
         });
 
         expect(component.getWeatherForFiveDays).toHaveBeenCalled();
     });
 
     it('Should NOT call getWeatherForFiveDays when "region" input value was NOT changed', () => {
-        component.region = 'Zurich';
+        component.city = 'Zurich';
         spyOn(component, 'getWeatherForFiveDays');
 
         component.ngOnChanges({
-            region: new SimpleChange(component.region, component.region, true)
+            city: new SimpleChange(component.city, component.city, true)
         });
 
         expect(component.getWeatherForFiveDays).not.toHaveBeenCalled();
     });
 
     it(`Should call ${ExternalUrls.openWeatherApi} when "region" input value changed`, () => {
-        component.region = 'Zurich';
+        component.city = 'Zurich';
         const expectedUrl = `${ExternalUrls.openWeatherApi}/forecast/daily`;
         const requestOptions = {
             headers: {
-                "x-rapidapi-key": environment.xRapidapiKey,
-                "x-rapidapi-host": ExternalUrls.xRapidapiHost
+                'x-rapidapi-key': environment.xRapidapiKey,
+                'x-rapidapi-host': ExternalUrls.xRapidapiHost
             },
             params: {
-                "q": `${component.region},Poland`,
-                "cnt": "5",
-                "units": "metric",
+                'q': `${component.city},${cityAndCountries[component.city]}`,
+                'cnt': '10',
+                'units': 'metric',
             }
         };
 
         component.ngOnChanges({
-            region: new SimpleChange(null, component.region, true)
+            city: new SimpleChange(null, component.city, true)
         });
 
         expect(httpClientSpy.get).toHaveBeenCalledWith(expectedUrl, requestOptions);
     });
 
-    it(`Should call ${ExternalUrls.openWeatherApi} when "region" input value changed and save data`, () => {
-        component.region = 'Zurich';
+    it(`Should call ${ExternalUrls.openWeatherApi} when "city" input value changed and save data`, () => {
+        component.city = 'Zurich';
         const firstDayMock = weatherApiResponseMock.list[0];
 
         component.ngOnChanges({
-            region: new SimpleChange(null, component.region, true)
+            city: new SimpleChange(null, component.city, true)
         });
 
         expect(component.fiveDaysWeather).toEqual([{
-            date: new Date(firstDayMock.dt * 1000).toLocaleDateString('en-EN', { weekday: 'short' }),
+            date: new Date(firstDayMock.dt * 1000).toLocaleDateString('en-EN', {weekday: 'short'}),
             temp: firstDayMock.temp,
             rain: firstDayMock.rain,
-            icon: firstDayMock.weather[0].icon
+            icon: firstDayMock.weather[0].icon,
+            sunrise: new Date(firstDayMock.sunrise * 1000).toLocaleTimeString(component.locale, component.timeFormatOptions),
+            sunset: new Date(firstDayMock.sunset * 1000).toLocaleTimeString(component.locale, component.timeFormatOptions),
         }]);
     });
 
