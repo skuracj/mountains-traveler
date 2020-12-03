@@ -1,0 +1,48 @@
+.profile {
+  &__settings-icon {
+    font-size: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+  }
+  &__h3 {
+    margin: 0 auto;
+    color: red;
+    //position: relative;
+    //display: flex;
+
+  }
+  &__location {
+    font-size: 10px;
+  }
+  &__thumbnail {
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 3px solid var(--ion-color-success);
+    padding: 5px;
+  }
+  &__achievements {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+.achievement {
+  &__value{
+    color: var(--ion-color-success);
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.relations {
+  &__container {
+    display: flex;
+    overflow-x: scroll;
+  }
+  &__thumbnail {
+    margin: 10px;
+    min-width: 75px;
+    min-height: 75px;
+  }
+}
