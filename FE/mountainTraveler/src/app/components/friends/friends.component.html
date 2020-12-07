@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header>
+    <h3>Your friends ({{friendsIds.length}})</h3>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let friend of friendsIds" [routerLink]="['/' + routeSegments.user]" [queryParams]="{ userId: friend}">
+        <h3>
+          {{friend}}
+        </h3>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<app-time-line></app-time-line>

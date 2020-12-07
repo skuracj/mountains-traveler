@@ -5,7 +5,7 @@ import {DayWeather} from '../../common/models/day-weather';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
 import {UserLocation} from '../../common/models/user-location';
-import {cityAndCountries} from '../../common/constants/CityAndCountries.enum';
+import {citiesAndCountries} from '../../common/constants/CitiesAndCountries.enum';
 
 @Component({
     selector: 'app-weather-widget',
@@ -39,7 +39,7 @@ export class WeatherWidgetComponent implements OnChanges {
             'x-rapidapi-host': ExternalUrls.xRapidapiHost
         };
         const params = {
-            q: `${this.city},${cityAndCountries[this.city]}`,
+            q: `${this.city},${citiesAndCountries[this.city]}`,
             cnt: this.numberOfDays,
             units: this.units,
         };

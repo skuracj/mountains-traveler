@@ -4,6 +4,9 @@ import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {Sections} from '../../common/constants/Sections.enum';
 import {KeyValue} from '@angular/common';
+import {uuid4} from '@capacitor/core/dist/esm/util';
+import {user} from '../../common/testing/mocks/user.mock';
+import {User} from '../../common/models/user';
 
 @Component({
     selector: 'app-people',
@@ -13,6 +16,7 @@ import {KeyValue} from '@angular/common';
 export class PeoplePage extends BaseComponent implements OnInit {
     section: string;
     sections = Sections;
+    user: User = user;
 
     constructor(private storage: Storage, private router: Router) {
         super();
@@ -21,12 +25,13 @@ export class PeoplePage extends BaseComponent implements OnInit {
     async ngOnInit() {
         // this.sections = Object.values(Sections);
         this.section = Sections.me;
+        console.log(this.user.friendsIds);
         // https://github.com/localForage/localForage/issues/910
         // Currently no fix for issue with storage.
         // Using hardcoded values
         // await this.storage.set('region', 'Warsaw');
     }
-    originalOrder = (a: KeyValue<number,string>, b: KeyValue<number,string>): number => {
+    originalOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
         return 0;
     }
 

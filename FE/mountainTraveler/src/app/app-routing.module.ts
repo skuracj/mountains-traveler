@@ -24,10 +24,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/community/community.module').then( m => m.CommunityPageModule)
   },
   {
+    path: RouteSegments.user,
+    loadChildren: () => import('./pages/user/user-details.module').then(m => m.UserDetailsPageModule)
+  },
+  {
     path: '',
     redirectTo: '/' + RouteSegments.initialScreen,
     pathMatch: 'full'
-  },
+  }
 ];
 @NgModule({
   imports: [

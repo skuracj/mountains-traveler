@@ -7,70 +7,11 @@
     </ion-segment>
     <div [ngSwitch]="this.section">
         <section *ngSwitchCase="sections.me">
-
-            <ion-card>
-                <ion-card-header>
-                    <ion-icon name="hammer" class="profile__settings-icon"></ion-icon>
-                    <ion-card-subtitle>
-                        <ion-thumbnail class="profile__thumbnail">
-                            <ion-img src="/assets/users-pictures/sportsman.svg"></ion-img>
-                        </ion-thumbnail>
-                        <h3 class="ion-text-center ion-no-margin">Cezary Lolek</h3>
-                        <h6 class="ion-text-center ion-no-margin profile__location"><ion-icon name="location"></ion-icon> Amsterdam, Netherlands</h6>
-                    </ion-card-subtitle>
-                </ion-card-header>
-                <ion-card-content>
-                    <div class="profile__achievements">
-                        <div class="ion-text-center ">
-                            <p class="achievement__value">325KM</p>
-                            <p>Total</p>
-                        </div>
-                        <div class="ion-text-center">
-                            <p class="achievement__value">15</p>
-                            <p>Trips</p>
-                        </div>
-                        <div class="ion-text-center">
-                            <p class="achievement__value">40h30min</p>
-                            <p>Time</p>
-                        </div>
-                    </div>
-                </ion-card-content>
-            </ion-card>
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle>Your relations (5)</ion-card-subtitle>
-                </ion-card-header>
-                <ion-card-content class="relations__container">
-                <ion-thumbnail class="relations__thumbnail">
-                    <ion-img src="/assets/soldier.jpeg"></ion-img>
-                </ion-thumbnail>
-                    <ion-thumbnail class="relations__thumbnail">
-                        <ion-img src="/assets/mountain.jpg"></ion-img>
-                    </ion-thumbnail>
-                    <ion-thumbnail class="relations__thumbnail">
-                        <ion-img src="/assets/anulka.png"></ion-img>
-                    </ion-thumbnail>
-                    <ion-thumbnail class="relations__thumbnail">
-                        <ion-img src="/assets/soldier.jpeg"></ion-img>
-                    </ion-thumbnail>
-                    <ion-thumbnail class="relations__thumbnail">
-                        <ion-img src="/assets/soldier.jpeg"></ion-img>
-                    </ion-thumbnail>
-                </ion-card-content>
-            </ion-card>
-
+            <app-user-details [userId]="user.userId"></app-user-details>
         </section>
 
-        <ion-list *ngSwitchCase="sections.friends">
-            <ion-item>
-                friends
-            </ion-item>
-        </ion-list>
-
-        <ion-list *ngSwitchCase="sections.others">
-            <ion-item>
-                others
-            </ion-item>
-        </ion-list>
+        <section *ngSwitchCase="sections.friends">
+            <app-friends [friendsIds]="user?.friendsIds"></app-friends>
+        </section>
     </div>
 </ion-content>

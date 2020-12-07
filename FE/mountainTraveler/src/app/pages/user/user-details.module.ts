@@ -4,23 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CommunityPageRoutingModule } from './community-routing.module';
+import { UserDetailsPageRoutingModule } from './user-details-routing.module';
 
-import { CommunityPage } from './community.page';
+import { UserDetailsPage } from './user-details.page';
+import {PeoplePageModule} from '../people/people.module';
 import {HeaderComponentModule} from '../../components/header/header.module';
-import {TimeLineComponent} from '../../components/time-line/time-line.component';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        CommunityPageRoutingModule,
+        UserDetailsPageRoutingModule,
+        PeoplePageModule,
         HeaderComponentModule
     ],
-    exports: [
-        TimeLineComponent
-    ],
-    declarations: [CommunityPage, TimeLineComponent]
+  declarations: [UserDetailsPage]
 })
-export class CommunityPageModule {}
+export class UserDetailsPageModule {}

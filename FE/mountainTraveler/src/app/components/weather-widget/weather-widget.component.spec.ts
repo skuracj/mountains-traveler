@@ -9,7 +9,7 @@ import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
 import {weatherApiResponseMock} from '../../common/testing/mocks/weather-api-response.mock';
 import {By} from '@angular/platform-browser';
-import {cityAndCountries} from '../../common/constants/CityAndCountries.enum';
+import {citiesAndCountries} from '../../common/constants/CitiesAndCountries.enum';
 
 describe('WeatherWidgetComponent', () => {
     let component: WeatherWidgetComponent;
@@ -69,7 +69,7 @@ describe('WeatherWidgetComponent', () => {
                 'x-rapidapi-host': ExternalUrls.xRapidapiHost
             },
             params: {
-                'q': `${component.city},${cityAndCountries[component.city]}`,
+                'q': `${component.city},${citiesAndCountries[component.city]}`,
                 'cnt': '10',
                 'units': 'metric',
             }

@@ -6,8 +6,6 @@ export enum RouteSegments {
     people = 'people',
     initialScreen = 'initialScreen',
     authentication = 'authentication',
-    me = 'me',
-    friends = 'friends',
-    others = 'others',
-    community = 'community'
+    community = 'community',
+    user = 'user'
 }
