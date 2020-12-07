@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserDetailsPageRoutingModule } from './user-details-routing.module';
+import { UserPageRoutingModule } from './user-routing.module';
 
-import { UserDetailsPage } from './user-details.page';
+import { UserPage } from './user.page';
 import {PeoplePageModule} from '../people/people.module';
 import {HeaderComponentModule} from '../../components/header/header.module';
 
@@ -15,10 +15,10 @@ import {HeaderComponentModule} from '../../components/header/header.module';
         CommonModule,
         FormsModule,
         IonicModule,
-        UserDetailsPageRoutingModule,
+        UserPageRoutingModule,
         PeoplePageModule,
         HeaderComponentModule
     ],
-  declarations: [UserDetailsPage]
+  declarations: [UserPage]
 })
-export class UserDetailsPageModule {}
+export class UserPageModule {}

@@ -5,11 +5,11 @@ import {map, tap} from 'rxjs/operators';
 import {BaseComponent} from '../../common/base/base.component';
 
 @Component({
-  selector: 'app-user-details',
-  templateUrl: './user-details.page.html',
-  styleUrls: ['./user-details.page.scss'],
+  selector: 'app-user',
+  templateUrl: './user.page.html',
+  styleUrls: ['./user.page.scss'],
 })
-export class UserDetailsPage extends BaseComponent implements OnInit{
+export class UserPage extends BaseComponent implements OnInit{
   userId: string = uuid4();
   constructor(private activatedRoute: ActivatedRoute) {
     super();
