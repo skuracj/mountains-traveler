@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NavigationPageRoutingModule } from './navigation-routing.module';
 
-import { Navigation } from './navigation.component';
+import { NavigationComponent } from './navigation.component';
 
 @NgModule({
   imports: [
@@ -14,6 +14,6 @@ import { Navigation } from './navigation.component';
     FormsModule,
     NavigationPageRoutingModule
   ],
-  declarations: [Navigation]
+  declarations: [NavigationComponent]
 })
 export class NavigationPageModule {}

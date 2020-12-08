@@ -3,11 +3,11 @@ import {RouteSegments} from '../../common/constants/RouteSegments.enum';
 import {Router} from '@angular/router';
 
 @Component({
-    selector: 'app-tabs',
+    selector: 'app-navigation',
     templateUrl: 'navigation.component.html',
     styleUrls: ['navigation.component.scss']
 })
-export class Navigation {
+export class NavigationComponent {
     public routeSegments = RouteSegments;
 
     constructor(public router: Router) {

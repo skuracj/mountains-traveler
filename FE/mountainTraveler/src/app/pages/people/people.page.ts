@@ -4,7 +4,6 @@ import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {Sections} from '../../common/constants/Sections.enum';
 import {KeyValue} from '@angular/common';
-import {uuid4} from '@capacitor/core/dist/esm/util';
 import {user} from '../../common/testing/mocks/user.mock';
 import {User} from '../../common/models/user';
 
@@ -14,18 +13,18 @@ import {User} from '../../common/models/user';
     styleUrls: ['people.page.scss']
 })
 export class PeoplePage extends BaseComponent implements OnInit {
-    section: string;
+    selectedSection: string;
     sections = Sections;
     user: User = user;
+    friendsIds = user.friendsIds;
 
     constructor(private storage: Storage, private router: Router) {
         super();
     }
 
     async ngOnInit() {
-        // this.sections = Object.values(Sections);
-        this.section = Sections.me;
-        console.log(this.user.friendsIds);
+        this.selectedSection = Sections.me;
+
         // https://github.com/localForage/localForage/issues/910
         // Currently no fix for issue with storage.
         // Using hardcoded values
@@ -36,9 +35,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
     }
 
     onSegmentClicked(event: CustomEvent) {
-        this.section = event.detail.value;
-        console.log(event.detail.value);
-        console.log(this.section);
+        this.selectedSection = event.detail.value;
     }
 
 

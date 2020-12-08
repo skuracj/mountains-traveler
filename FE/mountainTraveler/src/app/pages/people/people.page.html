@@ -1,17 +1,20 @@
 <app-header [headerTitle]="routeSegments.people"></app-header>
 <ion-content [fullscreen]="false">
-    <ion-segment [(ngModel)]="section" (ionChange)="onSegmentClicked($event)">
+    <ion-segment [(ngModel)]="selectedSection" (ionChange)="onSegmentClicked($event)">
         <ion-segment-button *ngFor="let section of sections | keyvalue: originalOrder" value="{{section.value}}">
             <ion-label>{{section.value | titlecase}}</ion-label>
         </ion-segment-button>
     </ion-segment>
-    <div [ngSwitch]="this.section">
+    <div [ngSwitch]="this.selectedSection">
         <section *ngSwitchCase="sections.me">
-            <app-user-details [userId]="user.userId"></app-user-details>
+            <app-user-details [user]="user"></app-user-details>
+            <app-time-line></app-time-line>
         </section>
 
         <section *ngSwitchCase="sections.friends">
-            <app-friends [friendsIds]="user?.friendsIds"></app-friends>
+            <app-friends-list [friendsIds]="friendsIds"></app-friends-list>
+            <app-most-active-users></app-most-active-users>
+            <app-time-line></app-time-line>
         </section>
     </div>
 </ion-content>

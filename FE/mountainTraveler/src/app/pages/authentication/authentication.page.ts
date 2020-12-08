@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormFieldTypes} from '@aws-amplify/ui-components';
-import {NavController} from "@ionic/angular";
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-authentication',
@@ -14,21 +14,21 @@ export class AuthenticationPage {
     constructor(public navController: NavController) {
         this.signUpFormFields = [
             {
-                type: "email",
+                type: 'email',
                 required: true
             },
             {
-                type: "password",
+                type: 'password',
                 required: true,
             }
         ];
         this.signInFormFields = [
             {
-                type: "email"
+                type: 'email'
             },
             {
-                type: "password"
+                type: 'password'
             }
-        ]
+        ];
     }
 }

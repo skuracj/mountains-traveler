@@ -1,16 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Navigation } from './navigation.component';
+import { NavigationComponent } from './navigation.component';
 import {RouterTestingModule} from "@angular/router/testing";
 
 describe('Navigation', () => {
-  let component: Navigation;
-  let fixture: ComponentFixture<Navigation>;
+  let component: NavigationComponent;
+  let fixture: ComponentFixture<NavigationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [Navigation],
+      declarations: [NavigationComponent],
       imports: [RouterTestingModule],
       providers: [],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -18,7 +18,7 @@ describe('Navigation', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Navigation);
+    fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

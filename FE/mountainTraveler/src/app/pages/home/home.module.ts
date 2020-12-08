@@ -1,15 +1,14 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
-import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
+import {IonicModule} from '@ionic/angular';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {HomePage} from './home.page';
 
 import {HomePageRoutingModule} from './home-routing.module';
-import {HeaderComponentModule} from "../../components/header/header.module";
-import {AuthenticationPageModule} from "../authentication/authentication.module";
-import {WeatherWidgetComponent} from "../../components/weather-widget/weather-widget.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HeaderComponentModule} from '../../components/header/header.module';
+import {AuthenticationPageModule} from '../authentication/authentication.module';
+import {WeatherWidgetComponent} from '../../components/weather-widget/weather-widget.component';
+import {HttpClientModule} from '@angular/common/http';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
@@ -17,7 +16,6 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
         IonicModule,
         CommonModule,
         FormsModule,
-        ExploreContainerComponentModule,
         HomePageRoutingModule,
         HeaderComponentModule,
         AuthenticationPageModule,
@@ -26,4 +24,5 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
     declarations: [HomePage, WeatherWidgetComponent],
     providers: [InAppBrowser]
 })
-export class HomePageModule {}
+export class HomePageModule {
+}

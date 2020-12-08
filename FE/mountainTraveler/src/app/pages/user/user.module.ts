@@ -9,6 +9,8 @@ import { UserPageRoutingModule } from './user-routing.module';
 import { UserPage } from './user.page';
 import {PeoplePageModule} from '../people/people.module';
 import {HeaderComponentModule} from '../../components/header/header.module';
+import {SettingsModalComponent} from '../../components/settings-modal/settings-modal.component';
+import {CommunityPageModule} from '../community/community.module';
 
 @NgModule({
     imports: [
@@ -17,8 +19,9 @@ import {HeaderComponentModule} from '../../components/header/header.module';
         IonicModule,
         UserPageRoutingModule,
         PeoplePageModule,
-        HeaderComponentModule
+        HeaderComponentModule,
+        CommunityPageModule
     ],
-  declarations: [UserPage]
+    declarations: [UserPage, SettingsModalComponent]
 })
 export class UserPageModule {}

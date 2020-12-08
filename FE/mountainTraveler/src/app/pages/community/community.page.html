@@ -1,102 +1,14 @@
-<app-header
-        [headerTitle]="routeSegments.community"
-        [defaultHref]="routeSegments.app">
+<app-header [headerTitle]="routeSegments.community">
 </app-header>
 
 <ion-content>
 
     <section>
-        <section>
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle>Most active users this month</ion-card-subtitle>
-                </ion-card-header>
-                <ion-card-content>
-                    <ul class="most-active-users__ul">
-
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/2.png"></ion-img>
-                            <p class="most-active-users__p">Radziu</p>
-                            <p class="most-active-users__p">123km</p>
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/3.png"></ion-img>
-                            <p class="most-active-users__p"> Mudzina</p>
-                                <p class="most-active-users__p">44km</p>
-
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/1.png"></ion-img>
-                            <p class="most-active-users__p"> Anulka</p>
-                            <p  class="most-active-users__p">324km</p>
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/4.png"></ion-img>
-                            <p class="most-active-users__p"> Nalesnik</p>
-                            <p class="most-active-users__p">24km</p>
-
-                        </li>
-                    </ul>
-                </ion-card-content>
-            </ion-card>
-        </section>
-
-        <section>
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle>Most active users all-time</ion-card-subtitle>
-                </ion-card-header>
-                <ion-card-content>
-                    <ul class="most-active-users__ul">
-
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/2.png"></ion-img>
-                            <p class="most-active-users__p"> Radziu</p>
-                            <p class="most-active-users__p">2123km</p>
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/3.png"></ion-img>
-                            <p class="most-active-users__p"> Mudzina</p>
-                            <p class="most-active-users__p">2044km</p>
-
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/4.png"></ion-img>
-                            <p class="most-active-users__p"> Nalesnik</p>
-                            <p class="most-active-users__p">1024km</p>
-
-                        </li>
-                        <li class="ion-text-center">
-                            <ion-img
-                                    class="most-active-users__img"
-                                    src="/assets/users-pictures/1.png"></ion-img>
-                            <p class="most-active-users__p"> Anulka</p>
-                            <p  class="most-active-users__p">1324km</p>
-                        </li>
-
-                    </ul>
-                </ion-card-content>
-            </ion-card>
-        </section>
-
+        <app-most-active-users></app-most-active-users>
     </section>
 
-    <section class="community__latest-activity">
-       <app-time-line></app-time-line>
+    <section>
+        <app-time-line></app-time-line>
     </section>
 
 </ion-content>

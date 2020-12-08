@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { OnboardingPageRoutingModule } from './onboarding-routing.module';
+import {OnboardingPageRoutingModule} from './onboarding-routing.module';
 
-import { OnboardingPage } from './onboarding.page';
-import {AuthenticationPageModule} from "../authentication/authentication.module";
+import {OnboardingPage} from './onboarding.page';
+import {AuthenticationPageModule} from '../authentication/authentication.module';
 
 @NgModule({
     imports: [
@@ -17,6 +17,7 @@ import {AuthenticationPageModule} from "../authentication/authentication.module"
         OnboardingPageRoutingModule,
         AuthenticationPageModule
     ],
-  declarations: [OnboardingPage]
+    declarations: [OnboardingPage]
 })
-export class OnboardingPageModule {}
+export class OnboardingPageModule {
+}

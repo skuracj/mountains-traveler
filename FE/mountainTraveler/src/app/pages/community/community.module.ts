@@ -9,6 +9,7 @@ import { CommunityPageRoutingModule } from './community-routing.module';
 import { CommunityPage } from './community.page';
 import {HeaderComponentModule} from '../../components/header/header.module';
 import {TimeLineComponent} from '../../components/time-line/time-line.component';
+import {MostActiveUsersComponent} from '../../components/most-active-users/most-active-users.component';
 
 @NgModule({
     imports: [
@@ -19,8 +20,9 @@ import {TimeLineComponent} from '../../components/time-line/time-line.component'
         HeaderComponentModule
     ],
     exports: [
-        TimeLineComponent
+        TimeLineComponent,
+        MostActiveUsersComponent
     ],
-    declarations: [CommunityPage, TimeLineComponent]
+    declarations: [CommunityPage, TimeLineComponent, MostActiveUsersComponent]
 })
 export class CommunityPageModule {}

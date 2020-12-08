@@ -1,8 +1,14 @@
 <app-header [headerTitle]="this.userId"></app-header>
 
 <ion-content>
-  <ion-icon name="hammer" class="user__settings-icon"></ion-icon>
-  {{this.userId}}
-  <app-user-details></app-user-details>
-<!--<app-user [userId]="userId"></app-user>-->
+<!--    // TODO *ngIf -->
+    <section *ngIf="true">
+        <app-settings-modal></app-settings-modal>
+        <ion-icon name="hammer" class="user__settings-icon"></ion-icon>
+    </section>
+
+    {{this.userId}}
+    <app-user-details></app-user-details>
+    <app-time-line></app-time-line>
+
 </ion-content>

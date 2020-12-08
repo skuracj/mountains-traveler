@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Navigation } from './navigation.component';
+import { NavigationComponent } from './navigation.component';
 import {RouteSegments} from "../../common/constants/RouteSegments.enum";
 
 const routes: Routes = [
   {
     path: '',
-    component: Navigation,
+    component: NavigationComponent,
     children: [
       {
         path: RouteSegments.home,

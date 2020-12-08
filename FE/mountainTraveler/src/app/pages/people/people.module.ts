@@ -9,8 +9,9 @@ import { ExploreContainerComponentModule } from '../../explore-container/explore
 import { PeoplePageRoutingModule } from './people-routing.module'
 import {HeaderComponentModule} from "../../components/header/header.module";
 import {UserDetailsComponent} from '../../components/user-details/user-details.component';
-import {FriendsComponent} from '../../components/friends/friends.component';
+import {UsersComponent} from '../../components/users/users.component';
 import {CommunityPageModule} from '../community/community.module';
+import {FriendsListComponent} from '../../components/friends-list/friends-list.component';
 
 @NgModule({
     imports: [
@@ -26,6 +27,6 @@ import {CommunityPageModule} from '../community/community.module';
     exports: [
         UserDetailsComponent
     ],
-    declarations: [PeoplePage, UserDetailsComponent, FriendsComponent]
+    declarations: [PeoplePage, UserDetailsComponent, UsersComponent, FriendsListComponent]
 })
 export class PeoplePageModule {}

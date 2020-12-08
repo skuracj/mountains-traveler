@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Relations} from '../../common/models/relations';
 
 @Component({
   selector: 'app-time-line',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./time-line.component.scss'],
 })
 export class TimeLineComponent implements OnInit {
-
+  @Input() relations?: Relations[];
+  // TODO think how to implement lazy loading
   constructor() { }
 
   ngOnInit() {}
