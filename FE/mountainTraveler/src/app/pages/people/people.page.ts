@@ -4,7 +4,7 @@ import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {Sections} from '../../common/constants/Sections.enum';
 import {KeyValue} from '@angular/common';
-import {user} from '../../common/testing/mocks/user.mock';
+import {userMock} from '../../common/testing/mocks/user.mock';
 import {User} from '../../common/models/user';
 
 @Component({
@@ -15,21 +15,18 @@ import {User} from '../../common/models/user';
 export class PeoplePage extends BaseComponent implements OnInit {
     selectedSection: string;
     sections = Sections;
-    user: User = user;
-    friendsIds = user.friendsIds;
+    user: User = userMock;
+    friendsIds: string[] = userMock.friendsIds;
 
-    constructor(private storage: Storage, private router: Router) {
+    constructor() {
         super();
     }
 
     async ngOnInit() {
+        // TODO remove?
         this.selectedSection = Sections.me;
-
-        // https://github.com/localForage/localForage/issues/910
-        // Currently no fix for issue with storage.
-        // Using hardcoded values
-        // await this.storage.set('region', 'Warsaw');
     }
+
     originalOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
         return 0;
     }

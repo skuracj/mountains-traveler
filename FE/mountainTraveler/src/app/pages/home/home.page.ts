@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
-import {ModalController, NavController, Platform} from '@ionic/angular';
+import {NavController, Platform} from '@ionic/angular';
 import {Storage} from '@ionic/storage';
-import {UserLocation} from '../../common/models/user-location';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
-import {SettingsModalComponent} from '../../components/settings-modal/settings-modal.component';
+import {environment} from '../../../environments/environment';
 
 
 @Component({
@@ -25,8 +24,8 @@ export class HomePage extends BaseComponent {
     }
 
     async ionViewWillEnter() {
-        this.city = await this.storage.get('city') ? await this.storage.get('city') : 'Zakopane';
-
+        const storedCity = await this.storage.get('city');
+        this.city = storedCity ? storedCity : environment.defaultCity;
     }
 
     async onSelectChanged(event) {
@@ -40,6 +39,4 @@ export class HomePage extends BaseComponent {
         await this.platform.ready();
         const browser = this.iab.create(url ,'_blank', 'location=off,hideurlbar=yes');
     }
-
-
 }

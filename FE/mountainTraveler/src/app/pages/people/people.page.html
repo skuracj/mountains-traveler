@@ -1,7 +1,7 @@
 <app-header [headerTitle]="routeSegments.people"></app-header>
 <ion-content [fullscreen]="false">
     <ion-segment [(ngModel)]="selectedSection" (ionChange)="onSegmentClicked($event)">
-        <ion-segment-button *ngFor="let section of sections | keyvalue: originalOrder" value="{{section.value}}">
+        <ion-segment-button *ngFor="let section of sections | keyvalue: originalOrder" value="{{section.value}}" id="{{section.value}}">
             <ion-label>{{section.value | titlecase}}</ion-label>
         </ion-segment-button>
     </ion-segment>

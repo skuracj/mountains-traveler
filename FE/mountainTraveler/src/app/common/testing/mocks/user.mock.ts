@@ -1,6 +1,6 @@
 import {User} from '../../models/user';
 
-export const user: User = {
+export const userMock: User = {
     userId: 'aw3s0m-3eb7-4d1a-8d8f-612f7083839c',
     name: 'Cezary Lolek',
     profilePicture: 'somepath',
