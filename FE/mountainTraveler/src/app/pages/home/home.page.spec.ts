@@ -1,5 +1,5 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
+import {IonicModule, Platform} from '@ionic/angular';
 
 import {HomePage} from './home.page';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -8,25 +8,43 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {environment} from '../../../environments/environment';
 import {WeatherWidgetComponent} from '../../components/weather-widget/weather-widget.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {By} from '@angular/platform-browser';
+import {StorageObject} from '../../common/constants/StorageObjects.enum';
 
+class MockPlatform {
+    ready: jasmine.Spy<any>;
+    backButton: any;
+}
+
+class MockBackButton {
+    subscribeWithPriority: jasmine.Spy<any>;
+}
 
 describe('HomePage', () => {
     let component: HomePage;
     let fixture: ComponentFixture<HomePage>;
     let storageSpy;
     let inAppBrowserSpy;
+    let platformMock;
+    const mockBackButton = new MockBackButton();
+
 
     beforeEach(async(() => {
-        storageSpy = jasmine.createSpyObj('Storage', ['get']);
+        storageSpy = jasmine.createSpyObj('Storage', ['get', 'set']);
         inAppBrowserSpy = jasmine.createSpyObj('InAppBrowser', ['create']);
+        mockBackButton.subscribeWithPriority = jasmine.createSpy('subscribeWithPriority', (priority, fn) => {
+        });
+
+        platformMock = new MockPlatform();
+        platformMock.ready = () => Promise.resolve();
+        platformMock.backButton = mockBackButton;
 
         TestBed.configureTestingModule({
             declarations: [HomePage, WeatherWidgetComponent],
             imports: [IonicModule.forRoot(), RouterTestingModule, HttpClientTestingModule],
             providers: [
                 {provide: Storage, useValue: storageSpy},
-                {provide: InAppBrowser, useValue: inAppBrowserSpy}
+                {provide: InAppBrowser, useValue: inAppBrowserSpy},
+                {provide: Platform, useValue: platformMock}
             ]
         }).compileComponents();
 
@@ -47,7 +65,7 @@ describe('HomePage', () => {
 
         it('should set city to value from storage', async () => {
             const mockCity = 'Warsaw';
-            storageSpy.get.withArgs('city').and.returnValue(mockCity);
+            storageSpy.get.withArgs(StorageObject.city).and.returnValue(mockCity);
 
             await component.ionViewWillEnter();
 
@@ -55,20 +73,29 @@ describe('HomePage', () => {
         });
     });
 
-    describe('When city selection changed', () => {
+    describe('When #onSelectChange called with event', () => {
         const selectedCity = 'warsaw';
-        beforeEach(fakeAsync(() => {
-            const ionSelect = fixture.debugElement.query(By.css(`[value="warsaw"]`));
 
-            ionSelect.nativeElement.click();
+        beforeEach(() => {
+            const event = {detail: {value: selectedCity}};
 
-        }));
+            component.onSelectChanged(event);
+        });
 
+        it('Should set city equal to passed event value', () => {
+            expect(component.city).toEqual(selectedCity);
+        });
 
+        it('should save value from passed event value', () => {
+            expect(storageSpy.set).toHaveBeenCalledWith(StorageObject.city, selectedCity);
+        });
+    });
 
-        it('should set city', () => {
-            const spy = spyOn(component, 'onSelectChanged');
-            expect(spy).toHaveBeenCalled();
+    describe('When #navigateToExternalUrl called with url', () => {
+        it('and platform is ready should create iab object with passed url', async() => {
+            const url = 'www.google.pl';
+            await component.navigateToExternalUrl(url);
+            expect(inAppBrowserSpy.create).toHaveBeenCalledWith(url, '_blank', 'location=off,hideurlbar=yes');
         });
     });
 });

@@ -24,19 +24,18 @@ export class HomePage extends BaseComponent {
     }
 
     async ionViewWillEnter() {
-        const storedCity = await this.storage.get('city');
+        const storedCity = await this.storage.get(this.storageObject.city);
         this.city = storedCity ? storedCity : environment.defaultCity;
     }
 
     async onSelectChanged(event) {
         const selection = event.detail.value;
         this.city = selection;
-
-        await this.storage.set('city', selection);
+        await this.storage.set(this.storageObject.city, selection);
     }
 
     async navigateToExternalUrl(url: string) {
         await this.platform.ready();
-        const browser = this.iab.create(url ,'_blank', 'location=off,hideurlbar=yes');
+        const browser = this.iab.create(url, '_blank', 'location=off,hideurlbar=yes');
     }
 }
