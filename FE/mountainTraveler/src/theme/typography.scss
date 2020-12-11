@@ -1,9 +1,17 @@
 :root {
-  --font-size-xs    : 10px;
-  --font-size-s     : 12px;
-  --font-size-sm    : 14px;
-  --font-size-base  : 16px;
-  --font-size-m     : 18px;
-  --font-size-l     : 20px;
-  --font-size-xl    : 22px;
+  --font-size-xs   : 10px;
+  --font-size-s    : 12px;
+  --font-size-sm   : 14px;
+  --font-size-base : 16px;
+  --font-size-m    : 18px;
+  --font-size-l    : 20px;
+  --font-size-xl   : 22px;
+  --font-size-xxl  : 24px;
+}
+
+$font-sizes : 'xs', 's', 'sm' 'base', 'm', 'l', 'xl', 'xxl';
+@each $font-size in $font-sizes {
+  .font-size-#{$font-size} {
+    font-size : var(--font-size-#{$font-size});
+  }
 }

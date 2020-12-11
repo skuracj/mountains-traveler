@@ -1,7 +1,7 @@
 
 <ion-list class="weather-widget__list" *ngIf="isWeatherDataLoaded">
 
-    <div *ngFor="let day of fiveDaysWeather;index as i;" class="weather-widget__item ion-text-center item-active">
+    <div *ngFor="let day of fiveDaysWeather;index as i;" class="weather-widget__item ion-text-center">
 
         <p class="weather-widget__item__date ion-no-margin">{{i == 0 ? 'Today' : day.date}}</p>
 

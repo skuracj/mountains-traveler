@@ -4,7 +4,7 @@
         <ion-select
                 [value]="this.city"
                 interface="action-sheet"
-                class="home__location-select-label"
+                class="home__location-select-label font-size-s"
                 (ionChange)="onSelectChanged($event)">
             <ion-select-option value="choose_location">Choose location</ion-select-option>
             <ion-select-option value="zakopane">Poland, Zakopane</ion-select-option>
@@ -20,33 +20,33 @@
         </app-weather-widget>
     </section>
 
-    <div class="home__top-nav">
+    <div class="home__tiles-nav">
         <button
-                class="top-nav__button"
+                class="tiles-nav__button"
                 (click)="navigateToExternalUrl(externalUrls.bookingHotels)">
-            <ion-icon name="bed-outline" class="top-nav__button-icon"></ion-icon>
-            <ion-label class="top-nav__button-label">Hotel</ion-label>
+            <ion-icon name="bed-outline" class="tiles-nav__button-icon"></ion-icon>
+            <ion-label class="tiles-nav__button-label">Hotel</ion-label>
         </button>
 
         <button
-                class="top-nav__button"
+                class="tiles-nav__button"
                 [routerLink]="['/', routeSegments.community]">
-            <ion-icon name="medal-outline" class="top-nav__button-icon"></ion-icon>
-            <ion-label class="top-nav__button-label">Community</ion-label>
+            <ion-icon name="medal-outline" class="tiles-nav__button-icon"></ion-icon>
+            <ion-label class="tiles-nav__button-label">Community</ion-label>
         </button>
 
         <button
-                class="top-nav__button"
+                class="tiles-nav__button"
                 (click)="navigateToExternalUrl(externalUrls.tourGuide)">
-            <ion-icon name="walk-outline" class="top-nav__button-icon"></ion-icon>
-            <ion-label class="top-nav__button-label">Tour guide</ion-label>
+            <ion-icon name="walk-outline" class="tiles-nav__button-icon"></ion-icon>
+            <ion-label class="tiles-nav__button-label">Tour guide</ion-label>
         </button>
 
         <button
-                class="top-nav__button"
+                class="tiles-nav__button"
                 (click)="navigateToExternalUrl(externalUrls.restaurants)">
-            <ion-icon name="restaurant-outline" class="top-nav__button-icon"></ion-icon>
-            <ion-label class="top-nav__button-label">Restaurants</ion-label>
+            <ion-icon name="restaurant-outline" class="tiles-nav__button-icon"></ion-icon>
+            <ion-label class="tiles-nav__button-label">Restaurants</ion-label>
         </button>
     </div>
 

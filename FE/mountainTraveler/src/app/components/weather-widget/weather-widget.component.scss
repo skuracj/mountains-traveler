@@ -9,16 +9,13 @@
   }
 
   &__item {
-    min-width: 80px;
+    min-width: calc(var(--mt-increment-unit) * 5);
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgba(255,255, 255,0.7);
 
     &__img {
-      height: 48px;
+      height: calc(var(--mt-increment-unit) * 3);
     }
   }
-}
-
-.item-active {
-  margin: 5px;
-  border-radius: 10px;
-  background-color: rgba(255,255, 255,0.7);
 }

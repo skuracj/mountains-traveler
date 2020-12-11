@@ -2,5 +2,5 @@
   position: absolute;
   bottom: 1%;
   right: 1%;
-  font-size: 32px;
+  font-size: calc(var(--mt-increment-unit) * 2);
 }

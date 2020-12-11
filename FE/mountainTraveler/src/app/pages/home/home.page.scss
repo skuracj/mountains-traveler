@@ -1,57 +1,53 @@
-.toolbar-background {
-  border: none !important;
-}
 
 .home {
 
   &__content {
-    --background: var(--mt-background-url);
+    --background : var(--mt-background-url);
   }
 
   &__location {
-    --background: rgba(255, 255, 255, 0.7);
-    --border-radius: 30px;
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 20px;
+    --background    : rgba(255, 255, 255, 0.7);
+    --border-radius : 30px;
+    top             : 5%;
+    left            : 50%;
+    transform       : translateX(-50%);
+    margin-bottom   : var(--mt-increment-unit);
 
     &-select-label {
-      margin: 0 auto;
-      font-size: 12px;
+      margin : 0 auto;
     }
   }
 
-  &__top-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    position: absolute;
-    bottom: 10%;
+  &__tiles-nav {
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : space-evenly;
+    position        : absolute;
+    bottom          : 10%;
   }
 }
 
-.top-nav {
+.tiles-nav {
   &__button {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 120px;
-    height: 120px;
-    margin: 10px;
-    display: flex;
-    border-radius: 10px;
-    flex-direction: column !important;
-    justify-content: center;
-    align-items: center;
-    color: var(--ion-color-success);
+    background-color : rgba(255, 255, 255, 0.8);
+    width            : calc(var(--mt-increment-unit) * 8);
+    height           : calc(var(--mt-increment-unit) * 8);
+    margin           : calc(var(--mt-increment-unit) / 2);
+    display          : flex;
+    border-radius    : 10px;
+    flex-direction   : column !important;
+    justify-content  : center;
+    align-items      : center;
+    color            : var(--ion-color-success);
 
     &-label {
-      color: black;
-      margin: 8px;
+      color  : black;
+      margin : calc(var(--mt-increment-unit) / 2);
     }
 
     &-icon {
-      margin: 8px;
-      font-size: 48px;
+      margin    : calc(var(--mt-increment-unit) / 2);
+      font-size : calc(var(--mt-increment-unit) * 3);
     }
   }
 }

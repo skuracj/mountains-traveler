@@ -1,16 +1,10 @@
 .profile {
-  &__h3 {
-    margin: 0 auto;
-    color: red;
-  }
-  &__location {
-    font-size: 10px;
-  }
+
   &__thumbnail {
     margin: 0 auto;
     border-radius: 50%;
     border: 3px solid var(--ion-color-success);
-    padding: 5px;
+    padding: calc(var(--mt-increment-unit) / 4);
   }
   &__achievements {
     display: flex;
@@ -22,17 +16,5 @@
     color: var(--ion-color-success);
     font-size: 16px;
     font-weight: bold;
-  }
-}
-
-.relations {
-  &__container {
-    display: flex;
-    overflow-x: scroll;
-  }
-  &__thumbnail {
-    margin: 10px;
-    min-width: 75px;
-    min-height: 75px;
   }
 }
