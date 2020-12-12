@@ -9,7 +9,7 @@ import { UserPageRoutingModule } from './user-routing.module';
 import { UserPage } from './user.page';
 import {PeoplePageModule} from '../people/people.module';
 import {HeaderComponentModule} from '../../components/header/header.module';
-import {SettingsModalComponent} from '../../components/settings-modal/settings-modal.component';
+import {ModalComponent} from '../../components/modal/modal.component';
 import {CommunityPageModule} from '../community/community.module';
 
 @NgModule({
@@ -22,6 +22,6 @@ import {CommunityPageModule} from '../community/community.module';
         HeaderComponentModule,
         CommunityPageModule
     ],
-    declarations: [UserPage, SettingsModalComponent]
+    declarations: [UserPage, ModalComponent]
 })
 export class UserPageModule {}

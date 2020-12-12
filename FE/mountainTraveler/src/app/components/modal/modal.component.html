@@ -1,0 +1,70 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-title>{{title}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+
+    <ion-list *ngIf="packingList">
+        <ion-item *ngFor="let item of packingList">
+            <ion-text [color]="item.packed ? 'success' : 'danger'" class="display-flex">
+                <ion-icon [name]="item.packed ? 'checkmark-circle-outline' : 'close-circle-outline'"></ion-icon>
+            </ion-text>
+            <ion-label>
+                <p>{{item.title}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    Edit mode: {{this.editMode}}
+
+</ion-content>
+
+<ion-footer>
+
+    <ion-button
+            fill="outline"
+            expand="block"
+            color="success"
+            (click)="this.editMode = !this.editMode">Edit
+    </ion-button>
+    <ion-button
+            color="success"
+            expand="block">Save
+    </ion-button>
+</ion-footer>
+
+
+<!--// TODO create separate component for profile settings ?-->
+<ng-template *ngIf="userSettings">
+
+
+    <form>
+        <!--  // TODO Create form for editing profile-->
+    </form>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Your relations (5)</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="relations__container">
+            <ion-thumbnail class="relations__thumbnail">
+                <ion-img src="/assets/soldier.jpeg"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail class="relations__thumbnail">
+                <ion-img src="/assets/mountain.jpg"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail class="relations__thumbnail">
+                <ion-img src="/assets/anulka.png"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail class="relations__thumbnail">
+                <ion-img src="/assets/soldier.jpeg"></ion-img>
+            </ion-thumbnail>
+            <ion-thumbnail class="relations__thumbnail">
+                <ion-img src="/assets/soldier.jpeg"></ion-img>
+            </ion-thumbnail>
+        </ion-card-content>
+    </ion-card>
+</ng-template>

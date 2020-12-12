@@ -30,8 +30,8 @@
 .tiles-nav {
   &__button {
     background-color : rgba(255, 255, 255, 0.8);
-    width            : calc(var(--mt-increment-unit) * 8);
-    height           : calc(var(--mt-increment-unit) * 8);
+    width            : calc(var(--mt-increment-unit) * 6);
+    height           : calc(var(--mt-increment-unit) * 6  );
     margin           : calc(var(--mt-increment-unit) / 2);
     display          : flex;
     border-radius    : 10px;
@@ -40,9 +40,18 @@
     align-items      : center;
     color            : var(--ion-color-success);
 
+    &--alert {
+      background-color: red;
+      color: white;
+    }
+
     &-label {
       color  : black;
       margin : calc(var(--mt-increment-unit) / 2);
+      &--alert {
+        color: white;
+        font-weight: bold;
+      }
     }
 
     &-icon {
@@ -50,4 +59,10 @@
       font-size : calc(var(--mt-increment-unit) * 3);
     }
   }
+}
+
+.sos {
+  --background: red;
+  background-color: red;
+  color: white;
 }

@@ -1,4 +1,5 @@
 import {Relations} from './relations';
+import {PackingItem} from './packing-list';
 
 export interface User {
     userId: string;
@@ -10,5 +11,6 @@ export interface User {
     relations: Relations[];
     timeInMinutes: number;
     friendsIds: string[];
+    packingList: PackingItem[];
 }
 

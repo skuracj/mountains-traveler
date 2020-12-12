@@ -36,6 +36,13 @@
         </button>
 
         <button
+                class="tiles-nav__button tiles-nav__button--alert"
+                (click)="openConfirmationAlert()">
+            <ion-icon name="alert-circle" class="tiles-nav__button-icon tiles-nav__button-icon--alert"></ion-icon>
+            <ion-label class="tiles-nav__button-label tiles-nav__button-label--alert">SOS</ion-label>
+        </button>
+
+        <button
                 class="tiles-nav__button"
                 (click)="navigateToExternalUrl(externalUrls.tourGuide)">
             <ion-icon name="walk-outline" class="tiles-nav__button-icon"></ion-icon>
@@ -48,6 +55,14 @@
             <ion-icon name="restaurant-outline" class="tiles-nav__button-icon"></ion-icon>
             <ion-label class="tiles-nav__button-label">Restaurants</ion-label>
         </button>
+
+        <button
+                class="tiles-nav__button"
+                (click)="showPackingListModal()">
+            <ion-icon name="reader-outline" class="tiles-nav__button-icon"></ion-icon>
+            <ion-label class="tiles-nav__button-label">Packing List</ion-label>
+        </button>
+
     </div>
 
 </ion-content>
