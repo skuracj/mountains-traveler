@@ -5,7 +5,7 @@
                 [value]="this.city"
                 interface="action-sheet"
                 class="home__location-select-label font-size-s"
-                (ionChange)="onSelectChanged($event)">
+                (ionChange)="onLocationChanged($event)">
             <ion-select-option value="choose_location">Choose location</ion-select-option>
             <ion-select-option value="zakopane">Poland, Zakopane</ion-select-option>
             <ion-select-option value="warsaw">Poland, Warsaw</ion-select-option>
@@ -37,7 +37,8 @@
 
         <button
                 class="tiles-nav__button tiles-nav__button--alert"
-                (click)="openConfirmationAlert()">
+                (click)="openConfirmationAlert()"
+                id="sos">
             <ion-icon name="alert-circle" class="tiles-nav__button-icon tiles-nav__button-icon--alert"></ion-icon>
             <ion-label class="tiles-nav__button-label tiles-nav__button-label--alert">SOS</ion-label>
         </button>
@@ -58,7 +59,8 @@
 
         <button
                 class="tiles-nav__button"
-                (click)="showPackingListModal()">
+                (click)="showPackingListModal()"
+                id="packing-list">
             <ion-icon name="reader-outline" class="tiles-nav__button-icon"></ion-icon>
             <ion-label class="tiles-nav__button-label">Packing List</ion-label>
         </button>

@@ -10,7 +10,6 @@ import {PackingItem} from '../../common/models/packing-list';
 import {userMock} from '../../common/testing/mocks/user.mock';
 
 
-
 @Component({
     selector: 'app-homepage',
     templateUrl: 'home.page.html',
@@ -19,7 +18,7 @@ import {userMock} from '../../common/testing/mocks/user.mock';
 export class HomePage extends BaseComponent {
     public city: string;
     public externalUrls = ExternalUrls;
-    private packingList: PackingItem[] = userMock.packingList;
+    public packingList: PackingItem[] = userMock.packingList;
 
     constructor(public navController: NavController,
                 private storage: Storage,
@@ -35,7 +34,7 @@ export class HomePage extends BaseComponent {
         this.city = storedCity ? storedCity : environment.defaultCity;
     }
 
-    async onSelectChanged(event) {
+    async onLocationChanged(event) {
         const selection = event.detail.value;
         this.city = selection;
         await this.storage.set(this.storageObject.city, selection);
@@ -47,18 +46,21 @@ export class HomePage extends BaseComponent {
     }
 
     async showPackingListModal() {
-        const modal = await this.modalController.create({
-            component: ModalComponent,
-            componentProps: {
-                packingList: this.packingList,
-                title: 'Packing list',
-            }
-        });
-        return await modal.present();
+        if (this.packingList) {
+            const modal: HTMLIonModalElement = await this.modalController.create({
+                component: ModalComponent,
+                componentProps: {
+                    packingList: this.packingList,
+                    title: 'Packing list',
+                }
+            });
+
+            await modal.present();
+        }
     }
 
     async openConfirmationAlert() {
-        const alert = await this.alertController.create({
+        const alert: HTMLIonAlertElement = await this.alertController.create({
             header: 'Confirm SOS !',
             message: 'Are You sure You want to call help?',
             buttons: [

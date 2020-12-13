@@ -14,6 +14,7 @@ export class ModalComponent implements OnInit {
     @Input() userSettings?: FormGroup;
 
     editMode = false;
+    newItem: string;
 
     constructor(private modalController: ModalController) {
     }
@@ -21,6 +22,19 @@ export class ModalComponent implements OnInit {
     ngOnInit() {
     }
 
+    addItemToList() {
+        this.packingList.push({title: this.newItem, packed: false});
+        this.newItem = null;
+    }
+
+    deleteItemFromList(index: number) {
+        this.packingList.splice(index, 1);
+    }
+
+    savePackingList() {
+        // TODO update user profile object
+        console.log('Saving list', this.packingList);
+    }
     async dismissModal() {
         // using the injected ModalController this page
         // can "dismiss" itself and optionally pass back data

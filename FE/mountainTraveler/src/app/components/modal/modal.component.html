@@ -6,20 +6,44 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-<ion-content fullscreen>
+<ion-content>
 
     <ion-list *ngIf="packingList">
-        <ion-item *ngFor="let item of packingList">
+        <ion-item *ngFor="let item of packingList;let i = index" (click)="item.packed = !item.packed">
             <ion-text [color]="item.packed ? 'success' : 'danger'" class="display-flex">
                 <ion-icon [name]="item.packed ? 'checkmark-circle-outline' : 'close-circle-outline'"></ion-icon>
             </ion-text>
-            <ion-label>
-                <p>{{item.title}}</p>
+            <ion-label class="ion-margin-horizontal">
+                <p [ngClass]="{'strikethrough' : item.packed}">{{item.title}}</p>
             </ion-label>
+            <ion-button fill="clear" color="danger" (click)="deleteItemFromList(i)">
+            delete
+            </ion-button>
         </ion-item>
     </ion-list>
 
-    Edit mode: {{this.editMode}}
+    <div class="ion-padding" *ngIf="editMode">
+
+        <ion-item>
+            <ion-label position="floating">Type your item</ion-label>
+            <ion-input
+                    clearInput="true"
+                    maxlength="140"
+                    minlength="2"
+                    name="newItem"
+                    [(ngModel)]="this.newItem"
+            ></ion-input>
+
+        </ion-item>
+
+        <ion-button class="ion-margin-vertical"
+                    expand="block"
+                    color="success"
+                    [disabled]="!this.newItem"
+                    (click)="addItemToList()">Add item
+        </ion-button>
+
+    </div>
 
 </ion-content>
 
@@ -29,11 +53,12 @@
             fill="outline"
             expand="block"
             color="success"
-            (click)="this.editMode = !this.editMode">Edit
+            (click)="this.editMode = !this.editMode">Add new items
     </ion-button>
     <ion-button
             color="success"
-            expand="block">Save
+            expand="block"
+            (click)="savePackingList()">Save
     </ion-button>
 </ion-footer>
 

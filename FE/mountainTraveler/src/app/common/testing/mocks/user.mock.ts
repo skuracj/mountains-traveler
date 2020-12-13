@@ -23,6 +23,10 @@ export const userMock: User = {
             packed: true
         },
         {
+            title: 'Backpack',
+            packed: true
+        },
+        {
             title: 'Bottle',
             packed: false
         }]
