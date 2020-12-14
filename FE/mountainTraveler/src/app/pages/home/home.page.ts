@@ -71,14 +71,15 @@ export class HomePage extends BaseComponent {
                 {
                     text: 'Okay',
                     cssClass: 'sos',
-                    handler: () => {
-                        // TODO => Create handler
-                        console.log('Confirm Okay');
-                    }
+                    handler: this.callSos,
                 }
             ]
         });
 
         await alert.present();
+    }
+
+    callSos(): void {
+        console.log('Calling sos...');
     }
 }

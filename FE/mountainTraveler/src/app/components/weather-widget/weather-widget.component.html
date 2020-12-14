@@ -3,17 +3,27 @@
 
     <div *ngFor="let day of fiveDaysWeather;index as i;" class="weather-widget__item ion-text-center">
 
-        <p class="weather-widget__item__date ion-no-margin">{{i == 0 ? 'Today' : day.date}}</p>
+        <p class="weather-widget__item__date ion-no-margin">
+            {{i == 0 ? 'Today' : day.date}}
+        </p>
 
         <ion-img src="assets/weather-icons/{{day.icon}}.svg" class="weather-widget__item__img"></ion-img>
 
-        <p class="ion-no-margin"><ion-icon name="thermometer-outline"></ion-icon> {{day.temp.min| number:'1.0-0'}} / {{ day.temp.max | number:'1.0-0'}}&deg;C</p>
+        <p class="ion-no-margin"><ion-icon name="thermometer-outline"></ion-icon>
+            {{day.temp.min| number:'1.0-0'}} / {{ day.temp.max | number:'1.0-0'}}&deg;C
+        </p>
 
-        <p><ion-icon name="rainy-outline"></ion-icon> {{day.rain | number: '1.0-0'}} mm</p>
+        <p><ion-icon name="rainy-outline"></ion-icon>
+            {{day.rain | number: '1.0-0'}} mm
+        </p>
 
-        <p><ion-icon name="sunny-outline"></ion-icon> {{day.sunrise}}</p>
+        <p><ion-icon name="sunny-outline"></ion-icon>
+            {{day.sunrise}}
+        </p>
 
-        <p><ion-icon name="moon-outline"></ion-icon> {{day.sunset}}</p>
+        <p><ion-icon name="moon-outline"></ion-icon>
+            {{day.sunset}}
+        </p>
     </div>
 </ion-list>
 

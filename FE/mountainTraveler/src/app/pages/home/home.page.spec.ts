@@ -171,7 +171,21 @@ describe('HomePage', () => {
 
 
         it('Should create alert', () => {
-            expect(alertControllerSpy.create).toHaveBeenCalled();
+            expect(alertControllerSpy.create).toHaveBeenCalledWith({
+                header: 'Confirm SOS !',
+                message: 'Are You sure You want to call help?',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Okay',
+                        cssClass: 'sos',
+                        handler: component.callSos,
+                    }
+                ]
+            });
 
         });
 

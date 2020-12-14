@@ -2,7 +2,7 @@
     <ion-toolbar>
         <ion-title>{{title}}</ion-title>
         <ion-buttons slot="end">
-            <ion-button (click)="dismissModal()">Close</ion-button>
+            <ion-button (click)="dismissModal()" id="close-button">Close</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -16,7 +16,7 @@
             <ion-label class="ion-margin-horizontal">
                 <p [ngClass]="{'strikethrough' : item.packed}">{{item.title}}</p>
             </ion-label>
-            <ion-button fill="clear" color="danger" (click)="deleteItemFromList(i)">
+            <ion-button fill="clear" color="danger" (click)="deleteItemFromList(i)" id="delete-item-button">
             delete
             </ion-button>
         </ion-item>
@@ -30,8 +30,8 @@
                     clearInput="true"
                     maxlength="140"
                     minlength="2"
-                    name="newItem"
-                    [(ngModel)]="this.newItem"
+                    name="newItemValue"
+                    [(ngModel)]="this.newItemValue"
             ></ion-input>
 
         </ion-item>
@@ -39,7 +39,8 @@
         <ion-button class="ion-margin-vertical"
                     expand="block"
                     color="success"
-                    [disabled]="!this.newItem"
+                    [disabled]="!this.newItemValue"
+                    id="add-item-button"
                     (click)="addItemToList()">Add item
         </ion-button>
 
@@ -58,6 +59,7 @@
     <ion-button
             color="success"
             expand="block"
+            id="save-button"
             (click)="savePackingList()">Save
     </ion-button>
 </ion-footer>

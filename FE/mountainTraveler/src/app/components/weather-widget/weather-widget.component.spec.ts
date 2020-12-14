@@ -100,7 +100,7 @@ describe('WeatherWidgetComponent', () => {
         }]);
     });
 
-    it('Should NOT render weather days list when data loaded', () => {
+    it('Should NOT render weather days list when data is NOT loaded', () => {
         const weatherDayList = fixture.debugElement.query(By.css('.weather-widget__list'));
 
         component.isWeatherDataLoaded = false;

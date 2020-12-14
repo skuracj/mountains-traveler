@@ -8,23 +8,19 @@ import {FormGroup} from '@angular/forms';
     templateUrl: './modal.component.html',
     styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
     @Input() title: string;
     @Input() packingList?: PackingItem[];
     @Input() userSettings?: FormGroup;
 
     editMode = false;
-    newItem: string;
+    newItemValue: string;
 
-    constructor(private modalController: ModalController) {
-    }
-
-    ngOnInit() {
-    }
+    constructor(private modalController: ModalController) {}
 
     addItemToList() {
-        this.packingList.push({title: this.newItem, packed: false});
-        this.newItem = null;
+        this.packingList.push({title: this.newItemValue, packed: false});
+        this.newItemValue = null;
     }
 
     deleteItemFromList(index: number) {
@@ -36,11 +32,7 @@ export class ModalComponent implements OnInit {
         console.log('Saving list', this.packingList);
     }
     async dismissModal() {
-        // using the injected ModalController this page
-        // can "dismiss" itself and optionally pass back data
-        await this.modalController.dismiss({
-            dismissed: true
-        });
+        await this.modalController.dismiss();
     }
 
 }
