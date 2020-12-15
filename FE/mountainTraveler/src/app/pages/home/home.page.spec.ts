@@ -10,7 +10,7 @@ import {WeatherWidgetComponent} from '../../components/weather-widget/weather-wi
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StorageObject} from '../../common/constants/StorageObjects.enum';
 import {By} from '@angular/platform-browser';
-import {ModalComponent} from '../../components/modal/modal.component';
+import {PackingListComponent} from '../../components/packing-list/packing-list.component';
 import {userMock} from '../../common/testing/mocks/user.mock';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
@@ -133,10 +133,10 @@ describe('HomePage', () => {
         });
 
 
-        it('Should create modal with packingList and title', () => {
+        it('Should create packing-list with packingList and title', () => {
 
             expect(modalControllerSpy.create).toHaveBeenCalledWith({
-                component: ModalComponent,
+                component: PackingListComponent,
                 componentProps: {
                     packingList: packingListMock,
                     title: 'Packing list',
@@ -145,7 +145,7 @@ describe('HomePage', () => {
 
         });
 
-        it('Should present modal', async () => {
+        it('Should present packing-list', async () => {
             await component.showPackingListModal();
 
             expect(modalSpy.present).toHaveBeenCalled();
@@ -197,7 +197,7 @@ describe('HomePage', () => {
     });
 
 
-    it('When packing list is NOT present should NOT open the modal', () => {
+    it('When packing list is NOT present should NOT open the packing-list', () => {
         component.packingList = null;
         fixture.whenRenderingDone();
         const packingListButton = fixture.debugElement.query(By.css(`[id="packing-list"]`));

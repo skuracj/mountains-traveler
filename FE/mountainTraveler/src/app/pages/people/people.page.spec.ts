@@ -15,6 +15,7 @@ describe('People', () => {
     let component: PeoplePage;
     let fixture: ComponentFixture<PeoplePage>;
     let storageSpy;
+    let userDetailsComponent: UserDetailsComponent;
 
     beforeEach(async(() => {
         storageSpy = jasmine.createSpyObj('Storage', ['get', 'set']);
@@ -45,4 +46,24 @@ describe('People', () => {
         });
     });
 
+    describe('UserDetailsComponent when setting button clicked', () => {
+        let settingsButton;
+        beforeEach(() => {
+
+            fixture.detectChanges();
+
+            const userDetails = fixture.debugElement.query(By.directive(UserDetailsComponent));
+            userDetailsComponent = userDetails.componentInstance;
+
+            settingsButton = userDetails.query(By.css('[id="settings-button"]'));
+        });
+
+        it('should open settings modal', () => {
+            spyOn(component, 'openSettingsModal');
+            settingsButton.nativeElement.click();
+
+            expect(component.openSettingsModal).toHaveBeenCalled();
+        });
+    });
 });
+

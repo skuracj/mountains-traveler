@@ -4,11 +4,11 @@ import {PackingItem} from '../../common/models/packing-list';
 import {FormGroup} from '@angular/forms';
 
 @Component({
-    selector: 'app-modal',
-    templateUrl: './modal.component.html',
-    styleUrls: ['./modal.component.scss'],
+    selector: 'app-packing-list',
+    templateUrl: './packing-list.component.html',
+    styleUrls: ['./packing-list.component.scss'],
 })
-export class ModalComponent {
+export class PackingListComponent {
     @Input() title: string;
     @Input() packingList?: PackingItem[];
     @Input() userSettings?: FormGroup;

@@ -35,5 +35,9 @@ export class PeoplePage extends BaseComponent implements OnInit {
         this.selectedSection = event.detail.value;
     }
 
+    openSettingsModal() {
+        console.log('settings button clicked in user details');
+    }
+
 
 }

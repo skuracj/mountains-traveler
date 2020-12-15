@@ -1,25 +1,25 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule, ModalController} from '@ionic/angular';
 
-import {ModalComponent} from './modal.component';
+import {PackingListComponent} from './packing-list.component';
 import {By} from '@angular/platform-browser';
-import {userMock} from '../../common/testing/mocks/user.mock';
 
-describe('ModalComponent', () => {
-    let component: ModalComponent;
-    let fixture: ComponentFixture<ModalComponent>;
+
+describe('PackingListComponent', () => {
+    let component: PackingListComponent;
+    let fixture: ComponentFixture<PackingListComponent>;
     let modalControllerSpy;
 
     beforeEach(async(() => {
         modalControllerSpy = jasmine.createSpyObj('ModalController', ['dismiss']);
 
         TestBed.configureTestingModule({
-            declarations: [ModalComponent],
+            declarations: [PackingListComponent],
             imports: [IonicModule.forRoot()],
             providers: [{provide: ModalController, useValue: modalControllerSpy}]
         }).compileComponents();
 
-        fixture = TestBed.createComponent(ModalComponent);
+        fixture = TestBed.createComponent(PackingListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
         modalControllerSpy.dismiss.and.returnValue(Promise.resolve());
@@ -88,7 +88,7 @@ describe('ModalComponent', () => {
     });
 
     describe('When close button clicked', () => {
-        it('Should close modal', () => {
+        it('Should close packing-list', () => {
             fixture.detectChanges();
             fixture.whenRenderingDone();
             const closeButton = fixture.debugElement.query(By.css(`[id="close-button"]`));

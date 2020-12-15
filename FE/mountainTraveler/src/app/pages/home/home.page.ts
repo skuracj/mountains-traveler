@@ -5,7 +5,7 @@ import {Storage} from '@ionic/storage';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
-import {ModalComponent} from '../../components/modal/modal.component';
+import {PackingListComponent} from '../../components/packing-list/packing-list.component';
 import {PackingItem} from '../../common/models/packing-list';
 import {userMock} from '../../common/testing/mocks/user.mock';
 
@@ -48,7 +48,7 @@ export class HomePage extends BaseComponent {
     async showPackingListModal() {
         if (this.packingList) {
             const modal: HTMLIonModalElement = await this.modalController.create({
-                component: ModalComponent,
+                component: PackingListComponent,
                 componentProps: {
                     packingList: this.packingList,
                     title: 'Packing list',

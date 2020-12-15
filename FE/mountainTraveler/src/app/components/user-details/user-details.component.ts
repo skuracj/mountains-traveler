@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../common/models/user';
 
 @Component({
@@ -6,13 +6,15 @@ import {User} from '../../common/models/user';
     templateUrl: './user-details.component.html',
     styleUrls: ['./user-details.component.scss'],
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent {
     @Input() user: User;
-    
+    @Input() inProfileOwner = false;
+    @Output() openSettingsModal: EventEmitter<any> = new EventEmitter();
+
     constructor() {
     }
 
-    ngOnInit() {
+    onSettingsButtonClicked() {
+        this.openSettingsModal.emit();
     }
-
 }
