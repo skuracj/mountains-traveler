@@ -5,6 +5,7 @@ export interface User {
     userId: string;
     name: string;
     profilePicture: string;
+    age: number;
     location: string;
     totalDistance: number;
     trips: number;

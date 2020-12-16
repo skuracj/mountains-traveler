@@ -12,6 +12,7 @@ import {AppComponent} from './app.component';
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from "@ionic/storage";
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 /* TODO Configure Amplify resources */
@@ -79,6 +80,7 @@ Amplify.configure({
     entryComponents: [],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
         AppRoutingModule

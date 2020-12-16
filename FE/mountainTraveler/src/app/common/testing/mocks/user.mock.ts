@@ -4,6 +4,7 @@ export const userMock: User = {
     userId: 'aw3s0m-3eb7-4d1a-8d8f-612f7083839c',
     name: 'Cezary Lolek',
     profilePicture: 'somepath',
+    age: 28,
     location: 'Amsterdam, Netherlands',
     totalDistance: 1234,
     trips: 15,

@@ -1,23 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Form, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {User} from '../../common/models/user';
 
 @Component({
-  selector: 'app-user-settings',
-  templateUrl: './user-settings.component.html',
-  styleUrls: ['./user-settings.component.scss'],
+    selector: 'app-user-settings',
+    templateUrl: './user-settings.component.html',
+    styleUrls: ['./user-settings.component.scss'],
 })
 export class UserSettingsComponent implements OnInit {
-  profileForm = new FormGroup({
-    name: new FormControl('')
-  });
+    @Input() user: User;
+    profileForm: FormGroup ;
 
-  constructor(private modalController: ModalController) { }
+    constructor(private modalController: ModalController,
+                public formBuilder: FormBuilder) {
 
-  ngOnInit() {}
+    }
 
-  async dismissModal() {
-    await this.modalController.dismiss();
-  }
+    ngOnInit() {
+        if (this.user) {
+            console.log(this.user);
+        }
+
+        this.profileForm = this.formBuilder.group({
+            name: ['dsa'],
+            age: [''],
+            location: [''],
+            profilePicture: ['']
+        });
+    }
+
+    async dismissModal() {
+        await this.modalController.dismiss();
+    }
+
+    saveProfile(e) {
+        e.preventDefault();
+        console.log('whatever');
+        console.log('Saving profile...', this.profileForm.value);
+    }
 
 }
