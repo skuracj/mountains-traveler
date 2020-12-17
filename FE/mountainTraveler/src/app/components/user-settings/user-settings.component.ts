@@ -24,9 +24,7 @@ export class UserSettingsComponent implements OnInit {
 
         this.profileForm = this.formBuilder.group({
             name: ['dsa'],
-            age: [''],
-            location: [''],
-            profilePicture: ['']
+
         });
     }
 
