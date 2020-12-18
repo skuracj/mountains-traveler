@@ -1,0 +1,30 @@
+<div class="ion-padding">
+  <form [formGroup]="profileForm" (submit)="saveProfile($event)">
+    <ion-item lines="full">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">location</ion-label>
+      <ion-input formControlName="location" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">age</ion-label>
+      <ion-datetime formControlName="age"></ion-datetime>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">profilePicture</ion-label>
+      <ion-input formControlName="profilePicture" ></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!profileForm.valid"
+                color="success"
+                type="submit"
+                id="save-button">
+      Save profile
+    </ion-button>
+  </form>
+</div>
