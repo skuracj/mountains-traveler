@@ -31,6 +31,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/' + RouteSegments.initialScreen,
     pathMatch: 'full'
+  },
+  {
+    path: 'user-settings',
+    loadChildren: () => import('./components/user-settings/user-settings.module').then( m => m.UserSettingsPageModule)
   }
 ];
 @NgModule({

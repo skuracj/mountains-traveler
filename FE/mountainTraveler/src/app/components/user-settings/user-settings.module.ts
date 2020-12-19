@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { UserSettingsPageRoutingModule } from './user-settings-routing.module';
 
 import { UserSettingsPage } from './user-settings.page';
+import {HeaderComponentModule} from '../header/header.module';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { UserSettingsPage } from './user-settings.page';
         FormsModule,
         IonicModule,
         UserSettingsPageRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HeaderComponentModule
     ],
   declarations: [UserSettingsPage]
 })

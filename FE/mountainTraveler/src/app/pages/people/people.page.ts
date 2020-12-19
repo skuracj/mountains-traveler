@@ -1,14 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
-import {Storage} from '@ionic/storage';
-import {Router} from '@angular/router';
 import {Sections} from '../../common/constants/Sections.enum';
 import {KeyValue} from '@angular/common';
 import {userMock} from '../../common/testing/mocks/user.mock';
 import {User} from '../../common/models/user';
-import {PackingListComponent} from '../../components/packing-list/packing-list.component';
 import {ModalController} from '@ionic/angular';
-import {UserSettingsComponent} from '../../components/user-settings/user-settings.component';
+import {UserSettingsPage} from '../../components/user-settings/user-settings.page';
 
 @Component({
     selector: 'app-people',
@@ -41,7 +38,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
     async openSettingsModal() {
         if (this.user) {
             const modal: HTMLIonModalElement = await this.modalController.create({
-                component: UserSettingsComponent,
+                component: UserSettingsPage,
                 componentProps: {
                     user: this.user
                 }
