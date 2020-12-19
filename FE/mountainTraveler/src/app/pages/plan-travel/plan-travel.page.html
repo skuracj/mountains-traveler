@@ -1,11 +1,12 @@
 <app-header [headerTitle]="routeSegments.planTravel"></app-header>
 
 <ion-content [fullscreen]="true">
-    <div class="ion-text-center"
-         style="width: 300px; height: 150px; background-color: var(--ion-color-success);margin: 100px auto; border-radius: 20px; color: white;">
-        <ion-icon name="arrow-undo-outline" style="font-size: 50px;"></ion-icon>
-
-        <h1 style="font-size: 50px;"> Coming soon</h1>
-    </div>
-
+    <ion-grid class="ion-text-center ion-no-padding">
+        <ion-row class="ion-margin-vertical plan-travel__row" *ngFor="let level of levels">
+            <div class="plan-travel__cover display-flex">
+                <p class="plan-travel__cover-text font-size-xxl">{{level | uppercase}}</p>
+            </div>
+            <ion-img src="/assets/levels/{{level}}.png"></ion-img>
+        </ion-row>
+    </ion-grid>
 </ion-content>

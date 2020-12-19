@@ -1,0 +1,22 @@
+.plan-travel {
+  &__row {
+    position   : relative;
+    max-height : 25vh;
+    background : url('/src/assets/levels/easy.png');
+    overflow   : hidden;
+  }
+
+  &__cover {
+    position         : absolute;
+    width            : 100%;
+    height           : 100%;
+    background-color : rgba(45, 211, 211, 0.2);
+    align-items      : center;
+    justify-content  : center;
+
+    &-text {
+      color       : white;
+      font-weight : bold;
+    }
+  }
+}

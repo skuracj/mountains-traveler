@@ -29,7 +29,7 @@ export class UserSettingsPage implements OnInit {
             [Profile.location]: ['dsa'],
             [Profile.age]: [21],
             [Profile.isPublic]: [true],
-            [Profile.profilePicture]: ['/assets/soldier.jpeg'],
+            [Profile.profilePicture]: ['C:\\\\fakepath\\\\DA5E6D4C-3525-4B99-8872-AFBB953A5C00.jpeg'],
 
         });
     }

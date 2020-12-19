@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {BaseComponent} from "../../common/base/base.component";
+import {BaseComponent} from '../../common/base/base.component';
+import {HikingLevels} from '../../common/constants/HikingLevels.enum';
 
 @Component({
   selector: 'app-plan-travel',
@@ -7,9 +8,10 @@ import {BaseComponent} from "../../common/base/base.component";
   styleUrls: ['plan-travel.page.scss']
 })
 export class PlanTravelPage extends BaseComponent{
+  levels: HikingLevels[] = Object.values(HikingLevels);
 
   constructor() {
-    super()
+    super();
   }
 
 }

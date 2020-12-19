@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <ion-card>
+  <ion-card class="ion-padding">
   <form [formGroup]="profileForm" (submit)="saveProfile($event)">
     <ion-item lines="full">
       <ion-label position="floating" class="user-settings__label">Name</ion-label>
@@ -27,9 +27,8 @@
 
     <ion-item lines="full">
       <ion-label position="floating" class="user-settings__label">Profile picture</ion-label>
-      <ion-input [formControlName]="profile.profilePicture" type="file"></ion-input>
+      <ion-input [formControlName]="profile.profilePicture" type="file" accept="image/*" (change)="changeListener($event)"></ion-input>
     </ion-item>
-
     <ion-item>
       <ion-label class="user-settings__label">Profile</ion-label>
       <ion-select [value]="this.profileForm.get([profile.isPublic]).value">
