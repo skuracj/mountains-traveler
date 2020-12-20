@@ -7,5 +7,7 @@ export enum RouteSegments {
     initialScreen = 'initialScreen',
     authentication = 'authentication',
     community = 'community',
-    user = 'user'
+    user = 'user',
+    userSettings = 'user-settings',
+    travelPlanner = 'travel-planner'
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, Input, OnInit} from '@angular/core';
 import {User} from '../../common/models/user';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ModalController} from '@ionic/angular';
@@ -15,7 +15,8 @@ export class UserSettingsPage implements OnInit {
     public profile = Profile;
 
     constructor(private modalController: ModalController,
-                public formBuilder: FormBuilder) {
+                public formBuilder: FormBuilder,
+                private cd: ChangeDetectorRef) {
 
     }
 
@@ -29,9 +30,32 @@ export class UserSettingsPage implements OnInit {
             [Profile.location]: ['dsa'],
             [Profile.age]: [21],
             [Profile.isPublic]: [true],
-            [Profile.profilePicture]: ['C:\\\\fakepath\\\\DA5E6D4C-3525-4B99-8872-AFBB953A5C00.jpeg'],
-
+            [Profile.profilePicture]: [this.user.profilePicture],
         });
+
+
+    }
+
+    changeListener(event) {
+        console.log(event.target.value);
+        console.log(event.target.files[0]);
+        // this.profileForm.patchValue({
+        //     [Profile.profilePicture]:  event.target.files[0]
+        // });
+        // const reader = new FileReader();
+        // if(event.target.files && event.target.files.length) {
+        //     const [file] = event.target.files;
+        //     reader.readAsDataURL(file);
+        //
+        //     reader.onload = () => {
+        //         this.profileForm.patchValue({
+        //             [Profile.profilePicture]: file
+        //         });
+        //
+        //         // need to run CD since file load runs outside of zone
+        //         this.cd.markForCheck();
+        //     };
+        // }
     }
 
     async dismissModal() {
@@ -40,7 +64,6 @@ export class UserSettingsPage implements OnInit {
 
     saveProfile(e) {
         e.preventDefault();
-        console.log('whatever');
         console.log('Saving profile...', this.profileForm.value);
     }
 

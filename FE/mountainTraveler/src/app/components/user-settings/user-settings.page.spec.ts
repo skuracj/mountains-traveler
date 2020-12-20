@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { UserSettingsPage } from './user-settings.page';
 import {By} from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('UserSettingsPage', () => {
   let component: UserSettingsPage;
@@ -11,7 +12,7 @@ describe('UserSettingsPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ UserSettingsPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), ReactiveFormsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserSettingsPage);

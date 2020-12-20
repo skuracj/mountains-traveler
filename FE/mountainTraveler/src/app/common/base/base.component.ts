@@ -7,9 +7,16 @@ export class BaseComponent {
     public routeSegments = RouteSegments;
     public queryParamNames = QueryParamNames;
     public storageObject = StorageObject;
-    public hikingLevels =  HikingLevels;
+    public hikingLevels = HikingLevels;
 
     constructor() {
+    }
+
+    getQueryParams(queryParamName: QueryParamNames, queryParamValue: string) {
+        if (!queryParamName || !queryParamValue) {
+            return null;
+        }
+        return {[queryParamName]: queryParamValue};
     }
 
 }

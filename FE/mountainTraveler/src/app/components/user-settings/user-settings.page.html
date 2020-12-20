@@ -1,49 +1,59 @@
 <ion-header translucent>
-  <ion-toolbar>
-    <ion-title>Edit profile</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()" id="close-button">Close</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Edit profile</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()" id="close-button">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <ion-card class="ion-padding">
-  <form [formGroup]="profileForm" (submit)="saveProfile($event)">
-    <ion-item lines="full">
-      <ion-label position="floating" class="user-settings__label">Name</ion-label>
-      <ion-input [formControlName]="profile.name" type="text"></ion-input>
-    </ion-item>
+    <ion-card class="ion-padding">
+        <form [formGroup]="profileForm" (submit)="saveProfile($event)">
+            <ion-item lines="full">
+                <ion-label position="floating" class="user-settings__label">Name</ion-label>
+                <ion-input [formControlName]="profile.name" type="text"></ion-input>
+            </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating" class="user-settings__label">Location</ion-label>
-      <ion-input [formControlName]="profile.location" type="text"></ion-input>
-    </ion-item>
+            <ion-item lines="full">
+                <ion-label position="floating" class="user-settings__label">Location</ion-label>
+                <ion-input [formControlName]="profile.location" type="text"></ion-input>
+            </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating" class="user-settings__label">Age</ion-label>
-      <ion-input [formControlName]="profile.age" type="number"></ion-input>
-    </ion-item>
+            <ion-item lines="full">
+                <ion-label position="floating" class="user-settings__label">Age</ion-label>
+                <ion-input [formControlName]="profile.age" type="number"></ion-input>
+            </ion-item>
 
 
-    <ion-item lines="full">
-      <ion-label position="floating" class="user-settings__label">Profile picture</ion-label>
-      <ion-input [formControlName]="profile.profilePicture" type="file" accept="image/*" (change)="changeListener($event)"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label class="user-settings__label">Profile</ion-label>
-      <ion-select [value]="this.profileForm.get([profile.isPublic]).value">
-        <ion-select-option [value]="true">Public</ion-select-option>
-        <ion-select-option [value]="false">Private</ion-select-option>
-      </ion-select>
-    </ion-item>
+            <ion-item lines="full">
+                <ion-label class="user-settings__label">Profile</ion-label>
+                <ion-select [value]="this.profileForm.get([profile.isPublic]).value">
+                    <ion-select-option [value]="true">Public</ion-select-option>
+                    <ion-select-option [value]="false">Private</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-    <ion-button [disabled]="!profileForm.valid"
-                color="success"
-                type="submit"
-                class="ion-margin"
-                id="save-button">
-      Save profile
-    </ion-button>
-  </form>
-  </ion-card>
+            <ion-item lines="full">
+                <label class="user-settings__label" for="files">Change profile picture
+                    <input name="files" id="files" [hidden]="true"
+                           type="file" accept="image/*" (change)="changeListener($event)">
+
+                <ion-thumbnail *ngIf="profileForm.get(profile.profilePicture).value">
+                    <ion-img [src]="profileForm.get(profile.profilePicture).value"></ion-img>
+
+
+                </ion-thumbnail>
+                </label>
+            </ion-item>
+
+
+            <ion-button [disabled]="!profileForm.valid"
+                        color="success"
+                        type="submit"
+                        class="ion-margin"
+                        id="save-button">
+                Save profile
+            </ion-button>
+        </form>
+    </ion-card>
 </ion-content>

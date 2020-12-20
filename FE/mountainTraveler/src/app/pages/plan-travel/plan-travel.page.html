@@ -2,8 +2,12 @@
 
 <ion-content [fullscreen]="true">
     <ion-grid class="ion-text-center ion-no-padding">
-        <ion-row class="ion-margin-vertical plan-travel__row" *ngFor="let level of levels">
-            <div class="plan-travel__cover display-flex">
+        <ion-row
+                class="ion-margin-vertical plan-travel__row"
+                *ngFor="let level of levels">
+            <div class="plan-travel__cover display-flex"
+                 [routerLink]="['/', routeSegments.travelPlanner]"
+                 [queryParams]="this.getQueryParams(queryParamNames.level, level)">
                 <p class="plan-travel__cover-text font-size-xxl">{{level | uppercase}}</p>
             </div>
             <ion-img src="/assets/levels/{{level}}.png"></ion-img>
