@@ -30,7 +30,7 @@ describe('UserDetailsComponent', () => {
     let settingsButton: HTMLButtonElement;
 
     beforeEach(async () => {
-      component.inProfileOwner = true;
+      component.isProfileOwner = true;
       fixture.detectChanges();
       await fixture.whenRenderingDone();
 
@@ -52,7 +52,7 @@ describe('UserDetailsComponent', () => {
 
 
   it('should NOT display setting-button when user is NOT the owner of the profile', async () => {
-    component.inProfileOwner = false;
+    component.isProfileOwner = false;
     await fixture.whenRenderingDone();
 
     const settingsButton: DebugElement = fixture.debugElement.query(By.css('[id="settings-button"]'));

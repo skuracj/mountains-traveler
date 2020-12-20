@@ -1,14 +1,21 @@
-<ion-header translucent>
-    <ion-toolbar>
-        <ion-title>Edit profile</ion-title>
-        <ion-buttons slot="end">
-            <ion-button (click)="dismissModal()" id="close-button">Close</ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-</ion-header>
+<app-header
+        headerTitle="Edit profile"
+        [displayMode]="componentType.modal"
+></app-header>
+
 <ion-content class="ion-padding">
-    <ion-card class="ion-padding">
         <form [formGroup]="profileForm" (submit)="saveProfile($event)">
+            <ion-item lines="full">
+                <label class="user-settings__change-profile-picture button-native"
+                       for="files">Change picture
+                    <input name="files" id="files" [hidden]="true"
+                           type="file" accept="image/*" (change)="changeListener($event)">
+                </label>
+                <ion-thumbnail *ngIf="profileForm.get(profile.profilePicture).value" class=" ion-margin">
+                    <ion-img [src]="profileForm.get(profile.profilePicture).value"></ion-img>
+                </ion-thumbnail>
+            </ion-item>
+
             <ion-item lines="full">
                 <ion-label position="floating" class="user-settings__label">Name</ion-label>
                 <ion-input [formControlName]="profile.name" type="text"></ion-input>
@@ -33,18 +40,7 @@
                 </ion-select>
             </ion-item>
 
-            <ion-item lines="full">
-                <label class="user-settings__label" for="files">Change profile picture
-                    <input name="files" id="files" [hidden]="true"
-                           type="file" accept="image/*" (change)="changeListener($event)">
 
-                <ion-thumbnail *ngIf="profileForm.get(profile.profilePicture).value">
-                    <ion-img [src]="profileForm.get(profile.profilePicture).value"></ion-img>
-
-
-                </ion-thumbnail>
-                </label>
-            </ion-item>
 
 
             <ion-button [disabled]="!profileForm.valid"
@@ -55,5 +51,5 @@
                 Save profile
             </ion-button>
         </form>
-    </ion-card>
+
 </ion-content>

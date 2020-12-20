@@ -1,39 +1,48 @@
-import {ChangeDetectorRef, Component, HostListener, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {User} from '../../common/models/user';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {ModalController} from '@ionic/angular';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Profile} from '../../common/constants/Profile.enum';
+import {BaseComponent} from '../../common/base/base.component';
 
 @Component({
     selector: 'app-user-settings',
     templateUrl: './user-settings.page.html',
     styleUrls: ['./user-settings.page.scss'],
 })
-export class UserSettingsPage implements OnInit {
+export class UserSettingsPage extends BaseComponent implements OnInit {
     @Input() user: User;
     profileForm: FormGroup;
     public profile = Profile;
 
-    constructor(private modalController: ModalController,
-                public formBuilder: FormBuilder,
+    constructor(public formBuilder: FormBuilder,
                 private cd: ChangeDetectorRef) {
+        super();
 
     }
 
     ngOnInit() {
-        if (this.user) {
-            console.log(this.user);
-        }
+        this.createForm();
+        this.prefillForm();
+    }
 
+    createForm() {
         this.profileForm = this.formBuilder.group({
-            [Profile.name]: ['dsa'],
-            [Profile.location]: ['dsa'],
-            [Profile.age]: [21],
-            [Profile.isPublic]: [true],
+            [Profile.name]: ['', Validators.required],
+            [Profile.location]: [''],
+            [Profile.age]: [],
+            [Profile.isPublic]: [],
             [Profile.profilePicture]: [this.user.profilePicture],
         });
+    }
 
-
+    prefillForm() {
+        this.profileForm.patchValue({
+            [Profile.name]: this.user.name,
+            [Profile.location]: this.user.location,
+            [Profile.age]: this.user.age,
+            [Profile.isPublic]: this.user.isPublic,
+            [Profile.profilePicture]: this.user.profilePicture,
+        });
     }
 
     changeListener(event) {
@@ -58,12 +67,10 @@ export class UserSettingsPage implements OnInit {
         // }
     }
 
-    async dismissModal() {
-        await this.modalController.dismiss();
-    }
-
     saveProfile(e) {
         e.preventDefault();
+        // TODO update user profile object
+        alert('saved');
         console.log('Saving profile...', this.profileForm.value);
     }
 

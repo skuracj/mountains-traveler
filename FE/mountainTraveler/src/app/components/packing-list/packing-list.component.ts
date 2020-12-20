@@ -1,14 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ModalController} from '@ionic/angular';
+import {Component, Input} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
 import {FormGroup} from '@angular/forms';
+import {BaseComponent} from '../../common/base/base.component';
 
 @Component({
     selector: 'app-packing-list',
     templateUrl: './packing-list.component.html',
     styleUrls: ['./packing-list.component.scss'],
 })
-export class PackingListComponent {
+export class PackingListComponent extends BaseComponent{
     @Input() title: string;
     @Input() packingList?: PackingItem[];
     @Input() userSettings?: FormGroup;
@@ -16,7 +16,9 @@ export class PackingListComponent {
     editMode = false;
     newItemValue: string;
 
-    constructor(private modalController: ModalController) {}
+    constructor() {
+        super();
+    }
 
     addItemToList() {
         this.packingList.push({title: this.newItemValue, packed: false});
@@ -29,10 +31,7 @@ export class PackingListComponent {
 
     savePackingList() {
         // TODO update user profile object
+        alert('saved');
         console.log('Saving list', this.packingList);
     }
-    async dismissModal() {
-        await this.modalController.dismiss();
-    }
-
 }

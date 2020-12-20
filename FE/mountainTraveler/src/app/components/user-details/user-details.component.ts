@@ -8,7 +8,7 @@ import {User} from '../../common/models/user';
 })
 export class UserDetailsComponent {
     @Input() user: User;
-    @Input() inProfileOwner = false;
+    @Input() isProfileOwner = false;
     @Output() openSettingsModal: EventEmitter<any> = new EventEmitter();
 
     constructor() {

@@ -1,9 +1,17 @@
 <ion-header collapse="condense" class="ion-no-border">
     <ion-toolbar color="success">
         <ion-title size="medium">{{headerTitle | uppercase}}</ion-title>
-        <ion-buttons slot="start">
-            <ion-back-button [defaultHref]="defaultHref">
+        <ion-buttons slot="start" [ngSwitch]="displayMode">
+
+            <ion-back-button
+                    *ngSwitchDefault
+                    [defaultHref]="defaultHref">
             </ion-back-button>
+
+            <ion-button
+                    *ngSwitchCase="componentType.modal"
+                    (click)="dismissModal()"
+                    id="close-button">Back</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>

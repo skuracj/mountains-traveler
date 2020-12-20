@@ -1,10 +1,12 @@
 .profile {
-
   &__thumbnail {
     margin: 0 auto;
     border-radius: 50%;
-    border: 3px solid var(--ion-color-success);
-    padding: calc(var(--mt-increment-unit) / 4);
+    border: 1px solid var(--ion-color-success);
+    padding: calc(var(--mt-increment-unit) / 8);
+  }
+  &__img {
+    border-radius: 50%;
   }
   &__achievements {
     display: flex;

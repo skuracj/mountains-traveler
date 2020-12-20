@@ -10,7 +10,7 @@
         <section *ngSwitchCase="sections.me">
             <app-user-details
                     [user]="user"
-                    [inProfileOwner]="true"
+                    [isProfileOwner]="true"
             (openSettingsModal)="openSettingsModal()"></app-user-details>
             <app-time-line></app-time-line>
         </section>
