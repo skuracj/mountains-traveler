@@ -1,5 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {IonicModule, ModalController} from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import {PackingListComponent} from './packing-list.component';
 import {By} from '@angular/platform-browser';
@@ -8,21 +8,18 @@ import {By} from '@angular/platform-browser';
 describe('PackingListComponent', () => {
     let component: PackingListComponent;
     let fixture: ComponentFixture<PackingListComponent>;
-    let modalControllerSpy;
 
     beforeEach(async(() => {
-        modalControllerSpy = jasmine.createSpyObj('ModalController', ['dismiss']);
-
         TestBed.configureTestingModule({
             declarations: [PackingListComponent],
             imports: [IonicModule.forRoot()],
-            providers: [{provide: ModalController, useValue: modalControllerSpy}]
+
         }).compileComponents();
 
         fixture = TestBed.createComponent(PackingListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
-        modalControllerSpy.dismiss.and.returnValue(Promise.resolve());
+
     }));
 
     it('should create', () => {
@@ -84,18 +81,6 @@ describe('PackingListComponent', () => {
             saveButton.nativeElement.click();
 
             expect(component.savePackingList).toHaveBeenCalled();
-        });
-    });
-
-    describe('When close button clicked', () => {
-        it('Should close packing-list', () => {
-            fixture.detectChanges();
-            fixture.whenRenderingDone();
-            const closeButton = fixture.debugElement.query(By.css(`[id="close-button"]`));
-
-            closeButton.nativeElement.click();
-
-            expect(modalControllerSpy.dismiss).toHaveBeenCalled();
         });
     });
 });

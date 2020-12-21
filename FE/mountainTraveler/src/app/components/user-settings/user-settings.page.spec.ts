@@ -1,36 +1,75 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { UserSettingsPage } from './user-settings.page';
+import {UserSettingsPage} from './user-settings.page';
 import {By} from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {userMock} from '../../common/testing/mocks/user.mock';
+import {CommonModule} from '@angular/common';
+import {ProfileProperties} from '../../common/constants/Profile.enum';
 
 describe('UserSettingsPage', () => {
-  let component: UserSettingsPage;
-  let fixture: ComponentFixture<UserSettingsPage>;
+    let component: UserSettingsPage;
+    let fixture: ComponentFixture<UserSettingsPage>;
+    let formBuilder: FormBuilder;
+    const userObject = userMock;
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [UserSettingsPage],
+            imports: [IonicModule.forRoot(), CommonModule, ReactiveFormsModule],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            providers: [FormBuilder]
+        }).compileComponents();
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UserSettingsPage ],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule]
-    }).compileComponents();
+        formBuilder = TestBed.inject(FormBuilder);
+        fixture = TestBed.createComponent(UserSettingsPage);
+        component = fixture.componentInstance;
+        spyOn(component, 'createForm').and.callThrough();
+        spyOn(component, 'prefillForm').and.callThrough();
 
-    fixture = TestBed.createComponent(UserSettingsPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+        fixture.detectChanges();
+    }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 
-  it('should save profile data when save button clicked', async () => {
-    await fixture.whenRenderingDone();
-    spyOn(component, 'saveProfile');
+    describe('When component initialized', () => {
+        it('Should create a form', () => {
+            expect(component.createForm).toHaveBeenCalled();
+            expect(component.profileForm.value).toEqual({
+                [ProfileProperties.name]: null,
+                [ProfileProperties.location]: null,
+                [ProfileProperties.age]: null,
+                [ProfileProperties.isPublic]: null,
+                [ProfileProperties.profilePicture]: null,
+            });
+        });
 
-    const saveButton = fixture.debugElement.query(By.css('[id="save-button"]'));
-    saveButton.nativeElement.click();
+        it('and user passed should prefill form', () => {
+            component.user = userObject;
 
-    expect(component.saveProfile).toHaveBeenCalled();
-  });
+            component.ngOnInit();
+
+            expect(component.prefillForm).toHaveBeenCalled();
+            expect(component.profileForm.value).toEqual({
+                [ProfileProperties.name]: userObject.name,
+                [ProfileProperties.location]: userObject.location,
+                [ProfileProperties.age]: userObject.age,
+                [ProfileProperties.isPublic]: userObject.isPublic,
+                [ProfileProperties.profilePicture]: userObject.profilePicture,
+            });
+        });
+    });
+
+    it('should save profile data when save button clicked', async () => {
+        await fixture.whenRenderingDone();
+        spyOn(component, 'saveProfile');
+
+        const saveButton = fixture.debugElement.query(By.css('[id="save-button"]'));
+        saveButton.nativeElement.click();
+
+        expect(component.saveProfile).toHaveBeenCalled();
+    });
 });

@@ -11,30 +11,30 @@
                     <input name="files" id="files" [hidden]="true"
                            type="file" accept="image/*" (change)="changeListener($event)">
                 </label>
-                <ion-thumbnail *ngIf="profileForm.get(profile.profilePicture).value" class=" ion-margin">
-                    <ion-img [src]="profileForm.get(profile.profilePicture).value"></ion-img>
+                <ion-thumbnail *ngIf="profileForm.get(profileProperties?.profilePicture).value" class=" ion-margin">
+                    <ion-img [src]="profileForm.get(profileProperties.profilePicture).value"></ion-img>
                 </ion-thumbnail>
             </ion-item>
 
             <ion-item lines="full">
                 <ion-label position="floating" class="user-settings__label">Name</ion-label>
-                <ion-input [formControlName]="profile.name" type="text"></ion-input>
+                <ion-input [formControlName]="profileProperties.name" type="text"></ion-input>
             </ion-item>
 
             <ion-item lines="full">
                 <ion-label position="floating" class="user-settings__label">Location</ion-label>
-                <ion-input [formControlName]="profile.location" type="text"></ion-input>
+                <ion-input [formControlName]="profileProperties.location" type="text"></ion-input>
             </ion-item>
 
             <ion-item lines="full">
                 <ion-label position="floating" class="user-settings__label">Age</ion-label>
-                <ion-input [formControlName]="profile.age" type="number"></ion-input>
+                <ion-input [formControlName]="profileProperties.age" type="number"></ion-input>
             </ion-item>
 
 
             <ion-item lines="full">
                 <ion-label class="user-settings__label">Profile</ion-label>
-                <ion-select [value]="this.profileForm.get([profile.isPublic]).value">
+                <ion-select [value]="this.profileForm.get([profileProperties.isPublic]).value">
                     <ion-select-option [value]="true">Public</ion-select-option>
                     <ion-select-option [value]="false">Private</ion-select-option>
                 </ion-select>

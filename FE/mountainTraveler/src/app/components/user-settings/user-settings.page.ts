@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {User} from '../../common/models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Profile} from '../../common/constants/Profile.enum';
+import {ProfileProperties} from '../../common/constants/Profile.enum';
 import {BaseComponent} from '../../common/base/base.component';
 
 @Component({
@@ -12,36 +12,40 @@ import {BaseComponent} from '../../common/base/base.component';
 export class UserSettingsPage extends BaseComponent implements OnInit {
     @Input() user: User;
     profileForm: FormGroup;
-    public profile = Profile;
+    public profileProperties = ProfileProperties;
 
-    constructor(public formBuilder: FormBuilder,
-                private cd: ChangeDetectorRef) {
+    constructor(public formBuilder: FormBuilder) {
         super();
 
     }
 
     ngOnInit() {
+        console.log('ngIbUbut')
         this.createForm();
         this.prefillForm();
     }
 
     createForm() {
+        console.log('dsa')
         this.profileForm = this.formBuilder.group({
-            [Profile.name]: ['', Validators.required],
-            [Profile.location]: [''],
-            [Profile.age]: [],
-            [Profile.isPublic]: [],
-            [Profile.profilePicture]: [this.user.profilePicture],
+            [ProfileProperties.name]: [null, Validators.required],
+            [ProfileProperties.location]: [null],
+            [ProfileProperties.age]: [null],
+            [ProfileProperties.isPublic]: [null],
+            [ProfileProperties.profilePicture]: [null],
         });
     }
 
     prefillForm() {
+        if (!this.user) {
+            return;
+        }
         this.profileForm.patchValue({
-            [Profile.name]: this.user.name,
-            [Profile.location]: this.user.location,
-            [Profile.age]: this.user.age,
-            [Profile.isPublic]: this.user.isPublic,
-            [Profile.profilePicture]: this.user.profilePicture,
+            [ProfileProperties.name]: this.user.name,
+            [ProfileProperties.location]: this.user.location,
+            [ProfileProperties.age]: this.user.age,
+            [ProfileProperties.isPublic]: this.user.isPublic,
+            [ProfileProperties.profilePicture]: this.user.profilePicture,
         });
     }
 
