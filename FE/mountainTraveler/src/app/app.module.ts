@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from "@ionic/storage";
+import {ProfilePictureThumbnailComponent} from './components/profile-picture-thumbnail/profile-picture-thumbnail.component';
 
 
 /* TODO Configure Amplify resources */
@@ -80,7 +81,7 @@ Amplify.configure({
         BrowserModule,
         IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
-        AppRoutingModule
+        AppRoutingModule,
     ],
     providers: [
         StatusBar,

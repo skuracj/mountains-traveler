@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MostActiveUsers} from '../../common/models/most-active-users';
+import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
 
 @Component({
   selector: 'app-most-active-users',
@@ -7,9 +8,10 @@ import {MostActiveUsers} from '../../common/models/most-active-users';
   styleUrls: ['./most-active-users.component.scss'],
 })
 export class MostActiveUsersComponent {
-  // TODO - Change to required field
-  mostActiveUsers?: MostActiveUsers[];
+  mostActiveUsers: MostActiveUsers[];
 
-  constructor() { }
+  constructor() {
+    this.mostActiveUsers = mostActiveUsersMock;
+  }
 
 }

@@ -10,6 +10,8 @@ import { CommunityPage } from './community.page';
 import {HeaderComponentModule} from '../../components/header/header.module';
 import {TimeLineComponent} from '../../components/time-line/time-line.component';
 import {MostActiveUsersComponent} from '../../components/most-active-users/most-active-users.component';
+import {PeoplePageModule} from '../people/people.module';
+import {ProfilePictureThumbnailComponent} from '../../components/profile-picture-thumbnail/profile-picture-thumbnail.component';
 
 @NgModule({
     imports: [
@@ -17,12 +19,13 @@ import {MostActiveUsersComponent} from '../../components/most-active-users/most-
         FormsModule,
         IonicModule,
         CommunityPageRoutingModule,
-        HeaderComponentModule
+        HeaderComponentModule,
     ],
     exports: [
         TimeLineComponent,
-        MostActiveUsersComponent
+        MostActiveUsersComponent,
+        ProfilePictureThumbnailComponent
     ],
-    declarations: [CommunityPage, TimeLineComponent, MostActiveUsersComponent]
+    declarations: [CommunityPage, TimeLineComponent, MostActiveUsersComponent, ProfilePictureThumbnailComponent]
 })
 export class CommunityPageModule {}

@@ -4,12 +4,12 @@
     list-style-type : none;
   }
 
-  &__img::part(image) {
-    border-radius : 50%;
-    height        : calc(var(--mt-increment-unit) * 3);
-    max-width     : calc(var(--mt-increment-unit) * 3);
-    margin        : 0;
-  }
+  //&__img::part(image) {
+  //  border-radius : 50%;
+  //  height        : calc(var(--mt-increment-unit) * 3);
+  //  max-width     : calc(var(--mt-increment-unit) * 3);
+  //  margin        : 0;
+  //}
 }
 
 

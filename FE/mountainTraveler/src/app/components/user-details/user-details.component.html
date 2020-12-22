@@ -8,9 +8,9 @@
                   (click)="onSettingsButtonClicked()"
         ></ion-icon>
         <ion-card-subtitle>
-            <ion-thumbnail class="profile__thumbnail">
-                <ion-img [src]="user.profilePicture" class="profile__img"></ion-img>
-            </ion-thumbnail>
+
+            <app-profile-picture-thumbnail [imgPath]="user?.profilePicture"></app-profile-picture-thumbnail>
+
             <h3 class="ion-text-center ion-no-margin">{{user.name}}</h3>
             <h6 class="ion-text-center ion-no-margin font-size-xs">
                 <ion-icon name="location"></ion-icon>

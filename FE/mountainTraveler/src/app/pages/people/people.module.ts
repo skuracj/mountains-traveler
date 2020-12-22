@@ -2,7 +2,7 @@ import {IonicModule} from '@ionic/angular';
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PeoplePage} from './people.page';
 
 import {PeoplePageRoutingModule} from './people-routing.module';
@@ -19,7 +19,8 @@ import {FriendsListComponent} from '../../components/friends-list/friends-list.c
         RouterModule.forChild([{path: '', component: PeoplePage}]),
         PeoplePageRoutingModule,
         HeaderComponentModule,
-        CommunityPageModule
+        CommunityPageModule,
+        ReactiveFormsModule
     ],
     exports: [
         UserDetailsComponent

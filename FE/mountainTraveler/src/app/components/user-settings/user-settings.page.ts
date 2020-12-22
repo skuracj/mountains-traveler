@@ -20,13 +20,11 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('ngIbUbut')
         this.createForm();
         this.prefillForm();
     }
 
     createForm() {
-        console.log('dsa')
         this.profileForm = this.formBuilder.group({
             [ProfileProperties.name]: [null, Validators.required],
             [ProfileProperties.location]: [null],

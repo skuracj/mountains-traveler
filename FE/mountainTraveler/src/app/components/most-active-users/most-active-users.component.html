@@ -4,36 +4,10 @@
     </ion-card-header>
     <ion-card-content>
         <ul class="most-active-users__ul ion-no-margin ion-no-padding font-size-xs ion-justify-content-between">
-<!--// TODO ngFor-->
-            <li class="ion-text-center">
-                <ion-img
-                        class="most-active-users__img"
-                        src="/assets/users-pictures/2.png"></ion-img>
-                <p class="font-size-xs">Radziu</p>
-                <p class="font-size-xs">123km</p>
-            </li>
-            <li class="ion-text-center">
-                <ion-img
-                        class="most-active-users__img"
-                        src="/assets/users-pictures/3.png"></ion-img>
-                <p class="font-size-xs"> Mudzina</p>
-                <p class="font-size-xs">44km</p>
-
-            </li>
-            <li class="ion-text-center">
-                <ion-img
-                        class="most-active-users__img"
-                        src="/assets/users-pictures/1.png"></ion-img>
-                <p class="font-size-xs"> Anulka</p>
-                <p class="font-size-xs">324km</p>
-            </li>
-            <li class="ion-text-center">
-                <ion-img
-                        class="most-active-users__img"
-                        src="/assets/users-pictures/4.png"></ion-img>
-                <p class="font-size-xs"> Nalesnik</p>
-                <p class="font-size-xs">24km</p>
-
+            <li class="ion-text-center" *ngFor="let user of mostActiveUsers">
+                <app-profile-picture-thumbnail [imgPath]="user.profilePicture"></app-profile-picture-thumbnail>
+                <p class="font-size-xs">{{user.name}}</p>
+                <p class="font-size-xs">{{user.totalDistance}}km</p>
             </li>
         </ul>
     </ion-card-content>

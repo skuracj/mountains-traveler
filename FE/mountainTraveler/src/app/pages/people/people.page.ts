@@ -27,6 +27,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
         this.selectedSection = Sections.me;
     }
 
+
     originalOrder = (a: KeyValue<number, string>, b: KeyValue<number, string>): number => {
         return 0;
     };
