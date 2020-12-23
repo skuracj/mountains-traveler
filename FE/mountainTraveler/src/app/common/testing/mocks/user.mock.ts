@@ -10,8 +10,8 @@ export const userMock: User = {
     totalDistance: 1234,
     trips: 15,
     timeInMinutes: 8850,
-
     relations: [{
+        imageId: 'fd2edb60-3eb7-4d1a-8d8f-612f7083839c',
         timestamp: 1607273204,
         picture: '/assets/soldier.jpeg',
         title: 'Hala Gasienicowa',

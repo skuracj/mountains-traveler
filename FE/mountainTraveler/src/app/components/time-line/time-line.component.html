@@ -1,6 +1,12 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Anna Kin | 22min ago <ion-icon name="heart" color="danger" class="latest-activity__icon font-size-xxl"></ion-icon></ion-card-subtitle>
+    <ion-card-subtitle>Anna Kin | 22min ago
+      <ion-icon
+              name="heart"
+              color="danger"
+              class="latest-activity__icon font-size-xxl"
+      (click)="addLike()"></ion-icon>
+    </ion-card-subtitle>
     <ion-card-title>Hala Gasienicowa</ion-card-title>
   </ion-card-header>
 

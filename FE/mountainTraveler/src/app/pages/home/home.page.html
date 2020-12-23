@@ -3,13 +3,16 @@
     <ion-item class="home__location">
         <ion-select
                 [value]="this.city"
-                interface="action-sheet"
+
                 class="home__location-select-label font-size-s"
                 (ionChange)="onLocationChanged($event)">
-            <ion-select-option value="choose_location">Choose location</ion-select-option>
-            <ion-select-option value="zakopane">Poland, Zakopane</ion-select-option>
-            <ion-select-option value="warsaw">Poland, Warsaw</ion-select-option>
-            <ion-select-option value="zurich">Switzerland, Zurich</ion-select-option>
+            <ion-select-option value="choose_location" [disabled]="true">Choose location</ion-select-option>
+            <ion-select-option *ngFor="let city of citiesMappedToCountry | keyvalue"
+                               [value]="city.value.city">{{city.value.city | titlecase}}, {{city.value.country | titlecase}}</ion-select-option>
+
+<!--            <ion-select-option [value]="citiesMappedToCountry.zakopane.city">Poland, Zakopane</ion-select-option>-->
+<!--            <ion-select-option [value]="citiesMappedToCountry.warsaw.city">Poland, Warsaw</ion-select-option>-->
+<!--            <ion-select-option value="zurich">Switzerland, Zurich</ion-select-option>-->
         </ion-select>
     </ion-item>
 

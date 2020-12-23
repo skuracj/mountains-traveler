@@ -18,7 +18,7 @@
         <section *ngSwitchCase="sections.friends">
             <app-friends-list [friendsIds]="friendsIds"></app-friends-list>
             <app-most-active-users></app-most-active-users>
-            <app-time-line></app-time-line>
+            <app-time-line [usersIds]="friendsIds"></app-time-line>
         </section>
     </div>
 </ion-content>

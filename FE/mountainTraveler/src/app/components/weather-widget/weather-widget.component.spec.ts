@@ -9,7 +9,7 @@ import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
 import {weatherApiResponseMock} from '../../common/testing/mocks/weather-api-response.mock';
 import {By} from '@angular/platform-browser';
-import {Cities} from '../../common/constants/Cities.enum';
+import {CitiesMappedToCountry} from '../../common/constants/Cities.enum';
 
 describe('WeatherWidgetComponent', () => {
     let component: WeatherWidgetComponent;
@@ -61,7 +61,7 @@ describe('WeatherWidgetComponent', () => {
     });
 
     it(`Should call ${ExternalUrls.openWeatherApi} when "region" input value changed`, () => {
-        component.city = 'Zurich';
+        component.city = CitiesMappedToCountry.zurich.city;
         const expectedUrl = `${ExternalUrls.openWeatherApi}/forecast/daily`;
         const requestOptions = {
             headers: {
@@ -69,7 +69,7 @@ describe('WeatherWidgetComponent', () => {
                 'x-rapidapi-host': ExternalUrls.xRapidapiHost
             },
             params: {
-                'q': `${component.city},${Cities[component.city]}`,
+                'q': `${component.city},${CitiesMappedToCountry[component.city].country}`,
                 'cnt': '10',
                 'units': 'metric',
             }
@@ -83,7 +83,7 @@ describe('WeatherWidgetComponent', () => {
     });
 
     it(`Should call ${ExternalUrls.openWeatherApi} when "city" input value changed and save data`, () => {
-        component.city = 'Zurich';
+        component.city = 'zurich';
         const firstDayMock = weatherApiResponseMock.list[0];
 
         component.ngOnChanges({

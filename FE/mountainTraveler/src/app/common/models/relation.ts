@@ -1,4 +1,5 @@
-export interface Relations {
+export interface Relation {
+    imageId: string;
     timestamp: number;
     picture: string;
     title: string;
