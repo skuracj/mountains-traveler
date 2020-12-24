@@ -4,7 +4,6 @@ import {map, take, tap} from 'rxjs/operators';
 import {DayWeather} from '../../common/models/day-weather';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
-import {UserLocation} from '../../common/models/user-location';
 import {CitiesMappedToCountry} from '../../common/constants/Cities.enum';
 
 @Component({

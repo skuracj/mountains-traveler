@@ -6,3 +6,9 @@ export interface Relation {
     description: string;
     likes: string[];
 }
+
+export interface UserRelations {
+    userId: string;
+    userName: string;
+    relations: Relation[];
+}

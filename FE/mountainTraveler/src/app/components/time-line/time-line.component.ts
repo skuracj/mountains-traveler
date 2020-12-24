@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Relation} from '../../common/models/relation';
+import {Relation, UserRelations} from '../../common/models/relation';
+import {usersRelationsMock} from '../../common/testing/mocks/users-relations.mock';
 
 @Component({
   selector: 'app-time-line',
@@ -10,10 +11,14 @@ export class TimeLineComponent {
   // @Input() relations?: Relations[];
   @Input() usersIds: string[];
   @Input() userId?: string;
+  relations: UserRelations[];
   // TODO think how to implement lazy loading
-  constructor() { }
+  constructor() {
+    this.getUsersRelations();
+  }
 
   getUsersRelations(): Relation[] {
+    this.relations = usersRelationsMock;
     // Get relations by usersIds
     // Return
     return [] as Relation[];

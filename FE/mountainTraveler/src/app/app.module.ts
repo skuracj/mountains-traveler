@@ -12,6 +12,7 @@ import {AppComponent} from './app.component';
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from "@ionic/storage";
 import {ProfilePictureThumbnailComponent} from './components/profile-picture-thumbnail/profile-picture-thumbnail.component';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 
 /* TODO Configure Amplify resources */
@@ -75,7 +76,7 @@ Amplify.configure({
 );
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, TimeAgoPipe],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -86,9 +87,11 @@ Amplify.configure({
     providers: [
         StatusBar,
         SplashScreen,
+        TimeAgoPipe,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    exports: []
 })
 export class AppModule {
 }

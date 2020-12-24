@@ -1,3 +1,21 @@
+<ion-card *ngFor="let relation of relations">
+  <ion-card-header>
+    <ion-card-subtitle>{{relation.userName}} | {{relation.relations[0].timestamp | timeAgo}} ago
+      {{relation.relations[0].likes.length}}<ion-icon
+              name="heart"
+              color="danger"
+              class="latest-activity__icon font-size-xxl"
+              (click)="addLike(relation.relations[0].imageId)"></ion-icon>
+    </ion-card-subtitle>
+    <ion-card-title>{{relation.relations[0].title}}</ion-card-title>
+  </ion-card-header>
+kjbkbjbj
+  <ion-card-content>
+    <ion-img [src]="relation.relations[0].picture"></ion-img>
+    {{relation.relations[0].description}}
+  </ion-card-content>
+</ion-card>
+
 <ion-card>
   <ion-card-header>
     <ion-card-subtitle>Anna Kin | 22min ago
