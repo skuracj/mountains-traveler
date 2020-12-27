@@ -1,35 +1,38 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Relation, UserRelations} from '../../common/models/relation';
-import {usersRelationsMock} from '../../common/testing/mocks/users-relations.mock';
+import {Component, Input} from '@angular/core';
+import {UserStory} from '../../common/models/story';
+import {StoriesService} from '../../services/stories.service';
+import {Observable} from 'rxjs';
 
 @Component({
-  selector: 'app-time-line',
-  templateUrl: './time-line.component.html',
-  styleUrls: ['./time-line.component.scss'],
+    selector: 'app-time-line',
+    templateUrl: './time-line.component.html',
+    styleUrls: ['./time-line.component.scss'],
 })
 export class TimeLineComponent {
-  // @Input() relations?: Relations[];
-  @Input() usersIds: string[];
-  @Input() userId?: string;
-  relations: UserRelations[];
-  // TODO think how to implement lazy loading
-  constructor() {
-    this.getUsersRelations();
-  }
+    @Input() usersIds: string[];
+    @Input() userId?: string;
 
-  getUsersRelations(): Relation[] {
-    this.relations = usersRelationsMock;
-    // Get relations by usersIds
-    // Return
-    return [] as Relation[];
-  }
+    constructor(private storiesService: StoriesService) {
+    }
 
-  addLike(relationId: string) {
-    // call api with relationId and user id / push to relation array
-  }
+    getUsersStories(): Observable<UserStory[]> {
+        if (this.usersIds?.length > 0) {
+            return this.storiesService.getStories(this.usersIds);
+        }
+    }
 
-  removeLike(relationId: string) {
-    // call api with relationId and user id / removeId from relation array
+    addLike(relationId: string) {
+        this.storiesService.addLikeToStory(relationId, this.userId);
+    }
 
-  }
+    removeLike(relationId: string) {
+        this.storiesService.removeLikeFromStory(relationId, this.userId);
+    }
+
+    checkIfLiked(story: UserStory) {
+        if (!story) {
+            return;
+        }
+        return story.details.likes.includes(this.userId);
+    }
 }

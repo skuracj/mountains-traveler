@@ -8,7 +8,8 @@
     </section>
 
     {{this.userId}}
-    <app-user-details></app-user-details>
+
+    <app-user-details [user]="user$ | async"></app-user-details>
     <app-time-line></app-time-line>
 
 </ion-content>

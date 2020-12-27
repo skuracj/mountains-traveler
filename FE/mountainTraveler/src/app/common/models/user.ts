@@ -1,4 +1,4 @@
-import {Relation} from './relation';
+import {Story} from './story';
 import {PackingItem} from './packing-list';
 
 export interface User {
@@ -10,9 +10,9 @@ export interface User {
     location: string;
     totalDistance: number;
     trips: number;
-    relations: Relation[];
+    stories: Story[];
     timeInMinutes: number;
     friendsIds: string[];
-    packingList: PackingItem[];
+    packingList?: PackingItem[];
 }
 

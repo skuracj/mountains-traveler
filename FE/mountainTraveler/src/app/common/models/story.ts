@@ -1,14 +1,14 @@
-export interface Relation {
-    imageId: string;
-    timestamp: number;
+export interface Story {
+    storyId: string;
+    timestamp: string;
     picture: string;
     title: string;
     description: string;
     likes: string[];
 }
 
-export interface UserRelations {
+export interface UserStory {
     userId: string;
     userName: string;
-    relations: Relation[];
+    details: Story;
 }

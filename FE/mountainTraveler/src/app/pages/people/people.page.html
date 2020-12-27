@@ -12,13 +12,13 @@
                     [user]="user"
                     [isProfileOwner]="true"
             (openSettingsModal)="openSettingsModal()"></app-user-details>
-            <app-time-line></app-time-line>
+            <app-friends-list [friendsIds]="friendsIds"></app-friends-list>
+            <app-time-line [userId]="user.userId" [usersIds]="[user.userId]"></app-time-line>
         </section>
 
         <section *ngSwitchCase="sections.friends">
-            <app-friends-list [friendsIds]="friendsIds"></app-friends-list>
             <app-most-active-users></app-most-active-users>
-            <app-time-line [usersIds]="friendsIds"></app-time-line>
+            <app-time-line [usersIds]="friendsIds" [userId]="user.userId"></app-time-line>
         </section>
     </div>
 </ion-content>

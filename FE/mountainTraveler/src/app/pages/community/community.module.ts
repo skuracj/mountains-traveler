@@ -12,6 +12,7 @@ import {TimeLineComponent} from '../../components/time-line/time-line.component'
 import {MostActiveUsersComponent} from '../../components/most-active-users/most-active-users.component';
 import {PeoplePageModule} from '../people/people.module';
 import {ProfilePictureThumbnailComponent} from '../../components/profile-picture-thumbnail/profile-picture-thumbnail.component';
+import {PipeModule} from '../../pipes/pipe.module';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {ProfilePictureThumbnailComponent} from '../../components/profile-picture
         IonicModule,
         CommunityPageRoutingModule,
         HeaderComponentModule,
+        PipeModule,
     ],
     exports: [
         TimeLineComponent,

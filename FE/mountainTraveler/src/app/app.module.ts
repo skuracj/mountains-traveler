@@ -10,9 +10,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import Amplify from 'aws-amplify';
-import {IonicStorageModule} from "@ionic/storage";
-import {ProfilePictureThumbnailComponent} from './components/profile-picture-thumbnail/profile-picture-thumbnail.component';
-import {TimeAgoPipe} from 'time-ago-pipe';
+import {IonicStorageModule} from '@ionic/storage';
+import {PipeModule} from './pipes/pipe.module';
+import {StoriesService} from './services/stories.service';
+import {UserService} from './services/user.service';
+import {AuthService} from './services/auth.service';
 
 
 /* TODO Configure Amplify resources */
@@ -76,22 +78,25 @@ Amplify.configure({
 );
 
 @NgModule({
-    declarations: [AppComponent, TimeAgoPipe],
+    declarations: [AppComponent],
     entryComponents: [],
     imports: [
         BrowserModule,
         IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
         AppRoutingModule,
+        PipeModule
     ],
     providers: [
         StatusBar,
         SplashScreen,
-        TimeAgoPipe,
+        StoriesService,
+        UserService,
+        AuthService,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent],
-    exports: []
+    exports: [PipeModule]
 })
 export class AppModule {
 }

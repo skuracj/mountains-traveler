@@ -1,3 +1,17 @@
-<p *ngFor="let friend of friendsIds">
-  Friend id: {{friend}}
-</p>
+
+
+
+
+  <ion-card *ngIf="friendsIds?.length">
+    <ion-card-header>
+      <ion-card-title>Friends</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="friends-list__card-content">
+      <p *ngFor="let friend of friends$ | async">
+        Friend: {{friend.name}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+

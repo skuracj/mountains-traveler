@@ -10,7 +10,6 @@ import {HeaderComponentModule} from '../../components/header/header.module';
 import {UserDetailsComponent} from '../../components/user-details/user-details.component';
 import {CommunityPageModule} from '../community/community.module';
 import {FriendsListComponent} from '../../components/friends-list/friends-list.component';
-import {TimeAgoPipe} from 'time-ago-pipe';
 
 @NgModule({
     imports: [
@@ -23,11 +22,11 @@ import {TimeAgoPipe} from 'time-ago-pipe';
         CommunityPageModule,
         ReactiveFormsModule
     ],
-    providers: [TimeAgoPipe],
+    providers: [],
     exports: [
         UserDetailsComponent
     ],
-    declarations: [PeoplePage, UserDetailsComponent, FriendsListComponent, TimeAgoPipe]
+    declarations: [PeoplePage, UserDetailsComponent, FriendsListComponent]
 })
 export class PeoplePageModule {
 }

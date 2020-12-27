@@ -1,48 +1,18 @@
-<ion-card *ngFor="let relation of relations">
-  <ion-card-header>
-    <ion-card-subtitle>{{relation.userName}} | {{relation.relations[0].timestamp | timeAgo}} ago
-      {{relation.relations[0].likes.length}}<ion-icon
-              name="heart"
-              color="danger"
-              class="latest-activity__icon font-size-xxl"
-              (click)="addLike(relation.relations[0].imageId)"></ion-icon>
-    </ion-card-subtitle>
-    <ion-card-title>{{relation.relations[0].title}}</ion-card-title>
-  </ion-card-header>
-kjbkbjbj
-  <ion-card-content>
-    <ion-img [src]="relation.relations[0].picture"></ion-img>
-    {{relation.relations[0].description}}
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Anna Kin | 22min ago
-      <ion-icon
-              name="heart"
-              color="danger"
-              class="latest-activity__icon font-size-xxl"
-      (click)="addLike()"></ion-icon>
-    </ion-card-subtitle>
-    <ion-card-title>Hala Gasienicowa</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-img src="/assets/anulka.png"></ion-img>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Cezary Cezary | 1 hour ago <ion-icon name="heart-outline" color="danger" class="latest-activity__icon font-size-xxl"></ion-icon></ion-card-subtitle>
-    <ion-card-title>Polana Rusinowa</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-img src="/assets/soldier.jpeg"></ion-img>
-    Nothing better than mountains...
-  </ion-card-content>
-</ion-card>
+<ng-container *ngIf="this.usersIds?.length">
+    <ion-card *ngFor="let story of getUsersStories() | async">
+        <ion-card-header>
+            <ion-card-subtitle>{{story.userName}} | {{story.details.timestamp | timeAgo}}
+                <ion-icon
+                        [name]="checkIfLiked(story) ? 'heart' : 'heart-outline'"
+                        color="danger"
+                        class="latest-activity__icon font-size-xxl"
+                        (click)="checkIfLiked(story) ? removeLike(story.details.storyId) : addLike(story.details.storyId)"></ion-icon>
+            </ion-card-subtitle>
+            <ion-card-title>{{story.details.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-img [src]="story.details.picture"></ion-img>
+            {{story.details.description}}
+        </ion-card-content>
+    </ion-card>
+</ng-container>
