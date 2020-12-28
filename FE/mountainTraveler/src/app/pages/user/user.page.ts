@@ -3,7 +3,7 @@ import {uuid4} from '@capacitor/core/dist/esm/util';
 import {ActivatedRoute} from '@angular/router';
 import {map, tap} from 'rxjs/operators';
 import {BaseComponent} from '../../common/base/base.component';
-import {UserService} from '../../services/user.service';
+import {BaseUserService, UserService} from '../../services/user.service';
 import {Observable} from 'rxjs';
 import {User} from '../../common/models/user';
 
@@ -18,7 +18,7 @@ export class UserPage extends BaseComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
-        private userService: UserService) {
+        private userService: BaseUserService) {
         super();
     }
 
@@ -27,7 +27,7 @@ export class UserPage extends BaseComponent implements OnInit {
             map(queryParams => this.userId = queryParams[this.queryParamNames.userId]),
         ).subscribe();
 
-        this.user$ = this.userService.getUserProfile(this.userId);
+        this.user$ = this.userService.getUserProfileById(this.userId);
     }
 
 }

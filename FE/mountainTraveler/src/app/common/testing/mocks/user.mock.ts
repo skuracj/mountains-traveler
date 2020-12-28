@@ -11,14 +11,24 @@ export const userMock: User = {
     totalDistance: 1234,
     trips: 15,
     timeInMinutes: 8850,
-    stories: [{
-        storyId: uuid4(),
-        timestamp: new Date(1608901196 * 1000).toLocaleString(),
-        picture: '/assets/soldier.jpeg',
-        title: 'Hala Gasienicowa',
-        description: 'Mountains always good...',
-        likes: ['anulka1_ID', 'mudzina1_ID']
-    }],
+    stories: [
+        {
+            storyId: uuid4(),
+            timestamp: new Date(1608901196 * 1000).toLocaleString(),
+            picture: '/assets/soldier.jpeg',
+            title: 'Hala Gasienicowa',
+            description: 'Mountains always good...',
+            likes: ['anulka1_ID', 'mudzina1_ID']
+        },
+        {
+            storyId: uuid4(),
+            timestamp: new Date(1608901196 * 1000).toLocaleString(),
+            picture: '/assets/anulka.png',
+            title: 'Hala Gasienicowa',
+            description: 'Mountains always good...',
+            likes: ['anulka1_ID', 'mudzina1_ID']
+        }
+    ],
     friendsIds: ['anulka1_ID', 'mudzina1_ID'],
     packingList: [
         {

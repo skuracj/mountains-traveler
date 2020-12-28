@@ -1,0 +1,23 @@
+<ion-card>
+    <ion-card-header>
+        <ion-card-title class="accordion__title">{{title}}
+            <button
+                    fill="clear"
+                    type="button"
+                    class="font-size-xxl ion-no-padding"
+                    (click)="isExpanded = !isExpanded"
+                    [attr.aria-expanded]="isExpanded"
+                    [attr.aria-controls]="id + '-content'"
+                    [id]="id + '-trigger'">
+                <ion-icon name="chevron-{{isExpanded ? 'down' : 'back'}}"></ion-icon>
+            </button>
+        </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="isExpanded"
+                      role="region"
+                      [id]="id + '-content'"
+                      [attr.aria-labelledby]="id + '-trigger'">
+        <ng-content></ng-content>
+    </ion-card-content>
+</ion-card>

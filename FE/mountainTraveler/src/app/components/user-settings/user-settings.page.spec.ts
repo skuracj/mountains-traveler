@@ -8,18 +8,24 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {userMock} from '../../common/testing/mocks/user.mock';
 import {CommonModule} from '@angular/common';
 import {ProfileProperties} from '../../common/constants/Profile.enum';
+import {StoriesService} from '../../services/stories.service';
 
 describe('UserSettingsPage', () => {
     let component: UserSettingsPage;
     let fixture: ComponentFixture<UserSettingsPage>;
     let formBuilder: FormBuilder;
+    let storiesServiceSpy;
+
     const userObject = userMock;
     beforeEach(async(() => {
+        storiesServiceSpy = jasmine.createSpyObj('StoriesService', ['removeStory']);
         TestBed.configureTestingModule({
             declarations: [UserSettingsPage],
             imports: [IonicModule.forRoot(), CommonModule, ReactiveFormsModule],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            providers: [FormBuilder]
+            providers: [
+                {provide: StoriesService, useValue: storiesServiceSpy},
+                FormBuilder]
         }).compileComponents();
 
         formBuilder = TestBed.inject(FormBuilder);
@@ -71,5 +77,22 @@ describe('UserSettingsPage', () => {
         saveButton.nativeElement.click();
 
         expect(component.saveProfile).toHaveBeenCalled();
+    });
+
+    describe('When stories rendered', () => {
+        beforeEach(async () => {
+            component.user = userObject;
+            spyOn(component, 'removeStory').and.callThrough();
+
+            fixture.detectChanges();
+            await fixture.whenRenderingDone();
+        });
+        it('Should delete story if deleteButton clicked', async () => {
+            const deleteButton = fixture.debugElement.query(By.css('.item__button'));
+            deleteButton.nativeElement.click();
+
+            expect(component.removeStory).toHaveBeenCalledWith(userObject.stories[0].storyId);
+            expect(storiesServiceSpy.removeStory).toHaveBeenCalledWith(userObject.stories[0].storyId);
+        });
     });
 });

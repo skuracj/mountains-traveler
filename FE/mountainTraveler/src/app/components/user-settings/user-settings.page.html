@@ -4,75 +4,63 @@
 ></app-header>
 
 <ion-content class="ion-padding">
-        <form [formGroup]="profileForm" (submit)="saveProfile($event)">
-            <ion-item lines="full">
-                <label class="user-settings__change-profile-picture button-native"
-                       for="files">Change picture
-                    <input name="files" id="files" [hidden]="true"
-                           type="file" accept="image/*" (change)="changeListener($event)">
-                </label>
-                <ion-thumbnail *ngIf="profileForm.get(profileProperties?.profilePicture).value" class=" ion-margin">
-                    <ion-img [src]="profileForm.get(profileProperties.profilePicture).value"></ion-img>
+    <form [formGroup]="profileForm" (submit)="saveProfile($event)">
+        <ion-item lines="full">
+            <label class="user-settings__change-profile-picture button-native"
+                   for="files">Change picture
+                <input name="files" id="files" [hidden]="true"
+                       type="file" accept="image/*" (change)="changeListener($event)">
+            </label>
+            <ion-thumbnail *ngIf="profileForm.get(profileProperties?.profilePicture).value" class=" ion-margin">
+                <ion-img [src]="profileForm.get(profileProperties.profilePicture).value"></ion-img>
+            </ion-thumbnail>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating" class="user-settings__label">Name</ion-label>
+            <ion-input [formControlName]="profileProperties.name" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating" class="user-settings__label">Location</ion-label>
+            <ion-input [formControlName]="profileProperties.location" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating" class="user-settings__label">Age</ion-label>
+            <ion-input [formControlName]="profileProperties.age" type="number"></ion-input>
+        </ion-item>
+
+
+        <ion-item lines="full">
+            <ion-label class="user-settings__label">Profile</ion-label>
+            <ion-select [value]="this.profileForm.get([profileProperties.isPublic]).value">
+                <ion-select-option [value]="true">Public</ion-select-option>
+                <ion-select-option [value]="false">Private</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+
+        <ion-button [disabled]="!profileForm.valid"
+                    color="success"
+                    type="submit"
+                    class="ion-margin"
+                    id="save-button">
+            Save profile
+        </ion-button>
+    </form>
+    <app-accordion title="Your stories ({{user?.stories?.length}})">
+        <div class="stories__container">
+            <div class="stories__item ion-margin" *ngFor="let story of user?.stories">
+                <button class="item__button" (click)="removeStory(story.storyId)">
+                    <ion-icon name="close-circle-outline" class="item__delete-icon"></ion-icon>
+                </button>
+                <ion-thumbnail class="item__thumbnail">
+                    <ion-img [src]="story.picture"></ion-img>
                 </ion-thumbnail>
-            </ion-item>
+            </div>
+        </div>
+    </app-accordion>
 
-            <ion-item lines="full">
-                <ion-label position="floating" class="user-settings__label">Name</ion-label>
-                <ion-input [formControlName]="profileProperties.name" type="text"></ion-input>
-            </ion-item>
-
-            <ion-item lines="full">
-                <ion-label position="floating" class="user-settings__label">Location</ion-label>
-                <ion-input [formControlName]="profileProperties.location" type="text"></ion-input>
-            </ion-item>
-
-            <ion-item lines="full">
-                <ion-label position="floating" class="user-settings__label">Age</ion-label>
-                <ion-input [formControlName]="profileProperties.age" type="number"></ion-input>
-            </ion-item>
-
-
-            <ion-item lines="full">
-                <ion-label class="user-settings__label">Profile</ion-label>
-                <ion-select [value]="this.profileForm.get([profileProperties.isPublic]).value">
-                    <ion-select-option [value]="true">Public</ion-select-option>
-                    <ion-select-option [value]="false">Private</ion-select-option>
-                </ion-select>
-            </ion-item>
-
-
-
-
-            <ion-button [disabled]="!profileForm.valid"
-                        color="success"
-                        type="submit"
-                        class="ion-margin"
-                        id="save-button">
-                Save profile
-            </ion-button>
-        </form>
-<!--// TODO reusable component? -->
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle>Your relations (5)</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content class="relations__container">
-            <ion-thumbnail class="relations__thumbnail">
-                <ion-img src="/assets/soldier.jpeg"></ion-img>
-            </ion-thumbnail>
-            <ion-thumbnail class="relations__thumbnail">
-                <ion-img src="/assets/mountain.jpg"></ion-img>
-            </ion-thumbnail>
-            <ion-thumbnail class="relations__thumbnail">
-                <ion-img src="/assets/anulka.png"></ion-img>
-            </ion-thumbnail>
-            <ion-thumbnail class="relations__thumbnail">
-                <ion-img src="/assets/soldier.jpeg"></ion-img>
-            </ion-thumbnail>
-            <ion-thumbnail class="relations__thumbnail">
-                <ion-img src="/assets/soldier.jpeg"></ion-img>
-            </ion-thumbnail>
-        </ion-card-content>
-    </ion-card>
 
 </ion-content>

@@ -9,6 +9,7 @@ import {UserDetailsComponent} from '../../components/user-details/user-details.c
 
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {userMock} from '../../common/testing/mocks/user.mock';
+import {BaseUserService} from '../../services/user.service';
 
 describe('People', () => {
     let component: PeoplePage;
@@ -17,9 +18,11 @@ describe('People', () => {
     let userDetailsComponent: UserDetailsComponent;
     let modalControllerSpy;
     let modalSpy;
+    let userServiceSpy;
 
     beforeEach(async(() => {
         storageSpy = jasmine.createSpyObj('Storage', ['get', 'set']);
+        userServiceSpy = jasmine.createSpyObj('BaseUserService', ['getCurrentUserProfile']);
         modalControllerSpy = jasmine.createSpyObj('ModalController', ['create']);
         modalSpy = jasmine.createSpyObj('HTMLIonModalElement', ['present']);
 
@@ -27,14 +30,15 @@ describe('People', () => {
             declarations: [
                 PeoplePage,
                 UserDetailsComponent
-                ],
+            ],
             imports: [IonicModule.forRoot(), RouterTestingModule],
             providers: [
+                {provide: BaseUserService, useValue: userServiceSpy},
                 {provide: Storage, useValue: storageSpy},
                 {provide: ModalController, useValue: modalControllerSpy}],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
-
+        userServiceSpy.getCurrentUserProfile.and.returnValue(userMock);
         fixture = TestBed.createComponent(PeoplePage);
         component = fixture.componentInstance;
         fixture.detectChanges();

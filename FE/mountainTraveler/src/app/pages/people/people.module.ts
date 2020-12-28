@@ -10,6 +10,7 @@ import {HeaderComponentModule} from '../../components/header/header.module';
 import {UserDetailsComponent} from '../../components/user-details/user-details.component';
 import {CommunityPageModule} from '../community/community.module';
 import {FriendsListComponent} from '../../components/friends-list/friends-list.component';
+import {AccordionComponent} from '../../components/accordion/accordion.component';
 
 @NgModule({
     imports: [
@@ -24,9 +25,10 @@ import {FriendsListComponent} from '../../components/friends-list/friends-list.c
     ],
     providers: [],
     exports: [
-        UserDetailsComponent
+        UserDetailsComponent,
+        AccordionComponent
     ],
-    declarations: [PeoplePage, UserDetailsComponent, FriendsListComponent]
+    declarations: [PeoplePage, UserDetailsComponent, FriendsListComponent, AccordionComponent]
 })
 export class PeoplePageModule {
 }

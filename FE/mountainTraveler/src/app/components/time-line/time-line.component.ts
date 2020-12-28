@@ -9,14 +9,14 @@ import {Observable} from 'rxjs';
     styleUrls: ['./time-line.component.scss'],
 })
 export class TimeLineComponent {
-    @Input() usersIds: string[];
+    @Input() usersIds: string[] = [];
     @Input() userId?: string;
 
     constructor(private storiesService: StoriesService) {
     }
 
     getUsersStories(): Observable<UserStory[]> {
-        if (this.usersIds?.length > 0) {
+        if (this.usersIds.length) {
             return this.storiesService.getStories(this.usersIds);
         }
     }
@@ -30,9 +30,6 @@ export class TimeLineComponent {
     }
 
     checkIfLiked(story: UserStory) {
-        if (!story) {
-            return;
-        }
         return story.details.likes.includes(this.userId);
     }
 }

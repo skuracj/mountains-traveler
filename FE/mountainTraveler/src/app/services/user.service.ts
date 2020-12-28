@@ -5,11 +5,17 @@ import {userMock} from '../common/testing/mocks/user.mock';
 import {usersMock} from '../common/testing/mocks/users';
 import {Observable, of} from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+export abstract class BaseUserService {
+    abstract getCurrentUserProfile(): User;
+
+    abstract getUserProfileById(userId: string): Observable<User>;
+
+    abstract getUsersByIds(ids: string[]): Observable<User>;
+}
+
+
+@Injectable()
 export class UserService {
-    // user: User;
 
     constructor(private authService: AuthService) {
     }
@@ -19,7 +25,7 @@ export class UserService {
         return userMock;
     }
 
-    getUserProfile(userId: string): Observable<User> {
+    getUserProfileById(userId: string): Observable<User> {
         // TODO: Change logic according to response from BE (array / single object)
         return of(usersMock.filter(user => user.userId === userId)[0]);
     }

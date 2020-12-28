@@ -8,6 +8,7 @@ import { UserSettingsPageRoutingModule } from './user-settings-routing.module';
 
 import { UserSettingsPage } from './user-settings.page';
 import {HeaderComponentModule} from '../header/header.module';
+import {PeoplePageModule} from '../../pages/people/people.module';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import {HeaderComponentModule} from '../header/header.module';
         IonicModule,
         UserSettingsPageRoutingModule,
         ReactiveFormsModule,
-        HeaderComponentModule
+        HeaderComponentModule,
+        PeoplePageModule
     ],
   declarations: [UserSettingsPage]
 })

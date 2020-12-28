@@ -12,9 +12,9 @@ import {AppComponent} from './app.component';
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from '@ionic/storage';
 import {PipeModule} from './pipes/pipe.module';
-import {StoriesService} from './services/stories.service';
-import {UserService} from './services/user.service';
-import {AuthService} from './services/auth.service';
+import {BaseStoriesService, StoriesService} from './services/stories.service';
+import {BaseUserService, UserService} from './services/user.service';
+import {AuthService, BaseAuthService} from './services/auth.service';
 
 
 /* TODO Configure Amplify resources */
@@ -90,10 +90,10 @@ Amplify.configure({
     providers: [
         StatusBar,
         SplashScreen,
-        StoriesService,
-        UserService,
-        AuthService,
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+        {provide: BaseStoriesService, useClass: StoriesService},
+        {provide: BaseUserService, useClass: UserService},
+        {provide: BaseAuthService, useClass: AuthService}
     ],
     bootstrap: [AppComponent],
     exports: [PipeModule]
