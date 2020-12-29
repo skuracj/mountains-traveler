@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {UserStory} from '../../common/models/story';
-import {StoriesService} from '../../services/stories.service';
+import {BaseStoriesService, StoriesService} from '../../services/stories.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class TimeLineComponent {
     @Input() usersIds: string[] = [];
     @Input() userId?: string;
 
-    constructor(private storiesService: StoriesService) {
+    constructor(private storiesService: BaseStoriesService) {
     }
 
     getUsersStories(): Observable<UserStory[]> {

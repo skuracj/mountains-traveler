@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AuthService} from './auth.service';
+import {AuthService, BaseAuthService} from './auth.service';
 import {User} from '../common/models/user';
 import {userMock} from '../common/testing/mocks/user.mock';
 import {usersMock} from '../common/testing/mocks/users';
@@ -10,14 +10,14 @@ export abstract class BaseUserService {
 
     abstract getUserProfileById(userId: string): Observable<User>;
 
-    abstract getUsersByIds(ids: string[]): Observable<User>;
+    abstract getUsersByIds(ids: string[]): Observable<User[]>;
 }
 
 
 @Injectable()
 export class UserService {
 
-    constructor(private authService: AuthService) {
+    constructor(private authService: BaseAuthService) {
     }
 
     getCurrentUserProfile(): User {

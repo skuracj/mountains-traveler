@@ -5,6 +5,7 @@ import {HikingLevels} from '../constants/HikingLevels.enum';
 import {ComponentType} from '../constants/ComponentType.enum';
 import {CitiesMappedToCountry} from '../constants/Cities.enum';
 
+
 export class BaseComponent {
     public routeSegments = RouteSegments;
     public queryParamNames = QueryParamNames;

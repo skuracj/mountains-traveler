@@ -3,5 +3,37 @@
 </app-header>
 
 <ion-content>
-    {{routeLevel}}
+
+    <section
+            id="search"
+            class="travel-planner__search-section ion-no-margin">
+
+        <ion-list [ngClass]="isExpand ? 'show' : 'hide'">
+            <ion-item>
+                <ion-searchbar showCancelButton="focus"></ion-searchbar>
+            </ion-item>
+
+            <ion-item *ngFor="let filter of testSearchFilters"  class="travel-planner__item">
+                <ion-label>
+                    {{filter.filterName}}
+                </ion-label>
+                <ion-select [value]="filter.filterValues[0].value">
+                    <ion-select-option *ngFor="let item of filter.filterValues"
+                                       [value]="item.value">
+                        {{item.displayValue}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+        <ion-button
+                type="button"
+                id="search-button"
+                fill="solid"
+                color="success"
+                (click)="isExpand = !isExpand"
+                class="travel-planner__search-button ion-no-padding ion-no-margin font-size-xxl">
+            <ion-icon [name]="isExpand ? 'arrow-undo-outline' : 'search-circle-outline'"></ion-icon>
+        </ion-button>
+    </section>
 </ion-content>
