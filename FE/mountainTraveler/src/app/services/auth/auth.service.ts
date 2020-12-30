@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {userMock} from '../common/testing/mocks/user.mock';
+import {userMock} from '../../common/testing/mocks/user.mock';
 
 export abstract class BaseAuthService {
     abstract isAuth(): boolean;

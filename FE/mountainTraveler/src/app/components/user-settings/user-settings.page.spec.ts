@@ -8,7 +8,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {userMock} from '../../common/testing/mocks/user.mock';
 import {CommonModule} from '@angular/common';
 import {ProfileProperties} from '../../common/constants/Profile.enum';
-import {StoriesService} from '../../services/stories.service';
+import {BaseStoriesService} from '../../services/stories/stories.service';
 
 describe('UserSettingsPage', () => {
     let component: UserSettingsPage;
@@ -18,13 +18,13 @@ describe('UserSettingsPage', () => {
 
     const userObject = userMock;
     beforeEach(async(() => {
-        storiesServiceSpy = jasmine.createSpyObj('StoriesService', ['removeStory']);
+        storiesServiceSpy = jasmine.createSpyObj('BaseStoriesService', ['removeStory']);
         TestBed.configureTestingModule({
             declarations: [UserSettingsPage],
             imports: [IonicModule.forRoot(), CommonModule, ReactiveFormsModule],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
             providers: [
-                {provide: StoriesService, useValue: storiesServiceSpy},
+                {provide: BaseStoriesService, useValue: storiesServiceSpy},
                 FormBuilder]
         }).compileComponents();
 

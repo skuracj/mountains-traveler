@@ -4,6 +4,7 @@ import {IonicModule} from '@ionic/angular';
 import {BaseComponent} from './base.component';
 import {QueryParamNames} from '../constants/QueryParamNames.enum';
 import {HikingLevels} from '../constants/HikingLevels.enum';
+import {HikingLevelsValues} from '../constants/FiltersValues.enum';
 
 describe('BaseComponent', () => {
     let sut: BaseComponent;
@@ -23,7 +24,7 @@ describe('BaseComponent', () => {
 
     it('#getQueryParams, should return queryParams object with passed values', () => {
         const queryParamName = QueryParamNames.level;
-        const queryParamValue = HikingLevels.easy;
+        const queryParamValue = HikingLevelsValues.easy;
 
         const result = sut.getQueryParams(queryParamName, queryParamValue);
 

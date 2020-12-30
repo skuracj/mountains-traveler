@@ -1,19 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {tap} from 'rxjs/operators';
 import {BaseComponent} from '../../common/base/base.component';
 import {QueryParamNames} from '../../common/constants/QueryParamNames.enum';
 import {HikingLevels, RouteType, SuitableForKids, TripDuration} from '../../common/constants/SearchFilters';
+import {AccordionComponent} from '../../components/accordion/accordion.component';
 
 @Component({
     selector: 'app-travel-planner',
     templateUrl: './travel-planner.page.html',
     styleUrls: ['./travel-planner.page.scss'],
+
 })
 export class TravelPlannerPage extends BaseComponent implements OnInit {
-    isExpand = false;
-    testSearchFilters = [HikingLevels, RouteType, SuitableForKids, TripDuration];
-    selectedDifficultyLevel;
+    public isExpanded = true;
+    public testSearchFilters = [HikingLevels, RouteType, SuitableForKids, TripDuration];
+    public selectedDifficultyLevel;
+
+    @ViewChild('filtersAccordion') filtersAccordion: AccordionComponent;
 
     constructor(private activatedRoute: ActivatedRoute) {
         super();
@@ -23,6 +27,14 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
         this.activatedRoute.queryParams.pipe(
             tap(queryParam => this.selectedDifficultyLevel = queryParam[QueryParamNames.level])
         ).subscribe();
+    }
+
+    logRatingChange(event) {
+        console.log(event);
+    }
+
+    applyFilters() {
+        this.filtersAccordion.closeAccordion();
     }
 
 }

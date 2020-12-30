@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../common/models/user';
-import {BaseUserService, UserService} from '../../services/user.service';
+import {BaseUserService, UserService} from '../../services/user/user.service';
 import {Observable} from 'rxjs';
 import {BaseComponent} from '../../common/base/base.component';
 import {uuid4} from '@capacitor/core/dist/esm/util';

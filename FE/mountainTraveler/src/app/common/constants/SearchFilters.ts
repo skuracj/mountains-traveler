@@ -1,20 +1,22 @@
+import {CommonValues, HikingLevelsValues, RouteTypeValues, TripDurationValues} from './FiltersValues.enum';
+
 export const HikingLevels = {
     filterName: 'Hiking levels',
     filterValues: [
         {
-            value: 'all',
+            value: CommonValues.all,
             displayValue: 'All'
         },
         {
-            value: 'easy',
+            value: HikingLevelsValues.easy,
             displayValue: 'Easy'
         },
         {
-            value: 'medium',
+            value: HikingLevelsValues.medium,
             displayValue: 'Medium'
         },
         {
-            value: 'hard',
+            value: HikingLevelsValues.hard,
             displayValue: 'Hard'
         }
     ]
@@ -24,20 +26,20 @@ export const TripDuration = {
     filterName: 'Trip duration',
     filterValues: [
         {
-            value: 'all',
+            value: CommonValues.all,
             displayValue: 'All'
         },
         {
-            value: 'short',
+            value: TripDurationValues.short,
             displayValue: '1-3h',
 
         },
         {
-            value: 'medium',
+            value: TripDurationValues.medium,
             displayValue: '3-6h',
         },
         {
-            value: 'long',
+            value: TripDurationValues.long,
             displayValue: '6h+',
         }
     ]
@@ -47,7 +49,7 @@ export const SuitableForKids = {
     filterName: 'Suitable for kids',
     filterValues: [
         {
-            value: 'all',
+            value: CommonValues.all,
             displayValue: 'All'
         },
         {
@@ -65,15 +67,15 @@ export const RouteType = {
     filterName: 'Route type',
     filterValues: [
         {
-            value: 'all',
+            value: CommonValues.all,
             displayValue: 'All'
         },
         {
-            value: 'oneWay',
+            value: RouteTypeValues.oneWay,
             displayValue: 'One way'
         },
         {
-            value: 'roundTrip',
+            value: RouteTypeValues.roundTrip,
             displayValue: 'Round trip'
         }
     ]

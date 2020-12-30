@@ -8,6 +8,8 @@ import { TravelPlannerPageRoutingModule } from './travel-planner-routing.module'
 
 import { TravelPlannerPage } from './travel-planner.page';
 import {HeaderComponentModule} from '../../components/header/header.module';
+import {StarRatingModule} from 'ionic5-star-rating';
+import {PeoplePageModule} from '../people/people.module';
 
 @NgModule({
     imports: [
@@ -15,7 +17,9 @@ import {HeaderComponentModule} from '../../components/header/header.module';
         FormsModule,
         IonicModule,
         TravelPlannerPageRoutingModule,
-        HeaderComponentModule
+        HeaderComponentModule,
+        StarRatingModule,
+        PeoplePageModule
     ],
   declarations: [TravelPlannerPage]
 })

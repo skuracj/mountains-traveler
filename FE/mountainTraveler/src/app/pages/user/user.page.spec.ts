@@ -3,7 +3,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {UserPage} from './user.page';
 import {RouterTestingModule} from '@angular/router/testing';
-import {BaseUserService, UserService} from '../../services/user.service';
+import {BaseUserService, UserService} from '../../services/user/user.service';
 import {of} from 'rxjs';
 import {usersMock} from '../../common/testing/mocks/users';
 import {NO_ERRORS_SCHEMA} from '@angular/core';

@@ -3,7 +3,7 @@ import {User} from '../../common/models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfileProperties} from '../../common/constants/Profile.enum';
 import {BaseComponent} from '../../common/base/base.component';
-import {StoriesService} from '../../services/stories.service';
+import {BaseStoriesService, StoriesService} from '../../services/stories/stories.service';
 
 @Component({
     selector: 'app-user-settings',
@@ -17,7 +17,7 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
 
     constructor(
         public formBuilder: FormBuilder,
-        private storiesService: StoriesService) {
+        private storiesService: BaseStoriesService) {
         super();
 
     }

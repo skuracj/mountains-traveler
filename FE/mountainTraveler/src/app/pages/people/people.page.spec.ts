@@ -9,7 +9,7 @@ import {UserDetailsComponent} from '../../components/user-details/user-details.c
 
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {userMock} from '../../common/testing/mocks/user.mock';
-import {BaseUserService} from '../../services/user.service';
+import {BaseUserService} from '../../services/user/user.service';
 
 describe('People', () => {
     let component: PeoplePage;

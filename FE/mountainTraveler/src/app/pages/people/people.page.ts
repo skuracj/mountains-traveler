@@ -6,7 +6,7 @@ import {User} from '../../common/models/user';
 import {ModalController} from '@ionic/angular';
 import {UserSettingsPage} from '../../components/user-settings/user-settings.page';
 import {Utils} from '../../common/utils';
-import {BaseUserService, UserService} from '../../services/user.service';
+import {BaseUserService, UserService} from '../../services/user/user.service';
 
 @Component({
     selector: 'app-people',

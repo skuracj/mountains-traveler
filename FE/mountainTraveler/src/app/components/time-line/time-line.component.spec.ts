@@ -2,11 +2,10 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule} from '@ionic/angular';
 
 import {TimeLineComponent} from './time-line.component';
-import {StoriesService} from '../../services/stories.service';
+import {BaseStoriesService} from '../../services/stories/stories.service';
 import {of} from 'rxjs';
 import {usersStoriesMock} from '../../common/testing/mocks/users-stories.mock';
 import {TimeAgoPipe} from 'time-ago-pipe';
-import {UserStory} from '../../common/models/story';
 import {By} from '@angular/platform-browser';
 
 describe('TimeLineComponent', () => {
@@ -15,12 +14,12 @@ describe('TimeLineComponent', () => {
     let storiesServiceSpy;
 
     beforeEach(async(() => {
-        storiesServiceSpy = jasmine.createSpyObj('StoriesService', ['getStories', 'addLikeToStory', 'removeLikeFromStory']);
+        storiesServiceSpy = jasmine.createSpyObj('BaseStoriesService', ['getStories', 'addLikeToStory', 'removeLikeFromStory']);
         TestBed.configureTestingModule({
             declarations: [TimeLineComponent, TimeAgoPipe],
             imports: [IonicModule.forRoot()],
             providers: [
-                {provide: StoriesService, useValue: storiesServiceSpy},
+                {provide: BaseStoriesService, useValue: storiesServiceSpy},
             ]
         }).compileComponents();
 

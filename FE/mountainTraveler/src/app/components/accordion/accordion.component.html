@@ -1,4 +1,4 @@
-<ion-card>
+<ion-card [ngClass]="{'ion-no-margin': fullWidth}">
     <ion-card-header>
         <ion-card-title class="accordion__title">{{title}}
             <button
@@ -15,6 +15,7 @@
     </ion-card-header>
 
     <ion-card-content *ngIf="isExpanded"
+                      [ngClass]="{'ion-no-padding': fullWidth}"
                       role="region"
                       [id]="id + '-content'"
                       [attr.aria-labelledby]="id + '-trigger'">

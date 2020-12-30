@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {AuthService, BaseAuthService} from './auth.service';
-import {User} from '../common/models/user';
-import {userMock} from '../common/testing/mocks/user.mock';
-import {usersMock} from '../common/testing/mocks/users';
+import {AuthService, BaseAuthService} from '../auth/auth.service';
+import {User} from '../../common/models/user';
+import {userMock} from '../../common/testing/mocks/user.mock';
+import {usersMock} from '../../common/testing/mocks/users';
 import {Observable, of} from 'rxjs';
 
 export abstract class BaseUserService {

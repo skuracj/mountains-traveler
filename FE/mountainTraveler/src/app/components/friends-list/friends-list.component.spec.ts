@@ -2,8 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule} from '@ionic/angular';
 
 import {FriendsListComponent} from './friends-list.component';
-import {StoriesService} from '../../services/stories.service';
-import {UserService} from '../../services/user.service';
+import {BaseUserService, UserService} from '../../services/user/user.service';
 import {usersMock} from '../../common/testing/mocks/users';
 import {of} from 'rxjs';
 
@@ -13,11 +12,11 @@ describe('FriendsListComponent', () => {
     let userServiceSpy;
 
     beforeEach(async(() => {
-        userServiceSpy = jasmine.createSpyObj('UserService', ['getUsersByIds']);
+        userServiceSpy = jasmine.createSpyObj('BaseUserService', ['getUsersByIds']);
         TestBed.configureTestingModule({
             declarations: [FriendsListComponent],
             imports: [IonicModule.forRoot()],
-            providers: [{provide: UserService, useValue: userServiceSpy}]
+            providers: [{provide: BaseUserService, useValue: userServiceSpy}]
         }).compileComponents();
 
         fixture = TestBed.createComponent(FriendsListComponent);

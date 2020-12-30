@@ -21,4 +21,10 @@ describe('AccordionComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#closeAccordion should change isExpanded/ close accordion when called', () => {
+    component.closeAccordion();
+
+    expect(component.isExpanded).toBeFalsy();
+  });
 });

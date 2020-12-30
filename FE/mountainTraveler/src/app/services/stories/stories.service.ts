@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {UserStory} from '../common/models/story';
-import {usersStoriesMock} from '../common/testing/mocks/users-stories.mock';
+import {UserStory} from '../../common/models/story';
+import {usersStoriesMock} from '../../common/testing/mocks/users-stories.mock';
 import {Observable, of} from 'rxjs';
-import {userMock} from '../common/testing/mocks/user.mock';
+import {userMock} from '../../common/testing/mocks/user.mock';
 
 
 export abstract class BaseStoriesService {
@@ -18,7 +18,7 @@ export abstract class BaseStoriesService {
 @Injectable()
 export class StoriesService {
     stories: UserStory[];
- 
+
     constructor() {
     }
 

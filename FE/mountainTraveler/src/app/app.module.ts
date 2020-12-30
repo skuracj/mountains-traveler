@@ -12,9 +12,9 @@ import {AppComponent} from './app.component';
 import Amplify from 'aws-amplify';
 import {IonicStorageModule} from '@ionic/storage';
 import {PipeModule} from './pipes/pipe.module';
-import {BaseStoriesService, StoriesService} from './services/stories.service';
-import {BaseUserService, UserService} from './services/user.service';
-import {AuthService, BaseAuthService} from './services/auth.service';
+import {BaseStoriesService, StoriesService} from './services/stories/stories.service';
+import {BaseUserService, UserService} from './services/user/user.service';
+import {AuthService, BaseAuthService} from './services/auth/auth.service';
 
 
 /* TODO Configure Amplify resources */
