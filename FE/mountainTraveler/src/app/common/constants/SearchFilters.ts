@@ -1,7 +1,8 @@
 import {CommonValues, HikingLevelsValues, RouteTypeValues, TripDurationValues} from './FiltersValues.enum';
+import {FilterNames} from './FiltersNames.enum';
 
 export const HikingLevels = {
-    filterName: 'Hiking levels',
+    filterName: FilterNames.hikingLevels,
     filterValues: [
         {
             value: CommonValues.all,
@@ -23,7 +24,7 @@ export const HikingLevels = {
 };
 
 export const TripDuration = {
-    filterName: 'Trip duration',
+    filterName: FilterNames.tripDuration,
     filterValues: [
         {
             value: CommonValues.all,
@@ -46,7 +47,7 @@ export const TripDuration = {
 };
 
 export const SuitableForKids = {
-    filterName: 'Suitable for kids',
+    filterName: FilterNames.suitableForKids,
     filterValues: [
         {
             value: CommonValues.all,
@@ -64,7 +65,7 @@ export const SuitableForKids = {
 };
 
 export const RouteType = {
-    filterName: 'Route type',
+    filterName: FilterNames.routeType,
     filterValues: [
         {
             value: CommonValues.all,

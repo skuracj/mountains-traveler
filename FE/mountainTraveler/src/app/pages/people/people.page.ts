@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
 import {Sections} from '../../common/constants/Sections.enum';
-import {userMock} from '../../common/testing/mocks/user.mock';
 import {User} from '../../common/models/user';
 import {ModalController} from '@ionic/angular';
 import {UserSettingsPage} from '../../components/user-settings/user-settings.page';
 import {Utils} from '../../common/utils';
-import {BaseUserService, UserService} from '../../services/user/user.service';
+import {BaseUserService} from '../../services/user/user.service';
 
 @Component({
     selector: 'app-people',

@@ -5,6 +5,9 @@ import {BaseComponent} from '../../common/base/base.component';
 import {QueryParamNames} from '../../common/constants/QueryParamNames.enum';
 import {HikingLevels, RouteType, SuitableForKids, TripDuration} from '../../common/constants/SearchFilters';
 import {AccordionComponent} from '../../components/accordion/accordion.component';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FilterNames} from '../../common/constants/FiltersNames.enum';
+import {CommonValues} from '../../common/constants/FiltersValues.enum';
 
 @Component({
     selector: 'app-travel-planner',
@@ -14,19 +17,38 @@ import {AccordionComponent} from '../../components/accordion/accordion.component
 })
 export class TravelPlannerPage extends BaseComponent implements OnInit {
     public isExpanded = true;
-    public testSearchFilters = [HikingLevels, RouteType, SuitableForKids, TripDuration];
+    public searchFilters = [HikingLevels, RouteType, SuitableForKids, TripDuration];
     public selectedDifficultyLevel;
+    public travelForm: FormGroup;
 
     @ViewChild('filtersAccordion') filtersAccordion: AccordionComponent;
 
-    constructor(private activatedRoute: ActivatedRoute) {
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        public formBuilder: FormBuilder) {
         super();
     }
 
     ngOnInit() {
+        this.createForm();
         this.activatedRoute.queryParams.pipe(
-            tap(queryParam => this.selectedDifficultyLevel = queryParam[QueryParamNames.level])
+            tap(queryParam => this.travelForm.patchValue({
+                [FilterNames.hikingLevels]: queryParam[QueryParamNames.level]
+            }))
         ).subscribe();
+    }
+
+
+    createForm() {
+        this.travelForm = this.formBuilder.group({
+            [FilterNames.startingPoint]: [null, Validators.required],
+            [FilterNames.destinationPoint]: [null],
+            [FilterNames.hikingLevels]: [CommonValues.all],
+            [FilterNames.routeType]: [CommonValues.all],
+            [FilterNames.suitableForKids]: [CommonValues.all],
+            [FilterNames.tripDuration]: [CommonValues.all],
+            [FilterNames.usersRating]: [2],
+        });
     }
 
     logRatingChange(event) {
@@ -34,6 +56,7 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     }
 
     applyFilters() {
+        console.log(this.travelForm.value);
         this.filtersAccordion.closeAccordion();
     }
 

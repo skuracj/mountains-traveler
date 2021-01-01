@@ -9,47 +9,51 @@
             class="travel-planner__search-section ion-no-margin">
 
         <ion-list [ngClass]="isExpanded ? 'show' : 'hide'">
-            <app-accordion title="Filters" [fullWidth]="true" style="width: 100%;" #filtersAccordion>
-            <ion-item>
-                <ion-searchbar placeholder="Starting point"></ion-searchbar>
-            </ion-item>
-<!--            // TODO NGIF - round trip - remove input-->
-<!--            // TODO add stop point-->
-            <ion-item>
-                <ion-searchbar placeholder="Destination point"></ion-searchbar>
-            </ion-item>
+            <form [formGroup]="travelForm">
+                <app-accordion title="Filters" [fullWidth]="true" #filtersAccordion>
+                    <ion-item>
+                        <ion-searchbar placeholder="Starting point" [formControlName]="filtersNames.startingPoint"></ion-searchbar>
+                    </ion-item>
+                    <!--            // TODO NGIF - round trip - remove input-->
+                    <!--            // TODO add stop point-->
+                    <ion-item>
+                        <ion-searchbar placeholder="Destination point"></ion-searchbar>
+                    </ion-item>
 
-            <ion-item *ngFor="let filter of testSearchFilters"  class="travel-planner__item">
-                <ion-label>
-                    {{filter.filterName}}
-                </ion-label>
-                <ion-select [value]="filter.filterValues[0].value">
-                    <ion-select-option *ngFor="let item of filter.filterValues"
-                                       [value]="item.value">
-                        {{item.displayValue}}
-                    </ion-select-option>
-                </ion-select>
-            </ion-item>
-          <ion-item >
+                    <ion-item *ngFor="let filter of searchFilters" class="travel-planner__item">
+                        <ion-label>
+                            {{filter.filterName | titlecase | hyphensToSpaces}}
+                        </ion-label>
+                        <ion-select [formControlName]="filter.filterName">
+                            <ion-select-option *ngFor="let item of filter.filterValues"
+                                               [value]="item.value">
+                                {{item.displayValue}}
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
 
-              <ion-label>Users rating</ion-label>
+                        <ion-label>{{filtersNames.usersRating | titlecase | hyphensToSpaces }}</ion-label>
 
-              <ionic5-star-rating
-                      activeColor = "#2dd36f"
-                      defaultColor = "#2dd36f"
-                      (ratingChanged)="logRatingChange($event)"
-              >
-              </ionic5-star-rating>
+                        <ionic5-star-rating
+                                activeColor="#2dd36f"
+                                defaultColor="#2dd36f"
+                                [formControlName]="filtersNames.usersRating"
+                                (ratingChanged)="logRatingChange($event)"
+                        >
+                        </ionic5-star-rating>
 
-          </ion-item>
-            <ion-button fill="solid"
-                        expand="block"
-                        color="success"
-                        id="apply_filters"
-            (click)="applyFilters()">
-                Apply filters
-            </ion-button>
-</app-accordion>
+                    </ion-item>
+                    <ion-button fill="solid"
+                                expand="block"
+                                color="success"
+                                id="apply_filters"
+                                [disabled]="!travelForm.valid"
+                                (click)="applyFilters()">
+                        Apply filters
+                    </ion-button>
+                </app-accordion>
+            </form>
         </ion-list>
         <ion-button
                 type="button"

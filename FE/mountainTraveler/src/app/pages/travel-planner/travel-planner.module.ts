@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -10,6 +10,7 @@ import { TravelPlannerPage } from './travel-planner.page';
 import {HeaderComponentModule} from '../../components/header/header.module';
 import {StarRatingModule} from 'ionic5-star-rating';
 import {PeoplePageModule} from '../people/people.module';
+import {PipeModule} from '../../pipes/pipe.module';
 
 @NgModule({
     imports: [
@@ -19,7 +20,9 @@ import {PeoplePageModule} from '../people/people.module';
         TravelPlannerPageRoutingModule,
         HeaderComponentModule,
         StarRatingModule,
-        PeoplePageModule
+        PeoplePageModule,
+        ReactiveFormsModule,
+        PipeModule
     ],
   declarations: [TravelPlannerPage]
 })

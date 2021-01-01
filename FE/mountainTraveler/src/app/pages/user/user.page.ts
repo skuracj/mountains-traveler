@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {uuid4} from '@capacitor/core/dist/esm/util';
 import {ActivatedRoute} from '@angular/router';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {BaseComponent} from '../../common/base/base.component';
-import {BaseUserService, UserService} from '../../services/user/user.service';
+import {BaseUserService} from '../../services/user/user.service';
 import {Observable} from 'rxjs';
 import {User} from '../../common/models/user';
 

@@ -34,7 +34,7 @@
 
         <ion-item lines="full">
             <ion-label class="user-settings__label">Profile</ion-label>
-            <ion-select [value]="this.profileForm.get([profileProperties.isPublic]).value">
+            <ion-select [formControlName]="profileProperties.isPublic">
                 <ion-select-option [value]="true">Public</ion-select-option>
                 <ion-select-option [value]="false">Private</ion-select-option>
             </ion-select>

@@ -15,6 +15,7 @@ import {PipeModule} from './pipes/pipe.module';
 import {BaseStoriesService, StoriesService} from './services/stories/stories.service';
 import {BaseUserService, UserService} from './services/user/user.service';
 import {AuthService, BaseAuthService} from './services/auth/auth.service';
+import {BaseTravelService, TravelService} from './services/travel/travel.service';
 
 
 /* TODO Configure Amplify resources */
@@ -93,7 +94,8 @@ Amplify.configure({
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         {provide: BaseStoriesService, useClass: StoriesService},
         {provide: BaseUserService, useClass: UserService},
-        {provide: BaseAuthService, useClass: AuthService}
+        {provide: BaseAuthService, useClass: AuthService},
+        {provide: BaseTravelService, useClass: TravelService}
     ],
     bootstrap: [AppComponent],
     exports: [PipeModule]
