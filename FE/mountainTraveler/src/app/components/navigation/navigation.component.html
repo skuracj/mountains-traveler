@@ -1,21 +1,24 @@
-  <ion-tabs class="navigation__tabs">
+<ion-tabs class="navigation__tabs">
 
-  <ion-tab-bar slot="bottom" class="navigation__tabs__bar">
-    <ion-tab-button [tab]="routeSegments.home" class="navigation__tabs__button">
-      <ion-icon [name]="this.router.url === '/' + routeSegments.home ? 'home' : 'home-outline'"></ion-icon>
-      <ion-label>Home</ion-label>
+    <ion-tab-bar slot="bottom" class="navigation__tabs__bar">
+        <ion-tab-button [tab]="routeSegments.home" class="navigation__tabs__button">
+            <ion-icon
+                    [name]="this.router.url ===  '/' + routeSegments.app + '/' + routeSegments.home ? 'home' : 'home-outline'"></ion-icon>
+            <ion-label>{{routeSegments.home | titlecase }}</ion-label>
 
-    </ion-tab-button>
+        </ion-tab-button>
 
-    <ion-tab-button [tab]="routeSegments.planTravel" class="navigation__tabs__button">
-      <ion-icon [name]="this.router.url === '/' + routeSegments.planTravel ? 'map' : 'map-outline'"></ion-icon>
-      <ion-label>Plan travel</ion-label>
-    </ion-tab-button>
+        <ion-tab-button [tab]="routeSegments.planTravel" class="navigation__tabs__button">
+            <ion-icon
+                    [name]="this.router.url ===  '/' + routeSegments.app + '/' + routeSegments.planTravel ? 'map' : 'map-outline'"></ion-icon>
+            <ion-label>{{routeSegments.planTravel | titlecase | hyphensToSpaces}}</ion-label>
+        </ion-tab-button>
 
-    <ion-tab-button [tab]="routeSegments.people" class="navigation__tabs__button">
-      <ion-icon [name]="this.router.url === '/' + routeSegments.people ? 'people' : 'people-outline'"></ion-icon>
-      <ion-label>People</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
+        <ion-tab-button [tab]="routeSegments.people" class="navigation__tabs__button">
+            <ion-icon
+                    [name]="this.router.url === '/' + routeSegments.app + '/' + routeSegments.people ? 'people' : 'people-outline'"></ion-icon>
+            <ion-label>{{routeSegments.people | titlecase}}</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
 
 </ion-tabs>

@@ -30,6 +30,10 @@ export class HomePage extends BaseComponent {
     }
 
     async ionViewWillEnter() {
+        await this.setLocation();
+    }
+
+    async setLocation() {
         const storedCity = await this.storage.get(this.storageObject.city);
         this.city = storedCity ? storedCity : environment.defaultCity;
     }
@@ -50,7 +54,6 @@ export class HomePage extends BaseComponent {
             const modal: HTMLIonModalElement = await this.modalController.create({
                 component: PackingListComponent,
                 componentProps: {
-                    packingList: this.packingList,
                     title: 'Packing list',
                 }
             });

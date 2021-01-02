@@ -3,27 +3,43 @@ import {AuthService, BaseAuthService} from '../auth/auth.service';
 import {User} from '../../common/models/user';
 import {userMock} from '../../common/testing/mocks/user.mock';
 import {usersMock} from '../../common/testing/mocks/users';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
+import {MostActiveUsers} from '../../common/models/most-active-users';
+import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
+import {PackingItem} from '../../common/models/packing-list';
 
 export abstract class BaseUserService {
-    abstract getCurrentUserProfile(): User;
+    private _user: BehaviorSubject<User>;
+    public user$: Observable<User>;
+
+    abstract loadUserData();
 
     abstract getUserProfileById(userId: string): Observable<User>;
 
     abstract getUsersByIds(ids: string[]): Observable<User[]>;
+
+    abstract getMostActiveUsers(ids?: string[]): Observable<User[]>;
+
+    abstract updateUserPackingList(list: PackingItem[]);
+
+    abstract getUserPackingList(): Observable<PackingItem[]>;
 }
 
 
 @Injectable()
 export class UserService {
+    private _user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
-    constructor(private authService: BaseAuthService) {
+    public readonly user$: Observable<User> = this._user.asObservable();
+
+    constructor() {
+        this.loadUserData();
     }
 
-    getCurrentUserProfile(): User {
-        this.authService.getUserId();
-        return userMock;
+    loadUserData() {
+        this._user  .next(userMock);
     }
+
 
     getUserProfileById(userId: string): Observable<User> {
         // TODO: Change logic according to response from BE (array / single object)
@@ -31,8 +47,16 @@ export class UserService {
     }
 
     getUsersByIds(ids: string[]): Observable<User[]> {
-        console.log(usersMock.filter( user1 => ids.includes(user1.userId)));
-        return of(usersMock.filter( user1 => ids.includes(user1.userId)));
+        return of(usersMock.filter(user => ids.includes(user.userId)));
+    }
 
+    getMostActiveUsers(ids?: string[]): Observable<MostActiveUsers[]> {
+        return of(mostActiveUsersMock);
+    }
+
+    updateUserPackingList(list: PackingItem[]) {
+        const updatedUser = {...this._user.getValue()};
+        updatedUser.packingList = list;
+        this._user.next(updatedUser);
     }
 }

@@ -19,7 +19,8 @@ const routes: Routes = [
       {
         path: RouteSegments.people,
         loadChildren: () => import('../../pages/people/people.module').then(m => m.PeoplePageModule)
-      },{
+      },
+      {
         path: '',
         redirectTo: `/${RouteSegments.app}/${RouteSegments.home}`
 

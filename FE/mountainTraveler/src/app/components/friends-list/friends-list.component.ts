@@ -3,7 +3,6 @@ import {User} from '../../common/models/user';
 import {BaseUserService, UserService} from '../../services/user/user.service';
 import {Observable} from 'rxjs';
 import {BaseComponent} from '../../common/base/base.component';
-import {uuid4} from '@capacitor/core/dist/esm/util';
 
 @Component({
     selector: 'app-friends-list',
@@ -12,9 +11,9 @@ import {uuid4} from '@capacitor/core/dist/esm/util';
 })
 export class FriendsListComponent extends BaseComponent implements OnInit {
     @Input() friendsIds: string[];
-    friends$: Observable<User[]>;
+
+    public friends$: Observable<User[]>;
     public isExpanded = false;
-    public id = uuid4();
 
     constructor(private userService: BaseUserService) {
         super();

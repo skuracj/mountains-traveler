@@ -11,11 +11,11 @@ import {BaseComponent} from '../../common/base/base.component';
 })
 export class HeaderComponent extends BaseComponent{
     @Input() headerTitle: string;
-    @Input() defaultHref?: string = RouteSegments.app;
     @Input() displayMode: ComponentType;
+    @Input() defaultHref?: string = RouteSegments.app;
 
     constructor(private modalController: ModalController) {
-        super()
+        super();
     }
 
     async dismissModal() {

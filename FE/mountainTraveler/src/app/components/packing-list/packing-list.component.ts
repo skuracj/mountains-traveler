@@ -1,24 +1,41 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
 import {FormGroup} from '@angular/forms';
 import {BaseComponent} from '../../common/base/base.component';
+import {BaseUserService} from '../../services/user/user.service';
+import {BaseAuthService} from '../../services/auth/auth.service';
+import {first, tap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-packing-list',
     templateUrl: './packing-list.component.html',
     styleUrls: ['./packing-list.component.scss'],
 })
-export class PackingListComponent extends BaseComponent{
+export class PackingListComponent extends BaseComponent implements OnInit{
     @Input() title: string;
-    @Input() packingList?: PackingItem[];
-    @Input() userSettings?: FormGroup;
+
+    public packingList: PackingItem[];
 
     editMode = false;
     newItemValue: string;
 
-    constructor() {
+    constructor(
+        private userService: BaseUserService) {
         super();
     }
+    ngOnInit() {
+        this.getPackingList();
+    }
+
+    getPackingList() {
+        this.userService.user$.pipe(
+            first(),
+            tap(user => {
+                this.packingList = [...user.packingList];
+            })).subscribe();
+
+    }
+
 
     addItemToList() {
         this.packingList.push({title: this.newItemValue, packed: false});
@@ -29,9 +46,13 @@ export class PackingListComponent extends BaseComponent{
         this.packingList.splice(index, 1);
     }
 
+    toggleItem(item) {
+        const itemIndex = this.packingList.findIndex(listItem => listItem === item);
+        this.packingList[itemIndex] = { title: item.title, packed: !item.packed};
+    }
+
     savePackingList() {
-        // TODO update user profile object
-        alert('saved');
-        console.log('Saving list', this.packingList);
+        const updatedList = this.packingList;
+        this.userService.updateUserPackingList(updatedList);
     }
 }

@@ -5,8 +5,8 @@
 
 <ion-content>
 
-    <ion-list *ngIf="packingList">
-        <ion-item *ngFor="let item of packingList;let i = index" (click)="item.packed = !item.packed">
+    <ion-list>
+        <ion-item *ngFor="let item of packingList; let i = index" (click)="toggleItem(item)">
             <ion-text [color]="item.packed ? 'success' : 'danger'" class="display-flex">
                 <ion-icon [name]="item.packed ? 'checkmark-circle-outline' : 'close-circle-outline'"></ion-icon>
             </ion-text>

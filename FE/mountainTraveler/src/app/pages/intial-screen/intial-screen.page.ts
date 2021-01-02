@@ -9,5 +9,5 @@ import {NavController} from "@ionic/angular";
 })
 export class IntialScreenPage extends BaseComponent{
 
-  constructor(public navController: NavController) {super() }
+  constructor(public navController: NavController) {super(); }
 }
