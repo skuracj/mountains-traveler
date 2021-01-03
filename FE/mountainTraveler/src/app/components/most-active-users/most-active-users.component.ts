@@ -15,6 +15,7 @@ export class MostActiveUsersComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.mostActiveUsers$ = this.userService.getMostActiveUsers();
+        this.userService.getMostActiveUsers();
+        this.mostActiveUsers$ = this.userService.mostActiveUsers$;
     }
 }

@@ -8,6 +8,7 @@ import {BaseComponent} from '../../common/base/base.component';
 })
 export class CommunityPage extends BaseComponent implements OnInit {
     mockUserIds: string[] = ['loggedInUser_ID', 'anulka1_ID', 'mudzina1_ID'];
+    userId = 'loggedInUser_ID';
     constructor() {
         super();
     }
