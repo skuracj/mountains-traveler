@@ -6,6 +6,8 @@ import {ModalController} from '@ionic/angular';
 import {UserSettingsPage} from '../../components/user-settings/user-settings.page';
 import {Utils} from '../../common/utils';
 import {BaseUserService} from '../../services/user/user.service';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-people',
@@ -17,6 +19,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
     sections = Sections;
     user: User;
     friendsIds: string[];
+
     originalOrder = Utils.originalOrder;
 
     constructor(
@@ -27,12 +30,24 @@ export class PeoplePage extends BaseComponent implements OnInit {
 
     async ngOnInit() {
         this.selectedSection = Sections.me;
-        this.user = this.userService.getCurrentUserProfile();
-        this.friendsIds = this.user.friendsIds;
+
+        this.userService.user$.pipe(tap(
+            user => {
+                this.user = user;
+                this.friendsIds = [...user.friendsIds];
+            }
+        )).subscribe();
+    }
+
+    ionViewWillEnter() {
+        console.log('this.ionViewWillEnter()');
+        // this.userService.loadUserData();
     }
 
     onSegmentClicked(event: CustomEvent) {
+
         this.selectedSection = event.detail.value;
+
     }
 
     async openSettingsModal() {

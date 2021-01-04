@@ -1,29 +1,37 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {UserStory} from '../../common/models/story';
-import {BaseStoriesService, StoriesService} from '../../services/stories/stories.service';
+import {BaseStoriesService} from '../../services/stories/stories.service';
 import {Observable} from 'rxjs';
-import {MostActiveUsers} from '../../common/models/most-active-users';
+import {BaseAuthService} from '../../services/auth/auth.service';
 
 @Component({
     selector: 'app-time-line',
     templateUrl: './time-line.component.html',
     styleUrls: ['./time-line.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimeLineComponent implements OnInit{
+export class TimeLineComponent implements OnInit, OnChanges {
     @Input() usersIds: string[] = [];
-    @Input() userId?: string;
+    userId;
     stories$: Observable<UserStory[]>;
 
 
-    constructor(private storiesService: BaseStoriesService) {
+    constructor(private storiesService: BaseStoriesService, private authService: BaseAuthService) {
     }
 
     ngOnInit() {
-        this.getUsersStories();
+        this.userId = this.authService.getUserId();
         this.stories$ = this.storiesService.stories$;
+        this.getUsersStories();
     }
 
-    getUsersStories(){
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.usersIds.previousValue !== changes.usersIds.currentValue) {
+            this.getUsersStories();
+        }
+    }
+
+    getUsersStories() {
         if (this.usersIds.length) {
             this.storiesService.getStoriesByUserIds(this.usersIds);
         } else {
@@ -40,9 +48,6 @@ export class TimeLineComponent implements OnInit{
     }
 
     checkIfLiked(story: UserStory) {
-        console.log(story);
-        console.log(this.userId);
-        // console.log(story.details.likes.includes(this.userId));
         return story.details.likes.includes(this.userId);
     }
 }

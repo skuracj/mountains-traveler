@@ -45,6 +45,7 @@ export class UserService {
     }
 
     loadUserData() {
+        console.log('new data loaded');
         this._user.next(userMock);
     }
 

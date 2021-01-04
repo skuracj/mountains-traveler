@@ -18,7 +18,6 @@ import {userMock} from '../../common/testing/mocks/user.mock';
 export class HomePage extends BaseComponent {
     public city: string;
     public externalUrls = ExternalUrls;
-    public packingList: PackingItem[] = userMock.packingList;
 
     constructor(public navController: NavController,
                 private storage: Storage,
@@ -50,7 +49,6 @@ export class HomePage extends BaseComponent {
     }
 
     async showPackingListModal() {
-        if (this.packingList) {
             const modal: HTMLIonModalElement = await this.modalController.create({
                 component: PackingListComponent,
                 componentProps: {
@@ -59,7 +57,6 @@ export class HomePage extends BaseComponent {
             });
 
             await modal.present();
-        }
     }
 
     async openConfirmationAlert() {
