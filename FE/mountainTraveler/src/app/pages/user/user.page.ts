@@ -23,7 +23,6 @@ export class UserPage extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('onInitUser');
         this.activatedRoute.queryParams.pipe(
             map(queryParams => this.userId = queryParams[this.queryParamNames.userId]),
         ).subscribe();

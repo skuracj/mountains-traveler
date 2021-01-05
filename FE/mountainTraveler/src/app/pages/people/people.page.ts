@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
 import {Sections} from '../../common/constants/Sections.enum';
 import {User} from '../../common/models/user';
@@ -6,56 +6,65 @@ import {ModalController} from '@ionic/angular';
 import {UserSettingsPage} from '../../components/user-settings/user-settings.page';
 import {Utils} from '../../common/utils';
 import {BaseUserService} from '../../services/user/user.service';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import {Observable, Subscription} from 'rxjs';
+import {map, tap} from 'rxjs/operators';
+import {BaseProfileService} from '../../services/profile/profile.service';
+import {Story} from '../../common/models/story';
 
 @Component({
     selector: 'app-people',
     templateUrl: 'people.page.html',
     styleUrls: ['people.page.scss']
 })
-export class PeoplePage extends BaseComponent implements OnInit {
+export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     selectedSection: string;
     sections = Sections;
-    user: User;
-    friendsIds: string[];
+    profileSubscription: Subscription;
+    profile: User;
+    friends$: Observable<User[]>;
+    friendsStories$: Observable<any>;
+
 
     originalOrder = Utils.originalOrder;
 
     constructor(
         private modalController: ModalController,
-        private userService: BaseUserService) {
+        private userService: BaseUserService,
+        private profileService: BaseProfileService) {
         super();
     }
 
     async ngOnInit() {
         this.selectedSection = Sections.me;
+        this.profileSubscription = this.profileService.profile$.pipe(
+            tap(profile => console.log(profile)),
+            map(profile => {
+                    this.profile = profile;
+                }
+            )).subscribe();
 
-        this.userService.user$.pipe(tap(
-            user => {
-                this.user = user;
-                this.friendsIds = [...user.friendsIds];
-            }
-        )).subscribe();
+        this.userService.getUsersByIds(this.profile.friendsIds);
+
+        this.friends$ = this.userService.users$;
+        this.friendsStories$ = this.userService.users$.pipe(map(users => {
+            users.forEach(user => user.stories);
+        }));
     }
 
-    ionViewWillEnter() {
-        console.log('this.ionViewWillEnter()');
-        // this.userService.loadUserData();
+    ngOnDestroy() {
+        this.profileSubscription.unsubscribe();
     }
 
     onSegmentClicked(event: CustomEvent) {
-
         this.selectedSection = event.detail.value;
-
     }
 
     async openSettingsModal() {
-        if (this.user) {
+        if (this.profile) {
             const modal: HTMLIonModalElement = await this.modalController.create({
                 component: UserSettingsPage,
                 componentProps: {
-                    user: this.user
+                    user: this.profile
                 }
             });
             await modal.present();

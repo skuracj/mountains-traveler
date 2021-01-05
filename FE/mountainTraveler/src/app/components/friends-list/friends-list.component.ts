@@ -1,7 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {User} from '../../common/models/user';
-import {BaseUserService} from '../../services/user/user.service';
-import {Observable} from 'rxjs';
 import {BaseComponent} from '../../common/base/base.component';
 
 @Component({
@@ -10,26 +8,12 @@ import {BaseComponent} from '../../common/base/base.component';
     styleUrls: ['./friends-list.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FriendsListComponent extends BaseComponent implements OnInit {
-    @Input() friendsIds: string[];
+export class FriendsListComponent extends BaseComponent {
+    @Input() friends: User[];
 
-    public friends$: Observable<User[]>;
     public isExpanded = false;
 
-    constructor(private userService: BaseUserService) {
+    constructor() {
         super();
     }
-
-    ngOnInit() {
-        this.getFriendsByIds();
-
-    }
-
-    getFriendsByIds() {
-        if (this.friendsIds?.length > 0) {
-            this.userService.getUsersByIds(this.friendsIds);
-            this.friends$ = this.userService.users$;
-        }
-    }
-
 }

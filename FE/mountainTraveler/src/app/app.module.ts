@@ -17,6 +17,7 @@ import {BaseUserService, UserService} from './services/user/user.service';
 import {AuthService, BaseAuthService} from './services/auth/auth.service';
 import {BaseTravelService, TravelService} from './services/travel/travel.service';
 import {amplifyConfig} from '../environments/amplify-config';
+import {BaseProfileService, ProfileService} from './services/profile/profile.service';
 
 
 /* TODO Configure Amplify resources */
@@ -39,6 +40,7 @@ Amplify.configure(amplifyConfig);
         {provide: BaseStoriesService, useClass: StoriesService},
         {provide: BaseUserService, useClass: UserService},
         {provide: BaseAuthService, useClass: AuthService},
+        {provide: BaseProfileService, useClass: ProfileService},
         {provide: BaseTravelService, useClass: TravelService}
     ],
     bootstrap: [AppComponent],

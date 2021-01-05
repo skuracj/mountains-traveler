@@ -10,44 +10,21 @@ import {BaseAuthService} from '../../services/auth/auth.service';
     styleUrls: ['./time-line.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimeLineComponent implements OnInit, OnChanges {
-    @Input() usersIds: string[] = [];
-    userId;
-    stories$: Observable<UserStory[]>;
+export class TimeLineComponent {
+   @Input() stories: UserStory[];
 
+    constructor(private storiesService: BaseStoriesService, private authService: BaseAuthService) {}
 
-    constructor(private storiesService: BaseStoriesService, private authService: BaseAuthService) {
-    }
-
-    ngOnInit() {
-        this.userId = this.authService.getUserId();
-        this.stories$ = this.storiesService.stories$;
-        this.getUsersStories();
-    }
-
-    ngOnChanges(changes: SimpleChanges) {
-        if (changes.usersIds.previousValue !== changes.usersIds.currentValue) {
-            this.getUsersStories();
-        }
-    }
-
-    getUsersStories() {
-        if (this.usersIds.length) {
-            this.storiesService.getStoriesByUserIds(this.usersIds);
-        } else {
-            this.storiesService.getStories();
-        }
-    }
 
     addLike(relationId: string) {
-        this.storiesService.addLikeToStory(relationId, this.userId);
+        // this.storiesService.addLikeToStory(relationId, this.userId);
     }
 
     removeLike(relationId: string) {
-        this.storiesService.removeLikeFromStory(relationId, this.userId);
+        // this.storiesService.removeLikeFromStory(relationId, this.userId);
     }
 
     checkIfLiked(story: UserStory) {
-        return story.details.likes.includes(this.userId);
+        // return story.details.likes.includes(this.userId);
     }
 }

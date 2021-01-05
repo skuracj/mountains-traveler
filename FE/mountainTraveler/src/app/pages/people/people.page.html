@@ -9,16 +9,16 @@
     <div [ngSwitch]="this.selectedSection">
         <section *ngSwitchCase="sections.me">
             <app-user-details
-                    [user]="user"
+                    [user]="profile"
                     [isProfileOwner]="true"
                     (openSettingsModal)="openSettingsModal()"></app-user-details>
-            <app-friends-list [friendsIds]="friendsIds"></app-friends-list>
-            <app-time-line [usersIds]="[user.userId]"></app-time-line>
+            <app-friends-list [friends]="friends$ | async"></app-friends-list>
+            <app-time-line [stories]="profile.stories"></app-time-line>
         </section>
 
         <section *ngSwitchCase="sections.friends">
             <app-most-active-users></app-most-active-users>
-            <app-time-line [usersIds]="friendsIds"></app-time-line>
+            <app-time-line [stories]="(friendsStories$ | async)"></app-time-line>
         </section>
     </div>
 </ion-content>

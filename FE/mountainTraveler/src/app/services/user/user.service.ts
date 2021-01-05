@@ -1,11 +1,9 @@
 import {Injectable} from '@angular/core';
 import {User} from '../../common/models/user';
-import {userMock} from '../../common/testing/mocks/user.mock';
 import {usersMock} from '../../common/testing/mocks/users';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {MostActiveUsers} from '../../common/models/most-active-users';
 import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
-import {PackingItem} from '../../common/models/packing-list';
 
 export abstract class BaseUserService {
     private _user: BehaviorSubject<User>;
@@ -16,10 +14,6 @@ export abstract class BaseUserService {
 
     private _mostActiveUsers: BehaviorSubject<MostActiveUsers[]>;
     public mostActiveUsers$: Observable<MostActiveUsers[]>;
-
-    abstract loadUserData();
-
-    abstract updateUserPackingList(list: PackingItem[]);
 
     abstract getUserProfileById(userId: string);
 
@@ -40,20 +34,7 @@ export class UserService {
     private _mostActiveUsers: BehaviorSubject<MostActiveUsers[]> = new BehaviorSubject<MostActiveUsers[]>(null);
     public readonly mostActiveUsers$: Observable<MostActiveUsers[]> = this._mostActiveUsers.asObservable();
 
-    constructor() {
-        this.loadUserData();
-    }
-
-    loadUserData() {
-        console.log('new data loaded');
-        this._user.next(userMock);
-    }
-
-    updateUserPackingList(list: PackingItem[]) {
-        const updatedUser = {...this._user.getValue()};
-        updatedUser.packingList = list;
-        this._user.next(updatedUser);
-    }
+    constructor() {}
 
     getUserProfileById(userId: string) {
         const profile = usersMock.find(user => user.userId === userId);

@@ -1,10 +1,12 @@
-<app-accordion *ngIf="friendsIds?.length" title="Friends">
+<app-accordion title="Friends">
         <ion-list lines="none">
             <ion-item
-                    *ngFor="let friend of friends$ | async"
+                    *ngFor="let friend of friends"
                     class="ion-margin-vertical"
                     [routerLink]="['/', routeSegments.user]"
                     [queryParams]="getQueryParams(queryParamNames.userId, friend.userId)">
+
+<!--                // TODO navigate to component instead of page and pass data or map only id-->
                 <app-profile-picture-thumbnail [imgPath]="friend.profilePicture"
                                                class="ion-margin-end"></app-profile-picture-thumbnail>
 
