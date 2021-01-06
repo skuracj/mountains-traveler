@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {UserStory} from '../../common/models/story';
-import {usersStoriesMock} from '../../common/testing/mocks/users-stories.mock';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Story} from '../../common/models/story';
+import {storiesMock} from '../../common/testing/mocks/stories.mock';
 
 export abstract class BaseStoriesService {
-    private _stories: BehaviorSubject<UserStory[]>;
+    private _stories: BehaviorSubject<Story[]>;
 
-    public readonly stories$: Observable<UserStory[]>;
+    public readonly stories$: Observable<Story[]>;
 
     abstract getStories();
 
@@ -21,44 +21,44 @@ export abstract class BaseStoriesService {
 
 @Injectable()
 export class StoriesService {
-    private _stories: BehaviorSubject<UserStory[]> = new BehaviorSubject<UserStory[]>(null);
+    private _stories: BehaviorSubject<Story[]> = new BehaviorSubject<Story[]>(null);
 
-    public readonly stories$: Observable<UserStory[]> = this._stories.asObservable();
+    public readonly stories$: Observable<Story[]> = this._stories.asObservable();
 
     constructor() {
     }
 
     getStories() {
-        this._stories.next(usersStoriesMock);
+        this._stories.next(storiesMock);
     }
 
     getStoriesByUserIds(usersIds?: string[]) {
-        const filteredStories = usersStoriesMock.filter(story => usersIds.includes(story.userId));
+        const filteredStories = storiesMock.filter(story => usersIds.includes(story.userId));
         this._stories.next(filteredStories);
     }
 
     removeStory(storyId: string): void {
-        const stories: UserStory[] = [...this._stories.getValue()];
-        const userStoryIndex = stories.findIndex(story => story.details.storyId === storyId);
-
-        this._stories.next(stories.splice(userStoryIndex, 1));
+        // const stories: Story[] = [...this._stories.getValue()];
+        // const userStoryIndex = stories.findIndex(story => story.details.storyId === storyId);
+        //
+        // this._stories.next(stories.splice(userStoryIndex, 1));
     }
 
     addLikeToStory(storyId: string, userId: string): void {
-        const stories: UserStory[] = [...this._stories.getValue()];
-
-        stories.find(story => story.details.storyId === storyId)
-            .details.likes.push(userId);
-        this._stories.next(stories);
+        // const stories: Story[] = [...this._stories.getValue()];
+        //
+        // stories.find(story => story.details.storyId === storyId)
+        //     .details.likes.push(userId);
+        // this._stories.next(stories);
     }
 
     removeLikeFromStory(storyId: string, userId: string): void {
-        const stories: UserStory[] = [...this._stories.getValue()];
-        const storyIndex = stories.findIndex(story => story.details.storyId === storyId);
-        const likeIndex = stories[storyIndex].details.likes.findIndex(like => like === userId);
-
-        stories[storyIndex].details.likes.splice(likeIndex, 1);
-
-        this._stories.next(stories);
+        // const stories: Story[] = [...this._stories.getValue()];
+        // const storyIndex = stories.findIndex(story => story.details.storyId === storyId);
+        // const likeIndex = stories[storyIndex].details.likes.findIndex(like => like === userId);
+        //
+        // stories[storyIndex].details.likes.splice(likeIndex, 1);
+        //
+        // this._stories.next(stories);
     }
 }

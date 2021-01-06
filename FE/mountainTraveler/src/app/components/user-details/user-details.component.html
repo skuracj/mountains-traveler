@@ -8,28 +8,27 @@
                   (click)="onSettingsButtonClicked()"
         ></ion-icon>
         <ion-card-subtitle>
-
             <app-profile-picture-thumbnail [imgPath]="user?.profilePicture"></app-profile-picture-thumbnail>
 
-            <h3 class="ion-text-center ion-no-margin">{{user.name}}</h3>
+            <h3 class="ion-text-center ion-no-margin">{{user?.name}}</h3>
             <h6 class="ion-text-center ion-no-margin font-size-xs">
                 <ion-icon name="location"></ion-icon>
-                {{user.location}}
+                {{user?.location}}
             </h6>
         </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
         <div class="profile__achievements">
             <div class="ion-text-center ">
-                <p class="achievement__value">{{user.totalDistance}}KM</p>
+                <p class="achievement__value">{{user?.totalDistance}}KM</p>
                 <p>Total</p>
             </div>
             <div class="ion-text-center">
-                <p class="achievement__value">{{user.trips}}</p>
+                <p class="achievement__value">{{user?.trips}}</p>
                 <p>Trips</p>
             </div>
             <div class="ion-text-center">
-                <p class="achievement__value">{{user.timeInMinutes}}min</p>
+                <p class="achievement__value">{{user?.timeInMinutes}}min</p>
                 <p>Time</p>
             </div>
         </div>

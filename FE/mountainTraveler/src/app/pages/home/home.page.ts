@@ -6,9 +6,6 @@ import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {environment} from '../../../environments/environment';
 import {PackingListComponent} from '../../components/packing-list/packing-list.component';
-import {PackingItem} from '../../common/models/packing-list';
-import {userMock} from '../../common/testing/mocks/user.mock';
-
 
 @Component({
     selector: 'app-homepage',

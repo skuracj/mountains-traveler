@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User} from '../../common/models/user';
-import {usersMock} from '../../common/testing/mocks/users';
+import {usersMock} from '../../common/testing/mocks/users.mock';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {MostActiveUsers} from '../../common/models/most-active-users';
 import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
@@ -37,7 +37,9 @@ export class UserService {
     constructor() {}
 
     getUserProfileById(userId: string) {
+
         const profile = usersMock.find(user => user.userId === userId);
+        console.log(profile);
         this._user.next(profile);
     }
 

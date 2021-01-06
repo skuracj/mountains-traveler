@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfileProperties} from '../../common/constants/Profile.enum';
 import {BaseComponent} from '../../common/base/base.component';
 import {BaseStoriesService, StoriesService} from '../../services/stories/stories.service';
+import {BaseProfileService} from '../../services/profile/profile.service';
 
 @Component({
     selector: 'app-user-settings',
@@ -17,7 +18,8 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
 
     constructor(
         public formBuilder: FormBuilder,
-        private storiesService: BaseStoriesService) {
+        private storiesService: BaseStoriesService,
+        private profileService: BaseProfileService) {
         super();
 
     }
@@ -74,12 +76,13 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
 
     saveProfile(e) {
         e.preventDefault();
-        // TODO update user profile object
+        const updatedProfile = this.profileForm.value;
         alert('saved');
-        console.log('Saving profile...', this.profileForm.value);
+        console.log('Saving profile...', updatedProfile);
+        this.profileService.updateUserProfile(updatedProfile);
     }
 
     removeStory(storyId: string){
-        this.storiesService.removeStory(storyId);
+        this.profileService.removeStory(storyId);
     }
 }

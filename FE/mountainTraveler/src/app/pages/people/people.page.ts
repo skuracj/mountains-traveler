@@ -7,9 +7,10 @@ import {UserSettingsPage} from '../../components/user-settings/user-settings.pag
 import {Utils} from '../../common/utils';
 import {BaseUserService} from '../../services/user/user.service';
 import {Observable, Subscription} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map, take, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
+import {BaseStoriesService} from '../../services/stories/stories.service';
 
 @Component({
     selector: 'app-people',
@@ -30,6 +31,7 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     constructor(
         private modalController: ModalController,
         private userService: BaseUserService,
+        private storiesService: BaseStoriesService,
         private profileService: BaseProfileService) {
         super();
     }
@@ -44,11 +46,12 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
             )).subscribe();
 
         this.userService.getUsersByIds(this.profile.friendsIds);
-
         this.friends$ = this.userService.users$;
-        this.friendsStories$ = this.userService.users$.pipe(map(users => {
-            users.forEach(user => user.stories);
-        }));
+
+        this.storiesService.getStoriesByUserIds(this.profile.friendsIds);
+        this.friendsStories$ = this.storiesService.stories$.pipe(
+            tap(stories => console.log(stories))
+        );
     }
 
     ngOnDestroy() {

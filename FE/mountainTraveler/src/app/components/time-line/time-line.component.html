@@ -1,19 +1,17 @@
-<ng-container *ngIf="this.usersIds?.length">
-    <ion-card *ngFor="let story of stories$ | async">
-        <ion-card-header>
-            <ion-card-subtitle>{{story.userName}} | {{story.details.timestamp | timeAgo}}
-                <ion-icon
-                        [name]="checkIfLiked(story) ? 'heart' : 'heart-outline'"
-                        color="danger"
-                        class="latest-activity__icon font-size-xxl"
-                        (click)="checkIfLiked(story) ? removeLike(story.details.storyId) : addLike(story.details.storyId)"
-                id="like-button"></ion-icon>
-            </ion-card-subtitle>
-            <ion-card-title>{{story.details.title}}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <ion-img [src]="story.details.picture"></ion-img>
-            {{story.details.description}}
-        </ion-card-content>
-    </ion-card>
-</ng-container>
+<ion-card *ngFor="let story of stories">
+    <ion-card-header>
+        <ion-card-subtitle>{{story.userName}} | {{story.timestamp | timeAgo}}
+            <ion-icon
+                    [name]="checkIfLiked(story) ? 'heart' : 'heart-outline'"
+                    color="danger"
+                    class="latest-activity__icon font-size-xxl"
+                    (click)="checkIfLiked(story) ? removeLike(story.storyId) : addLike(story.storyId)"
+                    id="like-button"></ion-icon>
+        </ion-card-subtitle>
+        <ion-card-title>{{story.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-img [src]="story.picture"></ion-img>
+        {{story.description}}
+    </ion-card-content>
+</ion-card>

@@ -1,39 +1,41 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
 import {FormGroup} from '@angular/forms';
 import {BaseComponent} from '../../common/base/base.component';
 import {BaseUserService} from '../../services/user/user.service';
 import {BaseAuthService} from '../../services/auth/auth.service';
-import {first, tap} from 'rxjs/operators';
+import {first, take, tap} from 'rxjs/operators';
+import {BaseProfileService} from '../../services/profile/profile.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-packing-list',
     templateUrl: './packing-list.component.html',
     styleUrls: ['./packing-list.component.scss'],
 })
-export class PackingListComponent extends BaseComponent implements OnInit{
+export class PackingListComponent extends BaseComponent implements OnInit {
     @Input() title: string;
 
     public packingList: PackingItem[];
-
-    editMode = false;
-    newItemValue: string;
+    public editMode = false;
+    public newItemValue: string;
 
     constructor(
-        private userService: BaseUserService) {
+        private profileService: BaseProfileService) {
         super();
     }
+
     ngOnInit() {
         this.getPackingList();
     }
 
     getPackingList() {
-        this.userService.user$.pipe(
-            first(),
+        this.profileService.profile$.pipe(
+            take(1),
             tap(user => {
                 this.packingList = [...user.packingList];
+                console.log(user);
             })).subscribe();
-
     }
 
 
@@ -48,11 +50,11 @@ export class PackingListComponent extends BaseComponent implements OnInit{
 
     toggleItem(item) {
         const itemIndex = this.packingList.findIndex(listItem => listItem === item);
-        this.packingList[itemIndex] = { title: item.title, packed: !item.packed};
+        this.packingList[itemIndex] = {title: item.title, packed: !item.packed};
     }
 
     savePackingList() {
         const updatedList = this.packingList;
-        this.userService.updateUserPackingList(updatedList);
+        this.profileService.updateUserPackingList(updatedList);
     }
 }

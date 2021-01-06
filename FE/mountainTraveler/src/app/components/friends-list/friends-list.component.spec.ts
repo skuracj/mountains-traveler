@@ -3,7 +3,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {FriendsListComponent} from './friends-list.component';
 import {BaseUserService, UserService} from '../../services/user/user.service';
-import {usersMock} from '../../common/testing/mocks/users';
+import {usersMock} from '../../common/testing/mocks/users.mock';
 import {of} from 'rxjs';
 
 describe('FriendsListComponent', () => {
