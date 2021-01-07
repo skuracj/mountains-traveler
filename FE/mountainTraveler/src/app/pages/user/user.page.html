@@ -2,6 +2,5 @@
 
 <ion-content>
     <app-user-details [user]="user$ | async"></app-user-details>
-<!--    <app-time-line [stories]="(user$ | async).stories"></app-time-line>-->
-
+    <app-time-line [stories]="userStories$ | async"></app-time-line>
 </ion-content>

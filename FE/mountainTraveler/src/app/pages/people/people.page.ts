@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
 import {Sections} from '../../common/constants/Sections.enum';
 import {User} from '../../common/models/user';
@@ -11,21 +11,22 @@ import {map, take, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
+import {MostActiveUsers} from '../../common/models/most-active-users';
 
 @Component({
     selector: 'app-people',
     templateUrl: 'people.page.html',
-    styleUrls: ['people.page.scss']
+    styleUrls: ['people.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
+export class PeoplePage extends BaseComponent implements OnInit, OnDestroy, OnChanges {
     selectedSection: string;
-    sections = Sections;
     profileSubscription: Subscription;
     profile: User;
     friends$: Observable<User[]>;
-    friendsStories$: Observable<any>;
-
-
+    userStories$: Observable<Story[]>;
+    mostActiveFriends$: Observable<MostActiveUsers[]>;
+s;
     originalOrder = Utils.originalOrder;
 
     constructor(
@@ -36,22 +37,38 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         super();
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+        console.log('onchanges');
+    }
+
     async ngOnInit() {
         this.selectedSection = Sections.me;
         this.profileSubscription = this.profileService.profile$.pipe(
-            tap(profile => console.log(profile)),
+            tap(profile => console.log('profile', profile)),
             map(profile => {
                     this.profile = profile;
+                    this.userService.getUsersByIds(profile.friendsIds);
                 }
             )).subscribe();
 
-        this.userService.getUsersByIds(this.profile.friendsIds);
+        this.userStories$ = this.storiesService.stories$;
         this.friends$ = this.userService.users$;
+    }
 
+    mostActiveUsers() {
+        this.userService.getMostActiveUsers(this.profile.friendsIds);
+        return this.userService.mostActiveUsers$;
+    }
+
+    userStories() {
+        this.storiesService.getStoriesByUserIds([this.profile.userId]);
+        return this.storiesService.stories$;
+    }
+
+    friendsStories() {
+        console.log('friendsStoriesLoaded');
         this.storiesService.getStoriesByUserIds(this.profile.friendsIds);
-        this.friendsStories$ = this.storiesService.stories$.pipe(
-            tap(stories => console.log(stories))
-        );
+        return this.storiesService.stories$;
     }
 
     ngOnDestroy() {

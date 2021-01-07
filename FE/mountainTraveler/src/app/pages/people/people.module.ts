@@ -11,6 +11,7 @@ import {UserDetailsComponent} from '../../components/user-details/user-details.c
 import {CommunityPageModule} from '../community/community.module';
 import {FriendsListComponent} from '../../components/friends-list/friends-list.component';
 import {AccordionComponent} from '../../components/accordion/accordion.component';
+import {FriendsPageModule} from '../friends/friends.module';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import {AccordionComponent} from '../../components/accordion/accordion.component
         PeoplePageRoutingModule,
         HeaderComponentModule,
         CommunityPageModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FriendsPageModule
     ],
     providers: [],
     exports: [
