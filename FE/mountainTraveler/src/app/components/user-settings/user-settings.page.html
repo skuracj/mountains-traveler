@@ -9,7 +9,7 @@
             <label class="user-settings__change-profile-picture button-native"
                    for="files">Change picture
                 <input name="files" id="files" [hidden]="true"
-                       type="file" accept="image/*" (change)="changeListener($event)">
+                       type="file" accept="image/*" >
             </label>
             <ion-thumbnail *ngIf="profileForm.get(profileProperties?.profilePicture).value" class=" ion-margin">
                 <ion-img [src]="profileForm.get(profileProperties.profilePicture).value"></ion-img>
@@ -49,9 +49,9 @@
             Save profile
         </ion-button>
     </form>
-    <app-accordion title="Your stories ({{user?.stories?.length}})">
+    <app-accordion title="Your stories ">
         <div class="stories__container">
-            <div class="stories__item ion-margin" *ngFor="let story of user?.stories">
+            <div class="stories__item ion-margin" *ngFor="let story of stories$ | async">
                 <button class="item__button" (click)="removeStory(story.storyId)">
                     <ion-icon name="close-circle-outline" class="item__delete-icon"></ion-icon>
                 </button>

@@ -8,9 +8,9 @@ export const storiesMock: Story[] = [
         profilePicture: '/assets/soldier.jpeg',
         timestamp: new Date(1608901196 * 1000).toLocaleString(),
         picture: '/assets/soldier.jpeg',
-        title: 'Hala Gasienicowa',
+        title: 'Orla perc',
         description: 'Mountains always good...',
-        likes: ['anulka1_ID', 'mudzina1_ID']
+        likes: ['anulka1_ID', 'mudzina1_ID', 'loggedInUser_ID']
     },
     {
         storyId: '4ab0f3ff-6212-4fec-b1e9-4523b6cb8591',
@@ -18,7 +18,7 @@ export const storiesMock: Story[] = [
         userName: 'Anulka Pyzulka',
         profilePicture: '/assets/users-pictures/1.png',
         timestamp: new Date(1608901196 * 1000).toLocaleString(),
-        picture: '/assets/anulka.png',
+        picture: '/assets/map_mock.png',
         title: 'Hala Gasienicowa',
         description: 'Mountains always good...',
         likes: ['anulka1_ID', 'mudzina1_ID']

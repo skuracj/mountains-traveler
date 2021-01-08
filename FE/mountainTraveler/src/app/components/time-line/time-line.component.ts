@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {BaseStoriesService} from '../../services/stories/stories.service';
 import {BaseAuthService} from '../../services/auth/auth.service';
 import {Story} from '../../common/models/story';
@@ -6,23 +6,35 @@ import {Story} from '../../common/models/story';
 @Component({
     selector: 'app-time-line',
     templateUrl: './time-line.component.html',
-    styleUrls: ['./time-line.component.scss']
+    styleUrls: ['./time-line.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimeLineComponent {
+export class TimeLineComponent implements OnInit{
    @Input() stories: Story[];
+   @Input() userOverview?: false;
 
-    constructor(private storiesService: BaseStoriesService, private authService: BaseAuthService) {}
-// pass stories ids and call service from this component
-// add changeDetection.onPush
-    addLike(relationId: string) {
-        // this.storiesService.addLikeToStory(relationId, this.userId);
+   private userId: string;
+
+    constructor(
+        private storiesService: BaseStoriesService,
+        private authService: BaseAuthService) {}
+
+    ngOnInit() {
+        this.userId = this.authService.getUserId();
+        console.log('timeline stories', this.stories);
     }
 
-    removeLike(relationId: string) {
-        // this.storiesService.removeLikeFromStory(relationId, this.userId);
+    addLike(storyId: string) {
+        console.log('add');
+        this.storiesService.addLikeToStory(storyId, this.userId);
+    }
+
+    removeLike(storyId: string) {
+        this.storiesService.removeLikeFromStory(storyId, this.userId);
     }
 
     checkIfLiked(story: Story) {
-        // return story.details.likes.includes(this.userId);
+        console.log('checkifliked')
+        return story.likes.includes(this.userId);
     }
 }

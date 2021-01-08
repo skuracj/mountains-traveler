@@ -1,5 +1,10 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
+import {Observable} from 'rxjs';
+import {MostActiveUser} from '../../common/models/most-active-user';
+import {Story} from '../../common/models/story';
+import {BaseStoriesService} from '../../services/stories/stories.service';
+import {BaseUserService} from '../../services/user/user.service';
 
 @Component({
     selector: 'app-community',
@@ -7,13 +12,20 @@ import {BaseComponent} from '../../common/base/base.component';
     styleUrls: ['./community.page.scss'],
 })
 export class CommunityPage extends BaseComponent implements OnInit {
-    mockUserIds: string[] = ['anulka1_ID', 'mudzina1_ID'];
+    public mostActiveUsers$: Observable<MostActiveUser[]>;
+    public stories$: Observable<Story[]>;
+
     userId = 'loggedInUser_ID';
-    constructor() {
+    constructor(private storiesService: BaseStoriesService,
+                private userService: BaseUserService) {
         super();
     }
 
     ngOnInit() {
+        this.mostActiveUsers$ = this.userService.mostActiveUsers$;
+        this.stories$ = this.storiesService.stories$;
+
+
     }
 
 }

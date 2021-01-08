@@ -39,7 +39,7 @@ const routes: Routes = [
         path: '',
         redirectTo: '/' + RouteSegments.initialScreen,
         pathMatch: 'full'
-    }
+    },
 ];
 
 @NgModule({

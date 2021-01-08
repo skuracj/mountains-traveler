@@ -6,6 +6,7 @@ import {ComponentType} from '../constants/ComponentType.enum';
 import {CitiesMappedToCountry} from '../constants/Cities.enum';
 import {HikingLevelsValues} from '../constants/FiltersValues.enum';
 import {FilterNames} from '../constants/FiltersNames.enum';
+import {Sections} from '../constants/Sections.enum';
 
 
 export class BaseComponent {
@@ -15,6 +16,7 @@ export class BaseComponent {
     public hikingLevels = HikingLevelsValues;
     public componentType = ComponentType;
     public filtersNames = FilterNames;
+    public sections = Sections;
     public citiesMappedToCountry = CitiesMappedToCountry;
 
     constructor() {

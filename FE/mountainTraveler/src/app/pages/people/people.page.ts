@@ -11,7 +11,7 @@ import {map, take, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
-import {MostActiveUsers} from '../../common/models/most-active-users';
+import {MostActiveUser} from '../../common/models/most-active-user';
 
 @Component({
     selector: 'app-people',
@@ -19,14 +19,15 @@ import {MostActiveUsers} from '../../common/models/most-active-users';
     styleUrls: ['people.page.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PeoplePage extends BaseComponent implements OnInit, OnDestroy, OnChanges {
+export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     selectedSection: string;
     profileSubscription: Subscription;
     profile: User;
     friends$: Observable<User[]>;
     userStories$: Observable<Story[]>;
-    mostActiveFriends$: Observable<MostActiveUsers[]>;
-s;
+    userStoriesSub: Subscription;
+    mostActiveFriends$: Observable<MostActiveUser[]>;
+
     originalOrder = Utils.originalOrder;
 
     constructor(
@@ -37,10 +38,6 @@ s;
         super();
     }
 
-    ngOnChanges(changes: SimpleChanges) {
-        console.log('onchanges');
-    }
-
     async ngOnInit() {
         this.selectedSection = Sections.me;
         this.profileSubscription = this.profileService.profile$.pipe(
@@ -48,10 +45,11 @@ s;
             map(profile => {
                     this.profile = profile;
                     this.userService.getUsersByIds(profile.friendsIds);
+                    this.profileService.getUserStories();
                 }
             )).subscribe();
 
-        this.userStories$ = this.storiesService.stories$;
+        this.userStories$ = this.profileService.stories$;
         this.friends$ = this.userService.users$;
     }
 
@@ -60,13 +58,7 @@ s;
         return this.userService.mostActiveUsers$;
     }
 
-    userStories() {
-        this.storiesService.getStoriesByUserIds([this.profile.userId]);
-        return this.storiesService.stories$;
-    }
-
     friendsStories() {
-        console.log('friendsStoriesLoaded');
         this.storiesService.getStoriesByUserIds(this.profile.friendsIds);
         return this.storiesService.stories$;
     }
@@ -84,7 +76,8 @@ s;
             const modal: HTMLIonModalElement = await this.modalController.create({
                 component: UserSettingsPage,
                 componentProps: {
-                    user: this.profile
+                    user: this.profile,
+                    stories$: this.userStories$
                 }
             });
             await modal.present();

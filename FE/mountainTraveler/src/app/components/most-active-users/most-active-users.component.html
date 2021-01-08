@@ -4,7 +4,7 @@
     </ion-card-header>
     <ion-card-content>
         <ul class="most-active-users__ul ion-no-margin ion-no-padding font-size-xs ion-justify-content-between">
-            <li class="ion-text-center" *ngFor="let user of mostActiveUsers$ | async">
+            <li class="ion-text-center" *ngFor="let user of mostActiveUsers">
                 <app-profile-picture-thumbnail [imgPath]="user.profilePicture"></app-profile-picture-thumbnail>
                 <p class="font-size-xs">{{user.name}}</p>
                 <p class="font-size-xs">{{user.totalDistance}}km</p>

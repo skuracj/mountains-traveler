@@ -4,11 +4,11 @@
 <ion-content>
 
     <section>
-        <app-most-active-users></app-most-active-users>
+        <app-most-active-users [mostActiveUsers]="mostActiveUsers$ | async"></app-most-active-users>
     </section>
 
     <section>
-        <app-time-line [usersIds]="mockUserIds"></app-time-line>
+        <app-time-line [stories]="stories$ | async"></app-time-line>
     </section>
 
 </ion-content>

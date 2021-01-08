@@ -1,7 +1,7 @@
 <ion-card *ngFor="let story of stories">
     <ion-card-header>
         <ion-card-subtitle>{{story.userName}} | {{story.timestamp | timeAgo}}
-            <ion-icon
+            <ion-icon *ngIf="!userOverview"
                     [name]="checkIfLiked(story) ? 'heart' : 'heart-outline'"
                     color="danger"
                     class="latest-activity__icon font-size-xxl"

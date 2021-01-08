@@ -1,10 +1,11 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {User} from '../../common/models/user';
 
 @Component({
     selector: 'app-user-details',
     templateUrl: './user-details.component.html',
-    styleUrls: ['./user-details.component.scss']
+    styleUrls: ['./user-details.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserDetailsComponent {
     @Input() user: User;
@@ -12,7 +13,7 @@ export class UserDetailsComponent {
     @Output() openSettingsModal: EventEmitter<any> = new EventEmitter();
 
     constructor() {
-        console.log(this.user);
+        console.log('userdetaiols,', this.user);
     }
 
     onSettingsButtonClicked() {

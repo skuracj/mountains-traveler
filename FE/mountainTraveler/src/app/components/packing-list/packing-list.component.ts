@@ -34,7 +34,7 @@ export class PackingListComponent extends BaseComponent implements OnInit {
             take(1),
             tap(user => {
                 this.packingList = [...user.packingList];
-                console.log(user);
+                console.log('user', user);
             })).subscribe();
     }
 

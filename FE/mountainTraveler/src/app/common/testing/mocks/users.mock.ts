@@ -43,7 +43,7 @@ export const usersMock: User[] = [
     {
         userId: 'mudzina1_ID',
         name: 'Mudzina Bombata',
-        profilePicture: '/assets/users-pictures/2.png',
+        profilePicture: '/assets/users-pictures/3.png',
         isPublic: true,
         age: 31,
         location: 'Zurich, Switzerland',

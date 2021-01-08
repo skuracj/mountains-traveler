@@ -1,6 +1,6 @@
-import {MostActiveUsers} from '../../models/most-active-users';
+import {MostActiveUser} from '../../models/most-active-user';
 
-export const mostActiveUsersMock: MostActiveUsers[] = [
+export const mostActiveUsersMock: MostActiveUser[] = [
     {
         userId: 'someid1',
         name: 'Anulka',

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {User} from '../../common/models/user';
 import {usersMock} from '../../common/testing/mocks/users.mock';
 import {BehaviorSubject, Observable, of} from 'rxjs';
-import {MostActiveUsers} from '../../common/models/most-active-users';
+import {MostActiveUser} from '../../common/models/most-active-user';
 import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
 
 export abstract class BaseUserService {
@@ -12,8 +12,8 @@ export abstract class BaseUserService {
     private _users: BehaviorSubject<User[]>;
     public users$: Observable<User[]>;
 
-    private _mostActiveUsers: BehaviorSubject<MostActiveUsers[]>;
-    public mostActiveUsers$: Observable<MostActiveUsers[]>;
+    private _mostActiveUsers: BehaviorSubject<MostActiveUser[]>;
+    public mostActiveUsers$: Observable<MostActiveUser[]>;
 
     abstract getUserProfileById(userId: string);
 
@@ -31,16 +31,18 @@ export class UserService {
     private _users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(null);
     public readonly users$: Observable<User[]> = this._users.asObservable();
 
-    private _mostActiveUsers: BehaviorSubject<MostActiveUsers[]> = new BehaviorSubject<MostActiveUsers[]>(null);
-    public readonly mostActiveUsers$: Observable<MostActiveUsers[]> = this._mostActiveUsers.asObservable();
+    private _mostActiveUsers: BehaviorSubject<MostActiveUser[]> = new BehaviorSubject<MostActiveUser[]>(null);
+    public readonly mostActiveUsers$: Observable<MostActiveUser[]> = this._mostActiveUsers.asObservable();
 
-    constructor() {}
+    constructor() {
+        this._user.next(usersMock[0]);
+    }
 
     getUserProfileById(userId: string) {
 
-        const profile = usersMock.find(user => user.userId === userId);
-        console.log(profile);
-        this._user.next(profile);
+        // const profile = usersMock.find(user => user.userId === userId);
+        // console.log(profile);
+        // this._user.next(profile);
     }
 
     getUsersByIds(ids: string[]) {
@@ -49,6 +51,7 @@ export class UserService {
     }
 
     getMostActiveUsers(ids?: string[]) {
+        console.log('Most active users ids', ids);
         this._mostActiveUsers.next(mostActiveUsersMock);
     }
 }

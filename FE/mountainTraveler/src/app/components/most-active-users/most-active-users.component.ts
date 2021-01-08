@@ -1,21 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {MostActiveUsers} from '../../common/models/most-active-users';
-import {BaseUserService} from '../../services/user/user.service';
-import {Observable} from 'rxjs';
+import {ChangeDetectionStrategy, Component, Input, OnDestroy} from '@angular/core';
+import {MostActiveUser} from '../../common/models/most-active-user';
 
 @Component({
     selector: 'app-most-active-users',
     templateUrl: './most-active-users.component.html',
     styleUrls: ['./most-active-users.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MostActiveUsersComponent implements OnInit {
-    mostActiveUsers$: Observable<MostActiveUsers[]>;
+export class MostActiveUsersComponent implements OnDestroy{
+    @Input() mostActiveUsers: MostActiveUser[];
 
-    constructor(private userService: BaseUserService) {
+    constructor() {
     }
-
-    ngOnInit() {
-        this.userService.getMostActiveUsers();
-        this.mostActiveUsers$ = this.userService.mostActiveUsers$;
+    ngOnDestroy() {
+        console.log('destroyed');
     }
 }
