@@ -20,13 +20,11 @@ import {MostActiveUser} from '../../common/models/most-active-user';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
-    selectedSection: string;
+    selectedSection: Sections;
     profileSubscription: Subscription;
     profile: User;
     friends$: Observable<User[]>;
     userStories$: Observable<Story[]>;
-    userStoriesSub: Subscription;
-    mostActiveFriends$: Observable<MostActiveUser[]>;
 
     originalOrder = Utils.originalOrder;
 
@@ -38,14 +36,17 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         super();
     }
 
-    async ngOnInit() {
-        this.selectedSection = Sections.me;
+    ngOnInit() {
+        if (!this.selectedSection) {
+            this.selectedSection = Sections.me;
+        }
+
         this.profileSubscription = this.profileService.profile$.pipe(
-            tap(profile => console.log('profile', profile)),
+            // tap(profile => console.log('profile', profile)),
             map(profile => {
                     this.profile = profile;
-                    this.userService.getUsersByIds(profile.friendsIds);
                     this.profileService.getUserStories();
+                    this.userService.getUsersByIds(profile.friendsIds);
                 }
             )).subscribe();
 
@@ -53,7 +54,7 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         this.friends$ = this.userService.users$;
     }
 
-    mostActiveUsers() {
+    mostActiveFriends() {
         this.userService.getMostActiveUsers(this.profile.friendsIds);
         return this.userService.mostActiveUsers$;
     }
@@ -83,6 +84,4 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
             await modal.present();
         }
     }
-
-
 }

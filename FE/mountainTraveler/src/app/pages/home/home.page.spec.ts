@@ -1,17 +1,15 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {AlertController, IonicModule, ModalController, NavController, Platform} from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {AlertController, ModalController, Platform} from '@ionic/angular';
 
 import {HomePage} from './home.page';
 import {RouterTestingModule} from '@angular/router/testing';
 import {Storage} from '@ionic/storage';
 import {InAppBrowser} from '@ionic-native/in-app-browser/ngx';
 import {environment} from '../../../environments/environment';
-import {WeatherWidgetComponent} from '../../components/weather-widget/weather-widget.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {StorageObject} from '../../common/constants/StorageObjects.enum';
 import {By} from '@angular/platform-browser';
 import {PackingListComponent} from '../../components/packing-list/packing-list.component';
-import {userMock} from '../../common/testing/mocks/user.mock';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 class MockPlatform {
@@ -114,35 +112,25 @@ describe('HomePage', () => {
         });
     });
 
-    describe('when packingListButton clicked and packingList present', () => {
-        let spy;
-        const packingListMock = userMock.packingList;
-
+    describe('when packingListButton clicked', () => {
         beforeEach(() => {
-
-            component.packingList = packingListMock;
-
+            spyOn(component, 'showPackingListModal').and.callThrough();
             const packingListButton = fixture.debugElement.query(By.css(`[id="packing-list"]`));
-            spy = spyOn(component, 'showPackingListModal').and.callThrough();
-
             packingListButton.nativeElement.click();
         });
 
         it('should call #showPackingListModal', () => {
-            expect(spy).toHaveBeenCalled();
+            expect(component.showPackingListModal).toHaveBeenCalled();
         });
 
 
-        it('Should create packing-list with packingList and title', () => {
-
+        it('Should create packing-list with title', () => {
             expect(modalControllerSpy.create).toHaveBeenCalledWith({
                 component: PackingListComponent,
                 componentProps: {
-                    packingList: packingListMock,
                     title: 'Packing list',
                 }
             });
-
         });
 
         it('Should present packing-list', async () => {
@@ -153,20 +141,19 @@ describe('HomePage', () => {
     });
 
     describe('when sosButton clicked', () => {
-        let spy;
 
         beforeEach(() => {
             alertControllerSpy.create.and.callFake(() => Promise.resolve(alertSpy));
 
             fixture.whenRenderingDone();
             const sosButton = fixture.debugElement.query(By.css(`[id="sos"]`));
-            spy = spyOn(component, 'openConfirmationAlert').and.callThrough();
+            spyOn(component, 'openConfirmationAlert').and.callThrough();
 
             sosButton.nativeElement.click();
         });
 
         it('should call #openConfirmationAlert', () => {
-            expect(spy).toHaveBeenCalled();
+            expect(component.openConfirmationAlert).toHaveBeenCalled();
         });
 
 
@@ -186,7 +173,6 @@ describe('HomePage', () => {
                     }
                 ]
             });
-
         });
 
         it('Should present alert', async () => {
@@ -195,17 +181,4 @@ describe('HomePage', () => {
             expect(alertSpy.present).toHaveBeenCalled();
         });
     });
-
-
-    it('When packing list is NOT present should NOT open the packing-list', () => {
-        component.packingList = null;
-        fixture.whenRenderingDone();
-        const packingListButton = fixture.debugElement.query(By.css(`[id="packing-list"]`));
-        const spy = spyOn(component, 'showPackingListModal').and.callThrough();
-
-        packingListButton.nativeElement.click();
-
-        expect(modalControllerSpy.create).not.toHaveBeenCalled();
-    });
-
 });

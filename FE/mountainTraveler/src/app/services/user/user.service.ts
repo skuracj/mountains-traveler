@@ -39,10 +39,8 @@ export class UserService {
     }
 
     getUserProfileById(userId: string) {
-
-        // const profile = usersMock.find(user => user.userId === userId);
-        // console.log(profile);
-        // this._user.next(profile);
+        const profile = usersMock.find(user => user.userId === userId);
+        this._user.next(profile);
     }
 
     getUsersByIds(ids: string[]) {

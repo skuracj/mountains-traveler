@@ -11,21 +11,28 @@ import {BaseUserService} from '../../services/user/user.service';
     templateUrl: './community.page.html',
     styleUrls: ['./community.page.scss'],
 })
-export class CommunityPage extends BaseComponent implements OnInit {
+export class CommunityPage extends BaseComponent {
     public mostActiveUsers$: Observable<MostActiveUser[]>;
     public stories$: Observable<Story[]>;
 
-    userId = 'loggedInUser_ID';
     constructor(private storiesService: BaseStoriesService,
                 private userService: BaseUserService) {
         super();
     }
 
-    ngOnInit() {
+    ionViewWillEnter() {
+        this.getMostActiveUsers();
+        this.getUsersStories();
+    }
+
+    getMostActiveUsers() {
+        this.userService.getMostActiveUsers();
         this.mostActiveUsers$ = this.userService.mostActiveUsers$;
+    }
+
+    getUsersStories() {
+        this.storiesService.getStories();
         this.stories$ = this.storiesService.stories$;
-
-
     }
 
 }

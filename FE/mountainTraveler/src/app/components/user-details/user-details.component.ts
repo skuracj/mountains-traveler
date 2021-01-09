@@ -12,9 +12,7 @@ export class UserDetailsComponent {
     @Input() isProfileOwner = false;
     @Output() openSettingsModal: EventEmitter<any> = new EventEmitter();
 
-    constructor() {
-        console.log('userdetaiols,', this.user);
-    }
+    constructor() {}
 
     onSettingsButtonClicked() {
         this.openSettingsModal.emit();

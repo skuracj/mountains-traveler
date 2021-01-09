@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {IonicModule, ModalController} from '@ionic/angular';
 
 import {PeoplePage} from './people.page';
@@ -8,8 +8,14 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {UserDetailsComponent} from '../../components/user-details/user-details.component';
 
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {userMock} from '../../common/testing/mocks/user.mock';
 import {BaseUserService} from '../../services/user/user.service';
+import {of} from 'rxjs';
+import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
+import {storiesMock} from '../../common/testing/mocks/stories.mock';
+import {usersMock} from '../../common/testing/mocks/users.mock';
+import {BaseStoriesService} from '../../services/stories/stories.service';
+import {BaseProfileService} from '../../services/profile/profile.service';
+import {Sections} from '../../common/constants/Sections.enum';
 
 describe('People', () => {
     let component: PeoplePage;
@@ -19,29 +25,48 @@ describe('People', () => {
     let modalControllerSpy;
     let modalSpy;
     let userServiceSpy;
+    let storiesServiceSpy;
+    let profileServiceSpy;
 
     beforeEach(async(() => {
         storageSpy = jasmine.createSpyObj('Storage', ['get', 'set']);
-        userServiceSpy = jasmine.createSpyObj('BaseUserService', ['getCurrentUserProfile']);
         modalControllerSpy = jasmine.createSpyObj('ModalController', ['create']);
         modalSpy = jasmine.createSpyObj('HTMLIonModalElement', ['present']);
+
+        userServiceSpy = jasmine.createSpyObj('BaseUserService', ['getMostActiveUsers', 'getUsersByIds']);
+        storiesServiceSpy = jasmine.createSpyObj('BaseStoriesService', ['getStoriesByUserIds']);
+        profileServiceSpy = jasmine.createSpyObj('BaseProfileService', ['getUserStories']);
 
         TestBed.configureTestingModule({
             declarations: [
                 PeoplePage,
                 UserDetailsComponent
             ],
-            imports: [IonicModule.forRoot(), RouterTestingModule],
+            imports: [IonicModule, RouterTestingModule],
             providers: [
                 {provide: BaseUserService, useValue: userServiceSpy},
+                {provide: BaseStoriesService, useValue: storiesServiceSpy},
+                {provide: BaseProfileService, useValue: profileServiceSpy},
                 {provide: Storage, useValue: storageSpy},
                 {provide: ModalController, useValue: modalControllerSpy}],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
-        userServiceSpy.getCurrentUserProfile.and.returnValue(userMock);
+
+        userServiceSpy.getMostActiveUsers.and.stub();
+        userServiceSpy.getUsersByIds.and.stub();
+        userServiceSpy.mostActiveUsers$ = of(mostActiveUsersMock);
+
+        storiesServiceSpy.getStoriesByUserIds.and.stub();
+        storiesServiceSpy.stories$ = of(storiesMock);
+
+        profileServiceSpy.getUserStories.and.stub();
+        profileServiceSpy.profile$ = of(usersMock[0]);
+
+
         fixture = TestBed.createComponent(PeoplePage);
         component = fixture.componentInstance;
         fixture.detectChanges();
+
         modalControllerSpy.create.and.callFake(() => Promise.resolve(modalSpy));
     }));
 
@@ -49,18 +74,71 @@ describe('People', () => {
         expect(component).toBeTruthy();
     });
 
-    describe('When segment clicked', () => {
-        it('should set selectedSection to the value of clicked segment', () => {
-            const testedSection = 'friends';
-            const buttonId = fixture.debugElement.query(By.css(`[id="${testedSection}"]`));
+    describe('When page entered', () => {
+        it(`Should set selectedSession to ${Sections.me}`, () => {
+            console.log('page');
+            expect(component.selectedSection).toEqual(Sections.me);
+        });
 
-            buttonId.nativeElement.click();
+        describe(`when ${Sections.me} selected`, () => {
+            beforeEach(async () => {
+                await fixture.whenRenderingDone();
+            });
+            it('should subscribe to profileService.profile$ observable and assign value to profile', () => {
+                expect(component.profile).toEqual(usersMock[0]);
+            });
+
+            it('should fetch userStories', () => {
+                expect(profileServiceSpy.getUserStories).toHaveBeenCalled();
+                expect(component.userStories$).toEqual(profileServiceSpy.stories$);
+            });
+
+            it('should fetch friends', () => {
+                expect(userServiceSpy.getUsersByIds).toHaveBeenCalledWith(component.profile.friendsIds);
+                expect(component.friends$).toEqual(userServiceSpy.user$);
+            });
+        });
+
+        describe(`when ${Sections.friends} selected`, () => {
+            beforeEach(async () => {
+                spyOn(component, 'mostActiveFriends').and.callThrough();
+                component.selectedSection = Sections.friends;
+
+                // const friendsButton = fixture.debugElement.query(By.css(`[id="friends"]`));
+                // friendsButton.parent.('ionChange', {detail: {value: Sections.friends }});
+            });
+
+            it('should subscribe and fetch mostActiveUsers', () => {
+                // TODO fix
+                component.mostActiveFriends();
+
+                expect(userServiceSpy.getMostActiveUsers).toHaveBeenCalledWith(component.profile.friendsIds);
+                expect(component.mostActiveFriends()).toEqual(userServiceSpy.mostActiveUsers$);
+            });
+
+            it('should subscribe and fetch friendsStories', () => {
+                // TODO fix
+                component.friendsStories();
+
+                expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith(component.profile.friendsIds);
+                expect(component.friendsStories()).toEqual(storiesServiceSpy.stories$);
+            });
+        });
+    });
+
+
+    describe('When onSegmentClicked called', () => {
+        it('should set selectedSection to the value from', () => {
+            const testedSection = 'friends';
+            // const buttonId = fixture.debugElement.query(By.css(`[id="${testedSection}"]`));
+            // buttonId.nativeElement.click();
+            component.onSegmentClicked({detail: {value: testedSection}} as CustomEvent);
 
             expect(component.selectedSection).toEqual(testedSection);
         });
     });
 
-    describe('UserDetailsComponent when setting button clicked', () => {
+    describe('UserDetailsComponent when settings button clicked', () => {
         let settingsButton;
         beforeEach(() => {
 
