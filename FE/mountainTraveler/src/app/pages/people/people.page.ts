@@ -73,7 +73,6 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     }
 
     async openSettingsModal() {
-        if (this.profile) {
             const modal: HTMLIonModalElement = await this.modalController.create({
                 component: UserSettingsPage,
                 componentProps: {
@@ -82,6 +81,5 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
                 }
             });
             await modal.present();
-        }
     }
 }

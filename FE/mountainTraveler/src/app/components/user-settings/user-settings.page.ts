@@ -1,9 +1,8 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {User} from '../../common/models/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ProfileProperties} from '../../common/constants/Profile.enum';
 import {BaseComponent} from '../../common/base/base.component';
-import {BaseStoriesService} from '../../services/stories/stories.service';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {Observable} from 'rxjs';
@@ -22,7 +21,6 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
 
     constructor(
         public formBuilder: FormBuilder,
-        private storiesService: BaseStoriesService,
         private profileService: BaseProfileService) {
         super();
 

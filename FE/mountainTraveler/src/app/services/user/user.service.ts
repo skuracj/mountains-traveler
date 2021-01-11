@@ -45,6 +45,7 @@ export class UserService {
 
     getUsersByIds(ids: string[]) {
         const users = usersMock.filter(user => ids.includes(user.userId));
+        console.log(users);
         this._users.next(users);
     }
 

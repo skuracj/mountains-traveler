@@ -1,4 +1,4 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {IonicModule, ModalController} from '@ionic/angular';
 
 import {PeoplePage} from './people.page';
@@ -42,7 +42,7 @@ describe('People', () => {
                 PeoplePage,
                 UserDetailsComponent
             ],
-            imports: [IonicModule, RouterTestingModule],
+            imports: [IonicModule.forRoot(), RouterTestingModule],
             providers: [
                 {provide: BaseUserService, useValue: userServiceSpy},
                 {provide: BaseStoriesService, useValue: storiesServiceSpy},
@@ -75,9 +75,20 @@ describe('People', () => {
     });
 
     describe('When page entered', () => {
-        it(`Should set selectedSession to ${Sections.me}`, () => {
-            console.log('page');
+        it(`Should set selectedSession to ${Sections.me} when selectedSession is falsy`, () => {
+            component.selectedSection = undefined;
+
+            component.ngOnInit();
+
             expect(component.selectedSection).toEqual(Sections.me);
+        });
+
+        it(`Should NOT change selectedSession to ${Sections.me} when selectedSession has value`, () => {
+            component.selectedSection = Sections.friends;
+
+            component.ngOnInit();
+
+            expect(component.selectedSection).toEqual(Sections.friends);
         });
 
         describe(`when ${Sections.me} selected`, () => {
@@ -99,40 +110,46 @@ describe('People', () => {
             });
         });
 
-        describe(`when ${Sections.friends} selected`, () => {
+        describe(`when ${Sections.friends} session clicked`, () => {
             beforeEach(async () => {
                 spyOn(component, 'mostActiveFriends').and.callThrough();
-                component.selectedSection = Sections.friends;
+                spyOn(component, 'friendsStories').and.callThrough();
+                const testedSection = 'friends';
+                const buttonId = fixture.debugElement.query(By.css(`[id="${testedSection}"]`));
 
-                // const friendsButton = fixture.debugElement.query(By.css(`[id="friends"]`));
-                // friendsButton.parent.('ionChange', {detail: {value: Sections.friends }});
+                buttonId.nativeElement.click();
+                fixture.detectChanges();
             });
 
             it('should subscribe and fetch mostActiveUsers', () => {
-                // TODO fix
-                component.mostActiveFriends();
-
+                expect(component.mostActiveFriends).toHaveBeenCalled();
                 expect(userServiceSpy.getMostActiveUsers).toHaveBeenCalledWith(component.profile.friendsIds);
                 expect(component.mostActiveFriends()).toEqual(userServiceSpy.mostActiveUsers$);
             });
 
-            it('should subscribe and fetch friendsStories', () => {
-                // TODO fix
-                component.friendsStories();
-
+            it('should subscribe and fetch friendsStories', async () => {
                 expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith(component.profile.friendsIds);
                 expect(component.friendsStories()).toEqual(storiesServiceSpy.stories$);
             });
         });
     });
 
+    describe('When page left', () => {
+        it('should unsubscribe profileSubscription', () => {
+            spyOn(component.profileSubscription, 'unsubscribe');
 
-    describe('When onSegmentClicked called', () => {
+            component.ngOnDestroy();
+
+            expect(component.profileSubscription.unsubscribe).toHaveBeenCalled();
+        });
+    });
+
+    describe('When onSegmentClicked', () => {
         it('should set selectedSection to the value from', () => {
             const testedSection = 'friends';
-            // const buttonId = fixture.debugElement.query(By.css(`[id="${testedSection}"]`));
-            // buttonId.nativeElement.click();
-            component.onSegmentClicked({detail: {value: testedSection}} as CustomEvent);
+            const buttonId = fixture.debugElement.query(By.css(`[id="${testedSection}"]`));
+
+            buttonId.nativeElement.click();
 
             expect(component.selectedSection).toEqual(testedSection);
         });

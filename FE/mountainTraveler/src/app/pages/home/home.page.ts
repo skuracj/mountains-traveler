@@ -77,6 +77,6 @@ export class HomePage extends BaseComponent {
     }
 
     callSos(): void {
-        console.log('Calling sos...');
+        alert('Calling sos...');
     }
 }

@@ -42,7 +42,6 @@ export class UserPage extends BaseComponent {
         this.userService.getUserProfileById(this.userId);
         this.user$ = this.userService.user$;
     }
-
     getUserStories() {
         this.storiesService.getStoriesByUserIds([this.userId]);
         this.userStories$ = this.storiesService.stories$;

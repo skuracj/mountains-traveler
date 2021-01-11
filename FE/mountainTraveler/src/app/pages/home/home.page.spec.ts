@@ -49,7 +49,7 @@ describe('HomePage', () => {
 
         TestBed.configureTestingModule({
             declarations: [HomePage],
-            imports: [ RouterTestingModule, HttpClientTestingModule],
+            imports: [RouterTestingModule, HttpClientTestingModule],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
             providers: [
                 {provide: Storage, useValue: storageSpy},
@@ -143,6 +143,9 @@ describe('HomePage', () => {
     describe('when sosButton clicked', () => {
 
         beforeEach(() => {
+            spyOn(window, 'alert');
+            spyOn(component, 'callSos').and.callThrough();
+
             alertControllerSpy.create.and.callFake(() => Promise.resolve(alertSpy));
 
             fixture.whenRenderingDone();
@@ -179,6 +182,36 @@ describe('HomePage', () => {
             await component.openConfirmationAlert();
 
             expect(alertSpy.present).toHaveBeenCalled();
+        });
+
+        it('and confirmed should call #callSos', async () => {
+            alertControllerSpy.create({
+                header: 'Confirm SOS !',
+                message: 'Are You sure You want to call help?',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel'
+                    },
+                    {
+                        text: 'Okay',
+                        cssClass: 'sos',
+                        handler: component.callSos,
+                    }
+                ]
+            });
+            alertSpy.present();
+
+            const {buttons} = alertControllerSpy.create.calls.first().args[0];
+            buttons[1].handler();
+
+            expect(component.callSos).toHaveBeenCalled();
+        });
+
+        it('when #callSos called should display alert', () => {
+            component.callSos();
+
+            expect(window.alert).toHaveBeenCalledWith('Calling sos...');
         });
     });
 });

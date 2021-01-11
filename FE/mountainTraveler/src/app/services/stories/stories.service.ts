@@ -33,7 +33,6 @@ export class StoriesService {
     }
 
     getStoriesByUserIds(usersIds?: string[]) {
-        console.log('retrive stories for user')
         const filteredStories = storiesMock.filter(story => usersIds.includes(story.userId));
         this._stories.next(filteredStories);
     }

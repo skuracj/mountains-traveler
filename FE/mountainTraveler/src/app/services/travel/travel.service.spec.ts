@@ -14,4 +14,10 @@ describe('TravelService', () => {
     it('should be created', () => {
         expect(service).toBeTruthy();
     });
+
+    it('should return routes', () => {
+       const routes = service.getRoutes();
+
+       expect(routes).toBeTruthy();
+    });
 });

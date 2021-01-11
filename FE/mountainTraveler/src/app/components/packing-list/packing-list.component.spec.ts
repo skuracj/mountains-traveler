@@ -3,18 +3,31 @@ import {IonicModule} from '@ionic/angular';
 
 import {PackingListComponent} from './packing-list.component';
 import {By} from '@angular/platform-browser';
+import {BaseProfileService} from '../../services/profile/profile.service';
+import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
+import {of} from 'rxjs';
+import {usersMock} from '../../common/testing/mocks/users.mock';
 
 
 describe('PackingListComponent', () => {
     let component: PackingListComponent;
     let fixture: ComponentFixture<PackingListComponent>;
+    let profileServiceSpy;
 
     beforeEach(async(() => {
+        profileServiceSpy = jasmine.createSpyObj(BaseProfileService, ['updateUserPackingList']);
         TestBed.configureTestingModule({
             declarations: [PackingListComponent],
-            imports: [IonicModule.forRoot()],
+            imports: [IonicModule],
+            providers: [{
+                provide: BaseProfileService, useValue: profileServiceSpy
+            }],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
         }).compileComponents();
+
+        profileServiceSpy.updateUserPackingList.and.stub();
+        profileServiceSpy.profile$ = of(usersMock[0]);
 
         fixture = TestBed.createComponent(PackingListComponent);
         component = fixture.componentInstance;
@@ -72,15 +85,21 @@ describe('PackingListComponent', () => {
     });
 
     describe('When save button clicked', () => {
-        it('Should save list', () => {
-            spyOn(component, 'savePackingList');
+        beforeEach(() => {
+            spyOn(component, 'savePackingList').and.callThrough();
             fixture.detectChanges();
             fixture.whenRenderingDone();
             const saveButton = fixture.debugElement.query(By.css(`[id="save-button"]`));
 
             saveButton.nativeElement.click();
-
+            fixture.detectChanges();
+        });
+        it('Should call savePackingList', () => {
             expect(component.savePackingList).toHaveBeenCalled();
+        });
+
+        it('should call profileService.updateUserPackingList', () => {
+           expect(profileServiceSpy.updateUserPackingList).toHaveBeenCalledWith(component.packingList);
         });
     });
 });
