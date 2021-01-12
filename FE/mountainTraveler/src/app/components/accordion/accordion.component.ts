@@ -7,9 +7,9 @@ import {uuid4} from '@capacitor/core/dist/esm/util';
     styleUrls: ['./accordion.component.scss'],
 })
 export class AccordionComponent {
-    public isExpanded = true;
     public id = uuid4();
 
+    @Input() isExpanded ? = false;
     @Input() title: string;
     @Input() fullWidth = false;
 

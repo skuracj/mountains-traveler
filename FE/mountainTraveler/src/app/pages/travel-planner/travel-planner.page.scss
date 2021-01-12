@@ -17,8 +17,13 @@
     margin          : calc(var(--mt-increment-unit) * 3) 0;
     --border-radius : 0 10px 10px 0;
   }
+}
 
-
+.route {
+  &__p {
+    display: flex;
+    align-items: center;
+  }
 }
 
 

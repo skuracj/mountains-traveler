@@ -18,6 +18,8 @@ import {AuthService, BaseAuthService} from './services/auth/auth.service';
 import {BaseTravelService, TravelService} from './services/travel/travel.service';
 import {amplifyConfig} from '../environments/amplify-config';
 import {BaseProfileService, ProfileService} from './services/profile/profile.service';
+import {BaseGeocodingService, GeocodingService} from './services/geocoding/geocoding.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 /* TODO Configure Amplify resources */
@@ -31,7 +33,8 @@ Amplify.configure(amplifyConfig);
         IonicModule.forRoot(),
         IonicStorageModule.forRoot(),
         AppRoutingModule,
-        PipeModule
+        PipeModule,
+        HttpClientModule,
     ],
     providers: [
         StatusBar,
@@ -41,7 +44,8 @@ Amplify.configure(amplifyConfig);
         {provide: BaseUserService, useClass: UserService},
         {provide: BaseAuthService, useClass: AuthService},
         {provide: BaseProfileService, useClass: ProfileService},
-        {provide: BaseTravelService, useClass: TravelService}
+        {provide: BaseTravelService, useClass: TravelService},
+        {provide: BaseGeocodingService, useClass: GeocodingService}
     ],
     bootstrap: [AppComponent],
     exports: [PipeModule]

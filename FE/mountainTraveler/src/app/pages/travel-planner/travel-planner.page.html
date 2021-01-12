@@ -9,8 +9,10 @@
             class="travel-planner__search-section ion-no-margin">
 
         <ion-list [ngClass]="isExpanded ? 'show' : 'hide'">
+
+            <section id="filters">
             <form [formGroup]="travelForm">
-                <app-accordion title="Filters" [fullWidth]="true" #filtersAccordion>
+                <app-accordion title="Filters" [isExpanded]="false" [fullWidth]="true" #filtersAccordion>
                     <ion-item>
                         <ion-searchbar placeholder="Starting point" [formControlName]="filtersNames.startingPoint"></ion-searchbar>
                     </ion-item>
@@ -54,6 +56,22 @@
                     </ion-button>
                 </app-accordion>
             </form>
+            </section>
+            <section id="routes">
+                <app-accordion title="Routes" [isExpanded]="true" [fullWidth]="true" #routesAccordion>
+                    <ion-list>
+<ion-item *ngFor="let route of getRoutes() | async ">
+    <ion-label><h4>{{route.startingPoint}}</h4>
+        <p class="route__p"><ion-icon name="stopwatch-outline"></ion-icon> {{route.tripDuration}} | <ion-icon name="walk-outline"></ion-icon> {{route.distance}} km | <ion-icon name="trending-up-outline"></ion-icon> {{route.uphill}}m</p>
+    </ion-label>
+
+
+
+
+</ion-item>
+                    </ion-list>
+                </app-accordion>
+            </section>
         </ion-list>
         <ion-button
                 type="button"

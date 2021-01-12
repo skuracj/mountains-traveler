@@ -11,6 +11,7 @@ import {HeaderComponentModule} from '../../components/header/header.module';
 import {StarRatingModule} from 'ionic5-star-rating';
 import {PeoplePageModule} from '../people/people.module';
 import {PipeModule} from '../../pipes/pipe.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
     imports: [
