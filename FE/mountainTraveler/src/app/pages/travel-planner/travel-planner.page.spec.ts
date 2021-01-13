@@ -9,12 +9,16 @@ import {By} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HyphensToSpacesPipe} from '../../pipes/hyphens-to-spaces.pipe';
 import {StarRatingModule} from 'ionic5-star-rating';
+import {routesMock} from '../../common/testing/mocks/routes.mock';
+import {BaseTravelService} from '../../services/travel/travel.service';
 
 describe('TravelPlannerPage', () => {
     let component: TravelPlannerPage;
     let fixture: ComponentFixture<TravelPlannerPage>;
+    let travelServiceSpy;
 
     beforeEach(async(() => {
+        travelServiceSpy = jasmine.createSpyObj('BaseTravelService', ['getRoutes']);
         TestBed.configureTestingModule({
             declarations: [
                 TravelPlannerPage,
@@ -27,12 +31,14 @@ describe('TravelPlannerPage', () => {
                 ReactiveFormsModule,
                 StarRatingModule
             ],
+            providers: [{provide: BaseTravelService, useValue: travelServiceSpy}],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
         fixture = TestBed.createComponent(TravelPlannerPage);
         component = fixture.componentInstance;
         fixture.detectChanges();
         spyOn(component, 'createForm').and.callThrough();
+        travelServiceSpy.getRoutes.and.returnValue(Promise.resolve(routesMock));
     }));
 
     it('should create', () => {
@@ -44,7 +50,7 @@ describe('TravelPlannerPage', () => {
         await fixture.whenRenderingDone();
 
         fixture.debugElement.query(By.css(`[id="apply_filters"]`)).nativeElement.click();
-
+console.log(fixture.debugElement.query(By.css(`[id="apply_filters"]`)));
         expect(component.filtersAccordion.closeAccordion).toHaveBeenCalled();
     });
 });

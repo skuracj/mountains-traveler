@@ -25,6 +25,6 @@ import {HttpClientModule} from '@angular/common/http';
         ReactiveFormsModule,
         PipeModule
     ],
-  declarations: [TravelPlannerPage]
+  declarations: [TravelPlannerPage],
 })
 export class TravelPlannerPageModule {}

@@ -8,11 +8,12 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:coverage": "ng test app --code-coverage ",
+    "tdd": "ng test --watch=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ios": "ionic capacitor run ios --livereload --target='06B5EFBE-B7A1-4B52-AA7D-C3FCD2301250'",
-    "android": "ionic capacitor run android --livereload",
-    "test:coverage": "ng test app --code-coverage "
+    "android": "ionic capacitor run android --livereload"
   },
   "private": true,
   "dependencies": {

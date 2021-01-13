@@ -32,8 +32,7 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         public formBuilder: FormBuilder,
-        private travelService: BaseTravelService,
-        public geoCodingService: BaseGeocodingService) {
+        private travelService: BaseTravelService) {
         super();
     }
 
@@ -45,11 +44,10 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
             }))
         ).subscribe();
 
-        this.geoCodingService.getLocation(routesMock[0].startingPoint).subscribe(data => console.log(data));
+        this.travelService.getRoutes();
     }
 
     getRoutes(): Observable<Route[]> {
-        this.travelService.getRoutes();
         return this.travelService.routes$;
     }
 
