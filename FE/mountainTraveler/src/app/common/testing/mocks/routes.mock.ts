@@ -14,7 +14,10 @@ export const routesMock: Route[] = [
         hikingLevel: HikingLevelsValues.easy,
         routeType: RouteTypeValues.roundTrip,
         suitableForKids: true,
-        tripDuration: TripDurationValues.medium,
+        tripDuration: {
+            displayValue: TripDurationValues.short,
+            hours: 4.5
+        },
         usersRatings: 5
     },
     {
@@ -30,7 +33,10 @@ export const routesMock: Route[] = [
         hikingLevel: HikingLevelsValues.medium,
         routeType: RouteTypeValues.oneWay,
         suitableForKids: false,
-        tripDuration: TripDurationValues.short,
+        tripDuration: {
+            displayValue: TripDurationValues.medium,
+            hours: 5
+        },
         usersRatings: 4
     },
     {
@@ -45,6 +51,9 @@ export const routesMock: Route[] = [
         hikingLevel: HikingLevelsValues.hard,
         routeType: RouteTypeValues.roundTrip,
         suitableForKids: false,
-        tripDuration: TripDurationValues.long,
+        tripDuration: {
+            displayValue: TripDurationValues.long,
+            hours: 11.5
+        },
         usersRatings: 3
     }];

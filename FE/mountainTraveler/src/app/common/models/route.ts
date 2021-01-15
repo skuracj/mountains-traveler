@@ -10,6 +10,9 @@ export interface Route {
     hikingLevel: HikingLevelsValues;
     routeType: RouteTypeValues;
     suitableForKids: boolean;
-    tripDuration: TripDurationValues;
+    tripDuration: {
+        displayValue: TripDurationValues,
+        hours: number
+    };
     usersRatings: number;
 }

@@ -1,5 +1,5 @@
 <app-header [headerTitle]="routeSegments.travelPlanner"
-            [defaultHref]="['/', routeSegments.app, routeSegments.planTravel]">
+            [defaultHref]="'/' + routeSegments.app + routeSegments.planTravel">
 </app-header>
 
 <ion-content>
@@ -8,16 +8,16 @@
             id="search"
             class="travel-planner__search-section ion-no-margin">
 
-        <ion-list [ngClass]="isExpanded ? 'show' : 'hide'">
+        <ion-list [ngClass]="isSearchSectionExpanded ? 'show' : 'hide'" class="travel-planner__list">
 
             <section id="filters">
                 <form [formGroup]="travelForm">
-                    <app-accordion title="Filters" [isExpanded]="true" [fullWidth]="true" #filtersAccordion>
+                    <app-accordion title="Filters" [isExpanded]="isFiltersAccordionExpanded" [fullWidth]="true" #filtersAccordion>
                         <ion-item>
                             <ion-searchbar placeholder="Starting point"
                                            [formControlName]="filtersNames.startingPoint"></ion-searchbar>
                         </ion-item>
-                        <!--            // TODO NGIF - round trip - remove input-->
+                        <!--            // TODO ngIf - round trip - remove input-->
                         <!--            // TODO add stop point-->
                         <ion-item>
                             <ion-searchbar placeholder="Destination point"></ion-searchbar>
@@ -59,13 +59,15 @@
                 </form>
             </section>
             <section id="routes">
-                <app-accordion title="Routes" [isExpanded]="true" [fullWidth]="true" #routesAccordion>
+                <app-accordion title="Routes" [isExpanded]="isRoutesAccordionExpanded" [fullWidth]="true" #routesAccordion>
                     <ion-list>
                         <ion-item *ngFor="let route of getRoutes() | async">
-                            <ion-label><h4>{{route.startingPoint?.formattedName}}</h4>
+                            <ion-label>
+                                <h6>{{route.hikingLevel | uppercase}}</h6>
+                                <h4>{{route.startingPoint?.formattedName}}</h4>
                                 <p class="route__p">
                                     <ion-icon name="stopwatch-outline"></ion-icon>
-                                    {{route.tripDuration}} |
+                                    {{route.tripDuration.displayValue}} ~ {{route.tripDuration.hours}}h |
                                     <ion-icon name="walk-outline"></ion-icon>
                                     {{route.distance}} km |
                                     <ion-icon name="trending-up-outline"></ion-icon>
@@ -84,9 +86,9 @@
                 id="search-button"
                 fill="solid"
                 color="success"
-                (click)="isExpanded = !isExpanded"
+                (click)="isSearchSectionExpanded = !isSearchSectionExpanded"
                 class="travel-planner__search-button ion-no-padding ion-no-margin font-size-xxl">
-            <ion-icon [name]="isExpanded ? 'arrow-undo-outline' : 'search-circle-outline'"></ion-icon>
+            <ion-icon [name]="isSearchSectionExpanded ? 'arrow-undo-outline' : 'search-circle-outline'"></ion-icon>
         </ion-button>
     </section>
 </ion-content>

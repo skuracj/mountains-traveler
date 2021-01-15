@@ -28,21 +28,24 @@ describe('GeocodingService', () => {
 
     describe('#getLocation', () => {
         const coords: GeoCoordinates = {lat: '2121', lng: '212'};
+        const address = 'some address';
+        let req;
+        let location: Promise<string>;
 
-// TODO finish tests
-        it('should make get request ', () => {
-            service.getLocation(coords);
-
-            const req = httpMock.expectOne(`https://api.opencagedata.com/geocode/v1/json?q=${coords.lat}+${coords.lng}&key=${apiKey}`);
-            expect(req.request.method).toBe('GET');
-            req.flush('');
+        beforeEach(() => {
+            location = service.getLocation(coords);
+            req = httpMock.expectOne(`https://api.opencagedata.com/geocode/v1/json?q=${coords.lat}+${coords.lng}&key=${apiKey}`);
+            req.flush({results: [{formatted: `${address}`}]});
         });
 
-        // it('should return string location', async () => {
-        //     let expectedString: string;
-        //
-        //     // expectedString = await service.getLocation(coords);
-        //     expect();
-        // });
+        it('should make get request ', () => {
+            expect(req.request.method).toBe('GET');
+        });
+
+        it('should return string location', (done) => {
+            location
+                .then(response => expect(response).toBe(address))
+                .then(done);
+        });
     });
 });

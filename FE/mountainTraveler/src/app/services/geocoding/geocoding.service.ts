@@ -4,6 +4,7 @@ import {GeoCoordinates} from '../../common/models/coordinates';
 
 export abstract class BaseGeocodingService {
     API_KEY: string;
+
     abstract async getLocation(coordinates: GeoCoordinates): Promise<string>;
 }
 
@@ -17,14 +18,12 @@ export class GeocodingService {
     async getLocation({lat, lng}: GeoCoordinates): Promise<string> {
         let res: any;
         try {
-            console.log('calll');
             res = await this.httpClient
                 .get<any>(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${this.API_KEY}`).toPromise();
         } catch (e) {
             console.error(e);
         }
-
-        return res.results[0].formatted.split(',')[0];
+        return res.results[0].formatted;
     }
 }
 

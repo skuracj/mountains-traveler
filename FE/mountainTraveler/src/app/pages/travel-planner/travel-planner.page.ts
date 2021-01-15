@@ -21,7 +21,9 @@ import {routesMock} from '../../common/testing/mocks/routes.mock';
 
 })
 export class TravelPlannerPage extends BaseComponent implements OnInit {
-    public isExpanded = true;
+    public isSearchSectionExpanded = true;
+    public isFiltersAccordionExpanded = true;
+    public isRoutesAccordionExpanded = false;
     public searchFilters = [HikingLevels, RouteType, SuitableForKids, TripDuration];
     public selectedDifficultyLevel;
     public travelForm: FormGroup;
@@ -69,6 +71,8 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     }
 
     applyFilters() {
+        this.isFiltersAccordionExpanded = false;
+        this.isRoutesAccordionExpanded = true;
         console.log(this.travelForm.value);
         this.filtersAccordion.closeAccordion();
     }
