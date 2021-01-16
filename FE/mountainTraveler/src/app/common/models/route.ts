@@ -1,4 +1,4 @@
-import {HikingLevelsValues, RouteTypeValues, TripDurationValues} from '../constants/FiltersValues.enum';
+import {HikingLevelsValue, RouteTypeValue, TripDurationValue} from '../constants/FiltersValues.enum';
 import {GeoCoordinates} from './coordinates';
 
 export interface Route {
@@ -7,11 +7,11 @@ export interface Route {
     uphill: number;
     startingPoint: GeoCoordinates;
     destinationPoint?: string;
-    hikingLevel: HikingLevelsValues;
-    routeType: RouteTypeValues;
+    hikingLevel: HikingLevelsValue;
+    routeType: RouteTypeValue;
     suitableForKids: boolean;
     tripDuration: {
-        displayValue: TripDurationValues,
+        displayValue: TripDurationValue,
         hours: number
     };
     usersRatings: number;

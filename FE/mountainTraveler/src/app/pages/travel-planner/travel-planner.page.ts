@@ -1,23 +1,22 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 import {BaseComponent} from '../../common/base/base.component';
-import {QueryParamNames} from '../../common/constants/QueryParamNames.enum';
+import {QueryParamName} from '../../common/constants/QueryParamNames.enum';
 import {HikingLevels, RouteType, SuitableForKids, TripDuration} from '../../common/constants/SearchFilters';
 import {AccordionComponent} from '../../components/accordion/accordion.component';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {FilterNames} from '../../common/constants/FiltersNames.enum';
-import {CommonValues} from '../../common/constants/FiltersValues.enum';
+import {FilterName} from '../../common/constants/FiltersNames.enum';
+import {CommonValue} from '../../common/constants/FiltersValues.enum';
 import {Route} from '../../common/models/route';
 import {Observable} from 'rxjs';
-import {BaseTravelService, TravelService} from '../../services/travel/travel.service';
-import {BaseGeocodingService} from '../../services/geocoding/geocoding.service';
-import {routesMock} from '../../common/testing/mocks/routes.mock';
+import {BaseTravelService} from '../../services/travel/travel.service';
 
 @Component({
     selector: 'app-travel-planner',
     templateUrl: './travel-planner.page.html',
     styleUrls: ['./travel-planner.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class TravelPlannerPage extends BaseComponent implements OnInit {
@@ -38,31 +37,36 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
         super();
     }
 
-    ngOnInit() {
+    async ngOnInit() {
         this.createForm();
-        this.activatedRoute.queryParams.pipe(
-            tap(queryParam => this.travelForm.patchValue({
-                [FilterNames.hikingLevels]: queryParam[QueryParamNames.level]
-            }))
-        ).subscribe();
-
-        this.travelService.getRoutes();
+        this.extractHikingLevelFromQueryParams();
+        await this.loadRoutes();
     }
 
-    getRoutes(): Observable<Route[]> {
-        return this.travelService.routes$;
+    async loadRoutes() {
+        await this.travelService.getRoutes();
+        this.routes$ = this.travelService.routes$;
+    }
+
+    extractHikingLevelFromQueryParams() {
+        this.activatedRoute.queryParams.pipe(
+            take(1),
+            tap(queryParam => this.travelForm.patchValue({
+                [FilterName.hikingLevels]: queryParam[QueryParamName.level]
+            }))
+        ).subscribe();
     }
 
 
     createForm() {
         this.travelForm = this.formBuilder.group({
-            [FilterNames.startingPoint]: [null, Validators.required],
-            [FilterNames.destinationPoint]: [null],
-            [FilterNames.hikingLevels]: [CommonValues.all],
-            [FilterNames.routeType]: [CommonValues.all],
-            [FilterNames.suitableForKids]: [CommonValues.all],
-            [FilterNames.tripDuration]: [CommonValues.all],
-            [FilterNames.usersRating]: [2],
+            [FilterName.startingPoint]: [null, Validators.required],
+            [FilterName.destinationPoint]: [null],
+            [FilterName.hikingLevels]: [CommonValue.all],
+            [FilterName.routeType]: [CommonValue.all],
+            [FilterName.suitableForKids]: [CommonValue.all],
+            [FilterName.tripDuration]: [CommonValue.all],
+            [FilterName.usersRating]: [2],
         });
     }
 
@@ -73,7 +77,6 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     applyFilters() {
         this.isFiltersAccordionExpanded = false;
         this.isRoutesAccordionExpanded = true;
-        console.log(this.travelForm.value);
         this.filtersAccordion.closeAccordion();
     }
 

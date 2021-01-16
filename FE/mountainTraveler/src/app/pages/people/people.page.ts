@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
 import {Sections} from '../../common/constants/Sections.enum';
 import {User} from '../../common/models/user';
@@ -7,11 +7,10 @@ import {UserSettingsPage} from '../../components/user-settings/user-settings.pag
 import {Utils} from '../../common/utils';
 import {BaseUserService} from '../../services/user/user.service';
 import {Observable, Subscription} from 'rxjs';
-import {map, take, tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
-import {MostActiveUser} from '../../common/models/most-active-user';
 
 @Component({
     selector: 'app-people',
@@ -42,7 +41,7 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         }
 
         this.profileSubscription = this.profileService.profile$.pipe(
-            // tap(profile => console.log('profile', profile)),
+            tap(data => console.log('profile', data)),
             map(profile => {
                     this.profile = profile;
                     this.profileService.getUserStories();

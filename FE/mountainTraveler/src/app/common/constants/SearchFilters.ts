@@ -1,56 +1,56 @@
-import {CommonValues, HikingLevelsValues, RouteTypeValues, TripDurationValues} from './FiltersValues.enum';
-import {FilterNames} from './FiltersNames.enum';
+import {CommonValue, HikingLevelsValue, RouteTypeValue, TripDurationValue} from './FiltersValues.enum';
+import {FilterName} from './FiltersNames.enum';
 
 export const HikingLevels = {
-    filterName: FilterNames.hikingLevels,
+    filterName: FilterName.hikingLevels,
     filterValues: [
         {
-            value: CommonValues.all,
+            value: CommonValue.all,
             displayValue: 'All'
         },
         {
-            value: HikingLevelsValues.easy,
+            value: HikingLevelsValue.easy,
             displayValue: 'Easy'
         },
         {
-            value: HikingLevelsValues.medium,
+            value: HikingLevelsValue.medium,
             displayValue: 'Medium'
         },
         {
-            value: HikingLevelsValues.hard,
+            value: HikingLevelsValue.hard,
             displayValue: 'Hard'
         }
     ]
 };
 
 export const TripDuration = {
-    filterName: FilterNames.tripDuration,
+    filterName: FilterName.tripDuration,
     filterValues: [
         {
-            value: CommonValues.all,
+            value: CommonValue.all,
             displayValue: 'All'
         },
         {
-            value: TripDurationValues.short,
+            value: TripDurationValue.short,
             displayValue: '1-3h',
 
         },
         {
-            value: TripDurationValues.medium,
+            value: TripDurationValue.medium,
             displayValue: '3-6h',
         },
         {
-            value: TripDurationValues.long,
+            value: TripDurationValue.long,
             displayValue: '6h+',
         }
     ]
 };
 
 export const SuitableForKids = {
-    filterName: FilterNames.suitableForKids,
+    filterName: FilterName.suitableForKids,
     filterValues: [
         {
-            value: CommonValues.all,
+            value: CommonValue.all,
             displayValue: 'All'
         },
         {
@@ -65,18 +65,18 @@ export const SuitableForKids = {
 };
 
 export const RouteType = {
-    filterName: FilterNames.routeType,
+    filterName: FilterName.routeType,
     filterValues: [
         {
-            value: CommonValues.all,
+            value: CommonValue.all,
             displayValue: 'All'
         },
         {
-            value: RouteTypeValues.oneWay,
+            value: RouteTypeValue.oneWay,
             displayValue: 'One way'
         },
         {
-            value: RouteTypeValues.roundTrip,
+            value: RouteTypeValue.roundTrip,
             displayValue: 'Round trip'
         }
     ]

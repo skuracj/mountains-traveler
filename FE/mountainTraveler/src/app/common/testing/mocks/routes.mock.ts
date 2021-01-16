@@ -1,5 +1,5 @@
 import {Route} from '../../models/route';
-import {HikingLevelsValues, RouteTypeValues, TripDurationValues} from '../../constants/FiltersValues.enum';
+import {HikingLevelsValue, RouteTypeValue, TripDurationValue} from '../../constants/FiltersValues.enum';
 
 export const routesMock: Route[] = [
     {
@@ -11,11 +11,11 @@ export const routesMock: Route[] = [
         },
         distance: 12,
         uphill: 2301,
-        hikingLevel: HikingLevelsValues.easy,
-        routeType: RouteTypeValues.roundTrip,
+        hikingLevel: HikingLevelsValue.easy,
+        routeType: RouteTypeValue.roundTrip,
         suitableForKids: true,
         tripDuration: {
-            displayValue: TripDurationValues.short,
+            displayValue: TripDurationValue.short,
             hours: 4.5
         },
         usersRatings: 5
@@ -30,11 +30,11 @@ export const routesMock: Route[] = [
         distance: 21,
         uphill: 2601,
         destinationPoint: '49.2740186,19.9488565',
-        hikingLevel: HikingLevelsValues.medium,
-        routeType: RouteTypeValues.oneWay,
+        hikingLevel: HikingLevelsValue.medium,
+        routeType: RouteTypeValue.oneWay,
         suitableForKids: false,
         tripDuration: {
-            displayValue: TripDurationValues.medium,
+            displayValue: TripDurationValue.medium,
             hours: 5
         },
         usersRatings: 4
@@ -48,11 +48,11 @@ export const routesMock: Route[] = [
         },
         distance: 32,
         uphill: 3101,
-        hikingLevel: HikingLevelsValues.hard,
-        routeType: RouteTypeValues.roundTrip,
+        hikingLevel: HikingLevelsValue.hard,
+        routeType: RouteTypeValue.roundTrip,
         suitableForKids: false,
         tripDuration: {
-            displayValue: TripDurationValues.long,
+            displayValue: TripDurationValue.long,
             hours: 11.5
         },
         usersRatings: 3

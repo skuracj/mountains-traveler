@@ -7,7 +7,7 @@
                 *ngFor="let level of levels">
             <div class="plan-travel__cover display-flex"
                  [routerLink]="['/', routeSegments.travelPlanner]"
-                 [queryParams]="this.getQueryParams(queryParamNames.level, level)">
+                 [queryParams]="this.createQueryParamsObj(queryParamNames.level, level)">
                 <p class="plan-travel__cover-text font-size-xxl">{{level | uppercase}}</p>
             </div>
             <ion-img src="/assets/levels/{{level}}.png"></ion-img>

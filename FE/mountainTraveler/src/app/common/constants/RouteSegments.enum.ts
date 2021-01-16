@@ -1,4 +1,4 @@
-export enum RouteSegments {
+export enum RouteSegment {
     onboarding = 'onboarding',
     app = 'app',
     home = 'home',

@@ -1,4 +1,4 @@
-export enum FilterNames {
+export enum FilterName {
     startingPoint = 'starting-point',
     destinationPoint = 'destination-point',
     tripDuration = 'trip-duration',

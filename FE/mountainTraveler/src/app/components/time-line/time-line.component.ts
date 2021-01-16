@@ -11,7 +11,7 @@ import {Story} from '../../common/models/story';
 })
 export class TimeLineComponent implements OnInit{
    @Input() stories: Story[];
-   @Input() userOverview?: false;
+   @Input() userOverview?: boolean = false;
 
    private userId: string;
 
@@ -21,11 +21,9 @@ export class TimeLineComponent implements OnInit{
 
     ngOnInit() {
         this.userId = this.authService.getUserId();
-        console.log('timeline stories', this.stories);
     }
 
     addLike(storyId: string) {
-        console.log('add');
         this.storiesService.addLikeToStory(storyId, this.userId);
     }
 
@@ -34,7 +32,6 @@ export class TimeLineComponent implements OnInit{
     }
 
     checkIfLiked(story: Story) {
-        console.log('checkifliked')
         return story.likes.includes(this.userId);
     }
 }

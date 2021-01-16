@@ -13,6 +13,6 @@ export class MostActiveUsersComponent implements OnDestroy{
     constructor() {
     }
     ngOnDestroy() {
-        console.log('destroyed');
+        console.log('mostActiveUsers destroyed');
     }
 }

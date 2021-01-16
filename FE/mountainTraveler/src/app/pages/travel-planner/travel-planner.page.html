@@ -1,5 +1,5 @@
 <app-header [headerTitle]="routeSegments.travelPlanner"
-            [defaultHref]="'/' + routeSegments.app + routeSegments.planTravel">
+            [defaultHref]="'/' + routeSegments.app + '/' + routeSegments.planTravel">
 </app-header>
 
 <ion-content>
@@ -61,7 +61,7 @@
             <section id="routes">
                 <app-accordion title="Routes" [isExpanded]="isRoutesAccordionExpanded" [fullWidth]="true" #routesAccordion>
                     <ion-list>
-                        <ion-item *ngFor="let route of getRoutes() | async">
+                        <ion-item *ngFor="let route of routes$ | async">
                             <ion-label>
                                 <h6>{{route.hikingLevel | uppercase}}</h6>
                                 <h4>{{route.startingPoint?.formattedName}}</h4>

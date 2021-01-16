@@ -1,19 +1,19 @@
-export enum CommonValues {
+export enum CommonValue {
     all = 'all'
 }
 
-export enum TripDurationValues {
+export enum TripDurationValue {
     short = 'short',
     medium = 'medium',
     long = 'long'
 };
 
-export enum RouteTypeValues {
+export enum RouteTypeValue {
     oneWay = 'oneWay',
     roundTrip = 'roundTrip'
 };
 
-export enum HikingLevelsValues {
+export enum HikingLevelsValue {
     easy = 'easy',
     medium = 'medium',
     hard = 'hard',

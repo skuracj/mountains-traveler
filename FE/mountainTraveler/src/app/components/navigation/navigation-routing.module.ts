@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation.component';
-import {RouteSegments} from "../../common/constants/RouteSegments.enum";
+import {RouteSegment} from "../../common/constants/RouteSegments.enum";
 
 const routes: Routes = [
   {
@@ -9,20 +9,20 @@ const routes: Routes = [
     component: NavigationComponent,
     children: [
       {
-        path: RouteSegments.home,
+        path: RouteSegment.home,
         loadChildren: () => import('../../pages/home/home.module').then(m => m.HomePageModule)
       },
       {
-        path: RouteSegments.planTravel,
-        loadChildren: () => import('../../pages/plan-travel/plan-travel.module').then(m => m.PlanTravelPageModule)
+        path: RouteSegment.planTravel,
+        loadChildren: () => import('../../pages/travel-planner-intro/travel-planner-intro.module').then(m => m.TravelPlannerIntroPageModule)
       },
       {
-        path: RouteSegments.people,
+        path: RouteSegment.people,
         loadChildren: () => import('../../pages/people/people.module').then(m => m.PeoplePageModule)
       },
       {
         path: '',
-        redirectTo: `/${RouteSegments.app}/${RouteSegments.home}`
+        redirectTo: `/${RouteSegment.app}/${RouteSegment.home}`
 
       }
     ]

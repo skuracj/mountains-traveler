@@ -38,26 +38,26 @@ describe('WeatherWidgetComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('Should call getWeatherForFiveDays when "region" input value changed', () => {
+    it('Should call getWeatherForNDays when "region" input value changed', () => {
         component.city = 'Zurich';
-        spyOn(component, 'getWeatherForFiveDays');
+        spyOn(component, 'getWeatherForNDays');
 
         component.ngOnChanges({
             city: new SimpleChange(null, component.city, true)
         });
 
-        expect(component.getWeatherForFiveDays).toHaveBeenCalled();
+        expect(component.getWeatherForNDays).toHaveBeenCalled();
     });
 
-    it('Should NOT call getWeatherForFiveDays when "region" input value was NOT changed', () => {
+    it('Should NOT call getWeatherForNDays when "region" input value was NOT changed', () => {
         component.city = 'Zurich';
-        spyOn(component, 'getWeatherForFiveDays');
+        spyOn(component, 'getWeatherForNDays');
 
         component.ngOnChanges({
             city: new SimpleChange(component.city, component.city, true)
         });
 
-        expect(component.getWeatherForFiveDays).not.toHaveBeenCalled();
+        expect(component.getWeatherForNDays).not.toHaveBeenCalled();
     });
 
     it(`Should call ${ExternalUrls.openWeatherApi} when "region" input value changed`, () => {
@@ -90,13 +90,15 @@ describe('WeatherWidgetComponent', () => {
             city: new SimpleChange(null, component.city, true)
         });
 
-        expect(component.fiveDaysWeather).toEqual([{
+        expect(component.weatherForNDays).toEqual([{
             date: new Date(firstDayMock.dt * 1000).toLocaleDateString('en-EN', {weekday: 'short'}),
             temp: firstDayMock.temp,
             rain: firstDayMock.rain,
             icon: firstDayMock.weather[0].icon,
-            sunrise: new Date(firstDayMock.sunrise * 1000).toLocaleTimeString(component.locale, component.timeFormatOptions),
-            sunset: new Date(firstDayMock.sunset * 1000).toLocaleTimeString(component.locale, component.timeFormatOptions),
+            sunrise: new Date(firstDayMock.sunrise * 1000)
+                .toLocaleTimeString(component.weatherParams.locale, component.weatherParams.timeFormatOptions),
+            sunset: new Date(firstDayMock.sunset * 1000)
+                .toLocaleTimeString(component.weatherParams.locale, component.weatherParams.timeFormatOptions),
         }]);
     });
 

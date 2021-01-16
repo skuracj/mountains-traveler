@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RouteSegments} from '../../common/constants/RouteSegments.enum';
+import {RouteSegment} from '../../common/constants/RouteSegments.enum';
 import {ComponentType} from '../../common/constants/ComponentType.enum';
 import {ModalController} from '@ionic/angular';
 import {BaseComponent} from '../../common/base/base.component';
@@ -12,7 +12,7 @@ import {BaseComponent} from '../../common/base/base.component';
 export class HeaderComponent extends BaseComponent{
     @Input() headerTitle: string;
     @Input() displayMode: ComponentType;
-    @Input() defaultHref?: string = RouteSegments.app;
+    @Input() defaultHref?: string = RouteSegment.app;
 
     constructor(private modalController: ModalController) {
         super();

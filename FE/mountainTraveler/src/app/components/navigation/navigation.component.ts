@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteSegments} from '../../common/constants/RouteSegments.enum';
+import {RouteSegment} from '../../common/constants/RouteSegments.enum';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
     styleUrls: ['navigation.component.scss']
 })
 export class NavigationComponent {
-    public routeSegments = RouteSegments;
+    public routeSegments = RouteSegment;
 
     constructor(public router: Router) {
     }

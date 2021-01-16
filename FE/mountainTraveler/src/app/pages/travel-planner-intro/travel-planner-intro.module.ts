@@ -2,9 +2,9 @@ import {IonicModule} from '@ionic/angular';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {PlanTravelPage} from './plan-travel.page';
+import {TravelPlannerIntroPage} from './travel-planner-intro.page';
 
-import {PlanTravelPageRoutingModule} from './plan-travel-routing.module';
+import {PlanTravelPageRoutingModule} from './travel-planner-intro-routing.module';
 import {HeaderComponentModule} from '../../components/header/header.module';
 
 @NgModule({
@@ -15,7 +15,7 @@ import {HeaderComponentModule} from '../../components/header/header.module';
         PlanTravelPageRoutingModule,
         HeaderComponentModule
     ],
-    declarations: [PlanTravelPage]
+    declarations: [TravelPlannerIntroPage]
 })
-export class PlanTravelPageModule {
+export class TravelPlannerIntroPageModule {
 }

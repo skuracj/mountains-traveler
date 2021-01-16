@@ -9,7 +9,7 @@ import {usersMock} from '../../common/testing/mocks/users.mock';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {BaseStoriesService} from '../../services/stories/stories.service';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
-import {QueryParamNames} from '../../common/constants/QueryParamNames.enum';
+import {QueryParamName} from '../../common/constants/QueryParamNames.enum';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -67,14 +67,14 @@ describe('UserPage', () => {
             expect(component.getUserStories).toHaveBeenCalled();
         });
 
-        it(`should extract queryParam ${QueryParamNames.userId} and assign it to userId`, () => fixture.ngZone.run(async () => {
+        it(`should extract queryParam ${QueryParamName.userId} and assign it to userId`, () => fixture.ngZone.run(async () => {
             const userId = 'someUserId';
-            await router.navigate([], {queryParams: {[QueryParamNames.userId]: userId}});
+            await router.navigate([], {queryParams: {[QueryParamName.userId]: userId}});
 
             component.ionViewWillEnter();
             await fixture.whenStable();
 
-            expect(location.path()).toEqual(`/?${QueryParamNames.userId}=${userId}`);
+            expect(location.path()).toEqual(`/?${QueryParamName.userId}=${userId}`);
             expect(component.userId).toEqual(userId);
         }));
 

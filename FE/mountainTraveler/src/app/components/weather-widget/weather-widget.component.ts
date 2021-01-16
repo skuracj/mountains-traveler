@@ -14,33 +14,34 @@ import {CitiesMappedToCountry} from '../../common/constants/Cities.enum';
 export class WeatherWidgetComponent implements OnChanges {
     @Input() city: string;
 
-    fiveDaysWeather: DayWeather[] = [];
+    weatherForNDays: DayWeather[] = [];
     isWeatherDataLoaded = false;
-    locale = 'en-EN';
-    timeFormatOptions: object = {hour: '2-digit', minute: '2-digit', hour12: false};
-    numberOfDays = '10';
-    units = 'metric';
+
+    weatherParams = {
+        locale: 'en-EN',
+        timeFormatOptions: {hour: '2-digit', minute: '2-digit', hour12: false},
+        numberOfDays: '10',
+        units: 'metric',
+    };
 
     constructor(private httpClient: HttpClient) {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-
         if (changes.city.previousValue !== changes.city.currentValue) {
-
-            this.getWeatherForFiveDays();
+            this.getWeatherForNDays();
         }
     }
 
-    getWeatherForFiveDays() {
+    getWeatherForNDays() {
         const headers = {
             'x-rapidapi-key': environment.xRapidapiKey,
             'x-rapidapi-host': ExternalUrls.xRapidapiHost
         };
         const params = {
             q: `${this.city},${CitiesMappedToCountry[this.city].country}`,
-            cnt: this.numberOfDays,
-            units: this.units,
+            cnt: this.weatherParams.numberOfDays,
+            units: this.weatherParams.units,
         };
         this.httpClient.get(`${ExternalUrls.openWeatherApi}/forecast/daily`, {
             headers,
@@ -49,23 +50,25 @@ export class WeatherWidgetComponent implements OnChanges {
             take(1),
             map(weather => weather['list']),
             tap(days => {
-                this.fiveDaysWeather = [];
+                this.weatherForNDays = [];
                 days.map(day => {
 
-                    this.fiveDaysWeather.push({
-                        date: new Date(day.dt * 1000).toLocaleDateString(this.locale, {weekday: 'short'}),
+                    this.weatherForNDays.push({
+                        date: new Date(day.dt * 1000).toLocaleDateString(this.weatherParams.locale, {weekday: 'short'}),
                         temp: day.temp,
                         rain: day.rain ? day.rain : 0,
                         icon: day.weather[0].icon,
-                        sunrise: new Date(day.sunrise * 1000).toLocaleTimeString(this.locale, this.timeFormatOptions),
-                        sunset: new Date(day.sunset * 1000).toLocaleTimeString(this.locale, this.timeFormatOptions),
+                        sunrise: new Date(day.sunrise * 1000)
+                            .toLocaleTimeString(this.weatherParams.locale, this.weatherParams.timeFormatOptions),
+                        sunset: new Date(day.sunset * 1000)
+                            .toLocaleTimeString(this.weatherParams.locale, this.weatherParams.timeFormatOptions),
 
                     });
                 });
             }),
             tap(
                 _ => {
-                    console.log(this.fiveDaysWeather);
+                    console.log(this.weatherForNDays);
                     this.isWeatherDataLoaded = true;
                 })
         ).subscribe();
