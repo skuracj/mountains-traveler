@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mountainTraveler/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/mountainTraveler/capacitor.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mountainTraveler/ios/App/App/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/mountainTraveler/ios/App/App/capacitor.config.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1mvu31ABf7mpviYYC6rKTp6J6gR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="excluded.www.directory" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/mountainTraveler/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ProfileService.#removeStory" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/mountainTraveler/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/mountainTraveler/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$/mountainTraveler" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file-path value="$PROJECT_DIR$/mountainTraveler/src/app/services/profile/profile.service.spec.ts" />
+      <test-names>
+        <test-name value="ProfileService" />
+        <test-name value="#removeStory" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Karma.ProfileService.#removeStory" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="" />
+      <created>1610386183563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610386183563</updated>
+      <workItem from="1610386184737" duration="640000" />
+      <workItem from="1610478036671" duration="20000" />
+      <workItem from="1610797103876" duration="130000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1771" height="237" key="GridCell.Tab.0.bottom" timestamp="1610386884127">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884127" />
+    <state width="1771" height="237" key="GridCell.Tab.0.center" timestamp="1610386884127">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884127" />
+    <state width="1771" height="237" key="GridCell.Tab.0.left" timestamp="1610386884126">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884126" />
+    <state width="1771" height="237" key="GridCell.Tab.0.right" timestamp="1610386884127">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.0.right/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884127" />
+    <state width="1771" height="237" key="GridCell.Tab.1.bottom" timestamp="1610386884128">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.1.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884128" />
+    <state width="1771" height="237" key="GridCell.Tab.1.center" timestamp="1610386884128">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.1.center/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884128" />
+    <state width="1771" height="237" key="GridCell.Tab.1.left" timestamp="1610386884128">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.1.left/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884128" />
+    <state width="1771" height="237" key="GridCell.Tab.1.right" timestamp="1610386884128">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state width="1771" height="237" key="GridCell.Tab.1.right/0.23.1792.1033@0.23.1792.1033" timestamp="1610386884128" />
+    <state x="2573" y="361" width="586" height="490" key="find.popup" timestamp="1610797207880">
+      <screen x="1792" y="-70" width="2560" height="1353" />
+    </state>
+    <state x="2573" y="361" width="586" height="490" key="find.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797207880" />
+    <state x="2531" y="239" width="670" height="676" key="search.everywhere.popup" timestamp="1610797131152">
+      <screen x="1792" y="-70" width="2560" height="1353" />
+    </state>
+    <state x="2531" y="239" width="670" height="676" key="search.everywhere.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797131152" />
+  </component>
+</project>
