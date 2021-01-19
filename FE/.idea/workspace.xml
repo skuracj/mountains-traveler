@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mountainTraveler/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/mountainTraveler/capacitor.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountainTraveler/ios/App/App/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/mountainTraveler/ios/App/App/capacitor.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-playground" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,8 @@
       <workItem from="1610386184737" duration="640000" />
       <workItem from="1610478036671" duration="20000" />
       <workItem from="1610797103876" duration="130000" />
+      <workItem from="1611000510635" duration="879000" />
+      <workItem from="1611046720130" duration="19000" />
     </task>
     <servers />
   </component>
