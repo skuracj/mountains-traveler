@@ -24,7 +24,7 @@ module.exports = {
   },
   services: [{
     label: 'Car',
-    path: '/routed-car/route/v1',
+    path: 'http://localhost:5000/route/v1',
     debug: 'car',
   },
   {
@@ -34,7 +34,7 @@ module.exports = {
   },
   {
     label: 'Foot',
-    path: '/routed-foot/route/v1',
+    path: 'http://localhost:5000/route/v1',
     debug: 'foot',
   }],
   layer: [{

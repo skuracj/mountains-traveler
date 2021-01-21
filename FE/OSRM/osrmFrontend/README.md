@@ -73,3 +73,9 @@ For debug tiles showing speeds and small components available at `/debug` adjust
   "tiles" : ["http://localhost:5000/tile/v1/car/tile({x},{y},{z}).mvt"]
 }
 ```
+
+
+
+Poland maps:
+
+http://download.geofabrik.de/europe/poland/malopolskie-latest.osm.pbf
