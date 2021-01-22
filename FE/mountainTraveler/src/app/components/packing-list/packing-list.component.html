@@ -19,39 +19,38 @@
         </ion-item>
     </ion-list>
 
-    <div class="ion-padding" *ngIf="editMode">
+<!--    <div class="ion-padding" *ngIf="editMode">-->
 
-        <ion-item>
-            <ion-label position="floating">Type your item</ion-label>
-            <ion-input
-                    clearInput="true"
-                    maxlength="140"
-                    minlength="2"
-                    name="newItemValue"
-                    [(ngModel)]="this.newItemValue"
-            ></ion-input>
+<!--        <ion-item>-->
+<!--            <ion-label position="floating">Type your item</ion-label>-->
+<!--            <ion-input-->
+<!--                    clearInput="true"-->
+<!--                    maxlength="140"-->
+<!--                    minlength="2"-->
+<!--                    name="newItemValue"-->
+<!--                    [(ngModel)]="this.newItemValue"-->
+<!--            ></ion-input>-->
 
-        </ion-item>
+<!--        </ion-item>-->
 
-        <ion-button class="ion-margin-vertical"
-                    expand="block"
-                    color="success"
-                    [disabled]="!this.newItemValue"
-                    id="add-item-button"
-                    (click)="addItemToList()">Add item
-        </ion-button>
+<!--        <ion-button class="ion-margin-vertical"-->
+<!--                    expand="block"-->
+<!--                    color="success"-->
+<!--                    [disabled]="!this.newItemValue"-->
+<!--                    id="add-item-button"-->
+<!--                    (click)="addItemToList()">Add item-->
+<!--        </ion-button>-->
 
-    </div>
+<!--    </div>-->
 
 </ion-content>
 
 <ion-footer>
-
     <ion-button
             fill="outline"
             expand="block"
             color="success"
-            (click)="this.editMode = !this.editMode">{{this.editMode ? 'Stop adding' : 'Add new items' }}
+            (click)="openAddModal()">Add new items
     </ion-button>
     <ion-button
             color="success"

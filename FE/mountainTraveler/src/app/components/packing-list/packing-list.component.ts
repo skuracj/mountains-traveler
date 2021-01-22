@@ -1,12 +1,9 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
-import {FormGroup} from '@angular/forms';
 import {BaseComponent} from '../../common/base/base.component';
-import {BaseUserService} from '../../services/user/user.service';
-import {BaseAuthService} from '../../services/auth/auth.service';
-import {first, take, tap} from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
-import {Subscription} from 'rxjs';
+import {AlertController} from '@ionic/angular';
 
 @Component({
     selector: 'app-packing-list',
@@ -17,11 +14,10 @@ export class PackingListComponent extends BaseComponent implements OnInit {
     @Input() title: string;
 
     public packingList: PackingItem[];
-    public editMode = false;
-    public newItemValue: string;
 
     constructor(
-        private profileService: BaseProfileService) {
+        private profileService: BaseProfileService,
+        private alertCtrl: AlertController) {
         super();
     }
 
@@ -38,10 +34,32 @@ export class PackingListComponent extends BaseComponent implements OnInit {
             })).subscribe();
     }
 
+    async openAddModal() {
+        const alert = await this.alertCtrl.create({
+            inputs: [{
+                    name: 'value',
+                    placeholder: 'Add item here...',
+                }],
+            buttons: [{
+                    text: 'Cancel',
+                    handler: data => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Add item',
+                    handler: item => {
+                        console.log('Saved clicked', item.value);
+                        this.addItemToList(item.value);
+                    }
+                }]
+        });
+        await alert.present();
+    }
 
-    addItemToList() {
-        this.packingList.push({title: this.newItemValue, packed: false});
-        this.newItemValue = null;
+
+    addItemToList(item: string) {
+        this.packingList.push({title: item, packed: false});
     }
 
     deleteItemFromList(index: number) {
