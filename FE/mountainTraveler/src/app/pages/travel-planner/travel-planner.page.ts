@@ -11,6 +11,8 @@ import {CommonValue} from '../../common/constants/FiltersValues.enum';
 import {Route} from '../../common/models/route';
 import {Observable} from 'rxjs';
 import {BaseTravelService} from '../../services/travel/travel.service';
+import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
+
 
 @Component({
     selector: 'app-travel-planner',
@@ -27,6 +29,8 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     public selectedDifficultyLevel;
     public travelForm: FormGroup;
     public routes$: Observable<Route[]>;
+    map: Map;
+
 
     @ViewChild('filtersAccordion') filtersAccordion: AccordionComponent;
 
@@ -41,6 +45,21 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
         this.createForm();
         this.extractHikingLevelFromQueryParams();
         await this.loadRoutes();
+        this.loadMap();
+    }
+
+    loadMap() {
+        setTimeout(() => {
+            this.map = new Map('map').setView([49.2714765, 19.9774387], 8);
+
+            tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                // tslint:disable-next-line
+                attribution: `Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery 
+    © <a href="https://www.mapbox.com/">Mapbox</a>`,
+            maxZoom: 18
+        }).addTo(this.map);
+
+        }, 50);
     }
 
     async loadRoutes() {

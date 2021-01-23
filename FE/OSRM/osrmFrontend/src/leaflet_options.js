@@ -14,13 +14,13 @@ var de = L.tileLayer('//{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', 
 
 module.exports = {
   defaultState: {
-    center: L.latLng(50, 12),
+    center: L.latLng(49.2992, 19.9496),
     zoom: 7,
     waypoints: [],
     language: 'en',
     alternative: 0,
     layer: de,
-    service: 1
+    service: 2
   },
   services: [{
     label: 'Car',
