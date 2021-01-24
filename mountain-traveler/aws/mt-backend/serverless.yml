@@ -1,0 +1,47 @@
+plugins:
+  - serverless-offline
+
+service: mt-backend
+app: mountain-traveler
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+      Resource: 'arn:aws:dynamodb:eu-west-1:*:*'
+
+functions:
+  profileGet:
+    handler: profile/get.main
+    events:
+      - http:
+          path: profile
+          method: get
+  profileUpdate:
+    handler: profile/update.main
+    events:
+      - http:
+          path: profile
+          method: post
+  userGet:
+    handler: user/get.main
+    events:
+      - http:
+          path: user/{id}
+          method: get
+#          authorizer: userPools / ?
+#  authorizerFunc:
+#    handler: handler.authorizerFunc
+
+resources:
+  - ${file(resources/tables.yml)}
+

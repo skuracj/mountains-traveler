@@ -1,0 +1,25 @@
+# CloudFormation template syntax from here on.
+Resources:
+  users:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: usersTable
+      AttributeDefinitions:
+        - AttributeName: email
+          AttributeType: S
+      KeySchema:
+        - AttributeName: email
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+  stories:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: usersTable
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
