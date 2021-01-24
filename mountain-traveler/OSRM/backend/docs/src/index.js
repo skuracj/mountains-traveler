@@ -5,9 +5,9 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'OSRM API Documentation',
-  tablet: 'OSRM API Docs',
-  mobile: 'OSRM API'
+  desktop: 'osrm API Documentation',
+  tablet: 'osrm API Docs',
+  mobile: 'osrm API'
 };
 
 /**

@@ -62,7 +62,7 @@ map.on('overlayremove', function(e) {
   ls.set('getOverlay', false);
 });
 
-/* OSRM setup */
+/* osrm setup */
 var ReversablePlan = L.Routing.Plan.extend({
   createGeocoders: function() {
     var container = L.Routing.Plan.prototype.createGeocoders.call(this);

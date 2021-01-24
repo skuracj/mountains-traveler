@@ -281,7 +281,7 @@
   transition: 0.5s;
 }
 
-/* OSRM + Leaflet toolbar icons */
+/* osrm + Leaflet toolbar icons */
 .leaflet-bar {
   box-shadow: 0 1px 5px rgba(0,0,0,0.65);
   border-radius: 4px;
@@ -392,7 +392,7 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* OSRM geocoder directions inputs */
+/* osrm geocoder directions inputs */
 .osrm-directions-inputs {
   position: fixed;
   left: 10px;

@@ -96,8 +96,8 @@ function BoundingBox(x) {
 }
 const optionsList = [
     {name: 'help', alias: 'h', type: Boolean, description: 'Display this usage guide.', defaultValue: false},
-    {name: 'server', alias: 's', type: ServerDetails, defaultValue: ServerDetails('localhost:5000'), description: 'OSRM routing server', typeLabel: '{underline hostname[:port]}'},
-    {name: 'path', alias: 'p', type: String, defaultValue: '/route/v1/driving/{};{}', description: 'OSRM query path with \\{\\} coordinate placeholders, default /route/v2/driving/\\{\\};\\{\\}', typeLabel: '{underline path}'},
+    {name: 'server', alias: 's', type: ServerDetails, defaultValue: ServerDetails('localhost:5000'), description: 'osrm routing server', typeLabel: '{underline hostname[:port]}'},
+    {name: 'path', alias: 'p', type: String, defaultValue: '/route/v1/driving/{};{}', description: 'osrm query path with \\{\\} coordinate placeholders, default /route/v2/driving/\\{\\};\\{\\}', typeLabel: '{underline path}'},
     {name: 'filter', alias: 'f', type: String, defaultValue: ['$.routes[0].weight'], multiple: true, description: 'JSONPath filters, default "$.routes[0].weight"', typeLabel: '{underline filter}'},
     {name: 'bounding-box', alias: 'b', type: BoundingBox, defaultValue: BoundingBox('5.86442,47.2654,15.0508,55.1478'), multiple: true, description: 'queries bounding box, default "5.86442,47.2654,15.0508,55.1478"', typeLabel: '{underline west,south,east,north}'},
     {name: 'max-sockets', alias: 'm', type: Number, defaultValue: 1, description: 'how many concurrent sockets the agent can have open per origin, default 1', typeLabel: '{underline number}'},
@@ -114,7 +114,7 @@ if (options.help) {
 \\\\____/___/_/|_/_/  /_/_/|_|\\\\____/_/|_/_/|_/___/_/|_|`;
     const usage = clu([
         { content: ansi.format(banner, 'green'), raw: true },
-        { header: 'Run OSRM queries and collect results'/*, content: 'Generates something [italic]{very} important.'*/ },
+        { header: 'Run osrm queries and collect results'/*, content: 'Generates something [italic]{very} important.'*/ },
         { header: 'Options', optionList: optionsList }
     ]);
     console.log(usage);

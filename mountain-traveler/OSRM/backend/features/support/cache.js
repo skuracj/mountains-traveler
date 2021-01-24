@@ -109,7 +109,7 @@ module.exports = function() {
         this.profileCacheFile = this.getProfileCacheFile(this.featureProcessedCacheDirectory, scenarioID);
     };
 
-    // returns a hash of all OSRM code side dependencies
+    // returns a hash of all osrm code side dependencies
     this.getOSRMHash = (callback) => {
         let dependencies = [
             this.OSRM_EXTRACT_PATH,

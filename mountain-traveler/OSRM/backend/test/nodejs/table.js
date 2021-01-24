@@ -173,7 +173,7 @@ tables.forEach(function(annotation) {
         assert.throws(function() { osrm.table(options, function(err, response) {}) },
             /Destination must be an integer/);
 
-        // does not throw: the following two have been changed in OSRM v5
+        // does not throw: the following two have been changed in osrm v5
         options.sources = [0, 1];
         delete options.destinations;
         assert.doesNotThrow(function() { osrm.table(options, function(err, response) {}) },

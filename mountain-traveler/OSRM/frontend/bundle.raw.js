@@ -3955,7 +3955,7 @@ function jsonp(url, opts, fn){
 	L.extend(L.Routing, require('./L.Routing.OSRMv1'));
 
 	/**
-	 * Works against OSRM's new API in version 5.0; this has
+	 * Works against osrm's new API in version 5.0; this has
 	 * the API version v1.
 	 */
 	L.Routing.Mapbox = L.Routing.OSRMv1.extend({
@@ -3989,7 +3989,7 @@ function jsonp(url, opts, fn){
 		corslite = require('corslite'),
 		polyline = require('polyline');
 
-	// Ignore camelcase naming for this file, since OSRM's API uses
+	// Ignore camelcase naming for this file, since osrm's API uses
 	// underscores.
 	/* jshint camelcase: false */
 
@@ -3997,7 +3997,7 @@ function jsonp(url, opts, fn){
 	L.extend(L.Routing, require('./L.Routing.Waypoint'));
 
 	/**
-	 * Works against OSRM's new API in version 5.0; this has
+	 * Works against osrm's new API in version 5.0; this has
 	 * the API version v1.
 	 */
 	L.Routing.OSRMv1 = L.Class.extend({
@@ -4039,7 +4039,7 @@ function jsonp(url, opts, fn){
 				timedOut = true;
 				callback.call(context || callback, {
 					status: -1,
-					message: 'OSRM request timed out.'
+					message: 'osrm request timed out.'
 				});
 			}, this.options.timeout);
 
@@ -4072,7 +4072,7 @@ function jsonp(url, opts, fn){
 							}
 						} catch (ex) {
 							statusCode = -2;
-							errorMessage = 'Error parsing OSRM response: ' + ex.toString();
+							errorMessage = 'Error parsing osrm response: ' + ex.toString();
 						}
 					}
 
@@ -14780,7 +14780,7 @@ module.exports = function(version) {
             var type = step.maneuver.type;
             var modifier = step.maneuver.modifier;
             var mode = step.mode;
-            // driving_side will only be defined in OSRM 5.14+
+            // driving_side will only be defined in osrm 5.14+
             var side = step.driving_side;
 
             if (!type) { throw new Error('Missing step maneuver type'); }
@@ -14789,7 +14789,7 @@ module.exports = function(version) {
             if (!instructions[language][version][type]) {
                 // Log for debugging
                 console.log('Encountered unknown instruction type: ' + type); // eslint-disable-line no-console
-                // OSRM specification assumes turn types can be added without
+                // osrm specification assumes turn types can be added without
                 // major version changes. Unknown types are to be treated as
                 // type `turn` by clients
                 type = 'turn';
@@ -14801,7 +14801,7 @@ module.exports = function(version) {
                 instructionObject = instructions[language][version].modes[mode];
             } else {
               // omit side from off ramp if same as driving_side
-              // note: side will be undefined if the input is from OSRM <5.14
+              // note: side will be undefined if the input is from osrm <5.14
               // but the condition should still evaluate properly regardless
                 var omitSide = type === 'off ramp' && modifier.indexOf(side) >= 0;
                 if (instructions[language][version][type][modifier] && !omitSide) {
@@ -25978,7 +25978,7 @@ function encode(coordinate, factor) {
     return output;
 }
 
-// This is adapted from the implementation in Project-OSRM
+// This is adapted from the implementation in Project-osrm
 // https://github.com/DennisOSRM/Project-OSRM-Web/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
 polyline.decode = function(str, precision) {
     var index = 0,
@@ -27157,7 +27157,7 @@ map.on('overlayremove', function(e) {
   ls.set('getOverlay', false);
 });
 
-/* OSRM setup */
+/* osrm setup */
 var ReversablePlan = L.Routing.Plan.extend({
   createGeocoders: function() {
     var container = L.Routing.Plan.prototype.createGeocoders.call(this);
@@ -27871,7 +27871,7 @@ var State = L.Class.extend({
     var newParms = links.format(this.options);
     var newURL = baseURL.concat('?').concat(newParms);
     window.location.hash = newParms;
-    history.replaceState({}, 'Project OSRM Demo', newURL);
+    history.replaceState({}, 'Project osrm Demo', newURL);
   },
 });
 
