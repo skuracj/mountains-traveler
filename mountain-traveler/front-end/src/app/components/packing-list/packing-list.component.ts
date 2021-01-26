@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
 import {BaseComponent} from '../../common/base/base.component';
 import {take, tap} from 'rxjs/operators';
@@ -10,18 +10,18 @@ import {AlertController} from '@ionic/angular';
     templateUrl: './packing-list.component.html',
     styleUrls: ['./packing-list.component.scss'],
 })
-export class PackingListComponent extends BaseComponent implements OnInit {
+export class PackingListComponent extends BaseComponent {
     @Input() title: string;
 
     public packingList: PackingItem[];
 
     constructor(
         private profileService: BaseProfileService,
-        private alertCtrl: AlertController) {
+        private alertController: AlertController) {
         super();
     }
 
-    ngOnInit() {
+    ionViewWillEnter() {
         this.getPackingList();
     }
 
@@ -30,33 +30,27 @@ export class PackingListComponent extends BaseComponent implements OnInit {
             take(1),
             tap(user => {
                 this.packingList = [...user.packingList];
-                console.log('user', user);
             })).subscribe();
     }
 
+
     async openAddModal() {
-        const alert = await this.alertCtrl.create({
+        const alert = await this.alertController.create({
+            header: 'Add new item',
             inputs: [{
-                    name: 'value',
-                    placeholder: 'Add item here...',
-                }],
+                name: 'value',
+                placeholder: 'e.g water...',
+            }],
             buttons: [{
-                    text: 'Cancel',
-                    handler: data => {
-                        console.log('Cancel clicked');
-                    }
-                },
+                text: 'Cancel',
+            },
                 {
-                    text: 'Add item',
-                    handler: item => {
-                        console.log('Saved clicked', item.value);
-                        this.addItemToList(item.value);
-                    }
-                }]
+                    text: 'Add',
+                    handler: item => this.addItemToList(item.value),
+                }],
         });
         await alert.present();
     }
-
 
     addItemToList(item: string) {
         this.packingList.push({title: item, packed: false});

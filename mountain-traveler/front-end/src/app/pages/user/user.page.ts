@@ -11,7 +11,7 @@ import {BaseStoriesService} from '../../services/stories/stories.service';
 @Component({
     selector: 'app-user',
     templateUrl: './user.page.html',
-    styleUrls: ['./user.page.scss']
+    styleUrls: ['./user.page.scss'],
 })
 export class UserPage extends BaseComponent {
     userId: string;
@@ -39,9 +39,9 @@ export class UserPage extends BaseComponent {
     }
 
     getUser() {
-        this.userService.getUserProfileById(this.userId);
-        this.user$ = this.userService.user$;
+        this.user$ = this.userService.getUserProfileById(this.userId);
     }
+
     getUserStories() {
         this.storiesService.getStoriesByUserIds([this.userId]);
         this.userStories$ = this.storiesService.stories$;

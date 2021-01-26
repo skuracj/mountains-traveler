@@ -4,16 +4,60 @@ module.exports.main = async (event) => {
     return {
         statusCode: 200,
         body: JSON.stringify(
-            getUserById(event['pathParameters'].id),
+            getUsersById(event['pathParameters'].ids),
             null,
             2
         ),
     };
 };
 
-function getUserById(id) {
-    return usersMock.find(user => user.userId === id);
+module.exports.mostActive = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify(
+            getMostActiveUsersById(event['pathParameters'].ids),
+            null,
+            2
+        ),
+    };
+};
+
+function getUsersById(ids) {
+    const users = usersMock.filter(user => ids.split(',').includes(user.userId));
+    return users;
 }
+
+function getMostActiveUsersById(ids) {
+        return mostActiveUsersMock;
+}
+
+
+const mostActiveUsersMock = [
+    {
+        userId: 'someid1',
+        name: 'Anulka',
+        profilePicture: '/assets/users-pictures/4.png',
+        totalDistance: 231
+    },
+    {
+        userId: 'someid2',
+        name: 'Tommy',
+        profilePicture: '/assets/users-pictures/1.png',
+        totalDistance: 200
+    },
+    {
+        userId: 'someid3',
+        name: 'John',
+        profilePicture: '/assets/users-pictures/2.png',
+        totalDistance: 130
+    },
+    {
+        userId: 'someid4',
+        name: 'Noe',
+        profilePicture: '/assets/users-pictures/3.png',
+        totalDistance: 31
+    }
+];
 
 
 const usersMock = [

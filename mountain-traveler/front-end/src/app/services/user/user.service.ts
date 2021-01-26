@@ -1,56 +1,51 @@
 import {Injectable} from '@angular/core';
 import {User} from '../../common/models/user';
-import {usersMock} from '../../common/testing/mocks/users.mock';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {MostActiveUser} from '../../common/models/most-active-user';
-import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 export abstract class BaseUserService {
-    private _user: BehaviorSubject<User>;
-    public user$: Observable<User>;
 
-    private _users: BehaviorSubject<User[]>;
-    public users$: Observable<User[]>;
+    abstract getUserProfileById(userId: string): Observable<User>;
 
-    private _mostActiveUsers: BehaviorSubject<MostActiveUser[]>;
-    public mostActiveUsers$: Observable<MostActiveUser[]>;
+    abstract getUsersByIds(ids: string[]): Observable<User[]>;
 
-    abstract getUserProfileById(userId: string);
-
-    abstract getUsersByIds(ids: string[]);
-
-    abstract getMostActiveUsers(ids?: string[]);
+    abstract getMostActiveUsers(ids?: string[]): Observable<MostActiveUser[]>;
 }
-
 
 @Injectable()
 export class UserService {
-    private _user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
-    public readonly user$: Observable<User> = this._user.asObservable();
 
-    private _users: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(null);
-    public readonly users$: Observable<User[]> = this._users.asObservable();
+    constructor(private httpClient: HttpClient) {}
 
-    private _mostActiveUsers: BehaviorSubject<MostActiveUser[]> = new BehaviorSubject<MostActiveUser[]>(null);
-    public readonly mostActiveUsers$: Observable<MostActiveUser[]> = this._mostActiveUsers.asObservable();
-
-    constructor() {
-        this._user.next(usersMock[0]);
-    }
-
-    getUserProfileById(userId: string) {
-        const profile = usersMock.find(user => user.userId === userId);
-        this._user.next(profile);
+    getUserProfileById(userId: string): Observable<User> {
+        let user: Observable<User>;
+        try {
+            user = this.httpClient.get<User>(`${environment.baseUrl}/dev/user/${userId}`);
+        } catch (e) {
+            console.error(e);
+        }
+        return user;
     }
 
     getUsersByIds(ids: string[]) {
-        const users = usersMock.filter(user => ids.includes(user.userId));
-        console.log(users);
-        this._users.next(users);
+        let users: Observable<User[]>;
+        try {
+            users = this.httpClient.get<User[]>(`${environment.baseUrl}/dev/users/${ids.toString()}`);
+        } catch (e) {
+            console.error(e);
+        }
+        return users;
     }
 
-    getMostActiveUsers(ids?: string[]) {
-        console.log('Most active users ids', ids);
-        this._mostActiveUsers.next(mostActiveUsersMock);
+    getMostActiveUsers(ids?: string[]): Observable<MostActiveUser[]> {
+        let users: Observable<MostActiveUser[]>;
+        try {
+            users = this.httpClient.get<MostActiveUser[]>(`${environment.baseUrl}/dev/users/most-active/${ids.toString()}`);
+        } catch (e) {
+            console.error(e);
+        }
+        return users;
     }
 }

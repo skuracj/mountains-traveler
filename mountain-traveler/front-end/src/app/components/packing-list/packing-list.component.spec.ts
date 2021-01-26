@@ -1,10 +1,10 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {IonicModule} from '@ionic/angular';
+import {AlertController, IonicModule} from '@ionic/angular';
 
 import {PackingListComponent} from './packing-list.component';
 import {By} from '@angular/platform-browser';
 import {BaseProfileService} from '../../services/profile/profile.service';
-import {CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {of} from 'rxjs';
 import {usersMock} from '../../common/testing/mocks/users.mock';
 
@@ -13,38 +13,42 @@ describe('PackingListComponent', () => {
     let component: PackingListComponent;
     let fixture: ComponentFixture<PackingListComponent>;
     let profileServiceSpy;
+    let alertControllerSpy;
+    let alertSpy;
 
     beforeEach(async(() => {
-        profileServiceSpy = jasmine.createSpyObj(BaseProfileService, ['updateUserPackingList']);
+        profileServiceSpy = jasmine.createSpyObj('BaseProfileService', ['updateUserPackingList']);
+        alertControllerSpy = jasmine.createSpyObj('AlertController', ['create']);
+        alertSpy = jasmine.createSpyObj('HTMLIonAlertElement', ['present']);
+
         TestBed.configureTestingModule({
             declarations: [PackingListComponent],
             imports: [IonicModule],
-            providers: [{
-                provide: BaseProfileService, useValue: profileServiceSpy
-            }],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA]
+            providers: [
+                {provide: BaseProfileService, useValue: profileServiceSpy},
+                {provide: AlertController, useValue: alertControllerSpy},
+            ],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
         }).compileComponents();
-
+        alertControllerSpy.create.and.callFake(() => Promise.resolve(alertSpy));
         profileServiceSpy.updateUserPackingList.and.stub();
         profileServiceSpy.profile$ = of(usersMock[0]);
 
         fixture = TestBed.createComponent(PackingListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
-
     }));
 
     it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    describe('When in edit mode and value present in the input', () => {
+    describe('When #add-new-item clicked', () => {
         const inputValue = 'SomeValue';
         beforeEach(() => {
+            spyOn(component, 'openAddModal').and.callThrough();
             component.packingList = [];
-            component.editMode = true;
-            component.newItemValue = inputValue;
             fixture.detectChanges();
             fixture.whenRenderingDone();
             const addButton = fixture.debugElement.query(By.css(`[id="add-item-button"]`));
@@ -52,9 +56,18 @@ describe('PackingListComponent', () => {
             addButton.nativeElement.click();
         });
 
-        it('Should add item when "add item" button clicked and clear the newItemValue', () => {
-            expect(component.packingList).toContain({title: inputValue, packed: false});
-            expect(component.newItemValue).toEqual(null);
+        it('should call #openConfirmationAlert', () => {
+            expect(component.openAddModal).toHaveBeenCalled();
+        });
+
+        it('should create alert', () => {
+            expect(alertControllerSpy.create).toHaveBeenCalled();
+        });
+
+        it('Should present alert', async () => {
+            await component.openAddModal();
+
+            expect(alertSpy.present).toHaveBeenCalled();
         });
     });
 
@@ -63,15 +76,15 @@ describe('PackingListComponent', () => {
             const mockPackingList = [
                 {
                     title: 'Backpack',
-                    packed: true
+                    packed: true,
                 },
                 {
                     title: 'Map',
-                    packed: true
+                    packed: true,
                 },
                 {
                     title: 'Bottle',
-                    packed: false
+                    packed: false,
                 }];
             component.packingList = [...mockPackingList];
             fixture.detectChanges();
@@ -99,7 +112,7 @@ describe('PackingListComponent', () => {
         });
 
         it('should call profileService.updateUserPackingList', () => {
-           expect(profileServiceSpy.updateUserPackingList).toHaveBeenCalledWith(component.packingList);
+            expect(profileServiceSpy.updateUserPackingList).toHaveBeenCalledWith(component.packingList);
         });
     });
 });

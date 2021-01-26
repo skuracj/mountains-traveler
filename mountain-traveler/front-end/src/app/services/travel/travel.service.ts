@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Route} from '../../common/models/route';
 import {routesMock} from '../../common/testing/mocks/routes.mock';
-import {HikingLevelsValue} from '../../common/constants/FiltersValues.enum';
 import {BaseGeocodingService} from '../geocoding/geocoding.service';
 
 export abstract class BaseTravelService {

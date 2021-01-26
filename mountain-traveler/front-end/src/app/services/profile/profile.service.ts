@@ -6,6 +6,9 @@ import {usersMock} from '../../common/testing/mocks/users.mock';
 import {Story} from '../../common/models/story';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {BaseAuthService} from '../auth/auth.service';
+import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 export abstract class BaseProfileService {
     private _profile: BehaviorSubject<User>;
@@ -34,48 +37,76 @@ export class ProfileService {
     private _stories: BehaviorSubject<Story[]> = new BehaviorSubject<Story[]>(null);
     public readonly stories$: Observable<Story[]> = this._stories.asObservable();
 
-    private userId: string;
-
-    constructor(private authService: BaseAuthService) {
-        this.loadUserData();
-        this.getUserStories();
+    constructor(
+        private authService: BaseAuthService,
+        private httpClient: HttpClient) {
     }
 
-    loadUserData() {
-        console.log('User profile loaded');
-        this._profile.next(usersMock[0]);
+    async loadUserProfile() {
+        let user;
+
+        try {
+            user = await this.httpClient.get(`${environment.baseUrl}/dev/profile`).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
+        this._profile.next(user);
     }
 
-    updateUserProfile(profile: User) {
+    async updateUserProfile(profile: User) {
         const updatedProfile = {
             ...this._profile.getValue(),
             name: profile.name,
             location: profile.location,
             age: profile.age,
             isPublic: profile.isPublic,
-            profilePicture: profile.profilePicture
+            profilePicture: profile.profilePicture,
         };
-        this._profile.next(updatedProfile);
+
+
+        try {
+            await this.httpClient.patch(`${environment.baseUrl}/dev/profile`, updatedProfile).toPromise();
+            this._profile.next(updatedProfile);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    updateUserPackingList(list: PackingItem[]) {
+    async updateUserPackingList(list: PackingItem[]) {
         const updatedProfile = {...this._profile.getValue()};
         updatedProfile.packingList = list;
+
+        try {
+            await this.httpClient.patch(`${environment.baseUrl}/dev/profile`, updatedProfile).toPromise();
+            this._profile.next(updatedProfile);
+        } catch (e) {
+            console.error(e);
+        }
+
         this._profile.next(updatedProfile);
     }
 
-    getUserStories() {
-        this.userId = this.authService.getUserId();
-        this._stories.next(storiesMock.filter(story => story.userId === this.userId));
+    async getUserStories() {
+        const userId = this.authService.getUserId();
+        let stories: Story[];
+
+        try {
+            stories = await this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories/user/${userId}`).toPromise();
+            this._stories.next(stories);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     removeStory(id: string) {
         const userStories = this._stories.getValue();
         const updatedStories = userStories.filter(story => story.storyId !== id);
         const userProfile = this._profile.getValue();
+
+
         this._profile.next({
             ...this._profile.getValue(),
-            stories: userProfile.stories.filter(storyId => storyId !== id)
+            stories: userProfile.stories.filter(storyId => storyId !== id),
         });
         this._stories.next(updatedStories);
     }

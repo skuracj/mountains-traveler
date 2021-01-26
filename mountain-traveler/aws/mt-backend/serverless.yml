@@ -31,13 +31,37 @@ functions:
     events:
       - http:
           path: profile
-          method: post
-  userGet:
+          method: patch
+  userGetById:
     handler: user/get.main
     events:
       - http:
           path: user/{id}
           method: get
+  usersGetByIds:
+    handler: users/get.main
+    events:
+      - http:
+          path: users/{ids}
+          method: get
+  usersGetMostActiveByIds:
+    handler: users/get.mostActive
+    events:
+      - http:
+          path: users/most-active/{ids}
+          method: get
+  storyGetByUserId:
+    handler: stories/get.main
+    events:
+      - http:
+          path: stories/user/{userId}
+          method: get
+  storyRemoveById:
+    handler: stories/delete.main
+    events:
+      - http:
+          path: stories/{id}
+          method: delete
 #          authorizer: userPools / ?
 #  authorizerFunc:
 #    handler: handler.authorizerFunc

@@ -4,7 +4,6 @@
 ></app-header>
 
 <ion-content>
-
     <ion-list>
         <ion-item *ngFor="let item of packingList; let i = index" (click)="toggleItem(item)">
             <ion-text [color]="item.packed ? 'success' : 'danger'" class="display-flex">
@@ -18,31 +17,6 @@
             </ion-button>
         </ion-item>
     </ion-list>
-
-<!--    <div class="ion-padding" *ngIf="editMode">-->
-
-<!--        <ion-item>-->
-<!--            <ion-label position="floating">Type your item</ion-label>-->
-<!--            <ion-input-->
-<!--                    clearInput="true"-->
-<!--                    maxlength="140"-->
-<!--                    minlength="2"-->
-<!--                    name="newItemValue"-->
-<!--                    [(ngModel)]="this.newItemValue"-->
-<!--            ></ion-input>-->
-
-<!--        </ion-item>-->
-
-<!--        <ion-button class="ion-margin-vertical"-->
-<!--                    expand="block"-->
-<!--                    color="success"-->
-<!--                    [disabled]="!this.newItemValue"-->
-<!--                    id="add-item-button"-->
-<!--                    (click)="addItemToList()">Add item-->
-<!--        </ion-button>-->
-
-<!--    </div>-->
-
 </ion-content>
 
 <ion-footer>
@@ -50,6 +24,7 @@
             fill="outline"
             expand="block"
             color="success"
+            id="add-item-button"
             (click)="openAddModal()">Add new items
     </ion-button>
     <ion-button

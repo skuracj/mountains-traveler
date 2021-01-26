@@ -11,19 +11,21 @@ import {map, tap} from 'rxjs/operators';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
+import {MostActiveUser} from '../../common/models/most-active-user';
 
 @Component({
     selector: 'app-people',
     templateUrl: 'people.page.html',
     styleUrls: ['people.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
+export class PeoplePage extends BaseComponent implements OnInit {
     selectedSection: Sections;
     profileSubscription: Subscription;
     profile: User;
-    friends$: Observable<User[]>;
     userStories$: Observable<Story[]>;
+    friends$: Observable<User[]>;
+    mostActiveFriends$: Observable<MostActiveUser[]>;
 
     originalOrder = Utils.originalOrder;
 
@@ -39,23 +41,40 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         if (!this.selectedSection) {
             this.selectedSection = Sections.me;
         }
+    }
+
+    async ionViewWillEnter() {
+        await this.getUserData();
+        this.userStories$ = this.profileService.stories$;
+    }
+
+    async getUserData() {
+        try {
+            await this.profileService.loadUserProfile();
+        } catch (e) {
+            console.error(e);
+        }
 
         this.profileSubscription = this.profileService.profile$.pipe(
             tap(data => console.log('profile', data)),
             map(profile => {
                     this.profile = profile;
                     this.profileService.getUserStories();
-                    this.userService.getUsersByIds(profile.friendsIds);
-                }
+                    this.getFriends(profile.friendsIds);
+                    this.mostActiveFriends();
+                },
             )).subscribe();
-
-        this.userStories$ = this.profileService.stories$;
-        this.friends$ = this.userService.users$;
     }
 
-    mostActiveFriends() {
-        this.userService.getMostActiveUsers(this.profile.friendsIds);
-        return this.userService.mostActiveUsers$;
+    getFriends(users: string[]) {
+        if (!users.length) {
+            return;
+        }
+        this.friends$ = this.userService.getUsersByIds(users);
+    }
+
+    mostActiveFriends(){
+        this.mostActiveFriends$ = this.userService.getMostActiveUsers(this.profile.friendsIds);
     }
 
     friendsStories() {
@@ -63,7 +82,7 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
         return this.storiesService.stories$;
     }
 
-    ngOnDestroy() {
+    ionViewWillLeave() {
         this.profileSubscription.unsubscribe();
     }
 
@@ -72,13 +91,13 @@ export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     }
 
     async openSettingsModal() {
-            const modal: HTMLIonModalElement = await this.modalController.create({
-                component: UserSettingsPage,
-                componentProps: {
-                    user: this.profile,
-                    stories$: this.userStories$
-                }
-            });
-            await modal.present();
+        const modal: HTMLIonModalElement = await this.modalController.create({
+            component: UserSettingsPage,
+            componentProps: {
+                user: this.profile,
+                stories$: this.userStories$,
+            },
+        });
+        await modal.present();
     }
 }

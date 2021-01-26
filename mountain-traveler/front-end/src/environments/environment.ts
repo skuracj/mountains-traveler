@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  xRapidapiKey: "492f94eddfmsh6955462488b3de2p184695jsn958a672c4d5f",
+  baseUrl: 'http://localhost:3000',
+  xRapidapiKey: '492f94eddfmsh6955462488b3de2p184695jsn958a672c4d5f',
   defaultCity: 'zakopane'
 };
 
