@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../geniusz-fortepianu/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/stories/delete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/stories/get.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/users/get.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aws/mt-backend/stories/like.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-playground" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/profile/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/profile/update.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/user/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/user/get.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/ios/App/App/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/ios/App/App/capacitor.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws/mt-backend/stories/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/stories/get.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/travel/travel.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/travel/travel.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +123,8 @@
       <workItem from="1611000510635" duration="879000" />
       <workItem from="1611046720130" duration="19000" />
       <workItem from="1611596663476" duration="12589000" />
-      <workItem from="1611693631092" duration="606000" />
+      <workItem from="1611693631092" duration="963000" />
+      <workItem from="1611779260342" duration="2373000" />
     </task>
     <servers />
   </component>
@@ -187,10 +176,14 @@
     </state>
     <state width="2539" height="327" key="GridCell.Tab.1.right/0.23.1792.1033@0.23.1792.1033" timestamp="1611649010821" />
     <state width="2539" height="327" key="GridCell.Tab.1.right/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611599950006" />
-    <state x="2346" y="202" width="1210" height="668" key="find.popup" timestamp="1611646216765">
+    <state x="2872" y="348" key="RollbackChangesDialog" timestamp="1611694378728">
       <screen x="1792" y="-70" width="2560" height="1417" />
     </state>
-    <state x="2573" y="361" width="586" height="490" key="find.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797207880" />
+    <state x="2872" y="348" key="RollbackChangesDialog/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611694378728" />
+    <state x="2573" y="361" width="1176" height="734" key="find.popup" timestamp="1611779352016">
+      <screen x="1792" y="-70" width="2560" height="1353" />
+    </state>
+    <state x="2573" y="361" width="1176" height="734" key="find.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1611779352016" />
     <state x="2346" y="202" width="1210" height="668" key="find.popup/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611646216765" />
     <state x="2531" y="239" width="670" height="676" key="search.everywhere.popup" timestamp="1610797131152">
       <screen x="1792" y="-70" width="2560" height="1353" />

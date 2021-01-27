@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Story} from '../../common/models/story';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
 
 export abstract class BaseStoriesService {
     private _stories: BehaviorSubject<Story[]>;
@@ -25,39 +27,75 @@ export class StoriesService {
 
     public readonly stories$: Observable<Story[]> = this._stories.asObservable();
 
-    constructor() {
+    constructor(private httpClient: HttpClient) {
     }
 
-    getStories() {
-        this._stories.next(storiesMock);
-    }
-
-    getStoriesByUserIds(usersIds?: string[]) {
-        const filteredStories = storiesMock.filter(story => usersIds.includes(story.userId));
-        this._stories.next(filteredStories);
-    }
-
-    removeStory(storyId: string): void {
-        const stories: Story[] = this._stories.getValue();
-        const updatedStories = stories.filter(story => story.storyId !== storyId);
-
-        this._stories.next(updatedStories);
-    }
-
-    addLikeToStory(storyId: string, userId: string): void {
-        const stories: Story[] = [...this._stories.getValue()];
-
-        stories.find(story => story.storyId === storyId)
-            .likes.push(userId);
+    async getStories() {
+        let stories: Story[];
+        try {
+            stories = await this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories`).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
         this._stories.next(stories);
     }
 
-    removeLikeFromStory(storyId: string, userId: string): void {
-        const stories: Story[] = [...this._stories.getValue()];
-        const storyIndex = stories.findIndex(story => story.storyId === storyId);
-        const likeIndex = stories[storyIndex].likes.findIndex(like => like === userId);
+    async getStoriesByUserIds(usersIds?: string[]) {
+        // const filteredStories = storiesMock.filter(story => usersIds.includes(story.userId));
+        let stories: Story[];
+        try {
+            stories = await this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories/user/${usersIds}`).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
+        this._stories.next(stories);
+    }
 
-        stories[storyIndex].likes.splice(likeIndex, 1);
+    async removeStory(storyId: string): Promise<void> {
+        // const stories: Story[] = this._stories.getValue();
+        // const updatedStories = stories.filter(story => story.storyId !== storyId);
+        let stories;
+        try {
+            stories = await this.httpClient.delete<Story[]>(`${environment.baseUrl}/dev/stories/${storyId}`).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
+
+        this._stories.next(stories);
+    }
+
+    async addLikeToStory(storyId: string, userId: string): Promise<void> {
+        // const stories: Story[] = [...this._stories.getValue()];
+        //
+        // stories.find(story => story.storyId === storyId)
+        //     .likes.push(userId);
+
+        let stories;
+        try {
+            stories = await this.httpClient
+                .patch<Story[]>(`${environment.baseUrl}/dev/stories/${storyId}`, {likes: userId}).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
+
+        this._stories.next(stories);
+    }
+
+    async removeLikeFromStory(storyId: string, userId: string): Promise<void> {
+        // const stories: Story[] = [...this._stories.getValue()];
+        // const storyIndex = stories.findIndex(story => story.storyId === storyId);
+        // const likeIndex = stories[storyIndex].likes.findIndex(like => like === userId);
+        //
+        // stories[storyIndex].likes.splice(likeIndex, 1);
+
+        let stories;
+        try {
+            stories = await this.httpClient
+                .patch<Story[]>(`${environment.baseUrl}/dev/stories/${storyId}`, {likes: userId}).toPromise();
+        } catch (e) {
+            console.error(e);
+        }
+
 
         this._stories.next(stories);
     }

@@ -20,6 +20,7 @@ provider:
       Resource: 'arn:aws:dynamodb:eu-west-1:*:*'
 
 functions:
+  #PROFILE
   profileGet:
     handler: profile/get.main
     events:
@@ -32,6 +33,7 @@ functions:
       - http:
           path: profile
           method: patch
+  #USER
   userGetById:
     handler: user/get.main
     events:
@@ -50,7 +52,14 @@ functions:
       - http:
           path: users/most-active/{ids}
           method: get
-  storyGetByUserId:
+  #STORIES
+  storiesGetLatest:
+    handler: stories/get.latest
+    events:
+      - http:
+          path: stories
+          method: get
+  storiesGetByUserId:
     handler: stories/get.main
     events:
       - http:
@@ -62,6 +71,18 @@ functions:
       - http:
           path: stories/{id}
           method: delete
+  storyAddLike:
+    handler: stories/like.add
+    events:
+      - http:
+          path: stories/{id}
+          method: patch
+  storyRemoveLike:
+    handler: stories/like.delete
+    events:
+      - http:
+          path: stories/{id}
+          method: patch
 #          authorizer: userPools / ?
 #  authorizerFunc:
 #    handler: handler.authorizerFunc

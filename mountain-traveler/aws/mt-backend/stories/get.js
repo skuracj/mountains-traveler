@@ -10,6 +10,16 @@ module.exports.main = async (event) => {
         ),
     };
 };
+module.exports.latest = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify(
+            storiesMock,
+            null,
+            2
+        ),
+    };
+};
 
 function getStoryById(id) {
     return storiesMock.filter(story => story.userId === id);

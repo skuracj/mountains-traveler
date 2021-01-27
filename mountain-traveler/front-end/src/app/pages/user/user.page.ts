@@ -14,7 +14,6 @@ import {BaseStoriesService} from '../../services/stories/stories.service';
     styleUrls: ['./user.page.scss'],
 })
 export class UserPage extends BaseComponent {
-    userId: string;
     user$: Observable<User>;
     userStories$: Observable<Story[]>;
 
@@ -26,24 +25,23 @@ export class UserPage extends BaseComponent {
     }
 
     ionViewWillEnter() {
-        this.extractUserIdFromQueryParam();
-        this.getUser();
-        this.getUserStories();
-    }
-
-    extractUserIdFromQueryParam() {
         this.activatedRoute.queryParams.pipe(
             take(1),
-            map(queryParams => this.userId = queryParams[this.queryParamNames.userId]),
+            map(queryParams => {
+                const userId = queryParams[this.queryParamNames.userId];
+
+                this.getUser(userId);
+                this.getUserStories(userId);
+            }),
         ).subscribe();
     }
 
-    getUser() {
-        this.user$ = this.userService.getUserProfileById(this.userId);
+    getUser(userId: string) {
+        this.user$ = this.userService.getUserProfileById(userId);
     }
 
-    getUserStories() {
-        this.storiesService.getStoriesByUserIds([this.userId]);
+    getUserStories(userId: string) {
+        this.storiesService.getStoriesByUserIds([userId]);
         this.userStories$ = this.storiesService.stories$;
     }
 }

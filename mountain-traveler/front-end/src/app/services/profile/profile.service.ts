@@ -2,11 +2,8 @@ import {Injectable} from '@angular/core';
 import {User} from '../../common/models/user';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {PackingItem} from '../../common/models/packing-list';
-import {usersMock} from '../../common/testing/mocks/users.mock';
 import {Story} from '../../common/models/story';
-import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {BaseAuthService} from '../auth/auth.service';
-import {ExternalUrls} from '../../common/constants/ExternalUrls.enum';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
@@ -98,16 +95,30 @@ export class ProfileService {
         }
     }
 
-    removeStory(id: string) {
-        const userStories = this._stories.getValue();
+    async removeStory(id: string) {
+        const userStories = {...this._stories.getValue()};
         const updatedStories = userStories.filter(story => story.storyId !== id);
-        const userProfile = this._profile.getValue();
+
+        try {
+            await this.httpClient.delete(`${environment.baseUrl}/dev/stories/${id}`).toPromise();
+            this._stories.next(updatedStories);
+        } catch (e) {
+            console.error(e);
+
+        }
 
 
-        this._profile.next({
-            ...this._profile.getValue(),
+        const userProfile: User = {...this._profile.getValue()};
+        const updatedProfile: User = {
+            ...userProfile,
             stories: userProfile.stories.filter(storyId => storyId !== id),
-        });
-        this._stories.next(updatedStories);
+        };
+
+        try {
+            await this.httpClient.patch(`${environment.baseUrl}/dev/profile`, updatedProfile).toPromise();
+            this._profile.next(updatedProfile);
+        } catch (e) {
+            console.error(e);
+        }
     }
 }
