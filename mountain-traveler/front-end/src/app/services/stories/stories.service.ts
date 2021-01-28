@@ -4,6 +4,7 @@ import {Story} from '../../common/models/story';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {strict} from 'assert';
 
 export abstract class BaseStoriesService {
     private _stories: BehaviorSubject<Story[]>;
@@ -82,20 +83,26 @@ export class StoriesService {
     }
 
     async removeLikeFromStory(storyId: string, userId: string): Promise<void> {
-        // const stories: Story[] = [...this._stories.getValue()];
+
         // const storyIndex = stories.findIndex(story => story.storyId === storyId);
         // const likeIndex = stories[storyIndex].likes.findIndex(like => like === userId);
         //
         // stories[storyIndex].likes.splice(likeIndex, 1);
 
-        let stories;
+
         try {
-            stories = await this.httpClient
+            await this.httpClient
                 .patch<Story[]>(`${environment.baseUrl}/dev/stories/${storyId}`, {likes: userId}).toPromise();
         } catch (e) {
             console.error(e);
         }
-
+        const stories: Story[] = [...this._stories.getValue()];
+        stories.forEach(story => {
+            if (story.storyId === storyId) {
+                const likeIndex = story.likes.indexOf(userId);
+                story.likes.splice(likeIndex, 1);
+            }
+        });
 
         this._stories.next(stories);
     }

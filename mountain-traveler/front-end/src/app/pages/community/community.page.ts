@@ -25,9 +25,9 @@ export class CommunityPage extends BaseComponent {
         this.getUsersStories();
     }
 
-    getMostActiveUsers() {
-        this.userService.getMostActiveUsers();
-        this.mostActiveUsers$ = this.userService.mostActiveUsers$;
+    getMostActiveUsers(): Observable<MostActiveUser[]> {
+        return this.userService.getMostActiveUsers();
+
     }
 
     getUsersStories() {

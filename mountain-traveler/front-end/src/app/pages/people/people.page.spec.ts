@@ -138,7 +138,7 @@ describe('People', () => {
         it('should unsubscribe profileSubscription', () => {
             spyOn(component.profileSubscription, 'unsubscribe');
 
-            component.ngOnDestroy();
+            component.ionViewWillLeave();
 
             expect(component.profileSubscription.unsubscribe).toHaveBeenCalled();
         });
