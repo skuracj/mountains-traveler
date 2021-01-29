@@ -2,12 +2,14 @@ import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 
 import { StoriesService } from './stories.service';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('StoriesService', () => {
   let service: StoriesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [StoriesService]
     });
     service = TestBed.inject(StoriesService);

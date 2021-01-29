@@ -14,6 +14,7 @@ describe('CommunityPage', () => {
     let fixture: ComponentFixture<CommunityPage>;
     let baseStoryServiceSpy;
     let baseUserServiceSpy;
+    const mostActiveUsersMock = of([] as MostActiveUser[]);
 
     beforeEach(async(() => {
         baseUserServiceSpy = jasmine.createSpyObj(BaseUserService, ['getMostActiveUsers']);
@@ -28,8 +29,7 @@ describe('CommunityPage', () => {
             ],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
-        baseUserServiceSpy.getMostActiveUsers.and.stub();
-        baseUserServiceSpy.mostActiveUsers$ = of([] as MostActiveUser[]);
+        baseUserServiceSpy.getMostActiveUsers.and.returnValue(mostActiveUsersMock);
 
         baseStoryServiceSpy.getStories.and.stub();
         baseStoryServiceSpy.stories$ = of([] as Story[]);
@@ -50,7 +50,7 @@ describe('CommunityPage', () => {
         });
 
         it('should assign mostActiveUsers$ to observable from userService', () => {
-            expect(component.mostActiveUsers$).toEqual(baseUserServiceSpy.mostActiveUsers$);
+            expect(component.mostActiveUsers$).toEqual(mostActiveUsersMock);
         });
 
         it('Should call StoriesService to fetch stories', () => {

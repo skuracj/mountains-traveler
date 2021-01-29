@@ -47,6 +47,7 @@ export class ProfileService {
         } catch (e) {
             console.error(e);
         }
+        // console.log(user);
         this._profile.next(user);
     }
 
@@ -73,14 +74,7 @@ export class ProfileService {
         const updatedProfile = {...this._profile.getValue()};
         updatedProfile.packingList = list;
 
-        try {
-            await this.httpClient.patch(`${environment.baseUrl}/dev/profile`, updatedProfile).toPromise();
-            this._profile.next(updatedProfile);
-        } catch (e) {
-            console.error(e);
-        }
-
-        this._profile.next(updatedProfile);
+        await this.updateUserProfile(updatedProfile);
     }
 
     async getUserStories() {
@@ -96,9 +90,10 @@ export class ProfileService {
     }
 
     async removeStory(id: string) {
-        const userStories = {...this._stories.getValue()};
-        const updatedStories = userStories.filter(story => story.storyId !== id);
+        const userStories = [...this._stories.getValue()];
+        // console.log(userStories.map(val => console.log(val.storyId)))
 
+        const updatedStories = userStories.filter(story => story.storyId !== id);
         try {
             await this.httpClient.delete(`${environment.baseUrl}/dev/stories/${id}`).toPromise();
             this._stories.next(updatedStories);
@@ -107,18 +102,12 @@ export class ProfileService {
 
         }
 
-
         const userProfile: User = {...this._profile.getValue()};
         const updatedProfile: User = {
             ...userProfile,
             stories: userProfile.stories.filter(storyId => storyId !== id),
         };
 
-        try {
-            await this.httpClient.patch(`${environment.baseUrl}/dev/profile`, updatedProfile).toPromise();
-            this._profile.next(updatedProfile);
-        } catch (e) {
-            console.error(e);
-        }
+        await this.updateUserProfile(updatedProfile);
     }
 }

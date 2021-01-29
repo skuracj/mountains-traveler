@@ -6,12 +6,14 @@ import {usersMock} from '../../common/testing/mocks/users.mock';
 import {User} from '../../common/models/user';
 import {mostActiveUsersMock} from '../../common/testing/mocks/most-active-users';
 import {MostActiveUser} from '../../common/models/most-active-user';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('UserService', () => {
   let service: UserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [UserService, BaseAuthService]
     });
     service = TestBed.inject(UserService);
