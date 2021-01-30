@@ -60,10 +60,16 @@ functions:
           path: stories
           method: get
   storiesGetByUserId:
-    handler: stories/get.main
+    handler: stories/get.byUserId
     events:
       - http:
           path: stories/user/{userId}
+          method: get
+  storiesGetByUsersIds:
+    handler: stories/get.byUsersIds
+    events:
+      - http:
+          path: stories/users/{usersIds}
           method: get
   storyRemoveById:
     handler: stories/delete.main
@@ -71,18 +77,19 @@ functions:
       - http:
           path: stories/{id}
           method: delete
-  storyAddLike:
-    handler: stories/like.add
+  storyUpdate:
+    handler: stories/update.main
     events:
       - http:
           path: stories/{id}
           method: patch
-  storyRemoveLike:
-    handler: stories/like.delete
+  #ROUTES
+  routesGetAll:
+    handler: routes/getAll.main
     events:
       - http:
-          path: stories/{id}
-          method: patch
+          path: routes
+          method: get
 #          authorizer: userPools / ?
 #  authorizerFunc:
 #    handler: handler.authorizerFunc

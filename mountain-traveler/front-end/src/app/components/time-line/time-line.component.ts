@@ -23,12 +23,8 @@ export class TimeLineComponent implements OnInit{
         this.userId = this.authService.getUserId();
     }
 
-    addLike(storyId: string) {
-        this.storiesService.addLikeToStory(storyId, this.userId);
-    }
-
-    removeLike(storyId: string) {
-        this.storiesService.removeLikeFromStory(storyId, this.userId);
+    toggleLike(storyId: string) {
+        this.storiesService.toggleLike(storyId, this.userId);
     }
 
     checkIfLiked(story: Story) {

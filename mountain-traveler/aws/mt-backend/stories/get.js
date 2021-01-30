@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports.main = async (event) => {
+module.exports.byUserId = async (event) => {
     return {
         statusCode: 200,
         body: JSON.stringify(
-            getStoryById(event['pathParameters'].userId),
+            getStoriesByUserId(event['pathParameters'].userId),
             null,
             2
         ),
@@ -21,7 +21,24 @@ module.exports.latest = async (event) => {
     };
 };
 
-function getStoryById(id) {
+module.exports.byUsersIds = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify(
+            getStoriesByUsersIds(event['pathParameters'].usersIds),
+            null,
+            2
+        ),
+    };
+};
+
+function getStoriesByUsersIds(usersIds) {
+    const ids = usersIds.split(',');
+    const filteredStories = storiesMock.filter(story => ids.includes(story.userId));
+    return filteredStories;
+}
+
+function getStoriesByUserId(id) {
     return storiesMock.filter(story => story.userId === id);
 }
 

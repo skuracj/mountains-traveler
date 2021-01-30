@@ -51,7 +51,7 @@ module.exports = function () {
                                 want = row[direction];
                             // shortcuts are when a test has mapped a value like `foot` to
                             // a value like `5 km/h`, to represent the speed that one
-                            // can travel by foot. we check for these and use the mapped to
+                            // can routes by foot. we check for these and use the mapped to
                             // value for later comparison.
                             if (this.shortcutsHash[row[direction]]) {
                                 want = this.shortcutsHash[row[direction]];

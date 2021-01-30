@@ -24,10 +24,10 @@ export class UserPage extends BaseComponent {
         super();
     }
 
-    ionViewWillEnter() {
+     ionViewWillEnter() {
         this.activatedRoute.queryParams.pipe(
             take(1),
-            map(queryParams => {
+            map( queryParams => {
                 const userId = queryParams[this.queryParamNames.userId];
 
                 this.getUser(userId);
@@ -41,7 +41,6 @@ export class UserPage extends BaseComponent {
     }
 
     getUserStories(userId: string) {
-        this.storiesService.getStoriesByUserIds([userId]);
-        this.userStories$ = this.storiesService.stories$;
+        this.userStories$ = this.storiesService.getStoriesByUserId(userId);
     }
 }

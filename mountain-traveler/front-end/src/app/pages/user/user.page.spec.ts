@@ -12,6 +12,7 @@ import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {QueryParamName} from '../../common/constants/QueryParamNames.enum';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {User} from '../../common/models/user';
 
 
 describe('UserPage', () => {
@@ -21,7 +22,7 @@ describe('UserPage', () => {
     let storiesServiceSpy;
     let location: Location;
     let router: Router;
-
+    const userProfileMock$ = of(usersMock[0]);
 
     beforeEach(async(() => {
         userServiceSpy = jasmine.createSpyObj(BaseUserService, ['getUserProfileById']);
@@ -31,12 +32,12 @@ describe('UserPage', () => {
             imports: [IonicModule.forRoot(), RouterTestingModule],
             providers: [
                 {provide: BaseUserService, useValue: userServiceSpy},
-                {provide: BaseStoriesService, useValue: storiesServiceSpy}
+                {provide: BaseStoriesService, useValue: storiesServiceSpy},
             ],
-            schemas: [NO_ERRORS_SCHEMA]
+            schemas: [NO_ERRORS_SCHEMA],
         }).compileComponents();
 
-        userServiceSpy.getUserProfileById.and.returnValue(of(usersMock[0]));
+        userServiceSpy.getUserProfileById.and.returnValue(userProfileMock$);
 
         storiesServiceSpy.getStoriesByUserIds.and.stub();
         storiesServiceSpy.stories$ = of(storiesMock);
@@ -54,11 +55,17 @@ describe('UserPage', () => {
     });
 
     describe('when page entered', () => {
-        beforeEach(() => {
+        const userId = 'someUserId';
+
+        beforeEach(() => fixture.ngZone.run(async () => {
+            await router.navigate([], {queryParams: {[QueryParamName.userId]: userId}});
+
             spyOn(component, 'getUser').and.callThrough();
             spyOn(component, 'getUserStories').and.callThrough();
+
             component.ionViewWillEnter();
-        });
+            await fixture.whenStable();
+        }));
 
         it('should call', () => {
             expect(component.getUser).toHaveBeenCalled();
@@ -66,12 +73,6 @@ describe('UserPage', () => {
         });
 
         it(`should extract queryParam ${QueryParamName.userId} and assign it to userId`, () => fixture.ngZone.run(async () => {
-            const userId = 'someUserId';
-            await router.navigate([], {queryParams: {[QueryParamName.userId]: userId}});
-
-            component.ionViewWillEnter();
-            await fixture.whenStable();
-
             expect(location.path()).toEqual(`/?${QueryParamName.userId}=${userId}`);
         }));
 
@@ -80,8 +81,8 @@ describe('UserPage', () => {
                 expect(component.getUserStories).toHaveBeenCalled();
             });
 
-            it('should call  storiesServiceSpy#getStoriesByUserIds', () => {
-                // expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([component.userId]);
+            it('should call  storiesServiceSpy#getStoriesByUserIds with userID', () => {
+                expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([userId]);
             });
 
             it('should assign userStories to storiesService.stories$;', () => {
@@ -95,11 +96,11 @@ describe('UserPage', () => {
             });
 
             it('should call  userService#getUserProfileById', () => {
-                // expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([component.userId]);
+                expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([userId]);
             });
 
             it('should assign user$ to userService.user$;', () => {
-                expect(component.user$).toEqual(userServiceSpy.user$);
+                expect(component.user$).toEqual(userProfileMock$);
             });
         });
     });

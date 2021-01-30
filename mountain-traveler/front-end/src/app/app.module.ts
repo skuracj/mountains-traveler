@@ -15,7 +15,7 @@ import {PipeModule} from './pipes/pipe.module';
 import {BaseStoriesService, StoriesService} from './services/stories/stories.service';
 import {BaseUserService, UserService} from './services/user/user.service';
 import {AuthService, BaseAuthService} from './services/auth/auth.service';
-import {BaseTravelService, TravelService} from './services/travel/travel.service';
+import {BaseRoutesService, RoutesService} from './services/routes/routes.service';
 import {amplifyConfig} from '../environments/amplify-config';
 import {BaseProfileService, ProfileService} from './services/profile/profile.service';
 import {BaseGeocodingService, GeocodingService} from './services/geocoding/geocoding.service';
@@ -44,7 +44,7 @@ Amplify.configure(amplifyConfig);
         {provide: BaseUserService, useClass: UserService},
         {provide: BaseAuthService, useClass: AuthService},
         {provide: BaseProfileService, useClass: ProfileService},
-        {provide: BaseTravelService, useClass: TravelService},
+        {provide: BaseRoutesService, useClass: RoutesService},
         {provide: BaseGeocodingService, useClass: GeocodingService}
     ],
     bootstrap: [AppComponent],

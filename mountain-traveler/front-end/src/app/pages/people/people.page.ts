@@ -12,6 +12,7 @@ import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
 import {MostActiveUser} from '../../common/models/most-active-user';
+import {BaseAuthService} from '../../services/auth/auth.service';
 
 @Component({
     selector: 'app-people',
@@ -25,6 +26,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
     profile: User;
     userStories$: Observable<Story[]>;
     friends$: Observable<User[]>;
+    friendsStories$: Observable<Story[]>;
     mostActiveFriends$: Observable<MostActiveUser[]>;
 
     originalOrder = Utils.originalOrder;
@@ -33,7 +35,8 @@ export class PeoplePage extends BaseComponent implements OnInit {
         private modalController: ModalController,
         private userService: BaseUserService,
         private storiesService: BaseStoriesService,
-        private profileService: BaseProfileService) {
+        private profileService: BaseProfileService,
+        private authService: BaseAuthService) {
         super();
     }
 
@@ -45,7 +48,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
 
     async ionViewWillEnter() {
         await this.getUserData();
-        this.userStories$ = this.profileService.stories$;
+        // this.userStories$ = this.profileService.stories$;
     }
 
     async getUserData() {
@@ -59,9 +62,10 @@ export class PeoplePage extends BaseComponent implements OnInit {
             tap(data => console.log('profile', data)),
             map(profile => {
                     this.profile = profile;
-                    this.profileService.getUserStories();
                     this.getFriends(profile.friendsIds);
+                    this.getUserStories();
                     this.mostActiveFriends();
+                    this.friendsStories();
                 },
             )).subscribe();
     }
@@ -73,13 +77,18 @@ export class PeoplePage extends BaseComponent implements OnInit {
         this.friends$ = this.userService.getUsersByIds(users);
     }
 
-    mostActiveFriends(){
+    getUserStories() {
+        const userId = this.authService.getUserId();
+        this.userStories$ =  this.storiesService.getStoriesByUserId(userId);
+    }
+
+    mostActiveFriends() {
         this.mostActiveFriends$ = this.userService.getMostActiveUsers(this.profile.friendsIds);
     }
 
     friendsStories() {
-        this.storiesService.getStoriesByUserIds(this.profile.friendsIds);
-        return this.storiesService.stories$;
+        this.storiesService.getStoriesByUsersIds(this.profile.friendsIds);
+        this.friendsStories$ = this.storiesService.stories$;
     }
 
     ionViewWillLeave() {

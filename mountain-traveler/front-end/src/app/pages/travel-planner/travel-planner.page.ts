@@ -10,7 +10,7 @@ import {FilterName} from '../../common/constants/FiltersNames.enum';
 import {CommonValue} from '../../common/constants/FiltersValues.enum';
 import {Route} from '../../common/models/route';
 import {Observable} from 'rxjs';
-import {BaseTravelService} from '../../services/travel/travel.service';
+import {BaseRoutesService} from '../../services/routes/routes.service';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 
 
@@ -37,7 +37,7 @@ export class TravelPlannerPage extends BaseComponent implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         public formBuilder: FormBuilder,
-        private travelService: BaseTravelService) {
+        private travelService: BaseRoutesService) {
         super();
     }
 

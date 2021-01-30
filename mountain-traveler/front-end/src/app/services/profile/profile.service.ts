@@ -6,6 +6,8 @@ import {Story} from '../../common/models/story';
 import {BaseAuthService} from '../auth/auth.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {BaseStoriesService, StoriesService} from '../stories/stories.service';
+import {take} from 'rxjs/operators';
 
 export abstract class BaseProfileService {
     private _profile: BehaviorSubject<User>;
@@ -20,9 +22,9 @@ export abstract class BaseProfileService {
 
     abstract updateUserPackingList(list: PackingItem[]);
 
-    abstract getUserStories();
+    abstract getUserStories(): Observable<Story[]>;
 
-    abstract removeStory(id: string);
+    abstract removeStory(id: string): void;
 }
 
 
@@ -36,7 +38,8 @@ export class ProfileService {
 
     constructor(
         private authService: BaseAuthService,
-        private httpClient: HttpClient) {
+        private httpClient: HttpClient,
+        private storiesService: BaseStoriesService) {
     }
 
     async loadUserProfile() {
@@ -47,7 +50,6 @@ export class ProfileService {
         } catch (e) {
             console.error(e);
         }
-        // console.log(user);
         this._profile.next(user);
     }
 
@@ -77,29 +79,21 @@ export class ProfileService {
         await this.updateUserProfile(updatedProfile);
     }
 
-    async getUserStories() {
+    getUserStories(): Observable<Story[]> {
         const userId = this.authService.getUserId();
-        let stories: Story[];
 
-        try {
-            stories = await this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories/user/${userId}`).toPromise();
-            this._stories.next(stories);
-        } catch (e) {
-            console.error(e);
-        }
+        return this.storiesService.getStoriesByUserId(userId);
     }
 
     async removeStory(id: string) {
         const userStories = [...this._stories.getValue()];
-        // console.log(userStories.map(val => console.log(val.storyId)))
-
         const updatedStories = userStories.filter(story => story.storyId !== id);
+
         try {
             await this.httpClient.delete(`${environment.baseUrl}/dev/stories/${id}`).toPromise();
             this._stories.next(updatedStories);
         } catch (e) {
             console.error(e);
-
         }
 
         const userProfile: User = {...this._profile.getValue()};

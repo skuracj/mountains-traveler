@@ -10,7 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HyphensToSpacesPipe} from '../../pipes/hyphens-to-spaces.pipe';
 import {StarRatingModule} from 'ionic5-star-rating';
 import {routesMock} from '../../common/testing/mocks/routes.mock';
-import {BaseTravelService} from '../../services/travel/travel.service';
+import {BaseRoutesService} from '../../services/routes/routes.service';
 
 describe('TravelPlannerPage', () => {
     let component: TravelPlannerPage;
@@ -31,7 +31,7 @@ describe('TravelPlannerPage', () => {
                 ReactiveFormsModule,
                 StarRatingModule
             ],
-            providers: [{provide: BaseTravelService, useValue: travelServiceSpy}],
+            providers: [{provide: BaseRoutesService, useValue: travelServiceSpy}],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
         fixture = TestBed.createComponent(TravelPlannerPage);

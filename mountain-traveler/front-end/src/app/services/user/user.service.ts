@@ -29,7 +29,7 @@ export class UserService {
         return user;
     }
 
-    getUsersByIds(ids: string[]) {
+    getUsersByIds(ids: string[]): Observable<User[]> {
         let users: Observable<User[]>;
         try {
             users = this.httpClient.get<User[]>(`${environment.baseUrl}/dev/users/${ids.toString()}`);

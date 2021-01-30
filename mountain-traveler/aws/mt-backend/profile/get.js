@@ -2,6 +2,7 @@
 
 module.exports.main = async (event) => {
     return {
+        // TODO id from authorizer
         statusCode: 200,
         body: JSON.stringify(
             {

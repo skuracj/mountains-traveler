@@ -13,7 +13,6 @@ import {Story} from '../../common/models/story';
 describe('ProfileService', () => {
     let service: ProfileService;
     let authServiceSpy;
-    // let storiesServiceSpy;
     let httpTestingController: HttpTestingController;
 
     beforeEach(() => {
@@ -49,7 +48,6 @@ describe('ProfileService', () => {
 
         it('should make http request', () => {
             expect(req.request.method).toEqual('GET');
-            expect(req.request.url).toEqual(endpointUrl);
         });
 
         it('should emit user profile', fakeAsync(() => {
@@ -68,7 +66,7 @@ describe('ProfileService', () => {
         const updatedProfile = {
             name: 'Albert Einstein',
             location: 'Amsterdam',
-            age: 69,
+            age: 28,
             isPublic: true,
             profilePicture: 'someUrl',
         } as User;
@@ -80,7 +78,6 @@ describe('ProfileService', () => {
 
         it('should make http request', () => {
             expect(req.request.method).toEqual('PATCH');
-            expect(req.request.url).toEqual(endpointUrl);
             expect(req.request.body).toEqual(updatedProfile);
         });
 
@@ -119,12 +116,12 @@ describe('ProfileService', () => {
             authServiceSpy.getUserId.and.returnValue(userId);
 
             service.getUserStories();
+
             req = httpTestingController.expectOne(endpointUrl);
         });
 
         it('should make http request', () => {
             expect(req.request.method).toEqual('GET');
-            expect(req.request.url).toEqual(`${endpointUrl}`);
         });
 
 
@@ -162,17 +159,10 @@ describe('ProfileService', () => {
             tick(100);
 
             req = httpTestingController.expectOne(endpointUrl);
-
         }));
 
         it('should make http request', () => {
             expect(req.request.method).toEqual('DELETE');
-            expect(req.request.url).toEqual(`${endpointUrl}`);
-        });
-
-        it('should call updateUserProfile', () => {
-            req.flush(null);
-            expect(service.updateUserProfile).toHaveBeenCalledWith({name: 'SomeName', stories: []} as User);
         });
 
         it('should emit updatedStories', fakeAsync(() => {
@@ -183,19 +173,12 @@ describe('ProfileService', () => {
                 expect(val).toEqual([]);
             });
         }));
-        // it('should emit updated stories', fakeAsync(() => {
-        //     const userStories = storiesMock.filter(story => story.userId === userId);
-        //     const expectedStories = userStories.filter(story => story.storyId !== storyIdToDelete);
-        //     // @ts-ignore
-        //     service._stories.next(userStories);
-        //
-        //     service.removeStory(storyIdToDelete);
-        //
-        //     service.stories$.subscribe(stories => {
-        //         tick(100);
-        //
-        //         expect(stories).toEqual(expectedStories);
-        //     });
-        // }));
+
+        it('should call updateUserProfile', fakeAsync(() => {
+            req.flush(null);
+            tick(100);
+
+            expect(service.updateUserProfile).toHaveBeenCalledWith({name: 'SomeName', stories: []} as User);
+        }));
     });
 });
