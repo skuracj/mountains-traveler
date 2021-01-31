@@ -19,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/FE/mountainTraveler/ios/capacitor-cordova-ios-plugins" />
       <excludeFolder url="file://$MODULE_DIR$/FE/mountainTraveler/www" />
       <excludeFolder url="file://$MODULE_DIR$/FE/mountainsTraveler/www" />
+      <excludeFolder url="file://$MODULE_DIR$/mountain-traveler/front-end/www" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>

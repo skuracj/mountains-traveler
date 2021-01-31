@@ -5,42 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/models/FiltersValues.enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/routes/getAll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aws/mt-backend/stories/update.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/src/app/services/routes/routes.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/mountains-traveler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/mountains-traveler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-playground" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OSRM/backend/features/step_definitions/routability.js" beforeDir="false" afterPath="$PROJECT_DIR$/OSRM/backend/features/step_definitions/routability.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/profile/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/profile/get.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/profile/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/profile/update.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/stories/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/stories/get.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/stories/like.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/capacitor.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/capacitor.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/time-line/time-line.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/time-line/time-line.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/components/time-line/time-line.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/components/time-line/time-line.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/travel-planner/travel-planner.page.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/travel-planner/travel-planner.page.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/travel-planner/travel-planner.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/travel-planner/travel-planner.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/pages/user/user.page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/geocoding/geocoding.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/geocoding/geocoding.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/geocoding/geocoding.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/geocoding/geocoding.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/profile/profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/travel/travel.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/travel/travel.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/routes/routes.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws/mt-backend/users/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/users/get.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +39,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/front-end/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -76,58 +48,43 @@
       <recent name="$PROJECT_DIR$/aws/mt-backend/models.enum.ts" />
     </key>
   </component>
-  <component name="RunManager" selected="Karma.People">
-    <configuration name="People" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Karma.FriendsListComponent">
+    <configuration name="FriendsListComponent" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
       <working-directory value="$PROJECT_DIR$/front-end" />
       <node-interpreter value="project" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file-path value="$PROJECT_DIR$/front-end/src/app/pages/people/people.page.spec.ts" />
+      <test-file-path value="$PROJECT_DIR$/front-end/src/app/components/friends-list/friends-list.component.spec.ts" />
       <test-names>
-        <test-name value="People" />
+        <test-name value="FriendsListComponent" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="StoriesService" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+    <configuration name="PackingListComponent" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
       <working-directory value="$PROJECT_DIR$/front-end" />
       <node-interpreter value="project" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file-path value="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.spec.ts" />
+      <test-file-path value="$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.spec.ts" />
       <test-names>
-        <test-name value="StoriesService" />
+        <test-name value="PackingListComponent" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="StoriesService.#addLikeToStory" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+    <configuration name="UserDetailsComponent" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
       <working-directory value="$PROJECT_DIR$/front-end" />
       <node-interpreter value="project" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file-path value="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.spec.ts" />
+      <test-file-path value="$PROJECT_DIR$/front-end/src/app/components/user-details/user-details.component.spec.ts" />
       <test-names>
-        <test-name value="StoriesService" />
-        <test-name value="#addLikeToStory" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="StoriesService.#toggleLike" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
-      <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
-      <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
-      <working-directory value="$PROJECT_DIR$/front-end" />
-      <node-interpreter value="project" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file-path value="$PROJECT_DIR$/front-end/src/app/services/stories/stories.service.spec.ts" />
-      <test-names>
-        <test-name value="StoriesService" />
-        <test-name value="#toggleLike" />
+        <test-name value="UserDetailsComponent" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -144,13 +101,27 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="UserService.getMostActiveUsers" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
+      <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$/front-end" />
+      <node-interpreter value="project" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file-path value="$PROJECT_DIR$/front-end/src/app/services/user/user.service.spec.ts" />
+      <test-names>
+        <test-name value="UserService" />
+        <test-name value="getMostActiveUsers" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Karma.People" />
+        <item itemvalue="Karma.FriendsListComponent" />
+        <item itemvalue="Karma.UserDetailsComponent" />
+        <item itemvalue="Karma.UserService.getMostActiveUsers" />
+        <item itemvalue="Karma.PackingListComponent" />
         <item itemvalue="Karma.UserPage" />
-        <item itemvalue="Karma.StoriesService" />
-        <item itemvalue="Karma.StoriesService.#toggleLike" />
-        <item itemvalue="Karma.StoriesService.#addLikeToStory" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +142,7 @@
       <workItem from="1611693631092" duration="963000" />
       <workItem from="1611779260342" duration="3042000" />
       <workItem from="1611834808372" duration="264000" />
-      <workItem from="1611932824485" duration="33400000" />
+      <workItem from="1611932824485" duration="43850000" />
     </task>
     <servers />
   </component>
@@ -183,102 +154,112 @@
       <screen x="1792" y="-70" width="2560" height="1417" />
     </state>
     <state x="2827" y="415" key="#com.intellij.fileTypes.FileTypeChooser/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611645835861" />
-    <state width="1750" height="289" key="GridCell.Tab.0.bottom" timestamp="1612033702627">
+    <state width="1771" height="348" key="GridCell.Tab.0.bottom" timestamp="1612056914906">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702627" />
+    <state width="1771" height="348" key="GridCell.Tab.0.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914906" />
     <state width="2539" height="389" key="GridCell.Tab.0.bottom/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410928" />
-    <state width="1750" height="289" key="GridCell.Tab.0.center" timestamp="1612033702626">
+    <state width="1771" height="348" key="GridCell.Tab.0.center" timestamp="1612056914904">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702626" />
+    <state width="1771" height="348" key="GridCell.Tab.0.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914904" />
     <state width="2539" height="389" key="GridCell.Tab.0.center/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410927" />
-    <state width="1750" height="289" key="GridCell.Tab.0.left" timestamp="1612033702626">
+    <state width="1771" height="348" key="GridCell.Tab.0.left" timestamp="1612056914904">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702626" />
+    <state width="1771" height="348" key="GridCell.Tab.0.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914904" />
     <state width="2539" height="389" key="GridCell.Tab.0.left/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410927" />
-    <state width="1750" height="289" key="GridCell.Tab.0.right" timestamp="1612033702626">
+    <state width="1771" height="348" key="GridCell.Tab.0.right" timestamp="1612056914905">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.0.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702626" />
+    <state width="1771" height="348" key="GridCell.Tab.0.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914905" />
     <state width="2539" height="389" key="GridCell.Tab.0.right/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410928" />
-    <state width="1750" height="289" key="GridCell.Tab.1.bottom" timestamp="1612033702627">
+    <state width="1771" height="348" key="GridCell.Tab.1.bottom" timestamp="1612056914907">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.1.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702627" />
+    <state width="1771" height="348" key="GridCell.Tab.1.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914907" />
     <state width="2539" height="389" key="GridCell.Tab.1.bottom/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410929" />
-    <state width="1750" height="289" key="GridCell.Tab.1.center" timestamp="1612033702627">
+    <state width="1771" height="348" key="GridCell.Tab.1.center" timestamp="1612056914907">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.1.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702627" />
+    <state width="1771" height="348" key="GridCell.Tab.1.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914907" />
     <state width="2539" height="389" key="GridCell.Tab.1.center/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410928" />
-    <state width="1750" height="289" key="GridCell.Tab.1.left" timestamp="1612033702627">
+    <state width="1771" height="348" key="GridCell.Tab.1.left" timestamp="1612056914906">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.1.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702627" />
+    <state width="1771" height="348" key="GridCell.Tab.1.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914906" />
     <state width="2539" height="389" key="GridCell.Tab.1.left/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410928" />
-    <state width="1750" height="289" key="GridCell.Tab.1.right" timestamp="1612033702627">
+    <state width="1771" height="348" key="GridCell.Tab.1.right" timestamp="1612056914907">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1750" height="289" key="GridCell.Tab.1.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612033702627" />
+    <state width="1771" height="348" key="GridCell.Tab.1.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914907" />
     <state width="2539" height="389" key="GridCell.Tab.1.right/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611937410928" />
-    <state width="1771" height="348" key="GridCell.Tab.2.bottom" timestamp="1611961098454">
+    <state width="1771" height="348" key="GridCell.Tab.2.bottom" timestamp="1612056914909">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.2.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098454" />
-    <state width="1771" height="348" key="GridCell.Tab.2.center" timestamp="1611961098453">
+    <state width="1771" height="348" key="GridCell.Tab.2.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914909" />
+    <state width="1771" height="348" key="GridCell.Tab.2.center" timestamp="1612056914908">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.2.center/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098453" />
-    <state width="1771" height="348" key="GridCell.Tab.2.left" timestamp="1611961098453">
+    <state width="1771" height="348" key="GridCell.Tab.2.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914908" />
+    <state width="1771" height="348" key="GridCell.Tab.2.left" timestamp="1612056914908">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.2.left/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098453" />
-    <state width="1771" height="348" key="GridCell.Tab.2.right" timestamp="1611961098453">
+    <state width="1771" height="348" key="GridCell.Tab.2.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914908" />
+    <state width="1771" height="348" key="GridCell.Tab.2.right" timestamp="1612056914908">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.2.right/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098453" />
-    <state width="1771" height="348" key="GridCell.Tab.3.bottom" timestamp="1611961098454">
+    <state width="1771" height="348" key="GridCell.Tab.2.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914908" />
+    <state width="1771" height="348" key="GridCell.Tab.3.bottom" timestamp="1612056914910">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.3.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098454" />
-    <state width="1771" height="348" key="GridCell.Tab.3.center" timestamp="1611961098454">
+    <state width="1771" height="348" key="GridCell.Tab.3.bottom/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914910" />
+    <state width="1771" height="348" key="GridCell.Tab.3.center" timestamp="1612056914909">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.3.center/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098454" />
-    <state width="1771" height="348" key="GridCell.Tab.3.left" timestamp="1611961098454">
+    <state width="1771" height="348" key="GridCell.Tab.3.center/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914909" />
+    <state width="1771" height="348" key="GridCell.Tab.3.left" timestamp="1612056914909">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.3.left/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098454" />
-    <state width="1771" height="348" key="GridCell.Tab.3.right" timestamp="1611961098454">
+    <state width="1771" height="348" key="GridCell.Tab.3.left/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914909" />
+    <state width="1771" height="348" key="GridCell.Tab.3.right" timestamp="1612056914909">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state width="1771" height="348" key="GridCell.Tab.3.right/0.23.1792.1033@0.23.1792.1033" timestamp="1611961098454" />
-    <state x="2872" y="348" key="RollbackChangesDialog" timestamp="1611694378728">
-      <screen x="1792" y="-70" width="2560" height="1417" />
+    <state width="1771" height="348" key="GridCell.Tab.3.right/0.23.1792.1033@0.23.1792.1033" timestamp="1612056914909" />
+    <state x="756" y="328" key="RollbackChangesDialog" timestamp="1612049070246">
+      <screen x="0" y="23" width="1792" height="1033" />
     </state>
+    <state x="756" y="328" key="RollbackChangesDialog/0.23.1792.1033@0.23.1792.1033" timestamp="1612049070246" />
     <state x="2872" y="348" key="RollbackChangesDialog/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611694378728" />
-    <state x="388" y="221" width="847" height="490" key="find.popup" timestamp="1612039245776">
+    <state x="397" y="178" key="SettingsEditor" timestamp="1612048578932">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state x="388" y="221" width="847" height="490" key="find.popup/0.23.1792.1033@0.23.1792.1033" timestamp="1612039245776" />
+    <state x="397" y="178" key="SettingsEditor/0.23.1792.1033@0.23.1792.1033" timestamp="1612048578932" />
+    <state x="388" y="221" width="847" height="490" key="find.popup" timestamp="1612056745468">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state x="388" y="221" width="847" height="490" key="find.popup/0.23.1792.1033@0.23.1792.1033" timestamp="1612056745468" />
     <state x="2573" y="361" width="1176" height="734" key="find.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1611779352016" />
     <state x="2346" y="202" width="1210" height="668" key="find.popup/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611935724880" />
-    <state x="517" y="259" width="670" height="517" key="search.everywhere.popup" timestamp="1612036482487">
+    <state x="517" y="259" width="670" height="517" key="search.everywhere.popup" timestamp="1612055761977">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
-    <state x="517" y="259" width="670" height="517" key="search.everywhere.popup/0.23.1792.1033@0.23.1792.1033" timestamp="1612036482487" />
+    <state x="517" y="259" width="670" height="517" key="search.everywhere.popup/0.23.1792.1033@0.23.1792.1033" timestamp="1612055761977" />
     <state x="2531" y="239" width="670" height="676" key="search.everywhere.popup/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797131152" />
     <state x="2531" y="254" width="670" height="708" key="search.everywhere.popup/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1611934475112" />
+    <state x="626" y="383" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1612048442051">
+      <screen x="0" y="23" width="1792" height="1033" />
+    </state>
+    <state x="626" y="383" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.1792.1033@0.23.1792.1033" timestamp="1612048442051" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/front-end/src/app/components/packing-list/packing-list.component.spec.ts</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts</url>
+          <line>21</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

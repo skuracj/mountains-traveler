@@ -11,11 +11,22 @@ module.exports.main = async (event) => {
     };
 };
 
-module.exports.mostActive = async (event) => {
+module.exports.mostActiveByIds = async (event) => {
     return {
         statusCode: 200,
         body: JSON.stringify(
             getMostActiveUsersById(event['pathParameters'].ids),
+            null,
+            2
+        ),
+    };
+};
+
+module.exports.mostActive = async (event) => {
+    return {
+        statusCode: 200,
+        body: JSON.stringify(
+            getMostActiveUsersById(),
             null,
             2
         ),
@@ -34,25 +45,25 @@ function getMostActiveUsersById(ids) {
 
 const mostActiveUsersMock = [
     {
-        userId: 'someid1',
+        userId: 'anulka1_ID',
         name: 'Anulka',
-        profilePicture: '/assets/users-pictures/4.png',
+        profilePicture: '/assets/users-pictures/1.png',
         totalDistance: 231
     },
     {
         userId: 'someid2',
-        name: 'Tommy',
-        profilePicture: '/assets/users-pictures/1.png',
+        name: 'Athena',
+        profilePicture: '/assets/users-pictures/4.png',
         totalDistance: 200
     },
     {
         userId: 'someid3',
-        name: 'John',
+        name: 'Alice',
         profilePicture: '/assets/users-pictures/2.png',
         totalDistance: 130
     },
     {
-        userId: 'someid4',
+        userId: 'mudzina1_ID',
         name: 'Noe',
         profilePicture: '/assets/users-pictures/3.png',
         totalDistance: 31

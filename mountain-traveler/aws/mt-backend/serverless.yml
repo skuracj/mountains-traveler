@@ -52,6 +52,12 @@ functions:
       - http:
           path: users/most-active/{ids}
           method: get
+  usersGetMostActive:
+    handler: users/get.mostActive
+    events:
+      - http:
+          path: users/most-active
+          method: get
   #STORIES
   storiesGetLatest:
     handler: stories/get.latest
