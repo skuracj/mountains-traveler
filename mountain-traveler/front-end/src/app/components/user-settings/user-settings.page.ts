@@ -6,6 +6,7 @@ import {BaseComponent} from '../../common/base/base.component';
 import {BaseProfileService} from '../../services/profile/profile.service';
 import {Story} from '../../common/models/story';
 import {Observable} from 'rxjs';
+import {BaseStoriesService} from '../../services/stories/stories.service';
 
 @Component({
     selector: 'app-user-settings',
@@ -57,7 +58,7 @@ export class UserSettingsPage extends BaseComponent implements OnInit {
     saveProfile(e) {
         e.preventDefault();
         const updatedProfile = this.profileForm.value;
-        alert('saved');
+        alert('Profile Saved');
         this.profileService.updateUserProfile(updatedProfile);
     }
 

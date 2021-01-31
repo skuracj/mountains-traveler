@@ -17,7 +17,7 @@ describe('PackingListComponent', () => {
     let alertSpy;
 
     beforeEach(async(() => {
-        profileServiceSpy = jasmine.createSpyObj('BaseProfileService', ['updateUserPackingList']);
+        profileServiceSpy = jasmine.createSpyObj('BaseProfileService', ['updateUserPackingList', 'loadUserProfile']);
         alertControllerSpy = jasmine.createSpyObj('AlertController', ['create']);
         alertSpy = jasmine.createSpyObj('HTMLIonAlertElement', ['present']);
 
@@ -34,14 +34,29 @@ describe('PackingListComponent', () => {
         alertControllerSpy.create.and.callFake(() => Promise.resolve(alertSpy));
         profileServiceSpy.updateUserPackingList.and.stub();
         profileServiceSpy.profile$ = of(usersMock[0]);
+        profileServiceSpy.loadUserProfile.and.stub();
 
         fixture = TestBed.createComponent(PackingListComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'getPackingList').and.callThrough();
         fixture.detectChanges();
     }));
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('when component initialized should call getPackingList', () => {
+        expect(component.getPackingList).toHaveBeenCalled();
+    });
+
+    it('#addItemToList', () => {
+        const item = 'good mood';
+        component.packingList = [];
+
+        component.addItemToList(item);
+
+        expect(component.packingList[0]).toEqual({title: item, packed: false});
     });
 
     describe('When #add-new-item clicked', () => {

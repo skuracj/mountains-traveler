@@ -3,7 +3,7 @@ import {IonicModule} from '@ionic/angular';
 
 import {UserPage} from './user.page';
 import {RouterTestingModule} from '@angular/router/testing';
-import {BaseUserService, UserService} from '../../services/user/user.service';
+import {BaseUserService} from '../../services/user/user.service';
 import {of} from 'rxjs';
 import {usersMock} from '../../common/testing/mocks/users.mock';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
@@ -12,7 +12,6 @@ import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {QueryParamName} from '../../common/constants/QueryParamNames.enum';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {User} from '../../common/models/user';
 
 
 describe('UserPage', () => {
@@ -23,10 +22,11 @@ describe('UserPage', () => {
     let location: Location;
     let router: Router;
     const userProfileMock$ = of(usersMock[0]);
+    const userStoriesMock$ = of(storiesMock);
 
     beforeEach(async(() => {
-        userServiceSpy = jasmine.createSpyObj(BaseUserService, ['getUserProfileById']);
-        storiesServiceSpy = jasmine.createSpyObj(BaseStoriesService, ['getStoriesByUserIds']);
+        userServiceSpy = jasmine.createSpyObj('BaseUserService', ['getUserProfileById']);
+        storiesServiceSpy = jasmine.createSpyObj('BaseStoriesService', ['getStoriesByUserId']);
         TestBed.configureTestingModule({
             declarations: [UserPage],
             imports: [IonicModule.forRoot(), RouterTestingModule],
@@ -38,9 +38,7 @@ describe('UserPage', () => {
         }).compileComponents();
 
         userServiceSpy.getUserProfileById.and.returnValue(userProfileMock$);
-
-        storiesServiceSpy.getStoriesByUserIds.and.stub();
-        storiesServiceSpy.stories$ = of(storiesMock);
+        storiesServiceSpy.getStoriesByUserId.and.returnValue(userStoriesMock$);
 
         fixture = TestBed.createComponent(UserPage);
         component = fixture.componentInstance;
@@ -63,6 +61,7 @@ describe('UserPage', () => {
             spyOn(component, 'getUser').and.callThrough();
             spyOn(component, 'getUserStories').and.callThrough();
 
+
             component.ionViewWillEnter();
             await fixture.whenStable();
         }));
@@ -81,12 +80,12 @@ describe('UserPage', () => {
                 expect(component.getUserStories).toHaveBeenCalled();
             });
 
-            it('should call  storiesServiceSpy#getStoriesByUserIds with userID', () => {
-                expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([userId]);
+            it('should call  storiesServiceSpy#getStoriesByUserId with userID', () => {
+                expect(storiesServiceSpy.getStoriesByUserId).toHaveBeenCalledWith(userId);
             });
 
             it('should assign userStories to storiesService.stories$;', () => {
-                expect(component.userStories$).toEqual(storiesServiceSpy.stories$);
+                expect(component.userStories$).toEqual(userStoriesMock$);
             });
         });
 
@@ -96,7 +95,7 @@ describe('UserPage', () => {
             });
 
             it('should call  userService#getUserProfileById', () => {
-                expect(storiesServiceSpy.getStoriesByUserIds).toHaveBeenCalledWith([userId]);
+                expect(storiesServiceSpy.getStoriesByUserId).toHaveBeenCalledWith(userId);
             });
 
             it('should assign user$ to userService.user$;', () => {

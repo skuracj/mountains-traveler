@@ -39,10 +39,21 @@ export class UserService {
         return users;
     }
 
-    getMostActiveUsers(ids?: string[]): Observable<MostActiveUser[]> {
+    getMostActiveUsersByIds(ids?: string[]): Observable<MostActiveUser[]> {
         let users: Observable<MostActiveUser[]>;
         try {
             users = this.httpClient.get<MostActiveUser[]>(`${environment.baseUrl}/dev/users/most-active/${ids.toString()}`);
+        } catch (e) {
+            console.error(e);
+        }
+        return users;
+    }
+
+    getMostActiveUsers(): Observable<MostActiveUser[]> {
+        let users: Observable<MostActiveUser[]>;
+
+        try {
+            users = this.httpClient.get<MostActiveUser[]>(`${environment.baseUrl}/dev/users/most-active`);
         } catch (e) {
             console.error(e);
         }

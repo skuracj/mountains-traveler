@@ -9,19 +9,24 @@ import {HttpClientTestingModule, HttpTestingController, TestRequest} from '@angu
 import {environment} from '../../../environments/environment';
 import {storiesMock} from '../../common/testing/mocks/stories.mock';
 import {Story} from '../../common/models/story';
+import {BaseStoriesService} from '../stories/stories.service';
+import {of} from 'rxjs';
 
 describe('ProfileService', () => {
     let service: ProfileService;
     let authServiceSpy;
+    let storiesServiceSpy;
     let httpTestingController: HttpTestingController;
 
     beforeEach(() => {
         authServiceSpy = jasmine.createSpyObj(BaseAuthService, ['getUserId']);
+        storiesServiceSpy = jasmine.createSpyObj('BaseStoriesService', ['getStoriesByUserId']);
 
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             providers: [ProfileService,
                 {provide: BaseAuthService, useValue: authServiceSpy},
+                {provide: BaseStoriesService, useValue: storiesServiceSpy},
             ],
         });
 
@@ -107,33 +112,25 @@ describe('ProfileService', () => {
     });
 
     describe('#getUserStories', () => {
-        let req: TestRequest;
-        const storiesResponse = storiesMock;
+        const stories = storiesMock;
         const userId = 'someUserId';
-        const endpointUrl = `${environment.baseUrl}/dev/stories/user/${userId}`;
 
         beforeEach(() => {
             authServiceSpy.getUserId.and.returnValue(userId);
+            storiesServiceSpy.getStoriesByUserId.and.returnValue(of(stories));
 
             service.getUserStories();
-
-            req = httpTestingController.expectOne(endpointUrl);
         });
 
-        it('should make http request', () => {
-            expect(req.request.method).toEqual('GET');
+        it('should call storiesService with userId', () => {
+            expect(storiesServiceSpy.getStoriesByUserId).toHaveBeenCalledWith(userId)
         });
 
-
-        it('should emit user stories', fakeAsync(() => {
-            req.flush(storiesResponse);
-            tick(100);
-
-            service.stories$.subscribe(stories => {
-                tick(100);
-                expect(stories).toEqual(storiesResponse);
+        it('should emit received stories', () => {
+            service.stories$.subscribe(value => {
+                expect(value).toEqual(stories);
             });
-        }));
+        });
     });
 
 

@@ -79,14 +79,17 @@ export class ProfileService {
         await this.updateUserProfile(updatedProfile);
     }
 
-    getUserStories(): Observable<Story[]> {
+    getUserStories() {
         const userId = this.authService.getUserId();
 
-        return this.storiesService.getStoriesByUserId(userId);
+        this.storiesService.getStoriesByUserId(userId).subscribe(stories => {
+            this._stories.next(stories);
+        });
     }
 
     async removeStory(id: string) {
         const userStories = [...this._stories.getValue()];
+        console.log('id', id);
         const updatedStories = userStories.filter(story => story.storyId !== id);
 
         try {

@@ -57,14 +57,14 @@ describe('StoriesService', () => {
         }));
     });
 
-    describe('#getStoriesByUserIds', () => {
+    describe('#getStoriesByUserId', () => {
         let req: TestRequest;
-        const usersIds: string[] = [storiesMock[0].userId, storiesMock[1].userId];
-        const expectedStories = [{...storiesMock[0]}, {...storiesMock[1]}];
-        const endpointUrl = `${environment.baseUrl}/dev/stories/user/${usersIds}`;
-
+        const userId: string = storiesMock[0].userId;
+        const storiesResponse = [{...storiesMock[0]}];
+        const endpointUrl = `${environment.baseUrl}/dev/stories/user/${userId}`;
+        let receivedStories;
         beforeEach(() => {
-            service.getStoriesByUserIds([...usersIds]);
+            service.getStoriesByUserId(userId).subscribe(val => receivedStories = val);
             req = httpTestingController.expectOne(endpointUrl);
         });
 
@@ -72,15 +72,35 @@ describe('StoriesService', () => {
             expect(req.request.method).toEqual('GET');
         });
 
-        it('should emit stories for user with passed ids', fakeAsync(() => {
-            req.flush(expectedStories);
+        it('should return stories', fakeAsync(() => {
+            req.flush(storiesResponse);
             tick(100);
 
-            service.stories$.subscribe(stories => {
-                tick(100);
+            expect(receivedStories).toEqual(storiesResponse);
+        }));
+    });
 
-                expect(stories).toEqual(expectedStories);
-            });
+
+    describe('#getStoriesByUserIds', () => {
+        let req: TestRequest;
+        const usersIds: string[] = [storiesMock[0].userId, storiesMock[1].userId];
+        const storiesResponse = [{...storiesMock[0]}, {...storiesMock[1]}];
+        const endpointUrl = `${environment.baseUrl}/dev/stories/users/${usersIds}`;
+        let receivedStories;
+        beforeEach(() => {
+            service.getStoriesByUsersIds(usersIds).subscribe(val => receivedStories = val);
+            req = httpTestingController.expectOne(endpointUrl);
+        });
+
+        it('should make http request', () => {
+            expect(req.request.method).toEqual('GET');
+        });
+
+        it('should return stories', fakeAsync(() => {
+            req.flush(storiesResponse);
+            tick(100);
+
+            expect(receivedStories).toEqual(storiesResponse);
         }));
     });
 
@@ -143,26 +163,4 @@ describe('StoriesService', () => {
             });
         }));
     });
-
-    // describe('#removeLikeFromStory', () => {
-    //   it('should emit stories with added like', fakeAsync(() => {
-    //     const userId = 'loggedInUser_ID';
-    //     const storyId = 'b650707e-3068-41e9-a16d-5f3afad44bee';
-    //     const expectedStories = storiesMock;
-    //     const storyIndex = expectedStories.findIndex(story => story.storyId === storyId);
-    //     const likeIndex = expectedStories[storyIndex].likes.findIndex(like => like === userId);
-    //     expectedStories[storyIndex].likes.splice(likeIndex, 1);
-    //     // @ts-ignore
-    //     service._stories.next(storiesMock);
-    //
-    //     service.removeLikeFromStory(storyId, userId);
-    //
-    //     service.stories$.subscribe(stories => {
-    //       tick(100);
-    //
-    //       expect(stories).toEqual(expectedStories);
-    //     });
-    //   }));
-    // });
-
 });

@@ -29,22 +29,6 @@ export class RoutesService {
     }
 
     async getRoutes() {
-        // const routes = await routesMock.map(async route => {
-        //     const {lat, lng} = route.startingPoint;
-        //     let locationName: string;
-        //
-        //     try {
-        //         locationName = await this.baseGeocodingService.getLocation({lat, lng});
-        //     } catch (e) {
-        //         console.error(e);
-        //     }
-        //     route.startingPoint.formattedName = locationName;
-        //     return route;
-        // });
-
-        // const resolvedRoutes = await Promise.all(routes);
-        // this._routes.next(resolvedRoutes);
-
         try {
             const resolvedRoutes = await this.httpClient.get<Route[]>(`${environment.baseUrl}/dev/routes`).toPromise();
             this._routes.next(resolvedRoutes);

@@ -41,10 +41,10 @@ export class StoriesService {
         return stories;
     }
 
-     getStoriesByUserId(usersId: string): Observable<Story[]> {
+     getStoriesByUserId(userId: string): Observable<Story[]> {
         let stories: Observable<Story[]>;
         try {
-            stories = this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories/user/${usersId}`);
+            stories = this.httpClient.get<Story[]>(`${environment.baseUrl}/dev/stories/user/${userId}`);
         } catch (e) {
             console.error(e);
         }
@@ -80,7 +80,7 @@ export class StoriesService {
         } catch (e) {
             console.error(e);
         }
-
-        this._stories.next(stories);
+console.log(stories);
+        this._stories.next([]);
     }
 }

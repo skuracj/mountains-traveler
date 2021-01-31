@@ -6,11 +6,10 @@ import {routesMock} from '../../common/testing/mocks/routes.mock';
 
 describe('RoutesService', () => {
     let service: RoutesService;
-    // let geocodingServiceSpy;
     let httpTestingController: HttpTestingController;
 
     beforeEach(() => {
-        // geocodingServiceSpy = jasmine.createSpyObj('BaseGeocodingService', ['getLocation'])
+
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             providers: [RoutesService]

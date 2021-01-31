@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {BaseComponent} from '../../common/base/base.component';
 import {Sections} from '../../common/constants/Sections.enum';
 import {User} from '../../common/models/user';
@@ -20,7 +20,7 @@ import {BaseAuthService} from '../../services/auth/auth.service';
     styleUrls: ['people.page.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PeoplePage extends BaseComponent implements OnInit {
+export class PeoplePage extends BaseComponent implements OnInit, OnDestroy {
     selectedSection: Sections;
     profileSubscription: Subscription;
     profile: User;
@@ -36,19 +36,16 @@ export class PeoplePage extends BaseComponent implements OnInit {
         private userService: BaseUserService,
         private storiesService: BaseStoriesService,
         private profileService: BaseProfileService,
-        private authService: BaseAuthService) {
+        private authService: BaseAuthService,
+        private changeDetectorRef: ChangeDetectorRef) {
         super();
     }
 
-    ngOnInit() {
+    async ngOnInit() {
         if (!this.selectedSection) {
             this.selectedSection = Sections.me;
         }
-    }
-
-    async ionViewWillEnter() {
         await this.getUserData();
-        // this.userStories$ = this.profileService.stories$;
     }
 
     async getUserData() {
@@ -64,8 +61,7 @@ export class PeoplePage extends BaseComponent implements OnInit {
                     this.profile = profile;
                     this.getFriends(profile.friendsIds);
                     this.getUserStories();
-                    this.mostActiveFriends();
-                    this.friendsStories();
+                    this.changeDetectorRef.detectChanges();
                 },
             )).subscribe();
     }
@@ -78,25 +74,29 @@ export class PeoplePage extends BaseComponent implements OnInit {
     }
 
     getUserStories() {
-        const userId = this.authService.getUserId();
-        this.userStories$ =  this.storiesService.getStoriesByUserId(userId);
+        this.profileService.getUserStories();
+        this.userStories$ = this.profileService.stories$;
     }
 
-    mostActiveFriends() {
+    getMostActiveFriends() {
         this.mostActiveFriends$ = this.userService.getMostActiveUsers(this.profile.friendsIds);
     }
 
-    friendsStories() {
-        this.storiesService.getStoriesByUsersIds(this.profile.friendsIds);
-        this.friendsStories$ = this.storiesService.stories$;
+    getFriendsStories() {
+        this.friendsStories$ = this.storiesService.getStoriesByUsersIds(this.profile.friendsIds);
     }
 
-    ionViewWillLeave() {
+    ngOnDestroy() {
         this.profileSubscription.unsubscribe();
     }
 
     onSegmentClicked(event: CustomEvent) {
         this.selectedSection = event.detail.value;
+
+        if (this.selectedSection === Sections.friends) {
+            this.getMostActiveFriends();
+            this.getFriendsStories();
+        }
     }
 
     async openSettingsModal() {

@@ -11,7 +11,7 @@ import {Story} from '../../common/models/story';
 })
 export class TimeLineComponent implements OnInit{
    @Input() stories: Story[];
-   @Input() userOverview?: boolean = false;
+   @Input() userOverview? = false;
 
    private userId: string;
 

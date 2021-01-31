@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 import {User} from '../../common/models/user';
 import {Story} from '../../common/models/story';
 import {BaseStoriesService} from '../../services/stories/stories.service';
+import {QueryParamName} from '../../common/constants/QueryParamNames.enum';
 
 @Component({
     selector: 'app-user',
@@ -28,7 +29,7 @@ export class UserPage extends BaseComponent {
         this.activatedRoute.queryParams.pipe(
             take(1),
             map( queryParams => {
-                const userId = queryParams[this.queryParamNames.userId];
+                const userId = queryParams[QueryParamName.userId];
 
                 this.getUser(userId);
                 this.getUserStories(userId);

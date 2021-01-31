@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PackingItem} from '../../common/models/packing-list';
 import {BaseComponent} from '../../common/base/base.component';
 import {take, tap} from 'rxjs/operators';
@@ -10,7 +10,7 @@ import {AlertController} from '@ionic/angular';
     templateUrl: './packing-list.component.html',
     styleUrls: ['./packing-list.component.scss'],
 })
-export class PackingListComponent extends BaseComponent {
+export class PackingListComponent extends BaseComponent implements OnInit{
     @Input() title: string;
 
     public packingList: PackingItem[];
@@ -21,11 +21,12 @@ export class PackingListComponent extends BaseComponent {
         super();
     }
 
-    ionViewWillEnter() {
-        this.getPackingList();
+    async ngOnInit() {
+        await this.getPackingList();
     }
 
-    getPackingList() {
+   async getPackingList() {
+        await this.profileService.loadUserProfile();
         this.profileService.profile$.pipe(
             take(1),
             tap(user => {
@@ -68,5 +69,7 @@ export class PackingListComponent extends BaseComponent {
     savePackingList() {
         const updatedList = this.packingList;
         this.profileService.updateUserPackingList(updatedList);
+        alert('Packing list saved');
+
     }
 }
