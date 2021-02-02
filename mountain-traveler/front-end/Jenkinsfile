@@ -1,15 +1,20 @@
 pipeline {
    agent any
       environment {
-         PATH='/usr/local/bin:/usr/bin:/bin'
+         PATH='./'
       }
+   tools {nodejs "node"}
    stages {
       stage('NPM Setup') {
       steps {
          sh 'npm install'
       }
    }
-
+   stage('Cordova install') {
+   steps {
+      sh 'npm install -g ionic cordova'
+     }
+   }
    stage('IOS Build') {
    steps {
       sh 'ionic cordova build ios --release'
@@ -24,7 +29,7 @@ pipeline {
 
    stage('APK Sign') {
    steps {
-      sh 'jarsigner -storepass your_password -keystore ./mt-release-key.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk mountainTraveler'
+      sh 'jarsigner -storepass password -keystore ./mt-release-key.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk mountainTraveler'
    }
   }
 

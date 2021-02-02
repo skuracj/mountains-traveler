@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2348b5a9-79c9-4d59-aaa1-c54128135787" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mountains-traveler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mountains-traveler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mountain-traveler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/mountain-traveler/front-end/Jenkinsfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +31,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mountain-traveler/front-end" />
+      <recent name="$PROJECT_DIR$/mountain-traveler" />
+      <recent name="$PROJECT_DIR$/mountain-traveler/front-end/pipeline" />
       <recent name="$PROJECT_DIR$/GIFs" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/mountain-traveler/front-end/pipeline" />
       <recent name="$PROJECT_DIR$/GIFs" />
     </key>
   </component>
@@ -56,6 +57,9 @@
       <workItem from="1611261216355" duration="2217000" />
       <workItem from="1611403401507" duration="12717000" />
       <workItem from="1611867804812" duration="3253000" />
+      <workItem from="1612056917908" duration="549000" />
+      <workItem from="1612214444026" duration="529000" />
+      <workItem from="1612296386193" duration="5629000" />
     </task>
     <task id="LOCAL-00001" summary="Added leaf package. Playing with OSRMFrontend">
       <created>1611440906803</created>
@@ -75,10 +79,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added leaf package. Playing with OSRMFrontend" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2624" y="415" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610797249948">
-      <screen x="1792" y="-70" width="2560" height="1353" />
+    <state x="2624" y="438" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612296470125">
+      <screen x="1792" y="-70" width="2560" height="1417" />
     </state>
     <state x="2624" y="415" key="#com.intellij.fileTypes.FileTypeChooser/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797249948" />
+    <state x="2624" y="438" key="#com.intellij.fileTypes.FileTypeChooser/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1612296470125" />
     <state x="473" y="114" key="CommitChangelistDialog2" timestamp="1611440906032">
       <screen x="0" y="23" width="1792" height="1033" />
     </state>
