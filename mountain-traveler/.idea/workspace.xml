@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d217204-1fa4-4fbb-aa7d-21ac8942e9e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/aws.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/mountains-traveler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/mountains-traveler.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-playground" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/serverless.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aws/mt-backend/users/get.js" beforeDir="false" afterPath="$PROJECT_DIR$/aws/mt-backend/users/get.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +25,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="excluded.www.directory" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.15.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.22" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/aws/mt-backend/models.enum.ts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -48,7 +43,7 @@
       <recent name="$PROJECT_DIR$/aws/mt-backend/models.enum.ts" />
     </key>
   </component>
-  <component name="RunManager" selected="Karma.FriendsListComponent">
+  <component name="RunManager">
     <configuration name="FriendsListComponent" type="JavaScriptTestRunnerKarma" temporary="true" nameIsGenerated="true">
       <config-file value="$PROJECT_DIR$/front-end/karma.conf.js" />
       <karma-package-dir value="$PROJECT_DIR$/front-end/node_modules/@angular/cli" />
@@ -115,15 +110,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Karma.FriendsListComponent" />
-        <item itemvalue="Karma.UserDetailsComponent" />
-        <item itemvalue="Karma.UserService.getMostActiveUsers" />
-        <item itemvalue="Karma.PackingListComponent" />
-        <item itemvalue="Karma.UserPage" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -143,6 +129,7 @@
       <workItem from="1611779260342" duration="3042000" />
       <workItem from="1611834808372" duration="264000" />
       <workItem from="1611932824485" duration="43850000" />
+      <workItem from="1612294759721" duration="5000" />
     </task>
     <servers />
   </component>
@@ -258,7 +245,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/front-end/src/app/services/user/user.service.ts</url>
           <line>21</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
