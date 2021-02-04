@@ -1,10 +1,13 @@
 pipeline {
-   agent any
-      environment {
-         PATH='./'
-      }
-   tools {nodejs "node"}
+  agent any
+  tools {nodejs "node"}
+
    stages {
+      stage('Git') {
+        steps {
+          git 'https://github.com/skuracj/mountains-traveler'
+        }
+      }
       stage('NPM Setup') {
       steps {
          sh 'npm install'
@@ -47,3 +50,4 @@ pipeline {
 
  }
 }
+
