@@ -1,32 +1,38 @@
 pipeline {
   agent any
-  tools {nodejs "node"}
+  tools {nodejs "Node"}
 
    stages {
-      stage('Git') {
-        steps {
-          git 'https://github.com/skuracj/mountains-traveler'
-        }
-      }
       stage('NPM Setup') {
       steps {
-         sh 'npm install'
+         sh '''
+         cd mountain-traveler/front-end
+         rm -rf android
+         rm -rf node_modules
+         npm install
+         '''
       }
    }
    stage('Cordova install') {
    steps {
-      sh 'npm install -g ionic cordova'
+      sh 'npm install -g @ionic/cli --force'
      }
    }
-   stage('IOS Build') {
-   steps {
-      sh 'ionic cordova build ios --release'
-     }
-  }
+//    stage('IOS Build') {
+//    steps {
+//       sh 'ionic cordova build ios --release'
+//      }
+//   }
 
    stage('Android Build') {
    steps {
-      sh 'ionic cordova build android --release'
+      sh '''
+      cd mountain-traveler/front-end
+      ionic build
+      ls -a
+      ionic capacitor add android
+      ionic capacitor build android --release
+      '''
    }
   }
 
@@ -51,3 +57,9 @@ pipeline {
  }
 }
 
+
+//
+// ls -a
+// cd mountain-traveler/front-end
+// npm install
+// npm run build
