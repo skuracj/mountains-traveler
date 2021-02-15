@@ -1,12 +1,12 @@
 # mountains-traveler
 # Onboarding
-![](GIFs/onboarding.gif)
+![](gif/onboarding.gif)
 # Home
-![](GIFs/home.gif)
+![](gif/home.gif)
 # Plan travel
-![](GIFs/plan.gif)
+![](gif/plan.gif)
 # People
-![](GIFs/people.gif)
+![](gif/people.gif)
 
 
 Used technologies: 
