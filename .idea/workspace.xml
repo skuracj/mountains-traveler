@@ -2,73 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2348b5a9-79c9-4d59-aaa1-c54128135787" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-playground/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docker-playground/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/.idea/FE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mountain-traveler/.idea/FE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mountain-traveler/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/mountain-traveler/front-end/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/capacitor.build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/assets/capacitor.config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/java/io/ionic/starter/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-land-hdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-land-mdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-land-xhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-land-xxhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-land-xxxhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-port-hdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-port-mdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-port-xhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-port-xxhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-port-xxxhdpi/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/drawable/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/values/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/xml/config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/main/res/xml/file_paths.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/capacitor.settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mountain-traveler/front-end/android/variables.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jenkins-playground/DSL/nodejsdocker.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/jenkins-playground/DSL/nodejsdocker.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/docker-playground" />
   </component>
   <component name="ProjectId" id="1n9LCnrYDNyKlCbfbdOB5QLbmba" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -95,12 +34,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jenkins-playground/docker-jenkins" />
+      <recent name="$PROJECT_DIR$/python-playground/spreadsheet" />
       <recent name="$PROJECT_DIR$/mountain-traveler/front-end" />
       <recent name="$PROJECT_DIR$/mountain-traveler" />
       <recent name="$PROJECT_DIR$/mountain-traveler/front-end/pipeline" />
-      <recent name="$PROJECT_DIR$/GIFs" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/simple-nodejs-app" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mountain-traveler/front-end/pipeline" />
       <recent name="$PROJECT_DIR$/GIFs" />
@@ -124,7 +65,14 @@
       <workItem from="1612214444026" duration="529000" />
       <workItem from="1612296386193" duration="5764000" />
       <workItem from="1612345559958" duration="550000" />
-      <workItem from="1612425807899" duration="10000" />
+      <workItem from="1612425807899" duration="201000" />
+      <workItem from="1612529657806" duration="2084000" />
+      <workItem from="1612532150360" duration="4450000" />
+      <workItem from="1612720326587" duration="5417000" />
+      <workItem from="1612900418879" duration="11512000" />
+      <workItem from="1613073456339" duration="291000" />
+      <workItem from="1613423578435" duration="666000" />
+      <workItem from="1613511949922" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="Added leaf package. Playing with OSRMFrontend">
       <created>1611440906803</created>
@@ -144,9 +92,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added leaf package. Playing with OSRMFrontend" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2624" y="438" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612296470125">
-      <screen x="1792" y="-70" width="2560" height="1417" />
+    <state x="582" y="393" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612950920878">
+      <screen x="0" y="23" width="1792" height="1033" />
     </state>
+    <state x="582" y="393" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1033@0.23.1792.1033" timestamp="1612950920878" />
     <state x="2624" y="415" key="#com.intellij.fileTypes.FileTypeChooser/1792.-70.2560.1353/0.23.1792.1097@1792.-70.2560.1353" timestamp="1610797249948" />
     <state x="2624" y="438" key="#com.intellij.fileTypes.FileTypeChooser/1792.-70.2560.1417/0.23.1792.1033@1792.-70.2560.1417" timestamp="1612296470125" />
     <state x="473" y="114" key="CommitChangelistDialog2" timestamp="1611440906032">
